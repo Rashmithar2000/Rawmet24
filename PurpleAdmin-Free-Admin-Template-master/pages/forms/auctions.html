@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Auction Page</title>
+
+  <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+  </head>
+  <style>
+    a{
+      color: #ffffff;
+      text-decoration: none;
+    }
+    a:hover{
+      color: #ffffff;
+    }
+    
+    
+      </style>
+  <body>
+
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <ul class="navbar-nav navbar-nav-right">
+               
+           
+           
+            
+            <li class="nav-item d-none d-lg-block full-screen-link">
+              <a class="nav-link">
+                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+              </a>
+            </li>
+            <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="nav-profile-img">
+                  <img src="../../assets/images/faces/logoraw.png" alt="image">
+                  <span class="availability-status online"></span>
+                </div>
+                <div class="nav-profile-text">
+                  <p class="mb-1 text-black">Rawmet</p>
+                </div>
+              </a>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="nav-profile-image">
+                  <img src="../../assets/images/faces/logoraw.png" alt="profile">
+                  <span class="login-status online"></span>
+                  <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                  <span class="font-weight-bold mb-2">RAWMET </span>
+                  <span class="text-secondary text-small">Information System</span>
+                </div>
+                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost/PurpleAdmin-Free-Admin-Template-master/index.html">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auctions.html">
+                <span class="menu-title">Auctions</span>
+                <i class="mdi mdi-chart-areaspline menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tenders.html">
+                <span class="menu-title">Tenders</span>
+                <i class="mdi mdi-animation menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="deals.html">
+                <span class="menu-title">Deals</span>
+                <i class="mdi mdi-drawing-box menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="exclusivedeals.html">
+                <span class="menu-title">Exclusive Deals</span>
+                <i class="mdi mdi-diamond menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item sidebar-actions">
+              <span class="nav-link">
+                <div class="border-bottom">
+                 <h6 class="font-weight-normal mb-3">Categories</h6>
+                </div>
+                <button class="btn btn-block btn-lg btn-gradient-primary mt-4"><a href="category.html">+ Add a Category</a></button>
+                <div class="mt-4">
+                  
+                 
+                </div>
+              </span>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+          
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Auction Details</h4>
+                    <form action="auction.php" method="POST" class="forms-sample">
+                  
+                      <div class="form-group">
+                        <label for="category">Category</label>
+                        <select name="category" class="form-control form-control-lg" required>
+                            <option>Consultancy Tenders</option>
+                            <option>Procurement Tenders</option>
+                            <option>Manufacturing Tenders</option>
+                            <option>Disposal Tenders</option>
+                            <option>Business Tenders</option>
+                            <option>Public Tenders</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="infoId">Information Number</label>
+                        <input type="text" class="form-control" name="infoId"  placeholder="Information Number" required>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="ownership">Ownership</label>
+                        <input type="text" class="form-control" name="ownership" placeholder="Ownership" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="aucLocation">Auction Location</label>
+                        <select name="aucLocation" class="form-control form-control-lg" required>
+                          <option>Andhra Pradesh</option>
+                          <option>Arunachal Pradesh</option>
+                          <option>Assam</option>
+                          <option>Bihar</option>
+                          <option>Chhattisgarh</option>
+                          <option>Gujarat</option>
+                          <option>Haryana</option>
+                          <option>Himachal Pradesh</option>
+                          <option>Jammu and Kashmir</option>
+                          <option>Goa</option>
+                          <option>Jharkhand</option>
+                          <option>Karnataka</option>
+                          <option>Kerala</option>
+                          <option>Madhya Pradesh</option>
+                          <option>Maharashtra</option>
+                          <option>Manipur</option>
+                          <option>Meghalaya</option>
+                          <option>Mizoram</option>
+                          <option>Nagaland</option>
+                          <option>Odisha</option>
+                          <option>Punjab</option>
+                          <option>Rajasthan</option>
+                          <option>Sikkim</option>
+                          <option>Tamil Nadu</option>
+                          <option>Telangana</option>
+                          <option>Tripura</option>
+                          <option>Uttarakhand</option>
+                          <option>Uttar Pradesh</option>
+                          <option>West Bengal</option>
+                          <option>Andaman and Nicobar Islands</option>
+                          <option>Chandigarh</option>
+                          <option>Dadra and Nagar Haveli</option>
+                          <option>Daman and Diu</option>
+                          <option>Delhi</option>
+                          <option>Lakshadweep</option>
+                          <option>Puducherry</option>
+                        </select>
+                      
+                      
+                      </div>
+                      <div class="form-group">
+                        <label for="sector">Sector</label>
+                        <select name="sector" class="form-control form-control-lg" required>
+                            <option>Public</option>
+                            <option>Private</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="aucNumber">Auction Number</label>
+                        <input type="text" class="form-control" name="aucNumber" placeholder="Auction Number" required>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="aucDescription">Auction Description</label>
+                        <textarea class="form-control" placeholder="Auction Description" name="aucDescription" rows="6" required></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="aucValue">Auction Value</label>
+                        <input type="number" class="form-control" name="aucValue" placeholder="Auction Value" required>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="aucSource">Auction Source Website</label>
+                        <input type="text" class="form-control" name="aucSource" placeholder="Auction Source Website" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="material">Material</label>
+                        <input type="text" class="form-control" name="material" placeholder="Material">
+                      </div>
+                      <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" name="quantity" placeholder="Quantity">
+                      </div>
+            
+                      <div class="form-group">
+                        <label for="ePublishingDateTime">ePublishing Date and Time</label>
+                        <input type="datetime-local" class="form-control" name="ePublishingDateTime" placeholder="ePublishing Date and Time" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="startDatetime">Auction Start Time</label>
+                        <input type="datetime-local" class="form-control" name="startDatetime" placeholder="Start Time dd-mm-yy --:--" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="endDatetime">Auction End Time</label>
+                        <input type="datetime-local" class="form-control" name="endDatetime" placeholder="End Time -mm-yy --:--" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="insStartdatetime">Inspection Start Time</label>
+                        <input type="datetime-local" class="form-control" name="insStartdatetime" placeholder="Inspection Start Time dd-mm-yy --:--" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="insEnddatetime">Inspection End Time</label>
+                        <input type="datetime-local" class="form-control" name="insEnddatetime" placeholder="Inspection End Time -mm-yy --:--" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="emdType">EMD Type</label>
+                        <select name="emdType" class="form-control form-control-lg" required>
+                            <option>Online Payment/ Net Banking</option>
+                            <option>DD</option>
+                            <option>Cash</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="emdAmt">EMD Amount</label>
+                        <input type="number" class="form-control" name="emdAmt" placeholder="EMD Amount" required>
+                      </div>
+                     <br>
+                     <p class="card-description">Express of Interest</p>
+               
+                      <div class="form-group">
+                        <label for="companyName">Company Name</label>
+                        <input type="text" class="form-control" name="companyName" placeholder="Company Name" required>
+                      </div>
+                             <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" class="form-control" name="location" placeholder="Location" required>
+                      </div>
+                 
+                      <div class="form-group">
+                        <label for="street">Street</label>
+                        <input type="text" class="form-control" name="street" placeholder="Street" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" name="city" placeholder="City" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="telephone">Telephone</label>
+                        <input type="text" class="form-control" name="telephone" placeholder="Telephone" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="contactPerson">Contact Person</label>
+                        <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" required>
+                      </div>
+                
+                      <button type="button" class="btn btn-gradient-primary" data-toggle="modal" data-target="#myModal">
+                        Terms and Conditions
+                      </button>
+                    
+                      <!-- The Modal -->
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                          <div class="modal-content">
+                          
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h1 class="modal-title">Terms and Conditions</h1>
+                              <button type="button" class="close" data-dismiss="modal">x</button>
+                            </div>
+                            
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <h3>Some text to enable scrolling..</h3>
+                              <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                              <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    
+                              <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+                            
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                              
+                </div></div></div>
+                    
+                    <div class="form-check mx-sm-2">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" checked>I agree terms and conditions </label>
+                    </div>                      
+                      
+                      <div class="form-group">
+                        <label>Auction File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button"disabled>Upload</button>
+                          </span>
+                        </div>
+                      </div>
+                             
+                      <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                    
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div></div>
+
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <footer class="footer">
+            <div class="container-fluid d-flex justify-content-between">
+              <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © rawmet24.com 2021</span>
+              <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> <a href="https://www.rawmet24.com/" target="_blank"></a>  rawmet24.com</span>
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="../../assets/js/file-upload.js"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>
