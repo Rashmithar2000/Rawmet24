@@ -143,132 +143,116 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <center>
  <h2 style="color: #7e828b;">TENDERS</h2> </center>
  
-    <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-              <div class="col-lg-3 d-flex grid-margin stretch-card">
-                <div class="card" style="height: max-content;">
-                  <div class="card-body">
-                   
-                    <div class="template-demo">
-                   <center >    
-                   <p >Location <i class="fa fa-regular fa-chevron-down" id="clickme" onclick="myFunction()" style="float:right;"></i></p>
-                   
-                   </center><hr>
-                   <?php
-                                
-
-                                $sql = "SELECT * FROM location";
-                                $result  = mysqli_query($con, $sql);
-
-                                if(mysqli_num_rows($result) > 0)
-                                {
-                                    foreach($result as $locationlist)
-                                    {
-                                        $checked = [];
-                                        if(isset($_GET['locations']))
-                                        {
-                                            $checked = $_GET['locations'];
-                                        }
-                                        ?>
-                                            <div id="checkbox" >
-                                                <input  type="checkbox" name="locations[]" value="<?= $locationlist['state_id']; ?>" 
-                                                    <?php if(in_array($locationlist['state_id'], $checked)){ echo "checked"; } ?>
-                                                 />
-                                                <?= $locationlist['state_name']; ?>
-                                            </div>
-                                        <?php
-                                    }
-                                }
-                                else
-                                {
-                                    echo "No Location Found";
-                                }
-                            ?>             
-                    </div><hr>
-                    <center><p>Amount</p></center>
-                    
-          <div class="row" style="display: inline-flex;">
-          <center>
-          <input type="number" id="minPrice" name="minPrice" style="width:100px" placeholder=" min price">
-    
-   &nbsp;&nbsp;
-    <input type="number" id="maxPrice" name="maxPrice" style="width:100px" placeholder="max price">
-          </center>
-          </div>
-          <hr>
-          <center> <p>Open Date</p></center>
-                   
-          <div class="row" style="display: inline-flex;">
-          <center>
-          <input type="date" id="minPrice" name="minPrice"  placeholder="Staring Date">
-              </center>
-          </div>
-          <hr>
-          <center> <p>Close Date</p></center>
-                 
-          <div class="row" style="display: inline-flex;">
-          <center>
-          <input type="date" id="minPrice" name="minPrice"  placeholder="End Date">
-    
-                                
-          </center>
-          </div>
-   
-                    <div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-9 d-flex grid-margin stretch-card">
-                <div class="row">
-                 
-                  
-                        <?php
-                        $sql="select * from tenders";
-$result= mysqli_query($con,$sql);
-//print_r($result);die;
-if($result){ 
-  while($row=mysqli_fetch_assoc($result)){
-//print_r($row);die;
-  ?>
-
-
-<div class="col-md-12 grid-margin stretch-card">
-<div class="card">
+ <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <form action="tender.php?l=" method="GET">
+                    <div class="card shadow mt-3">
+                        <div class="card-header">
+                            <h5>Filter
+                                <button type="submit" class="btn btn-primary btn-sm float-end">Search</button>
+                            </h5>
+                        </div>
                         <div class="card-body">
-                 <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>
-                 <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?>  </h5>
-                <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">Approximate Business: ₹<?php echo $row['tenderValue']; ?>000.00 </h5>
-                        Bid Before :<?php echo $row['startDatetime'];?>
-                  
-    <p style="color:#3b8beb;"> &nbsp<?php echo $row['tenderDesc'];?></p>
-   
+                            <h6>Location</h6>
+                            <hr>
+                            <?php
+                            $con = mysqli_connect("localhost", "root", "", "registration_db");
+
+                            $brand_query = "SELECT * FROM location";
+                            $brand_query_run = mysqli_query($con, $brand_query);
+
+                            if (mysqli_num_rows($brand_query_run) > 0) {
+                                foreach ($brand_query_run as $locationlist) {
+                                    $checked = [];
+                                    if (isset($_GET['locations'])) {
+                                        $checked = $_GET['locations'];
+                                    }
+                                    ?>
+                                    <div id="checkbox">
+                                        <input type="checkbox" name="locations" value="<?= $locationlist['state_name']; ?>"
+                                            <?php //if (in_array($locationlist['state_id'], $checked)) {
+                                                //echo "checked";
+                                            //} 
+                                            ?>>
+                                        <?= $locationlist['state_name']; ?>
+                                    </div>
+                                    <?php
+                                }
+                            } else {
+                                echo "No locations Found";
+                            }
+                            ?>
+
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="col-md-9 mt-3">
+                <div class="card ">
+                    <div class="card-body row">
+                        <?php
+                        if (isset($_GET['locations'])) {
+                            $branchecked = [];
+                            $branchecked[0] = $_GET['locations'];
+                            //print_r($branchecked);die;
+                            //echo $branchecked; die;
+                            foreach ($branchecked as $rowbrand) {
+                                 $sql = "SELECT * FROM tenders WHERE tenderLocation='".$rowbrand."'";
+
+                                $result = mysqli_query($con, $sql);
+                                if (mysqli_num_rows($result) > 0) {
+                                    foreach ($result as $row):
+                                        ?>
+                                       <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['tenderValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"><?php echo $row['ownership'];?></h5>
+    <p><?php echo $row['tenderDesc'];?></p>
    
 
-    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Tender</button></a></h6>
+    <a href="tenders_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tenders</button></a></h6>
                       </div>
                     </div>
                   </div>
-                  
-                      
-                  <?php
-                      } }
-                      ?> 
-                   </div>
-              </div>
+                                        <?php
+                                    endforeach;
+                                }
+
+                            }
+                        } else {
+                            $sql = "SELECT * FROM tenders";
+                            $result = mysqli_query($con, $sql);
+                            if (mysqli_num_rows($result) > 0) {
+                                foreach ($result as $row):
+                                    ?>
+                                    <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['tenderValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"><?php echo $row['ownership'];?></h5>
+    <p><?php echo $row['tenderDesc'];?></p>
+   
+
+    <a href="tenders_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tenders</button></a></h6>
+                      </div>
+                    </div>
+                  </div>
+                                <?php
+                                endforeach;
+                            } else {
+                                echo "No Items Found";
+                            }
+                        }
+                        ?>
+                </div>
             </div>
-          </div>
-
-<br>
-<center style="color: #3b8beb;"> 
-
-
-    <!-- Remove the container if you want to extend the Footer to full width. -->
-
         </div>
-      </div>
-
     <br><br>
 
 
