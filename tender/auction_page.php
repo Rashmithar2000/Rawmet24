@@ -455,7 +455,7 @@ include "connect.php";
 <div class="card" style="background-color: #3b8beb; margin-left:550px; margin-top:-850px; margin-bottom:700px; padding:10px; ">
 <div class="card-body">
 <h4 style="color:#fff;">AUCTION VALUE:&nbsp ₹<?php echo $row['aucValue']; ?>000.00</h4><hr>
-<h4 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?> TONS</h4><hr>
+<h4 style="color:#fff;">QUANTITY :&nbsp <?php echo $row['quantity']; ?> TONS</h4><hr>
 
   <h5 style="color:#fff;">Opening date and time :<br><i class='bx bx-calendar-alt'>&nbsp<?php echo $row['ePublishingDateTime']; ?> </i><br>
                     
