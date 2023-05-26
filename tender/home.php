@@ -210,12 +210,24 @@ include "connect.php";
             <i class="fa fa-users "></i>
           </div>
           <div class="col-md-4">
-            <h2><span class="counter">630+</span></h2>
+            <h2><span class="counter"><?php 
+                $sql = "select * from auction";
+                $result = mysqli_query($con, $sql);
+                echo ($result->num_rows-1)."+";
+                //echo "+";
+                //die;
+            ?></span></h2>
             <h4>Auctions</h4>
             <i class="fa fa-desktop"></i>
           </div>
           <div class="col-md-4">
-            <h2><span class="counter">500+</span></h2>
+            <h2><span class="counter"><?php 
+                $sql = "select * from deals";
+                $result = mysqli_query($con, $sql);
+                echo ($result->num_rows-1)."+";
+                //echo "+";
+                //die;
+            ?></span></h2>
             <h4>Deals</h4>
             <i class="fa fa-user"></i>
           </div>
@@ -234,7 +246,7 @@ include "connect.php";
 
               <div class="card">
                 <div class="card-content">
-                  <a href="category.html">
+                  <a href="category.php?type=Consultancy Tenders">
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="align-self-center">
@@ -246,14 +258,13 @@ include "connect.php";
                 $sql = "select * from tenders where category='Consultancy Tenders'";
                 $result = mysqli_query($con, $sql);
                 //print_r($result);
-                echo ($result->num_rows)."+";
+                echo ($result->num_rows);
                 //echo "+";
                 //die;
             ?>
                           </h3>
                           <span>
                           Consultancy Tenders
-                          
                           </span>
                         </div>
                       </div>
@@ -265,14 +276,21 @@ include "connect.php";
             <div class="col-xl-4 col-sm-6 col-12">
               <div class="card">
                 <div class="card-content">
-                  <a href="category.html">
+                  <a href="category.php?type=Procurement Tenders">
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="align-self-center">
                           <i class="bx bxs-truck warning font-large-4 float-left"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>156</h3>
+                          <h3> <?php 
+                $sql = "select * from tenders where category='Procurement Tenders'";
+                $result = mysqli_query($con, $sql);
+                //print_r($result);
+                echo ($result->num_rows);
+                //echo "+";
+                //die;
+            ?></h3>
                           <span>Procurement Tenders</span>
                         </div>
                       </div>
@@ -284,14 +302,21 @@ include "connect.php";
             <div class="col-xl-4 col-sm-6 col-12">
               <div class="card">
                 <div class="card-content">
-                  <a href="category.html">
+                  <a href="category.php?type=Manufacturing Tenders">
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="align-self-center">
                           <i class="icon-settings info font-large-4 float-left"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>111</h3>
+                          <h3> <?php 
+                $sql = "select * from tenders where category='Manufacturing Tenders'";
+                $result = mysqli_query($con, $sql);
+                //print_r($result);
+                echo ($result->num_rows);
+                //echo "+";
+                //die;
+            ?></h3>
                           <span>Manufacturing Tenders</span>
                         </div>
                       </div>
@@ -311,14 +336,21 @@ include "connect.php";
 
               <div class="card">
                 <div class="card-content">
-                  <a href="category.html">
+                  <a href="category.php?type=Disposal Tenders">
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="align-self-center">
                           <i class="icon-trash primary font-large-4 float-left"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>278</h3>
+                        <h3> <?php 
+                $sql = "select * from tenders where category='Disposal Tenders'";
+                $result = mysqli_query($con, $sql);
+                //print_r($result);
+                echo ($result->num_rows);
+                //echo "+";
+                //die;
+            ?></h3>
                           <span>Disposal Tenders</span>
                         </div>
                       </div>
@@ -330,14 +362,21 @@ include "connect.php";
             <div class="col-xl-4 col-sm-6 col-12">
               <div class="card">
                 <div class="card-content">
-                  <a href="category.html">
+                  <a href="category.php?type=Business Tenders">
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="align-self-center">
                           <i class="icon-briefcase success font-large-4 float-left"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>136</h3>
+                        <h3> <?php 
+                $sql = "select * from tenders where category='Business Tenders'";
+                $result = mysqli_query($con, $sql);
+                //print_r($result);
+                echo ($result->num_rows);
+                //echo "+";
+                //die;
+            ?></h3>
                           <span>Business Tenders</span>
                         </div>
                       </div>
@@ -349,14 +388,21 @@ include "connect.php";
             <div class="col-xl-4 col-sm-6 col-12">
               <div class="card">
                 <div class="card-content">
-                  <a href="category.html">
+                  <a href="category.php?type=Public Tenders">
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="align-self-center">
                           <i class="icon-users danger font-large-4 float-left"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>236</h3>
+                        <h3> <?php 
+                $sql = "select * from tenders where category='Public Tenders'";
+                $result = mysqli_query($con, $sql);
+                //print_r($result);
+                echo ($result->num_rows);
+                //echo "+";
+                //die;
+            ?></h3>
                           <span>Public Tenders</span>
                         </div>
                       </div>
