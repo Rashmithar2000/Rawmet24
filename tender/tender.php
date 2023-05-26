@@ -1,16 +1,12 @@
-<?php
-include "connect.php";
-?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Home Page</title>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
@@ -31,9 +27,11 @@ include "connect.php";
 <!-- <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css"> -->
 
 <script nonce="10103964-004b-4a99-b2c8-e02088e28228">(function(w,d){!function(bg,bh,bi,bj){bg[bi]=bg[bi]||{};bg[bi].executed=[];bg.zaraz={deferred:[],listeners:[]};bg.zaraz.q=[];bg.zaraz._f=function(bk){return function(){var bl=Array.prototype.slice.call(arguments);bg.zaraz.q.push({m:bk,a:bl})}};for(const bm of["track","set","debug"])bg.zaraz[bm]=bg.zaraz._f(bm);bg.zaraz.init=()=>{var bn=bh.getElementsByTagName(bj)[0],bo=bh.createElement(bj),bp=bh.getElementsByTagName("title")[0];bp&&(bg[bi].t=bh.getElementsByTagName("title")[0].text);bg[bi].x=Math.random();bg[bi].w=bg.screen.width;bg[bi].h=bg.screen.height;bg[bi].j=bg.innerHeight;bg[bi].e=bg.innerWidth;bg[bi].l=bg.location.href;bg[bi].r=bh.referrer;bg[bi].k=bg.screen.colorDepth;bg[bi].n=bh.characterSet;bg[bi].o=(new Date).getTimezoneOffset();if(bg.dataLayer)for(const bt of Object.entries(Object.entries(dataLayer).reduce(((bu,bv)=>({...bu[1],...bv[1]})))))zaraz.set(bt[0],bt[1],{scope:"page"});bg[bi].q=[];for(;bg.zaraz.q.length;){const bw=bg.zaraz.q.shift();bg[bi].q.push(bw)}bo.defer=!0;for(const bx of[localStorage,sessionStorage])Object.keys(bx||{}).filter((bz=>bz.startsWith("_zaraz_"))).forEach((by=>{try{bg[bi]["z_"+by.slice(7)]=JSON.parse(bx.getItem(by))}catch{bg[bi]["z_"+by.slice(7)]=bx.getItem(by)}}));bo.referrerPolicy="origin";bo.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(bg[bi])));bn.parentNode.insertBefore(bo,bn)};["complete","interactive"].includes(bh.readyState)?zaraz.init():bg.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document);</script></head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-  <style>
+<style>
     .scroller {
   height: 300px !important;
   overflow-y: scroll !important;
@@ -84,7 +82,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
 }
 </style>
-
 <section class="ftco-section" style="padding-top: 5px;">
   
   <section
@@ -128,10 +125,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <li class="nav-item"><a href="auction.php" class="nav-link">Auctions</a></li>
 <li class="nav-item"><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
-<li class="nav-item"><a href="metalprice.php" class="nav-link">Metal Prices</a></li>
+<li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
 <li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
-            <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
-
+<li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
 </ul>
 </div>
 </div>
@@ -143,8 +139,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <br>
  <center>
  <h2 style="color: #7e828b;">TENDERS</h2> </center>
- 
- <div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-md-3">
                 <form action="tender.php?l=" method="GET">
@@ -211,13 +206,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                         ?>
                                        <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
-                        <div class="card-body">
-                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['tenderValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"><?php echo $row['ownership'];?></h5>
-    <p><?php echo $row['tenderDesc'];?></p>
-   
+                    <div class="card-body">
+                    <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>
+                    | Approximate Value : <?php echo $row['tenderValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbspTONS</p></h5>
+                    
+                        <p><?php echo $row['tenderDesc'];?></p>
 
-    <a href="tenders_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tenders</button></a></h6>
+    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
                       </div>
                     </div>
                   </div>
@@ -235,12 +231,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                     <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['tenderValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"><?php echo $row['ownership'];?></h5>
+                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>| Biz value : <?php echo $row['tenderValue'];?> Bn | Bid Before : 
+                                                <?php echo $row['endDatetime'];?>
+                                                 <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbsp TONS <br> <br>
+                        MATERIAL :&nbsp<?php echo $row['material'];?>&nbsp 
+                        </h5>
     <p><?php echo $row['tenderDesc'];?></p>
    
 
-    <a href="tenders_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tenders</button></a></h6>
+    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
                       </div>
                     </div>
                   </div>
@@ -254,6 +254,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    <br><br>
+    <center style="color: #3b8beb;"> 
+
+
+    <!-- Remove the container if you want to extend the Footer to full width. -->
+   
     <br><br>
 
 
@@ -423,19 +431,8 @@ setTimeout("typewriter()", iSpeed);
 
 typewriter();
 
-// $(document).ready(function(){
-//     $("#clickme").click(function(){
-//       $("#checkbox").toggle();
-//     });
-//   });
+</script>
 
-</script>
-<script>
-function myFunction() {
-   var element = document.getElementById("clickme");
-   element.classList.toggle("checkbox");
-}
-</script>
 
 // <script src="js/toggle.js"></script>
 <script src="js/jquery.min.js"></script>
@@ -448,12 +445,7 @@ function myFunction() {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+
+</body>
+
 </html>
-
-
-
-
-
-
-

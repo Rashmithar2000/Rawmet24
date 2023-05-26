@@ -1,4 +1,89 @@
+<?php
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "img";
 
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// SQL query for creating a table
+$tableSql = "CREATE TABLE IF NOT EXISTS images (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    filename VARCHAR(255) NOT NULL
+)";
+
+if ($conn->query($tableSql) === TRUE) {
+    echo "Table created successfully.";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $targetDir = "uploads/"; // Directory to store uploaded images
+    $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+    // Check if the file is an actual image
+    $check = getimagesize($_FILES["image"]["tmp_name"]);
+    if ($check === false) {
+        echo "Error: File is not an image.";
+        $uploadOk = 0;
+    }
+
+    // Check if the file already exists
+    if (file_exists($targetFile)) {
+        echo "Error: File already exists.";
+        $uploadOk = 0;
+    }
+
+    // Check file size
+    if ($_FILES["image"]["size"] > 500000) {
+        echo "Error: File is too large.";
+        $uploadOk = 0;
+    }
+
+    // Allow only certain file formats
+    if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif") {
+        echo "Error: Only JPG, JPEG, PNG, and GIF files are allowed.";
+        $uploadOk = 0;
+    }
+
+    // If no errors, move the file to the target directory and insert filename into the database
+    if ($uploadOk == 1) {
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+            $filename = basename($_FILES["image"]["name"]);
+            $insertSql = "INSERT INTO images (filename) VALUES ('$filename')";
+            if ($conn->query($insertSql) === TRUE) {
+                echo "Image uploaded and inserted into the database successfully.";
+            } else {
+                echo "Error inserting image into the database: " . $conn->error;
+            }
+        } else {
+            echo "Error uploading the image.";
+        }
+    }
+}
+
+// Display uploaded images
+$sql = "SELECT filename FROM images";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $imagePath = "uploads/" . $row["filename"];
+        echo '<img src="' . $imagePath . '" alt="Uploaded Image">';
+    }
+} else {
+    echo "No images found.";
+}
+
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -203,20 +288,21 @@
               </span>
             </li>
             <li class="nav-item sidebar-actions">
-              <span class="nav-link">
-                <div class="border-bottom">
-                  <h6 class="font-weight-normal mb-3">Materials</h6>
-                </div>
-                <button class="btn btn-block btn-lg btn-gradient-primary mt-4"><a href="material.html">+ Add a Material</a></button>
-              </span>
-            </li>
+                <span class="nav-link">
+                  <div class="border-bottom">
+                   <h6 class="font-weight-normal mb-3">Materials</h6>
+                  </div>
+                  <button class="btn btn-block btn-lg btn-gradient-primary mt-4"><a href="material.html">+ Add a Material</a></button>
+                  
+                </span>
+              </li>
           </ul>
         </nav>
 
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title">Add Categories</h3>
+              <h3 class="page-title">Add Materials</h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
          
@@ -227,24 +313,22 @@
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Categories</h4>
+                    <h4 class="card-title">Materials</h4>
                     <p class="card-description">  </p>
-                    <form action="category.php" method="post" class="forms-sample">
-                      <div class="form-group">
-                        <label for="categoryName">Category Name</label>
-                        <input type="text" class="form-control" name="categoryName" placeholder="Name" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="subCategory">Sub Category</label>
-                        <input type="text" class="form-control" name="subCategory" placeholder="Sub category" >
-                      </div>
+                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST" enctype="multipart/form-data">
 
+                      <div class="form-group">
+                        <label for="MaterialName">Image</label>
+                        <input type="file" class="form-control" name="image" placeholder="Name" required>
+                      </div>
+                      
+                      <input type="submit" value="Upload">
                       <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                      <button type="reset"class="btn btn-gradient-primary me-2">Cancel</button>
                     </form>
                   </div>
                 </div>
               </div></div>
+    </div>
         <!-- partial -->
           
           <!-- content-wrapper ends -->

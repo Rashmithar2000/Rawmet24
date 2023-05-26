@@ -134,7 +134,6 @@ include "connect.php";
             <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
             <li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
             <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
-            <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
           </ul>
         </div>
       </div>
@@ -196,17 +195,39 @@ include "connect.php";
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <h2><span class="counter">252+</span></h2>
+            <h2><span class="counter">
+            <?php 
+                $sql = "select * from tenders";
+                $result = mysqli_query($con, $sql);
+                echo ($result->num_rows-1)."+";
+                //echo "+";
+                //die;
+            ?>
+            
+            
+            </span></h2>
             <h4>Tenders</h4>
             <i class="fa fa-users "></i>
           </div>
           <div class="col-md-4">
-            <h2><span class="counter">630+</span></h2>
+            <h2><span class="counter"><?php 
+                $sql = "select * from auction";
+                $result = mysqli_query($con, $sql);
+                echo ($result->num_rows-1)."+";
+                //echo "+";
+                //die;
+            ?></span></h2>
             <h4>Auctions</h4>
             <i class="fa fa-desktop"></i>
           </div>
           <div class="col-md-4">
-            <h2><span class="counter">500+</span></h2>
+            <h2><span class="counter"><?php 
+                $sql = "select * from deals";
+                $result = mysqli_query($con, $sql);
+                echo ($result->num_rows-1)."+";
+                //echo "+";
+                //die;
+            ?></span></h2>
             <h4>Deals</h4>
             <i class="fa fa-user"></i>
           </div>
@@ -225,15 +246,26 @@ include "connect.php";
 
               <div class="card">
                 <div class="card-content">
-                  <a href="category.html">
+                  <a href="category.php?type=Consultancy Tenders">
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="align-self-center">
                           <i class="icon-user secondary font-large-4 float-left"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>878</h3>
-                          <span> Consultancy Tenders</span>
+                          <h3>
+                          <?php 
+                $sql = "select * from tenders where category='Consultancy Tenders'";
+                $result = mysqli_query($con, $sql);
+                //print_r($result);
+                echo ($result->num_rows);
+                //echo "+";
+                //die;
+            ?>
+                          </h3>
+                          <span>
+                          Consultancy Tenders
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -244,14 +276,21 @@ include "connect.php";
             <div class="col-xl-4 col-sm-6 col-12">
               <div class="card">
                 <div class="card-content">
-                  <a href="category.html">
+                  <a href="category.php?type=Procurement Tenders">
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="align-self-center">
                           <i class="bx bxs-truck warning font-large-4 float-left"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>156</h3>
+                          <h3> <?php 
+                $sql = "select * from tenders where category='Procurement Tenders'";
+                $result = mysqli_query($con, $sql);
+                //print_r($result);
+                echo ($result->num_rows);
+                //echo "+";
+                //die;
+            ?></h3>
                           <span>Procurement Tenders</span>
                         </div>
                       </div>
@@ -263,14 +302,21 @@ include "connect.php";
             <div class="col-xl-4 col-sm-6 col-12">
               <div class="card">
                 <div class="card-content">
-                  <a href="category.html">
+                  <a href="category.php?type=Manufacturing Tenders">
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="align-self-center">
                           <i class="icon-settings info font-large-4 float-left"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>111</h3>
+                          <h3> <?php 
+                $sql = "select * from tenders where category='Manufacturing Tenders'";
+                $result = mysqli_query($con, $sql);
+                //print_r($result);
+                echo ($result->num_rows);
+                //echo "+";
+                //die;
+            ?></h3>
                           <span>Manufacturing Tenders</span>
                         </div>
                       </div>
@@ -290,14 +336,21 @@ include "connect.php";
 
               <div class="card">
                 <div class="card-content">
-                  <a href="category.html">
+                  <a href="category.php?type=Disposal Tenders">
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="align-self-center">
                           <i class="icon-trash primary font-large-4 float-left"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>278</h3>
+                        <h3> <?php 
+                $sql = "select * from tenders where category='Disposal Tenders'";
+                $result = mysqli_query($con, $sql);
+                //print_r($result);
+                echo ($result->num_rows);
+                //echo "+";
+                //die;
+            ?></h3>
                           <span>Disposal Tenders</span>
                         </div>
                       </div>
@@ -309,14 +362,21 @@ include "connect.php";
             <div class="col-xl-4 col-sm-6 col-12">
               <div class="card">
                 <div class="card-content">
-                  <a href="category.html">
+                  <a href="category.php?type=Business Tenders">
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="align-self-center">
                           <i class="icon-briefcase success font-large-4 float-left"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>136</h3>
+                        <h3> <?php 
+                $sql = "select * from tenders where category='Business Tenders'";
+                $result = mysqli_query($con, $sql);
+                //print_r($result);
+                echo ($result->num_rows);
+                //echo "+";
+                //die;
+            ?></h3>
                           <span>Business Tenders</span>
                         </div>
                       </div>
@@ -328,14 +388,21 @@ include "connect.php";
             <div class="col-xl-4 col-sm-6 col-12">
               <div class="card">
                 <div class="card-content">
-                  <a href="category.html">
+                  <a href="category.php?type=Public Tenders">
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="align-self-center">
                           <i class="icon-users danger font-large-4 float-left"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>236</h3>
+                        <h3> <?php 
+                $sql = "select * from tenders where category='Public Tenders'";
+                $result = mysqli_query($con, $sql);
+                //print_r($result);
+                echo ($result->num_rows);
+                //echo "+";
+                //die;
+            ?></h3>
                           <span>Public Tenders</span>
                         </div>
                       </div>
@@ -359,21 +426,21 @@ include "connect.php";
             <?php
             $sql = "select * from auction";
             $result = mysqli_query($con, $sql);
-            //print_r($result);die;
+
             if ($result) {
               while ($row = mysqli_fetch_assoc($result)) {
-                //print_r($row);die;
+             
                 ?>
                 <section>
-                <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>
+                <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 750px;">4 Days to go</button>
                           <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?>  </h5>
                         <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> Approximate Business : ₹<?php echo $row['aucValue']; ?>000.00 </h5>
                         Bid Before :<?php echo $row['endDatetime'];?>
-                  
+                 
     <p style="color:#3b8beb;">&nbsp<?php echo $row['aucDescription'];?></p>
 
                   <a href="auction_page.php?g=<?php echo $row['id'];?>"><button
-                      style="padding:4px; border-radius: 6px; margin-left: 900px; font-size: 100%;" class="btn btn-primary"
+                      style="padding:4px; border-radius: 6px; margin-left: 840px; font-size: 100%;" class="btn btn-primary"
                       type="submit">View Auction</button></h6></a>
                 </section>
                 <hr>
@@ -400,12 +467,15 @@ include "connect.php";
                 //print_r($row);die;
                 ?>
                 <section>
-                <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>
+                <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 750px;">4 Days to go</button>
                  <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?>  </h5>
                 <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">Approximate Business: ₹<?php echo $row['tenderValue']; ?>000.00 </h5>
                         Bid Before :<?php echo $row['startDatetime'];?>
                   
     <p style="color:#3b8beb;"> &nbsp<?php echo $row['tenderDesc'];?></p>
+    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button
+                      style="padding:4px; border-radius: 6px; margin-left: 850px; font-size: 100%;" class="btn btn-primary"
+                      type="submit">View Tender</button></h6></a>
                 <hr>
                 <?php
               }
@@ -432,7 +502,7 @@ include "connect.php";
                 <section>
               
                  
-                 <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>
+                 <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 750px;">4 Days to go</button>
                  <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?>  </h5>
                 <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">Approximate Business: ₹<?php echo $row['expQuotation']; ?>000.00 </h5>
                         Bid Before :<?php echo $row['dealDatetime'];?>
@@ -440,7 +510,7 @@ include "connect.php";
     <p style="color:#3b8beb;"> &nbsp<?php echo $row['specification'];?></p>
 
                   <a href="deal_page.php?g=<?php echo $row['id'];?>"><button
-                      style="padding:4px; border-radius: 6px; margin-left: 900px; font-size: 100%;" class="btn btn-primary"
+                      style="padding:4px; border-radius: 6px; margin-left: 850px; font-size: 100%;" class="btn btn-primary"
                       type="submit">View Deal</button></h6></a>
                 </section>
                 <hr>
@@ -569,47 +639,7 @@ include "connect.php";
     <!-- Copyright -->
   </footer>
 
-  <script>
-
-    var aText = new Array(
-      "Be INFORMED , Be PREPARED , Be SMART , be SAFE ,be READY to fight #COVID19"
-
-    );
-    var iSpeed = 100; // time delay of print out
-    var iIndex = 0; // start printing array at this posision
-    var iArrLength = aText[0].length; // the length of the text array
-    var iScrollAt = 20; // start scrolling up at this many lines
-
-    var iTextPos = 0; // initialise text position
-    var sContents = ''; // initialise contents variable
-    var iRow; // initialise current row
-
-    function typewriter() {
-      sContents = ' ';
-      iRow = Math.max(0, iIndex - iScrollAt);
-      var destination = document.getElementById("typedtext");
-
-      while (iRow < iIndex) {
-        sContents += aText[iRow++] + '<br />';
-      }
-      destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos);
-      if (iTextPos++ == iArrLength) {
-        iTextPos = 0;
-        iIndex++;
-        if (iIndex != aText.length) {
-          iArrLength = aText[iIndex].length;
-          setTimeout("typewriter()", 500);
-        }
-      } else {
-        setTimeout("typewriter()", iSpeed);
-      }
-    }
-
-
-    typewriter();
-
-
-  </script>
+ 
 
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.js"></script>

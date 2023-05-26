@@ -120,8 +120,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="collapse navbar-collapse" id="ftco-nav">
 <ul class="navbar-nav m-auto">
 <li class="nav-item "><a href="home.php" class="nav-link">Home</a></li>
-<li class="nav-item"><a href="tenders.php" class="nav-link">Tenders</a></li>
-
+<li class="nav-item"><a href="tender.php" class="nav-link">Tenders</a></li>
 <li class="nav-item active"><a href="#" class="nav-link">Auctions</a></li>
 <li class="nav-item"><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
@@ -208,17 +207,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                        <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                                              <h6 style="color:#3b8beb; ">
-                                              
-                  <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?> 
-                  <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">
-                  QUANTITY: <?php echo $row['quantity'];?>   <br> </h5>
-                 </h6>
-                  <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">
-                      MATERIAL: <?php echo $row['material'];?>   <br> </h5>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">
-                      COMPANY NAME: <a href="price.html">XXX</a></h5>
-    <p><?php echo $row['aucDescription'];?></p>
+                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?>| Biz value : <?php echo $row['aucNumber'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL :&nbsp <?php echo $row['material'];?> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbspTONS</p></h5>
+                    
+                        <p><?php echo $row['aucDescription'];?></p>
    
 
     <a href="auction_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Auction</button></a></h6>
@@ -240,7 +232,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     <div class="card">
                         <div class="card-body">
                                               <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?>| Biz value : <?php echo $row['aucNumber'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"><?php echo $row['material'];?> <br> <p>QUANTITY<?php echo $row['quantity'];?>&nbspTONS</p></h5>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL :&nbsp <?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbspTONS</p></h5>
                     
                         <p><?php echo $row['aucDescription'];?></p>
    
@@ -266,65 +258,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
     <!-- Remove the container if you want to extend the Footer to full width. -->
-    <footer class="page-footer font-small mdb-color lighten-3 pt-4">
-      <div class="container">
-          <h3 align="center" style="color: #3b8beb;">OUR CLIENTS</h3><hr>
-        <center>
-          <div class="row">
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="https://shopemet.in/images/clients/client-6.png" class="img-fluid"alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-             </div>             
-          </div>
-          <div class="col-lg-2 col-md-12 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="https://shopemet.in/images/clients/client-5.png" width="200px"; class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>                 
-          </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-1.png" class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>          
-          </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-2.png" class="img-fluid"alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>             
-          </div>
-          <div class="col-lg-2 col-md-12 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-3.png" class="img-fluid"alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>           
-           </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-4.png" class="img-fluid"alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-             </div>          
-          </div>
-                
-          </div></center>
-        </div>
-      </div>
-                                
-     </footer>
+    
     <br><br>
 
 
@@ -454,47 +388,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <!-- Copyright -->
 </footer>
 
-<script>
 
-var aText = new Array(
-"Be INFORMED , Be PREPARED , Be SMART , be SAFE ,be READY to fight #COVID19"
-
-);
-var iSpeed = 100; // time delay of print out
-var iIndex = 0; // start printing array at this posision
-var iArrLength = aText[0].length; // the length of the text array
-var iScrollAt = 20; // start scrolling up at this many lines
-
-var iTextPos = 0; // initialise text position
-var sContents = ''; // initialise contents variable
-var iRow; // initialise current row
-
-function typewriter()
-{
-sContents =  ' ';
-iRow = Math.max(0, iIndex-iScrollAt);
-var destination = document.getElementById("typedtext");
-
-while ( iRow < iIndex ) {
-sContents += aText[iRow++] + '<br />';
-}
-destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) ;
-if ( iTextPos++ == iArrLength ) {
-iTextPos = 0;
-iIndex++;
-if ( iIndex != aText.length ) {
- iArrLength = aText[iIndex].length;
- setTimeout("typewriter()", 500);
-}
-} else {
-setTimeout("typewriter()", iSpeed);
-}
-}
-
-
-typewriter();
-
-</script>
 
 
 // <script src="js/toggle.js"></script>

@@ -1,4 +1,6 @@
-
+<?php
+include('upload.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -203,20 +205,21 @@
               </span>
             </li>
             <li class="nav-item sidebar-actions">
-              <span class="nav-link">
-                <div class="border-bottom">
-                  <h6 class="font-weight-normal mb-3">Materials</h6>
-                </div>
-                <button class="btn btn-block btn-lg btn-gradient-primary mt-4"><a href="material.html">+ Add a Material</a></button>
-              </span>
-            </li>
+                <span class="nav-link">
+                  <div class="border-bottom">
+                   <h6 class="font-weight-normal mb-3">Materials</h6>
+                  </div>
+                  <button class="btn btn-block btn-lg btn-gradient-primary mt-4"><a href="material.html">+ Add a Material</a></button>
+                  
+                </span>
+              </li>
           </ul>
         </nav>
 
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title">Add Categories</h3>
+              <h3 class="page-title">Add Materials</h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
          
@@ -227,24 +230,22 @@
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Categories</h4>
+                    <h4 class="card-title">Materials</h4>
                     <p class="card-description">  </p>
-                    <form action="category.php" method="post" class="forms-sample">
-                      <div class="form-group">
-                        <label for="categoryName">Category Name</label>
-                        <input type="text" class="form-control" name="categoryName" placeholder="Name" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="subCategory">Sub Category</label>
-                        <input type="text" class="form-control" name="subCategory" placeholder="Sub category" >
-                      </div>
+                    <form action="upload.php" method="POST" enctype="multipart/form-data">
 
+                      <div class="form-group">
+                        <label for="MaterialName">Image</label>
+                        <input type="file" class="form-control" name="image" placeholder="Name" required>
+                      </div>
+                      
+                      <input type="submit" value="Upload">
                       <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                      <button type="reset"class="btn btn-gradient-primary me-2">Cancel</button>
                     </form>
                   </div>
                 </div>
               </div></div>
+    </div>
         <!-- partial -->
           
           <!-- content-wrapper ends -->

@@ -270,10 +270,11 @@ include "connect.php";
           <div class="form-check">
 
           </div><br>
-         <a href="signin.html"
-              style="font-size: medium;color: #3b8beb; ">
+          <button type="submit" class="btn btn-primary"
+            style="background-color: #3b8beb !important; border-color: #3b8beb;"> <a href="signin.html"
+              style="font-size: medium;color: #ffffff; ">
               <i class="fa-solid fa-user" style="padding: 5px; "></i>SignIn
-            </a>
+            </a></button>
           <a href="signup.html" style="font-size: medium; padding: 25px; ">
             <i class="fa-solid fa-user-plus"></i>SignUp
           </a>
@@ -319,18 +320,20 @@ include "connect.php";
         <div class="clearfix some-new-selector">
           <div class="pull-left">
             <div class="pull-right span9" style="color: #9e9797; padding:10px">
-              <h6>Home / Auction Search / Auction Detail</h6>
+              <h6>Home / Category Search / Tender Detail</h6>
               <br>
               <?php
-                    $id = $_GET['g'];
-                    $sql = "select * from auction where id=$id";
+                    $id = urldecode($_GET['type']);
+                    //print_r(urldecode($id));
+                    //die;
+                    $sql = "select * from tenders where category='$id'";
                     $result = mysqli_query($con, $sql);
                     if ($result) {
                       while ($row = mysqli_fetch_assoc($result)) {
 
                         ?>
               <h3 style="color: #595a62;"> COMPANY NAME: <a href="price.html">XXXXX</a></h3>
-              <h5><i class='bx bx-map'></i> <?php echo $row['aucLocation']; ?></h5>
+              <h5><i class='bx bx-map'></i> <?php echo $row['tenderLocation']; ?></h5>
               <hr>
               <div style="margin-left: 40px;">
                 <table class="table table-bordered">
@@ -354,21 +357,21 @@ include "connect.php";
 
                           <td>Location</td>
                           <td>
-                            <?php echo $row['aucLocation']; ?>
+                            <?php echo $row['tenderLocation']; ?>
                           </td>
                         </tr>
                       
 
-                          <td>Auction No</td>
+                          <td>TENDER Number</td>
                           <td>
                           <a href="price.html">XXXXX</a>
                           </td>
                         </tr>
                         <tr>
 
-                          <td>ePublishing Date & Time</td>
+                          <td>Publishing Date & Time</td>
                           <td>
-                            <?php echo $row['ePublishingDateTime']; ?>
+                            <?php echo $row['publishingDatetime']; ?>
                           </td>
                         </tr>
                         <tr>
@@ -383,20 +386,6 @@ include "connect.php";
                           <td>Bid Submission Close Date</td>
                           <td>
                             <?php echo $row['endDatetime']; ?>
-                          </td>
-                        </tr>
-                        <tr>
-
-                          <td>Inspection From Date</td>
-                          <td>
-                          <a href="price.html">XXXXX</a>
-                          </td>
-                        </tr>
-                        <tr>
-
-                          <td>Inspection Closing Date</td>
-                          <td>
-                          <a href="price.html">XXXXX</a>
                           </td>
                         </tr>
                         <tr>
@@ -451,10 +440,10 @@ include "connect.php";
 <div class="row">
 <div class="card" style="background-color: #3b8beb; margin-left:550px; margin-top:-850px; margin-bottom:700px; padding:10px; ">
 <div class="card-body">
-<h4 style="color:#fff;">AUCTION VALUE:&nbsp ₹<?php echo $row['aucValue']; ?>000.00</h4><hr>
+<h4 style="color:#fff;">AUCTION VALUE:&nbsp ₹<?php echo $row['tenderValue']; ?>000.00</h4><hr>
 <h4 style="color:#fff;">QUANTITY :&nbsp <?php echo $row['quantity']; ?> TONS</h4><hr>
 
-  <h5 style="color:#fff;">Opening date and time :<br><i class='bx bx-calendar-alt'>&nbsp<?php echo $row['ePublishingDateTime']; ?> </i><br>
+  <h5 style="color:#fff;">Opening date and time :<br><i class='bx bx-calendar-alt'>&nbsp<?php echo $row['publishingDatetime']; ?> </i><br>
                     
                     <br> Bid Submission Started <br>
                     <h6 style="color:#fff;"><i class='bx bxs-calendar-alt'></i> <?php echo $row['startDatetime']; ?> &nbsp &nbsp
@@ -532,17 +521,13 @@ include "connect.php";
 
 </body>
 
-</div>
-</div>
-</div>
-</div>
-</div>
+                                                        </div>
+                                                </div>
+                                          </div>
+                                    </div>
+                                </div>
 </div>
 </center>
-
-
-
-
 
 
 <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
