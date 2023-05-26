@@ -82,7 +82,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
 }
 </style>
-
 <section class="ftco-section" style="padding-top: 5px;">
   
   <section
@@ -126,8 +125,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <li class="nav-item"><a href="auction.php" class="nav-link">Auctions</a></li>
 <li class="nav-item"><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
-<li class="nav-item"><a href="metalprice.php" class="nav-link">Metal Prices</a></li>
-
+<li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
+<li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
+<li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
 </ul>
 </div>
 </div>
@@ -183,39 +183,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
                         </div>
 
-                            if (mysqli_num_rows($brand_query_run) > 0) {
-                                foreach ($brand_query_run as $locationlist) {
-                                    $checked = [];
-                                    if (isset($_GET['locations'])) {
-                                        $checked = $_GET['locations'];
-                                    }
-                                    ?>
-                                    <div id="checkbox">
-                                        <input type="checkbox" name="locations" value="<?= $locationlist['state_name']; ?>"
-                                            <?php //if (in_array($locationlist['state_id'], $checked)) {
-                                                //echo "checked";
-                                            //} 
-                                            ?>>
-                                        <?= $locationlist['state_name']; ?>
-                                    </div>
-                                    <?php
-                                }
-                            } else {
-                                echo "No locations Found";
-                            }
-                            ?>
-
-
-                        </div>
-
                     </div>
-                </form>
-            </div>
-
-
-            <div class="col-md-9 mt-3">
-                <div class="card ">
-                    <div class="card-body row">
                 </form>
             </div>
 
@@ -270,8 +238,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbsp TONS</h5>
     <p><?php echo $row['tenderDesc'];?></p>
    
-
-    <a href="tenders_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tenders</button></a></h6>
 
     <a href="tenders_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tenders</button></a></h6>
                       </div>
