@@ -213,7 +213,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     
                         <p><?php echo $row['tenderDesc'];?></p>
 
-    <a href="tenders_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
+    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
                       </div>
                     </div>
                   </div>
@@ -240,7 +240,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <p><?php echo $row['tenderDesc'];?></p>
    
 
-    <a href="tenders_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
+    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
                       </div>
                     </div>
                   </div>
