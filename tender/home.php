@@ -195,7 +195,17 @@ include "connect.php";
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <h2><span class="counter">252+</span></h2>
+            <h2><span class="counter">
+            <?php 
+                $sql = "select * from tenders";
+                $result = mysqli_query($con, $sql);
+                echo ($result->num_rows-1)."+";
+                //echo "+";
+                //die;
+            ?>
+            
+            
+            </span></h2>
             <h4>Tenders</h4>
             <i class="fa fa-users "></i>
           </div>
@@ -231,8 +241,20 @@ include "connect.php";
                           <i class="icon-user secondary font-large-4 float-left"></i>
                         </div>
                         <div class="media-body text-right">
-                          <h3>878</h3>
-                          <span> Consultancy Tenders</span>
+                          <h3>
+                          <?php 
+                $sql = "select * from tenders where category='Consultancy Tenders'";
+                $result = mysqli_query($con, $sql);
+                //print_r($result);
+                echo ($result->num_rows)."+";
+                //echo "+";
+                //die;
+            ?>
+                          </h3>
+                          <span>
+                          Consultancy Tenders
+                          
+                          </span>
                         </div>
                       </div>
                     </div>

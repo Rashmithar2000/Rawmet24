@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+session_start();
+if (!isset($_SESSION['name'])){
+  header("Location: /Rawmet24/PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");
+}
+?>
+DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -90,13 +96,13 @@ a:hover{
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
-                  <p class="mb-1 text-black">Rawmet</p>
+                  <p class="mb-1 text-black"><?php echo $_SESSION['name'];?></p>
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                 <a class="dropdown-item" href="pages/forms/elements.html">
                   <i class="mdi mdi-login me-2 text-primary"></i>Register now </a>
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="signout.php">
                     <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
               </div>
             </li>
