@@ -127,8 +127,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <li class="nav-item"><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="#" class="nav-link">Metal Prices</a></li>
-
-
+<li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
+<li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
 </ul>
 </div>
 </div>

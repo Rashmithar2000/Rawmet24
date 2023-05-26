@@ -209,11 +209,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     <div class="card-body">
                     <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>
                     | Approximate Value : <?php echo $row['tenderValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"><?php echo $row['material'];?> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbspTONS</p></h5>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbspTONS</p></h5>
                     
                         <p><?php echo $row['tenderDesc'];?></p>
 
-    <a href="tenders_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tenders</button></a></h6>
+    <a href="tenders_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
                       </div>
                     </div>
                   </div>
@@ -232,14 +232,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     <div class="card">
                         <div class="card-body">
                                               <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>| Biz value : <?php echo $row['tenderValue'];?> Bn | Bid Before : 
-                                                
                                                 <?php echo $row['endDatetime'];?>
                                                  <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbsp TONS</h5>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbsp TONS <br> <br>
+                        MATERIAL :&nbsp<?php echo $row['material'];?>&nbsp 
+                        </h5>
     <p><?php echo $row['tenderDesc'];?></p>
    
 
-    <a href="tenders_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tenders</button></a></h6>
+    <a href="tenders_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
                       </div>
                     </div>
                   </div>
@@ -260,65 +261,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
     <!-- Remove the container if you want to extend the Footer to full width. -->
-    <footer class="page-footer font-small mdb-color lighten-3 pt-4">
-      <div class="container">
-          <h3 align="center" style="color: #3b8beb;">OUR CLIENTS</h3><hr>
-        <center>
-          <div class="row">
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="https://shopemet.in/images/clients/client-6.png" class="img-fluid"alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-             </div>             
-          </div>
-          <div class="col-lg-2 col-md-12 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="https://shopemet.in/images/clients/client-5.png" width="200px"; class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>                 
-          </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-1.png" class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>          
-          </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-2.png" class="img-fluid"alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>             
-          </div>
-          <div class="col-lg-2 col-md-12 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-3.png" class="img-fluid"alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>           
-           </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-4.png" class="img-fluid"alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-             </div>          
-          </div>
-                
-          </div></center>
-        </div>
-      </div>
-                                
-     </footer>
+   
     <br><br>
 
 

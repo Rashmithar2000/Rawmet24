@@ -9,7 +9,7 @@ include "connect.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Home Page</title>
+    <title>Exclusive Deal Page</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -287,8 +287,8 @@ h4,
 
 <li class="nav-item"><a href="auction.php" class="nav-link">Auctions</a></li>
 
-<li class="nav-item active"><a href="deals.php" class="nav-link">Deals</a></li>
-<li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
+<li class="nav-item "><a href="deals.php" class="nav-link">Deals</a></li>
+<li class="nav-item active"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
 <li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
 <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
@@ -303,7 +303,7 @@ h4,
 
 <div class="container-fluid" style="background-color: #3b8beb; padding: 30px;"><br>
 
-<a href="price.html"><button class="btn btn-primary" style="border-color: #fff;" >View All Exclusive Deals</button><br><br><br><br></a>
+<a href="price.html"><button class="btn btn-primary" style="border-color: #fff;" >View All Deals</button><br><br><br><br></a>
 </div>
 
     <div class="container" class="col-lg-6 col-md-12" style="margin-top: -130px;"><br><br>
@@ -312,11 +312,11 @@ h4,
  <div class="clearfix some-new-selector">
   <div class="pull-left">
   <div class="pull-right span9" style="color: #9e9797; padding:10px">
-    <h6>Home /Exclusive Deal Search /Exclusive  Deal Detail</h6>
+    <h6>Home /Exclusive Deal search /Exclusive Deal Detail</h6>
     <br>
     <?php
                     $id = $_GET['g'];
-                    $sql = "select * from deals where id=$id";
+                    $sql = "select * from exclusive_deals where id=$id";
                     $result = mysqli_query($con, $sql);
                     if ($result) {
                       while ($row = mysqli_fetch_assoc($result)) {
@@ -447,9 +447,7 @@ h4,
                 &nbsp </h6>         
                      
              </h5>
-              
-              
-              
+
               </div>     
          <center>     <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
     </div>
@@ -636,48 +634,6 @@ h4,
   <!-- Copyright -->
 </footer>
 
-<script>
-
-var aText = new Array(
-"Be INFORMED , Be PREPARED , Be SMART , be SAFE ,be READY to fight #COVID19"
-
-);
-var iSpeed = 100; // time delay of print out
-var iIndex = 0; // start printing array at this posision
-var iArrLength = aText[0].length; // the length of the text array
-var iScrollAt = 20; // start scrolling up at this many lines
-
-var iTextPos = 0; // initialise text position
-var sContents = ''; // initialise contents variable
-var iRow; // initialise current row
-
-function typewriter()
-{
-sContents =  ' ';
-iRow = Math.max(0, iIndex-iScrollAt);
-var destination = document.getElementById("typedtext");
-
-while ( iRow < iIndex ) {
-sContents += aText[iRow++] + '<br />';
-}
-destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) ;
-if ( iTextPos++ == iArrLength ) {
-iTextPos = 0;
-iIndex++;
-if ( iIndex != aText.length ) {
- iArrLength = aText[iIndex].length;
- setTimeout("typewriter()", 500);
-}
-} else {
-setTimeout("typewriter()", iSpeed);
-}
-}
-
-
-typewriter();
-
-
-</script>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
