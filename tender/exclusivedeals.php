@@ -9,7 +9,7 @@ include "connect.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Deals</title>
+    <title>Exclusive Deals</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -125,8 +125,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <li class="nav-item"><a href="tender.php" class="nav-link">Tenders</a></li>
 
 <li class="nav-item "><a href="auction.php" class="nav-link">Auctions</a></li>
-<li class="nav-item active"><a href="#" class="nav-link">Deals</a></li>
-<li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
+<li class="nav-item "><a href="deals.php" class="nav-link">Deals</a></li>
+<li class="nav-item active"><a href="#" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
 <li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
 <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
@@ -140,101 +140,78 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <section class="home">
   <br>
  <center>
- <h2 style="color: #7e828b;">DEALS</h2> </center>
- 
-    <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-              <div class="col-lg-3 d-flex grid-margin stretch-card">
-                <div class="card" style="height: max-content;">
-                  <div class="card-body">
-                   
-                    <div class="template-demo">                    
-                     <center> <p > Location <i class="fa fa-regular fa-chevron-down" id="clickme" onclick="myFunction()" style="float:right;"></i></p></center><hr>
-                      <?php
-                                
+ <h2 style="color: #7e828b;">EXCLUSIVE DEALS</h2> </center>
+ <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <form action="exclusivedeals.php?l=" method="GET">
+                    <div class="card shadow mt-3">
+                        <div class="card-header">
+                            <h5>Filter
+                                <button type="submit" class="btn btn-primary btn-sm float-end">Search</button>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <h6>Location</h6>
+                            <hr>
+                            <?php
+                            $con = mysqli_connect("localhost", "root", "", "registration_db");
 
-                                $sql = "SELECT * FROM location";
-                                $result  = mysqli_query($con, $sql);
+                            $brand_query = "SELECT * FROM location";
+                            $brand_query_run = mysqli_query($con, $brand_query);
 
-                                if(mysqli_num_rows($result) > 0)
-                                {
-                                    foreach($result as $locationlist)
-                                    {
-                                        $checked = [];
-                                        if(isset($_GET['locations']))
-                                        {
-                                            $checked = $_GET['locations'];
-                                        }
-                                        ?>
-                                            <div id="checkbox" >
-                                                <input  type="checkbox" name="locations[]" value="<?= $locationlist['state_id']; ?>" 
-                                                    <?php if(in_array($locationlist['state_id'], $checked)){ echo "checked"; } ?>
-                                                 />
-                                                <?= $locationlist['state_name']; ?>
-                                            </div>
-                                        <?php
+                            if (mysqli_num_rows($brand_query_run) > 0) {
+                                foreach ($brand_query_run as $locationlist) {
+                                    $checked = [];
+                                    if (isset($_GET['locations'])) {
+                                        $checked = $_GET['locations'];
                                     }
+                                    ?>
+                                    <div id="checkbox">
+                                        <input type="checkbox" name="locations" value="<?= $locationlist['state_name']; ?>"
+                                            <?php //if (in_array($locationlist['state_id'], $checked)) {
+                                                //echo "checked";
+                                            //} 
+                                            ?>>
+                                        <?= $locationlist['state_name']; ?>
+                                    </div>
+                                    <?php
                                 }
-                                else
-                                {
-                                    echo "No Location Found";
-                                }
-                            ?>             
-                    </div><hr>
-                    <center><p>Amount</p></center>
-                    
-          <div class="row" style="display: inline-flex;">
-          <center>
-          <input type="number" id="minPrice" name="minPrice" style="width:100px" placeholder=" min price">
-    
-   &nbsp;&nbsp;
-    <input type="number" id="maxPrice" name="maxPrice" style="width:100px" placeholder="max price">
-          </center>
-          </div>
-          <hr>
-          <center> <p>Open Date</p></center>
-                   
-          <div class="row" style="display: inline-flex;">
-          <center>
-          <input type="date" id="minPrice" name="minPrice"  placeholder="Staring Date">
-              </center>
-          </div>
-          <hr>
-          <center> <p>Close Date</p></center>
-                 
-          <div class="row" style="display: inline-flex;">
-          <center>
-          <input type="date" id="minPrice" name="minPrice"  placeholder="End Date">
-    
-                                
-          </center>
-          
+                            } else {
+                                echo "No locations Found";
+                            }
+                            ?>
+
+
+                        </div>
+
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-9 d-flex grid-margin stretch-card">
-                <div class="row">
-                <?php
-                        $sql="select * from deals";
-$result= mysqli_query($con,$sql);
-//print_r($result);die;
-if($result){ 
-  while($row=mysqli_fetch_assoc($result)){
-//print_r($row);die;
-  ?>
+                </form>
+            </div>
 
 
-<div class="col-md-12 grid-margin stretch-card">
+            <div class="col-md-9 mt-3">
+                <div class="card ">
+                    <div class="card-body row">
+                        <?php
+                        if (isset($_GET['locations'])) {
+                            $branchecked = [];
+                            $branchecked[0] = $_GET['locations'];
+                            //print_r($branchecked);die;
+                            //echo $branchecked; die;
+                            foreach ($branchecked as $rowbrand) {
+                                 $sql = "SELECT * FROM exclusive_deals WHERE location='".$rowbrand."'";
+
+                                $result = mysqli_query($con, $sql);
+                                if (mysqli_num_rows($result) > 0) {
+                                    foreach ($result as $row):
+                                        ?>
+                                       <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                 <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>
-                 <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?>  </h5>
-                <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">Approximate Business: ₹<?php echo $row['expQuotation']; ?>000.00 </h5>
-                        Bid Before :<?php echo $row['dealDatetime'];?>
-                  
-    <p style="color:#3b8beb;"> &nbsp<?php echo $row['specification'];?></p>
+                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL :&nbsp<?php echo $row['material'];?></h5>
+    <p><?php echo $row['specification'];?></p>
    
 
     <a href="excluedeal_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Exclusive Deal</button></a></h6>
@@ -242,22 +219,43 @@ if($result){
                     </div>
                   </div>
                   
-                      
-                  <?php
-                      } }
-                      ?> 
+                                        <?php
+                                    endforeach;
+                                }
 
+                            }
+                        } else {
+                            $sql = "SELECT * FROM exclusive_deals";
+                            $result = mysqli_query($con, $sql);
+                            if (mysqli_num_rows($result) > 0) {
+                                foreach ($result as $row):
+                                    ?>
+                      <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?></h5>
+    <p style="color:#3b8beb;"><?php echo $row['specification'];?></p>
+   
 
-                
-            
-                   </div>
-              </div>
-            </div>
-
-          </div> 
-       
+    <a href="excluedeal_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Exclusive Deal</button></a></h6>
+                      </div>
+                    </div>
                   </div>
- <br>
+                  
+                                <?php
+                                endforeach;
+                            } else {
+                                echo "No Items Found";
+                            }
+                        }
+                        ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
 
 <br>
 <center style="color: #3b8beb;"> 
@@ -391,48 +389,7 @@ if($result){
   <!-- Copyright -->
 </footer>
 
-<script>
 
-var aText = new Array(
-"Be INFORMED , Be PREPARED , Be SMART , be SAFE ,be READY to fight #COVID19"
-
-);
-var iSpeed = 100; // time delay of print out
-var iIndex = 0; // start printing array at this posision
-var iArrLength = aText[0].length; // the length of the text array
-var iScrollAt = 20; // start scrolling up at this many lines
-
-var iTextPos = 0; // initialise text position
-var sContents = ''; // initialise contents variable
-var iRow; // initialise current row
-
-function typewriter()
-{
-sContents =  ' ';
-iRow = Math.max(0, iIndex-iScrollAt);
-var destination = document.getElementById("typedtext");
-
-while ( iRow < iIndex ) {
-sContents += aText[iRow++] + '<br />';
-}
-destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) ;
-if ( iTextPos++ == iArrLength ) {
-iTextPos = 0;
-iIndex++;
-if ( iIndex != aText.length ) {
- iArrLength = aText[iIndex].length;
- setTimeout("typewriter()", 500);
-}
-} else {
-setTimeout("typewriter()", iSpeed);
-}
-}
-
-
-typewriter();
-
-
-</script>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
@@ -446,10 +403,3 @@ typewriter();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
-
-
-
-
-
-
-

@@ -358,21 +358,21 @@ include "connect.php";
             <?php
             $sql = "select * from auction";
             $result = mysqli_query($con, $sql);
-            //print_r($result);die;
+
             if ($result) {
               while ($row = mysqli_fetch_assoc($result)) {
-                //print_r($row);die;
+             
                 ?>
                 <section>
-                <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>
+                <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 750px;">4 Days to go</button>
                           <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?>  </h5>
                         <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> Approximate Business : ₹<?php echo $row['aucValue']; ?>000.00 </h5>
                         Bid Before :<?php echo $row['endDatetime'];?>
-                  
+                 
     <p style="color:#3b8beb;">&nbsp<?php echo $row['aucDescription'];?></p>
 
                   <a href="auction_page.php?g=<?php echo $row['id'];?>"><button
-                      style="padding:4px; border-radius: 6px; margin-left: 900px; font-size: 100%;" class="btn btn-primary"
+                      style="padding:4px; border-radius: 6px; margin-left: 840px; font-size: 100%;" class="btn btn-primary"
                       type="submit">View Auction</button></h6></a>
                 </section>
                 <hr>
@@ -399,14 +399,14 @@ include "connect.php";
                 //print_r($row);die;
                 ?>
                 <section>
-                <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>
+                <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 750px;">4 Days to go</button>
                  <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?>  </h5>
                 <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">Approximate Business: ₹<?php echo $row['tenderValue']; ?>000.00 </h5>
                         Bid Before :<?php echo $row['startDatetime'];?>
                   
     <p style="color:#3b8beb;"> &nbsp<?php echo $row['tenderDesc'];?></p>
     <a href="tend_page.php?g=<?php echo $row['id'];?>"><button
-                      style="padding:4px; border-radius: 6px; margin-left: 900px; font-size: 100%;" class="btn btn-primary"
+                      style="padding:4px; border-radius: 6px; margin-left: 850px; font-size: 100%;" class="btn btn-primary"
                       type="submit">View Tender</button></h6></a>
                 <hr>
                 <?php
@@ -434,7 +434,7 @@ include "connect.php";
                 <section>
               
                  
-                 <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>
+                 <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 750px;">4 Days to go</button>
                  <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?>  </h5>
                 <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">Approximate Business: ₹<?php echo $row['expQuotation']; ?>000.00 </h5>
                         Bid Before :<?php echo $row['dealDatetime'];?>
@@ -442,7 +442,7 @@ include "connect.php";
     <p style="color:#3b8beb;"> &nbsp<?php echo $row['specification'];?></p>
 
                   <a href="deal_page.php?g=<?php echo $row['id'];?>"><button
-                      style="padding:4px; border-radius: 6px; margin-left: 900px; font-size: 100%;" class="btn btn-primary"
+                      style="padding:4px; border-radius: 6px; margin-left: 850px; font-size: 100%;" class="btn btn-primary"
                       type="submit">View Deal</button></h6></a>
                 </section>
                 <hr>
