@@ -1,6 +1,7 @@
 <?php
 include "connect.php";
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -21,7 +22,6 @@ include "connect.php";
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/_buttons.scss">
   <link rel="stylesheet" href="css/buttons.scss">
-  <link rel="stylesheet" href="css/reboot.scss">
   <!-- <link rel="stylesheet" href="css/buttons.scss"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -34,7 +34,6 @@ include "connect.php";
     href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
   <!-- <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css"> -->
 
-  <link rel="stylesheet" href="metalprice.css">
   <script
     nonce="10103964-004b-4a99-b2c8-e02088e28228">(function (w, d) { !function (bg, bh, bi, bj) { bg[bi] = bg[bi] || {}; bg[bi].executed = []; bg.zaraz = { deferred: [], listeners: [] }; bg.zaraz.q = []; bg.zaraz._f = function (bk) { return function () { var bl = Array.prototype.slice.call(arguments); bg.zaraz.q.push({ m: bk, a: bl }) } }; for (const bm of ["track", "set", "debug"]) bg.zaraz[bm] = bg.zaraz._f(bm); bg.zaraz.init = () => { var bn = bh.getElementsByTagName(bj)[0], bo = bh.createElement(bj), bp = bh.getElementsByTagName("title")[0]; bp && (bg[bi].t = bh.getElementsByTagName("title")[0].text); bg[bi].x = Math.random(); bg[bi].w = bg.screen.width; bg[bi].h = bg.screen.height; bg[bi].j = bg.innerHeight; bg[bi].e = bg.innerWidth; bg[bi].l = bg.location.href; bg[bi].r = bh.referrer; bg[bi].k = bg.screen.colorDepth; bg[bi].n = bh.characterSet; bg[bi].o = (new Date).getTimezoneOffset(); if (bg.dataLayer) for (const bt of Object.entries(Object.entries(dataLayer).reduce(((bu, bv) => ({ ...bu[1], ...bv[1] }))))) zaraz.set(bt[0], bt[1], { scope: "page" }); bg[bi].q = []; for (; bg.zaraz.q.length;) { const bw = bg.zaraz.q.shift(); bg[bi].q.push(bw) } bo.defer = !0; for (const bx of [localStorage, sessionStorage]) Object.keys(bx || {}).filter((bz => bz.startsWith("_zaraz_"))).forEach((by => { try { bg[bi]["z_" + by.slice(7)] = JSON.parse(bx.getItem(by)) } catch { bg[bi]["z_" + by.slice(7)] = bx.getItem(by) } })); bo.referrerPolicy = "origin"; bo.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(bg[bi]))); bn.parentNode.insertBefore(bo, bn) };["complete", "interactive"].includes(bh.readyState) ? zaraz.init() : bg.addEventListener("DOMContentLoaded", zaraz.init) }(w, d, "zarazData", "script"); })(window, document);</script>
 </head>
@@ -81,7 +80,7 @@ include "connect.php";
     }
 
     .strip a:hover {
-      color: white;
+      color: #000000;
     }
 
 
@@ -91,6 +90,167 @@ include "connect.php";
         display: block;
       }
     }
+
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+    body {
+
+      font-family: "Roboto", helvetica, arial, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      text-rendering: optimizeLegibility;
+    }
+
+    div.table-title {
+      display: block;
+      margin: auto;
+      max-width: 600px;
+      padding: 5px;
+      width: 100%;
+    }
+
+    .table-title h3 {
+      color: #3b8beb;
+      font-size: 30px;
+      font-weight: 400;
+      font-style: normal;
+      font-family: "Roboto", helvetica, arial, sans-serif;
+      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+      text-transform: uppercase;
+    }
+
+
+    /*** Table Styles **/
+
+    .table-fill {
+      background: white;
+      border-radius: 3px;
+      border-collapse: collapse;
+      height: 120px;
+      margin: auto;
+      max-width: 600px;
+      padding: 5px;
+      width: 100%;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      animation: float 5s infinite;
+    }
+
+    th {
+      color: #ffffff;
+      ;
+      background: #3b8beb;
+      border-bottom: 4px solid #9ea7af;
+      border-right: 1px solid #343a45;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 10px;
+      text-align: left;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      vertical-align: middle;
+    }
+
+    th:first-child {
+      border-top-left-radius: 3px;
+    }
+
+    th:last-child {
+      border-top-right-radius: 3px;
+      border-right: none;
+    }
+
+    tr {
+      border-top: 1px solid #C1C3D1;
+      border-bottom: 1px solid #C1C3D1;
+      color: #666B85;
+      font-size: 16px;
+      font-weight: normal;
+      text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+    }
+
+    tr:hover td {
+      background: #828393;
+      color: #FFFFFF;
+    }
+
+    tr:first-child {
+      border-top: none;
+    }
+
+    tr:last-child {
+      border-bottom: none;
+    }
+
+    tr:nth-child(odd) td {
+      background: #EBEBEB;
+    }
+
+    tr:nth-child(odd):hover td {
+      background: #828393;
+    }
+
+    tr:last-child td:first-child {
+      border-bottom-left-radius: 3px;
+    }
+
+    tr:last-child td:last-child {
+      border-bottom-right-radius: 3px;
+    }
+
+    td {
+      background: #FFFFFF;
+      padding: 10px;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: 300;
+      font-size: 18px;
+      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+      border-right: 1px solid #C1C3D1;
+    }
+
+
+
+    td:last-child {
+      border-right: 0px;
+    }
+
+    th.text-left {
+      text-align: left;
+    }
+
+    th.text-center {
+      text-align: center;
+    }
+
+    th.text-right {
+      text-align: right;
+    }
+
+    td.text-left {
+      text-align: left;
+    }
+
+    td.text-center {
+      text-align: center;
+    }
+
+    td.text-right {
+      text-align: right;
+    }
+
+    h4,
+    h5,
+    h6 {
+      color: #757b89;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      font-size: medium;
+
+    }
+
+    .space {
+      padding: 6px;
+
+
+    }
   </style>
   <section class="ftco-section" style="padding-top: 5px;">
 
@@ -99,7 +259,7 @@ include "connect.php";
         <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
 
       </div>&nbsp <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
-      <div class="container" style="margin-left: 370px; ">
+      <div class="container" style="margin-left: 270px; ">
         <form class="form-inline" action="/action_page.php">
           <label for="email"></label>
           <input type="email" class="form-control" id="email" placeholder="Username" name="email">
@@ -108,10 +268,12 @@ include "connect.php";
           <div class="form-check">
 
           </div><br>
-          <a href="signin.html" style="font-size: medium;">
-            <i class="fa-solid fa-user"></i>SignIn
-          </a>
-          <a href="signup.html" style="font-size: medium; padding: 20px; ">
+          <button type="submit" class="btn btn-primary"
+            style="background-color: #3b8beb !important; border-color: #3b8beb;"> <a href="signin.html"
+              style="font-size: medium;color: #ffffff; ">
+              <i class="fa-solid fa-user" style="padding: 5px; "></i>SignIn
+            </a></button>
+          <a href="signup.html" style="font-size: medium; padding: 25px; ">
             <i class="fa-solid fa-user-plus"></i>SignUp
           </a>
         </form>
@@ -127,255 +289,163 @@ include "connect.php";
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav m-auto">
-            <li class="nav-item "><a href="home.php" class="nav-link">Home</a></li>
+            <li class="nav-item active"><a href="home.php" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="tender.php" class="nav-link">Tenders</a></li>
 
             <li class="nav-item"><a href="auction.php" class="nav-link">Auctions</a></li>
+
             <li class="nav-item"><a href="deals.php" class="nav-link">Deals</a></li>
             <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
-            <li class="nav-item active"><a href="#" class="nav-link">Metal Prices</a></li>
-            <li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
-            <li class="nav-item"><a href="price.php" class="nav-link">Premium</a></li>
+            <li class="nav-item"><a href="metalprice.html" class="nav-link">Metal Prices</a></li>
+            <li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
+            <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
 
           </ul>
         </div>
       </div>
     </nav>
   </section>
-  <br>
-  <section class="home">
-
-    <div class="container">
-
-      <div class="row ">
-        <div class="col-12 col-md-10 col-lg-8">
-          <form method="GET" action="metalsearch.php?metal=Copper&category=Cu1">
-
-            <form class="card card-sm">
-              <div class="card-body row no-gutters align-items-center" style="background-color: #eae9e9;">
 
 
-                Metal <select name="metal" id="id_metal" data-category-id='id_category' class='dependent-selects__metal'
-                  style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;" placeholder="Search ">
-                  <option value="">select one</option>
-                  <?php
-                  $sql = "SELECT DISTINCT metal FROM `metal`;";
-                  $result = mysqli_query($con, $sql);
-                  if ($result) {
 
-                    while ($row = mysqli_fetch_assoc($result)) {
+  <div class="container-fluid" style="background-color: #3b8beb; padding: 30px;"><br>
+    <h2 style="color: #ffffff;">Upcoming Events Information</h2><br>
 
-                      ?>
-                      <option value="<?php echo $row['metal']; ?>"><?php echo $row['metal']; ?></option>
-                    <?php }
-                  }
-                  ?>
-                </select>
-
-                <select name="category" id="id_category" class='dependent-selects__category'
-                  style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;" placeholder="Search ">
-                  <option value="">select one</option>
-                  <?php $sql = "select * from metal";
-                  $result = mysqli_query($con, $sql);
-                  if ($result) {
-
-                    while ($row = mysqli_fetch_assoc($result)) {
-                      //print_r($row);
-                      //die;
-                      ?>
-                      <option value="<?php echo $row['scrap_metal']; ?>"><?php echo $row['scrap_metal']; ?></option>
-                    <?php }
-                  }
-                  ?>
-                </select>
+    <a href="price.html"><button class="btn btn-primary" style="border-color: #fff;">View All
+        Information</button></a><br><br><br><br>
+  </div>
 
 
-                <div class="col-auto">
-                  <button class="btn btn-primary" id="search" type="submit">Search</button>
+
+  <div class="container" class="col-lg-6 col-md-12" style="margin-top: -130px;"><br><br>
+    <div class="card">
+      <div class="card-body">
+        <div class="clearfix some-new-selector">
+          <div class="pull-left">
+            <div class="pull-right span9" style="color: #9e9797; padding:10px">
+           <?php 
+             $sql = "select * from info_table";
+             $result = mysqli_query($con, $sql);
+           if ($result) {
+
+    while ($row = mysqli_fetch_assoc($result)) {
+      //print_r($row);die;
+      ?>
+
+              <h3 style="color: #595a62;">
+                <?php echo $row['showName']; ?>
+              </h3>
+              <h5><i class='bx bx-map'></i>
+                <?php echo $row['venue']; ?>
+              </h5><br>
+              <hr>
+
+              <div style="margin-left: 40px;">
+
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+
+                      <td>Document Type</td>
+                      <td>RID</td>
+                    </tr>
+                    <tr>
+
+                      <td>INFORMATION NO</td>
+                      <td>
+                        <?php echo $row['infoId']; ?>
+                      </td>
+                    </tr>
+
+                    <tr>
+
+                      <td>TRADE SHOW</td>
+                      <td>
+                        <?php echo $row['showName']; ?>
+                      </td>
+                    </tr>
+                    <tr>
+
+                      <td>DATE</td>
+                      <td><i class='bx bx-calendar-alt'></i>
+                        <?php echo $row['dateTime']; ?>
+                      </td>
+                    </tr>
+                    <tr>
+
+                      <td>EXHIBITOR PRODUCT PROFILE</td>
+                      <td>
+                        <?php echo $row['profile']; ?>
+                      </td>
+                    </tr>
+                    <tr>
+
+                      <td>VENUE</td>
+                      <td>
+                        <?php echo $row['venue']; ?>
+                      </td>
+                    </tr>
+                    <tr>
+
+                      <td>ORGANIZED BY</td>
+                      <td>
+                        <?php echo $row['organizedBy']; ?>
+                      </td>
+                    </tr>
+                    <tr>
+
+                      <td>ORGANIZER ADDRESS</td>
+                      <td>
+                        <?php echo $row['organizedAdd']; ?>
+                      </td>
+                    </tr>
+                    <tr>
+
+                      <td>GOOGLE MAPS</td>
+                      <td>
+                        <?php echo $row['map']; ?>
+                      </td>
+                    </tr>
+                    <tr>
+
+                  </tbody>
+
+                </table>
+
+                <div class="space">
+
                 </div>
-
-              </div>
-            </form>
+                </div>
+                <?php
+    }
+  }
+  ?>
+              
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <br>
-    <div id="wrapper">
-      <h1>Metals Futures Prices</h1>
-
-      <table id="keywords" cellspacing="0" cellpadding="0">
-        <thead>
-          <tr>
-            <th onclick="sortTable(0)"><span>ID</span></th>
-            <th onclick="sortTable(0)"><span>Metal</span></th>
-            <th onclick="sortTable(0)"><span>Scrap Metal</span></th>
-            <th onclick="sortTable(0)"><span>Price</span></th>
-            <th onclick="sortTable(0)"><span>TimeStamp</span></th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <?php
-          $sql = "select * from metal ";
-          $result = mysqli_query($con, $sql);
-          //print_r($result);die;
-          if ($result) {
-            while ($row = mysqli_fetch_assoc($result)) {
-              //print_r($row);die;
-              ?>
-              <tr>
-                <td class="lalign">
-                  <?php echo $row['id']; ?>
-                </td>
-                <td>
-                  <?php echo $row['metal']; ?>
-                </td>
-                <td>
-                  <?php echo $row['scrap_metal']; ?>
-                </td>
-                <td>
-                  <?php echo $row['price']; ?>
-                </td>
-                <td>
-                  <?php
-                  echo $row['timestamp']; ?>
-                </td>
-              </tr>
-
-              <?php
-            }
-          }
-          ?>
-
-        </tbody>
-      </table>
-    </div>
-    <script>
-      function sortTable(n) {
-        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        table = document.getElementById("keywords");
-        switching = true;
-        //Set the sorting direction to ascending:
-        dir = "asc";
-        /*Make a loop that will continue until
-        no switching has been done:*/
-        while (switching) {
-          //start by saying: no switching is done:
-          switching = false;
-          rows = table.rows;
-          /*Loop through all table rows (except the
-          first, which contains table headers):*/
-          for (i = 1; i < (rows.length - 1); i++) {
-            //start by saying there should be no switching:
-            shouldSwitch = false;
-            /*Get the two elements you want to compare,
-            one from current row and one from the next:*/
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
-            /*check if the two rows should switch place,
-            based on the direction, asc or desc:*/
-            if (dir == "asc") {
-              if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                //if so, mark as a switch and break the loop:
-                shouldSwitch = true;
-                break;
-              }
-            } else if (dir == "desc") {
-              if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                //if so, mark as a switch and break the loop:
-                shouldSwitch = true;
-                break;
-              }
-            }
-          }
-          if (shouldSwitch) {
-            /*If a switch has been marked, make the switch
-            and mark that a switch has been done:*/
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            //Each time a switch is done, increase this count by 1:
-            switchcount++;
-          } else {
-            /*If no switching has been done AND the direction is "asc",
-            set the direction to "desc" and run the while loop again.*/
-            if (switchcount == 0 && dir == "asc") {
-              dir = "desc";
-              switching = true;
-            }
-          }
-        }
-      }
-    </script>
-
-    <br>
-  </section>
-
-  <!-- Remove the container if you want to extend the Footer to full width. -->
-  <footer class="page-footer font-small mdb-color lighten-3 pt-4">
-    <div class="container">
-      <h3 align="center" style="color: #3b8beb;">OUR CLIENTS</h3>
-      <hr>
-      <center>
-        <div class="row">
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="https://shopemet.in/images/clients/client-6.png" class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-12 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="https://shopemet.in/images/clients/client-5.png" width="200px" ; class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-1.png" class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-2.png" class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-12 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-3.png" class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-4.png" class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </center>
-    </div>
-    </div>
-
-  </footer>
-  <br><br>
+  </div>
 
 
-  <!-- Footer -->
+
+
+
+
+
+
+
+
+
+
+
   <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
     <!-- Section: Social media -->
     <section class="d-flex justify-content-between p-3" style="background-color:#3b8beb">
@@ -410,7 +480,7 @@ include "connect.php";
           <!-- Grid column -->
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
-            <h6 class="text-uppercase fw-bold">Company name</h6>
+            <h6 class="text-uppercase fw-bold" style="color: #fff;">Company name</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
             <p>
               SHOPEMET is a world class general Refined metal trading company that has served as a foundation for growth
@@ -422,7 +492,7 @@ include "connect.php";
           <!-- Grid column -->
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold">Key links</h6>
+            <h6 class="text-uppercase fw-bold" style="color: #fff;">Key links</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
             <p>
               <a href="#!" class="text-white">About Us</a>
@@ -443,7 +513,7 @@ include "connect.php";
           <!-- Grid column -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold">Useful links</h6>
+            <h6 class="text-uppercase fw-bold" style="color: #fff;">Useful links</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
             <p>
               <a href="#!" class="text-white">Your Account</a>
@@ -452,7 +522,7 @@ include "connect.php";
               <a href="#!" class="text-white">Become an Affiliate</a>
             </p>
             <p>
-              <a href="#!" class="text-white">Help</a>
+              <a href="#!" class="text-white" style="color: #fff;">Help</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -460,7 +530,7 @@ include "connect.php";
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold">Contact</h6>
+            <h6 class="text-uppercase fw-bold" style="color: #fff;">Contact</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
             <p><i class="fa fa-envelope" aria-hidden="true"></i> shopemet@gmail.com</p>
             <p><i class="fa fa-phone" aria-hidden="true"></i> +91 8766443234</p>
@@ -481,29 +551,48 @@ include "connect.php";
     </div>
     <!-- Copyright -->
   </footer>
+
   <script>
-    $(document).on("click", "#search", function (e) {
-      e.preventDefault();
 
-      var std = $("#select_std").val();
-      var res = $("#select_res").val();
+    var aText = new Array(
+      "Be INFORMED , Be PREPARED , Be SMART , be SAFE ,be READY to fight #COVID19"
 
-      if (std !== "" && res !== "") {
-        $('#record_table').DataTable().destroy();
-        fetch(std, res);
-      } else if (std !== "" && res == "") {
-        $('#record_table').DataTable().destroy();
-        fetch(std, '');
-      } else if (std == "" && res !== "") {
-        $('#record_table').DataTable().destroy();
-        fetch('', res);
-      } else {
-        $('#record_table').DataTable().destroy();
-        fetch();
+    );
+    var iSpeed = 100; // time delay of print out
+    var iIndex = 0; // start printing array at this posision
+    var iArrLength = aText[0].length; // the length of the text array
+    var iScrollAt = 20; // start scrolling up at this many lines
+
+    var iTextPos = 0; // initialise text position
+    var sContents = ''; // initialise contents variable
+    var iRow; // initialise current row
+
+    function typewriter() {
+      sContents = ' ';
+      iRow = Math.max(0, iIndex - iScrollAt);
+      var destination = document.getElementById("typedtext");
+
+      while (iRow < iIndex) {
+        sContents += aText[iRow++] + '<br />';
       }
-    });</script>
+      destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos);
+      if (iTextPos++ == iArrLength) {
+        iTextPos = 0;
+        iIndex++;
+        if (iIndex != aText.length) {
+          iArrLength = aText[iIndex].length;
+          setTimeout("typewriter()", 500);
+        }
+      } else {
+        setTimeout("typewriter()", iSpeed);
+      }
+    }
 
 
+    typewriter();
+
+
+  </script>
 
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.js"></script>
