@@ -408,7 +408,7 @@ include "connect.php";
                       <tbody>
                         <tr>
      
-                       <td><?php echo $row['material'];?></td>
+                      <td> <b><?php echo $row['material'];?>:&nbsp<?php echo $row['quantity'];?></b></td>
     
                       </tr>
                   
@@ -432,7 +432,7 @@ include "connect.php";
   <div class="container">
 
 <div class="row">
-<div class="card" style="background-color: #3b8beb; margin-left:550px; margin-top:-850px; margin-bottom:700px; padding:10px; ">
+<div class="card" style="background-color: #3b8beb; margin-left:550px; margin-top:-620px; margin-bottom:700px; padding:10px; ">
 <div class="card-body">
 <h4 style="color:#fff;">AUCTION VALUE:&nbsp ₹<?php echo $row['tenderValue']; ?>000.00</h4><hr>
 <h4 style="color:#fff;">QUANTITY :&nbsp <?php echo $row['quantity']; ?> TONS</h4><hr>
@@ -463,7 +463,7 @@ include "connect.php";
   </div>
 
   <div class="container">
-    <div class="card" style="margin-top:-300px;">
+    <div class="card" style="margin-top:-510px;">
       <div class="card-body" >
 
         <h3>Documents</h3>
