@@ -267,12 +267,13 @@ h4,
     <div class="form-check">
       
     </div><br>
-    <button type="submit" class="btn btn-primary" style="background-color: #3b8beb !important; border-color: #3b8beb;">  <a href="signin.html" style="font-size: medium;color: #ffffff; " >
-        <i class="fa-solid fa-user" style="padding: 5px; "></i>SignIn
-      </a></button>
-      <a href="signup.html" style="font-size: medium; padding: 25px; ">
-        <i class="fa-solid fa-user-plus"></i>SignUp
-      </a>
+    <a href="signin.html"
+              style="font-size: medium;color: #3b8beb; ">
+              <i class="fa-solid fa-user" style="padding: 5px; "></i>SignIn
+            </a>
+          <a href="signup.html" style="font-size: medium; padding: 25px; ">
+            <i class="fa-solid fa-user-plus"></i>SignUp
+          </a>
   </form>
 </div>
    
@@ -407,14 +408,11 @@ h4,
   <tbody>
  
    
-    <tr>
+  <tr>
      
-      <td><?php echo $row['material'];?></td>
-    
-    </tr>
-   
-     
-    
+     <td> <b><?php echo $row['material'];?>:&nbsp<?php echo $row['quantity'];?></b></td>
+
+     </tr>
    
 </table>
 
@@ -432,10 +430,9 @@ h4,
   
   <div class="row">
   
-  
    
   <div class="card"
-    style="background-color: #3b8beb; margin-left:550px; margin-top:-810px; margin-bottom:600px; padding:10px; ">
+    style="background-color: #3b8beb; margin-left:550px; margin-top:-750px; margin-bottom:600px; padding:10px; ">
     <div class="card-body">
       <h6 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h6>
       <hr>
@@ -452,7 +449,7 @@ h4,
     </div>
     
     <div class="container">
-    <div class="card" >
+    <div class="card" style="margin-top:-115px;" >
       <div class="card-body">
         <h3>Images</h3><hr>
         <div class="row">

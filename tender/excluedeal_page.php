@@ -267,12 +267,13 @@ h4,
     <div class="form-check">
       
     </div><br>
-    <button type="submit" class="btn btn-primary" style="background-color: #3b8beb !important; border-color: #3b8beb;">  <a href="signin.html" style="font-size: medium;color: #ffffff; " >
-        <i class="fa-solid fa-user" style="padding: 5px; "></i>SignIn
-      </a></button>
-      <a href="signup.html" style="font-size: medium; padding: 25px; ">
-        <i class="fa-solid fa-user-plus"></i>SignUp
-      </a>
+    <a href="signin.html"
+              style="font-size: medium;color: #3b8beb; ">
+              <i class="fa-solid fa-user" style="padding: 5px; "></i>SignIn
+            </a>
+          <a href="signup.html" style="font-size: medium; padding: 25px; ">
+            <i class="fa-solid fa-user-plus"></i>SignUp
+          </a>
   </form>
 </div>
    
@@ -291,7 +292,7 @@ h4,
 <li class="nav-item"><a href="auction.php" class="nav-link">Auctions</a></li>
 
 <li class="nav-item "><a href="deals.php" class="nav-link">Deals</a></li>
-<li class="nav-item active"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
+<li class="nav-item active"><a href="#" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
 <li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
 <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
@@ -315,7 +316,7 @@ h4,
  <div class="clearfix some-new-selector">
   <div class="pull-left">
   <div class="pull-right span9" style="color: #9e9797; padding:10px">
-    <h6>Home /Exclusive Deal Search /Exclusive Deal Detail</h6>
+    <h6>Home / Deal search / Deal Detail</h6>
     <br>
     <?php
                     $id = $_GET['g'];
@@ -349,13 +350,13 @@ h4,
       <td><a href="price.html">XXXXX</a></td>
     </tr>
     <tr>
-    <tr>
 
-    <td >Exclusive Deal Value </td>
+      <td >Deal Value </td>
     <td>
     <b> ₹&nbsp<?php echo $row['dealValue']; ?>
     </td></b>
-</tr>
+    </tr>
+    <tr>
      
       <td >Lead Date</td>
       <td><?php echo $row['dealDatetime']; ?></td>
@@ -381,6 +382,7 @@ h4,
       <td >Material</td>
       <td><?php echo $row['material']; ?></td>
     </tr>
+    
 
     <tr>
      
@@ -406,11 +408,11 @@ h4,
   <tbody>
  
    
-    <tr>
+  <tr>
      
-      <td><?php echo $row['material'];?></td>
-    
-    </tr>
+     <td> <b><?php echo $row['material'];?>:&nbsp<?php echo $row['quantity'];?></b></td>
+
+     </tr>
    
      
     
@@ -434,7 +436,7 @@ h4,
   
    
   <div class="card"
-    style="background-color: #3b8beb; margin-left:550px; margin-top:-810px; margin-bottom:600px; padding:10px; ">
+    style="background-color: #3b8beb; margin-left:550px; margin-top:-750px; margin-bottom:600px; padding:10px; ">
     <div class="card-body">
       <h6 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h6>
       <hr>
@@ -447,13 +449,11 @@ h4,
              </h5>
 
               </div>     
-         <center>     <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
+         <center> <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
     </div>
     
-
-
     <div class="container">
-    <div class="card" style="margin-top:-200px">
+    <div class="card" style="margin-top:-115px;" >
       <div class="card-body">
         <h3>Images</h3><hr>
         <div class="row">
@@ -524,10 +524,9 @@ h4,
       </div>
     </div>
   </div>
-
-
+  
 <div class="container">
- <div class="card">
+ <div class="card" >
  <div class="card-body">
 
     <h3>Documents</h3>
@@ -670,7 +669,6 @@ h4,
   </div>
   <!-- Copyright -->
 </footer>
-
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script>
