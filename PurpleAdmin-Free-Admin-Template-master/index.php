@@ -1,8 +1,16 @@
 <?php
+
 session_start();
 if (!isset($_SESSION['name'])){
   header("Location: /Rawmet24/PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");
+
 }
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'registration_db';
+
+$conn = new mysqli($servername, $username, $password, $database);
 ?>
 DOCTYPE html>
 <html lang="en">
@@ -10,7 +18,7 @@ DOCTYPE html>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Rawmet Admin</title>
+    <title>Rawmet Admin Dashboard</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -209,7 +217,13 @@ a:hover{
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Auctions <i class="mdi mdi-chart-line mdi-24px float-sm-end"></i>
                     </h4>
-                    <h2 class="mb-5">15,0000</h2>
+                    <h2 class="mb-5"><?php 
+                $sql = "select * from auction";
+                $result = mysqli_query($conn, $sql);
+                echo ($result->num_rows-1)."+";
+                //echo "+";
+                //die;
+            ?></h2>
                   </div>
                 </div>
               </div>
@@ -219,7 +233,13 @@ a:hover{
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Tenders <i class="mdi mdi-animation mdi-24px float-sm-end"></i>
                     </h4>
-                    <h2 class="mb-5">45,6334</h2>
+                    <h2 class="mb-5"> <?php 
+                $sql = "select * from tenders";
+                $result = mysqli_query($conn, $sql);
+                echo ($result->num_rows-1)."+";
+                //echo "+";
+                //die;
+            ?></h2>
                   </div>
                 </div>
               </div>
@@ -229,7 +249,13 @@ a:hover{
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Deals<i class="mdi mdi-drawing-box mdi-24px float-sm-end"></i>
                     </h4>
-                    <h2 class="mb-5">95,5741</h2>
+                    <h2 class="mb-5"><?php 
+                $sql = "select * from deals";
+                $result = mysqli_query($conn, $sql);
+                echo ($result->num_rows-1)."+";
+                //echo "+";
+                //die;
+            ?></h2>
                   </div>
                 </div>
               </div>

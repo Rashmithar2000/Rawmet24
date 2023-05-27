@@ -157,7 +157,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Tenders Details</h4>
-                  <form action="tender.php" method="POST" class="forms-sample">
+                  <form action="tender.php" method="POST" class="forms-sample" enctype="multipart/form-data">
                 
                     <div class="form-group">
                       <label for="category">Category</label>
@@ -229,7 +229,7 @@
                     </div>
                     <div class="form-group">
                       <label for="tenderNumber">Tender Number</label>
-                      <input type="number" class="form-control" name="tenderNumber" placeholder="Tender Number" required>
+                      <input type="text" class="form-control" name="tenderNumber" placeholder="Tender Number" required>
                     </div>
                     
                     <div class="form-group">
@@ -242,7 +242,7 @@
                     </div>
                     <div class="form-group">
                       <label for="quantity">Quantity</label>
-                      <input type="number" class="form-control" name="quantity" placeholder="Quantity">
+                      <input type="text" class="form-control" name="quantity" placeholder="Quantity">
                     </div>
           
                     <div class="form-group">
@@ -271,7 +271,7 @@
                     </div>
                     <div class="form-group">
                       <label for="tenderValue">Tender Value</label>
-                      <input type="number" class="form-control" name="tenderValue" placeholder="Tender Value" required>
+                      <input type="text" class="form-control" name="tenderValue" placeholder="Tender Value" required>
                     </div>
                    <br>
                    <p class="card-description">Express of Interest</p>
@@ -348,11 +348,11 @@
                       
                       <div class="form-group">
                         <label>Auction File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <input type="file" name="img[]" class="file-upload-default" multiple>
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File">
                           <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-primary" type="button"disabled>Upload</button>
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
                         </div>
                       </div>

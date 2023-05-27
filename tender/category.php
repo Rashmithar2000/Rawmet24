@@ -253,10 +253,6 @@ include "connect.php";
     .color{
       color: #fff !important;
     }
-    .modal-body img {
-      width: 100%;
-      height: auto;
-    }
   </style>
   <section class="ftco-section" style="padding-top: 5px;">
 
@@ -274,10 +270,11 @@ include "connect.php";
           <div class="form-check">
 
           </div><br>
-         <a href="signin.html"
-              style="font-size: medium;color: #3b8beb; ">
+          <button type="submit" class="btn btn-primary"
+            style="background-color: #3b8beb !important; border-color: #3b8beb;"> <a href="signin.html"
+              style="font-size: medium;color: #ffffff; ">
               <i class="fa-solid fa-user" style="padding: 5px; "></i>SignIn
-            </a>
+            </a></button>
           <a href="signup.html" style="font-size: medium; padding: 25px; ">
             <i class="fa-solid fa-user-plus"></i>SignUp
           </a>
@@ -323,18 +320,20 @@ include "connect.php";
         <div class="clearfix some-new-selector">
           <div class="pull-left">
             <div class="pull-right span9" style="color: #9e9797; padding:10px">
-              <h6>Home / Auction Search / Auction Detail</h6>
+              <h6>Home / Category Search / Tender Detail</h6>
               <br>
               <?php
-                    $id = $_GET['g'];
-                    $sql = "select * from auction where id=$id";
+                    $id = urldecode($_GET['type']);
+                    //print_r(urldecode($id));
+                    //die;
+                    $sql = "select * from tenders where category='$id'";
                     $result = mysqli_query($con, $sql);
                     if ($result) {
                       while ($row = mysqli_fetch_assoc($result)) {
 
                         ?>
               <h3 style="color: #595a62;"> COMPANY NAME: <a href="price.html">XXXXX</a></h3>
-              <h5><i class='bx bx-map'></i> <?php echo $row['aucLocation']; ?></h5>
+              <h5><i class='bx bx-map'></i> <?php echo $row['tenderLocation']; ?></h5>
               <hr>
               <div style="margin-left: 40px;">
                 <table class="table table-bordered">
@@ -358,21 +357,21 @@ include "connect.php";
 
                           <td>Location</td>
                           <td>
-                            <?php echo $row['aucLocation']; ?>
+                            <?php echo $row['tenderLocation']; ?>
                           </td>
                         </tr>
                       
 
-                          <td>Auction No</td>
+                          <td>TENDER Number</td>
                           <td>
                           <a href="price.html">XXXXX</a>
                           </td>
                         </tr>
                         <tr>
 
-                          <td>ePublishing Date & Time</td>
+                          <td>Publishing Date & Time</td>
                           <td>
-                            <?php echo $row['ePublishingDateTime']; ?>
+                            <?php echo $row['publishingDatetime']; ?>
                           </td>
                         </tr>
                         <tr>
@@ -387,20 +386,6 @@ include "connect.php";
                           <td>Bid Submission Close Date</td>
                           <td>
                             <?php echo $row['endDatetime']; ?>
-                          </td>
-                        </tr>
-                        <tr>
-
-                          <td>Inspection From Date</td>
-                          <td>
-                          <a href="price.html">XXXXX</a>
-                          </td>
-                        </tr>
-                        <tr>
-
-                          <td>Inspection Closing Date</td>
-                          <td>
-                          <a href="price.html">XXXXX</a>
                           </td>
                         </tr>
                         <tr>
@@ -450,17 +435,15 @@ include "connect.php";
     </div>
   </div>
 
-
-
   <div class="container">
 
 <div class="row">
 <div class="card" style="background-color: #3b8beb; margin-left:550px; margin-top:-850px; margin-bottom:700px; padding:10px; ">
 <div class="card-body">
-<h4 style="color:#fff;">AUCTION VALUE:&nbsp ₹<?php echo $row['aucValue']; ?>000.00</h4><hr>
+<h4 style="color:#fff;">AUCTION VALUE:&nbsp ₹<?php echo $row['tenderValue']; ?>000.00</h4><hr>
 <h4 style="color:#fff;">QUANTITY :&nbsp <?php echo $row['quantity']; ?> TONS</h4><hr>
 
-  <h5 style="color:#fff;">Opening date and time :<br><i class='bx bx-calendar-alt'>&nbsp<?php echo $row['ePublishingDateTime']; ?> </i><br>
+  <h5 style="color:#fff;">Opening date and time :<br><i class='bx bx-calendar-alt'>&nbsp<?php echo $row['publishingDatetime']; ?> </i><br>
                     
                     <br> Bid Submission Started <br>
                     <h6 style="color:#fff;"><i class='bx bxs-calendar-alt'></i> <?php echo $row['startDatetime']; ?> &nbsp &nbsp
@@ -485,87 +468,8 @@ include "connect.php";
 </div>
   </div>
 
-
   <div class="container">
-    <div class="card"style="margin-top:-290px" >
-      <div class="card-body">
-        <h3>Images</h3><hr>
-        <div class="row">
-          <div class="col-md-2">
-            <img src="https://media.istockphoto.com/id/646996026/photo/metal-profiles-and-tubes-different-stainless-steel-products.jpg?s=612x612&w=0&k=20&c=h3Kmz9NBC9Egi3KvQHVO-_UXBQ2ciU0jEunusO72tIY=" width="200px" height="200px" class="img-fluid" alt="Image 1" data-toggle="modal" data-target="#myModal1">
-          </div>
-          <div class="col-md-2">
-            <img src="https://ichef.bbci.co.uk/images/ic/448xn/p0b760td.jpg" width="200px" height="200px" class="img-fluid" alt="Image 4" data-toggle="modal" data-target="#myModal2">
-          </div>
-          <div class="col-md-2">
-            <img src="https://5.imimg.com/data5/LH/QO/MY-43959358/1-250x250.jpg" width="200px" height="200px" class="img-fluid" alt="Image 2" data-toggle="modal" data-target="#myModal3">
-          </div>
-          
-          <div class="col-md-2">
-            <img src="https://www.thoughtco.com/thmb/8cblL7z5t71vPXXVmUbZLZ99Sc8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/collection-of-bolts-and-nuts-of-different-sizes-688358622-5b4b1e9a46e0fb005ba8e4a9.jpg" width="200px" height="200px"  class="img-fluid" alt="Image 3" data-toggle="modal" data-target="#myModal4">
-          </div>
-          
-          <div class="col-md-2">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Alloy_and_metal_samples_-_Beryllium-Copper%2C_Inconel%2C_Steel%2C_Titanium%2C_Aluminum%2C_Magnesium.jpg" width="200px" height="200px" class="img-fluid" alt="Image 5" data-toggle="modal" data-target="#myModal5">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://media.istockphoto.com/id/646996026/photo/metal-profiles-and-tubes-different-stainless-steel-products.jpg?s=612x612&w=0&k=20&c=h3Kmz9NBC9Egi3KvQHVO-_UXBQ2ciU0jEunusO72tIY=" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://ichef.bbci.co.uk/images/ic/448xn/p0b760td.jpg" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://5.imimg.com/data5/LH/QO/MY-43959358/1-250x250.jpg" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://www.thoughtco.com/thmb/8cblL7z5t71vPXXVmUbZLZ99Sc8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/collection-of-bolts-and-nuts-of-different-sizes-688358622-5b4b1e9a46e0fb005ba8e4a9.jpg" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Alloy_and_metal_samples_-_Beryllium-Copper%2C_Inconel%2C_Steel%2C_Titanium%2C_Aluminum%2C_Magnesium.jpg" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
-
-                      </div>
-                      <br><br><br><br><br><br><br>
-
-
-
-  <div class="container">
-    <div class="card" style="margin-top:-150px;">
+    <div class="card" style="margin-top:-300px;">
       <div class="card-body" >
 
         <h3>Documents</h3>
@@ -617,17 +521,13 @@ include "connect.php";
 
 </body>
 
-</div>
-</div>
-</div>
-</div>
-</div>
+                                                        </div>
+                                                </div>
+                                          </div>
+                                    </div>
+                                </div>
 </div>
 </center>
-
-
-
-
 
 
 <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
@@ -735,17 +635,7 @@ include "connect.php";
   </div>
   <!-- Copyright -->
 </footer>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <script>
-    // Add click event listener to all zoomable images
-    var zoomImages = document.querySelectorAll('.zoom-img');
-    zoomImages.forEach(function(image) {
-      image.addEventListener('click', function() {
-        var modalImage = document.querySelector('#myModal .modal-body img');
-        modalImage.src = this.src;
-      });
-    });
-  </script>
+
 
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
