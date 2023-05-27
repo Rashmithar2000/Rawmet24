@@ -408,17 +408,11 @@ include "connect.php";
                       <tbody>
                         <tr>
      
-                       <td>Bronze</td>
+                       <td><?php echo $row['material'];?></td>
     
                       </tr>
-                    <tr>
-                  <td>Steel</td>
-    
-                  </tr>
-                   <tr>
-                   <td>Silver</td>
-    
-           </tr>
+                  
+          
      
     
    
