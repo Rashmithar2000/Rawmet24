@@ -27,7 +27,73 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $specification = isset($_POST['specification']) ? $_POST['specification'] : '';
     $dor = isset($_POST['dor']) ? $_POST['dor'] : '';
     $expQuotation = isset($_POST['expQuotation']) ? $_POST['expQuotation'] : '';
+     //=======================================================upload ====================
+
+     $fname=$_FILES["img"]["name"];
+     //print_r($fname);die;
+     $fname2="";
+     $ctr=0;
+     foreach($fname as $fn){
+         $targetDir = "uploads/"; // Directory to store uploaded images
+         $targetFile = $targetDir . basename($_FILES["img"]["name"][$ctr]);
+         $uploadOk = 1;
+         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+        
  
+         // Allow only certain file formats
+         if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif") {
+             echo "Error: Only JPG, JPEG, PNG, and GIF files are allowed.";
+             $uploadOk = 0;
+         }
+         if ($uploadOk == 1) {
+             move_uploaded_file($_FILES["img"]["tmp_name"][$ctr], $targetFile);  
+             $fname2 = serialize($fname);    
+         }
+ 
+         $ctr++;
+     }
+ 
+ 
+    //  print_r($fname2);
+    //  die;
+ 
+ 
+     //=========================================================================================
+ 
+ 
+ 
+     $dname=$_FILES["file"]["name"];
+     //print_r($fname);die;
+     $dname2="";
+     $ctr=0;
+     foreach($dname as $fn){
+         $targetDir = "uploads/"; // Directory to store uploaded images
+         $targetFile = $targetDir . basename($_FILES["file"]["name"][$ctr]);
+         $uploadOk = 1;
+         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+        
+ 
+         // Allow only certain file formats
+         if ($imageFileType != "pdf" ) {
+             echo "Error: Only pdf files are allowed.";
+             $uploadOk = 0;
+         }
+         if ($uploadOk == 1) {
+             move_uploaded_file($_FILES["file"]["tmp_name"][$ctr], $targetFile);  
+             $dname2 = serialize($dname);    
+         }
+ 
+         $ctr++;
+     }
+ 
+ 
+ 
+ 
+ 
+ 
+     //=======================================================doc upload ====================
+ print_r($fname2);
+ print_r($dname2);
  
     $servername = 'localhost';
     $username = 'root';
@@ -43,10 +109,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $sql = "INSERT INTO exclusive_deals ( category, infoId, ir, fe,quantity, dealValue ,dealDatetime, docCreatedby, location, 
     industrialArea,companyName, contactPerson, email, address, city, state, contactNumber, 
-    whatsappNumber,gstin, orderType, material,specification, dor, expQuotation) 
+    whatsappNumber,gstin, orderType, material,specification, dor, expQuotation, img , filenames) 
   VALUES ('$category', '$infoId', '$ir',  '$fe', '$value','$dealValue', '$dealDatetime',' $docCreatedby',  '$location', '$industrialArea',
    '$companyName',   '$contactPerson', '$email','$address', '$city',  '$state', '$contactNumber', '$whatsappNumber',
-    '$gstin', '$orderType', '$material', '$specification','$dor', '$expQuotation');";
+    '$gstin', '$orderType', '$material', '$specification','$dor', '$expQuotation','$fname2','$dname2');";
 
     if ($conn->query($sql) === true) {
 

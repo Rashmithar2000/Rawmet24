@@ -528,12 +528,6 @@ include "connect.php";
   </div>
   <?php  $ctshalom++; } ?>
  
-  
- 
- 
-
-
-
 
   <div class="container">
     <div class="card" >
