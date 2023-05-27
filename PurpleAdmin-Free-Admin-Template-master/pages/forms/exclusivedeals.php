@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $value = $quantity . ' ' . $unit;
 
-    $sql = "INSERT INTO deals ( category, infoId, ir, fe,quantity, dealValue ,dealDatetime, docCreatedby, location, 
+    $sql = "INSERT INTO exclusive_deals ( category, infoId, ir, fe,quantity, dealValue ,dealDatetime, docCreatedby, location, 
     industrialArea,companyName, contactPerson, email, address, city, state, contactNumber, 
     whatsappNumber,gstin, orderType, material,specification, dor, expQuotation) 
   VALUES ('$category', '$infoId', '$ir',  '$fe', '$value','$dealValue', '$dealDatetime',' $docCreatedby',  '$location', '$industrialArea',
