@@ -297,7 +297,7 @@ include "connect.php";
             <li class="nav-item"><a href="deals.php" class="nav-link">Deals</a></li>
             <li class="nav-item"><a href="excluedeal_page.php" class="nav-link">Exclusive Deals</a></li>
             <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
-            <li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
+            <li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
             <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
 
           </ul>

@@ -84,30 +84,31 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
   
-  <section
+<section
            class="d-flex justify-content-between p-3"
            style="background-color:white"
            >
     <div class="me-5">
       <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
   
-    </div>&nbsp <p style="margin-top: 25px;" class="tft">RAWMET24 <div class="container" >
-        <form class="form-inline" action="/action_page.php">
-          <label for="email"></label>
-          <input type="email" class="form-control" id="email" placeholder="Username" name="email">
-          <label for="pwd"></label>&nbsp
-          <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
-          <div class="form-check">
-          <a href="signin.html" style="font-size: medium;text-decoration:none">
-            <i class="fa-solid fa-user-plus"></i>SignIn
-          </a>&nbsp&nbsp
-          <a href="signup.html" style="font-size: medium;text-decoration:none">
-            <i class="fa-solid fa-user-plus"></i>SignUp
-          </a>
-          </div><br>
-          
-        </form</p>
-      </div>
+    </div>&nbsp   <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
+    <div class="container" style="margin-left: 370px; ">
+<form class="form-inline" action="/action_page.php">
+    <label for="email"></label>
+    <input type="email" class="form-control" id="email" placeholder="Username" name="email">
+    <label for="pwd"></label>&nbsp
+    <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
+    <div class="form-check">
+      
+    </div><br>
+    <a href="signin.html" style="font-size: medium;text-decoration:none;">
+        <i class="fa-solid fa-user"></i>SignIn
+      </a>
+      <a href="signup.html" style="font-size: medium; padding: 20px;text-decoration:none; ">
+        <i class="fa-solid fa-user-plus"></i>SignUp
+      </a>
+  </form>
+</div>
    
   </section>
 
@@ -125,7 +126,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <li class="nav-item"><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
-<li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
+<li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
 <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
 </ul>
 </div>
