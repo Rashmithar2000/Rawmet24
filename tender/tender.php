@@ -86,7 +86,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
   
-  <section
+<section
            class="d-flex justify-content-between p-3"
            style="background-color:white"
            >
@@ -103,10 +103,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="form-check">
       
     </div><br>
-    <a href="signin.html" style="font-size: medium;">
+    <a href="signin.html" style="font-size: medium;text-decoration:none;">
         <i class="fa-solid fa-user"></i>SignIn
       </a>
-      <a href="signup.html" style="font-size: medium; padding: 20px; ">
+      <a href="signup.html" style="font-size: medium; padding: 20px;text-decoration:none; ">
         <i class="fa-solid fa-user-plus"></i>SignUp
       </a>
   </form>
@@ -128,7 +128,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <li class="nav-item active"><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
-<li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
+<li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
 <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
 </ul>
 </div>
@@ -211,7 +211,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     <div class="card-body">
                     <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>
                     | Approximate Value : <?php echo $row['tenderValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbspTONS</p></h5>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
                     
                         <p><?php echo $row['tenderDesc'];?></p>
 
@@ -236,7 +236,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                               <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>| Biz value : <?php echo $row['tenderValue'];?> Bn | Bid Before : 
                                                 <?php echo $row['endDatetime'];?>
                                                  <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbsp TONS <br> <br>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">QUANTITY:&nbsp<?php echo $row['quantity'];?><br> <br>
                         MATERIAL :&nbsp<?php echo $row['material'];?>&nbsp 
                         </h5>
     <p><?php echo $row['tenderDesc'];?></p>

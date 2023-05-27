@@ -9,7 +9,7 @@ include "connect.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Home Page</title>
+    <title>Deal Page</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -293,7 +293,7 @@ h4,
 <li class="nav-item active"><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
-<li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
+<li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
 <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
 
 </ul>
@@ -349,6 +349,13 @@ h4,
       <td><a href="price.html">XXXXX</a></td>
     </tr>
     <tr>
+
+      <td >Deal Value </td>
+    <td>
+    <b> ₹&nbsp<?php echo $row['dealValue']; ?>
+    </td></b>
+    </tr>
+    <tr>
      
       <td >Lead Date</td>
       <td><?php echo $row['dealDatetime']; ?></td>
@@ -374,11 +381,7 @@ h4,
       <td >Material</td>
       <td><?php echo $row['material']; ?></td>
     </tr>
-    <tr>
-     
-     <td>Expected Quotation</td>
-     <td><?php echo $row['expQuotation']; ?>&nbspBillion</td>
-   </tr>
+    
 
     <tr>
      
@@ -406,17 +409,10 @@ h4,
    
     <tr>
      
-      <td>Bronze</td>
+      <td><?php echo $row['material'];?></td>
     
     </tr>
-    <tr>
-    <td>Steel</td>
-    
-    </tr>
-    <tr>
-    <td>Silver</td>
-    
-    </tr>
+   
      
     
    
@@ -441,9 +437,9 @@ h4,
   <div class="card"
     style="background-color: #3b8beb; margin-left:550px; margin-top:-810px; margin-bottom:600px; padding:10px; ">
     <div class="card-body">
-      <h6 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?>&nbspTONS</h6>
+      <h6 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h6>
       <hr>
-      <h6 style="color:#fff;">APPROX ORDER VALUE: ₹&nbsp<?php echo $row['dealValue']; ?>00.00</h6><hr>
+      <h6 style="color:#fff;">Expected Quotation: ₹&nbsp<?php echo $row['expQuotation']; ?></h6><hr>
 
       <h5 style="color:#fff;">Deal Opening Date and Time :<br>
       <h6 style="color:#fff;"><i class='bx bx-calendar-alt'><?php echo $row['dealDatetime']; ?> </i>

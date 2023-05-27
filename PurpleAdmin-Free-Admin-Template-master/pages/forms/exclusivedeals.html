@@ -8,7 +8,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Exclusive Deal Page </title>
+    <title>Exclusive Deals Page</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -51,9 +51,6 @@
           </button>
           <ul class="navbar-nav navbar-nav-right">
                
-           
-           
-            
             <li class="nav-item d-none d-lg-block full-screen-link">
               <a class="nav-link">
                 <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
@@ -126,7 +123,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="exclusivedeals.html">
+              <a class="nav-link" href="#">
                 <span class="menu-title">Exclusive Deals</span>
                 <i class="mdi mdi-diamond menu-icon"></i>
               </a>
@@ -193,6 +190,23 @@
                         <label for="fe">FE Executive</label>
                         <input type="text" class="form-control" name="fe" placeholder="FE Executive" required>
                       </div>
+                      <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" id="quantity" name="quantity" required>&nbsp&nbsp&nbsp
+                        <label for="unit">Unit:</label>
+                        <select id="unit" name="unit" required>
+                          <option value="">-- Select Unit --</option>
+                          <option value="kg">KG</option>
+                          <option value="ton">TON</option>
+                          <option value="mt">MT</option>
+                          <option value="nos">Nos</option>
+                        </select>
+                      </div>
+          
+                      <div class="form-group">
+                        <label for="dealValue">Deal Value</label>
+                        <input type="number" class="form-control" name="dealValue" placeholder="Deal Value" required>
+                      </div>
                      
                       <div class="form-group">
                         <label for="dealDatetime">Deal Date and Time</label>
@@ -203,8 +217,77 @@
                         <input type="text" class="form-control" name="docCreatedby" placeholder="Document Created by" required>
                       </div>
                       <div class="form-group">
-                        <label for="location">Exclusive Deal Location</label>
+                        <label for="location">Deal Location</label>
                         <select name="location" class="form-control form-control-lg" required>
+                          <option>Andhra Pradesh</option>
+                          <option>Arunachal Pradesh</option>
+                          <option>Assam</option>
+                          <option>Bihar</option>
+                          <option>Chhattisgarh</option>
+                          <option>Gujarat</option>
+                          <option>Haryana</option>
+                          <option>Himachal Pradesh</option>
+                          <option>Jammu and Kashmir</option>
+                          <option>Goa</option>
+                          <option>Jharkhand</option>
+                          <option>Karnataka</option>
+                          <option>Kerala</option>
+                          <option>Madhya Pradesh</option>
+                          <option>Maharashtra</option>
+                          <option>Manipur</option>
+                          <option>Meghalaya</option>
+                          <option>Mizoram</option>
+                          <option>Nagaland</option>
+                          <option>Odisha</option>
+                          <option>Punjab</option>
+                          <option>Rajasthan</option>
+                          <option>Sikkim</option>
+                          <option>Tamil Nadu</option>
+                          <option>Telangana</option>
+                          <option>Tripura</option>
+                          <option>Uttarakhand</option>
+                          <option>Uttar Pradesh</option>
+                          <option>West Bengal</option>
+                          <option>Andaman and Nicobar Islands</option>
+                          <option>Chandigarh</option>
+                          <option>Dadra and Nagar Haveli</option>
+                          <option>Daman and Diu</option>
+                          <option>Lakshadweep</option>
+                          <option>Puducherry</option>
+                        </select>
+                      
+                      
+                      </div>
+                      <div class="form-group">
+                        <label for="industrialArea">Industrial Area </label>
+                        <input type="text" class="form-control" name="industrialArea" placeholder="Industrial Area" required>
+                      </div>
+                     <br>
+                     <p class="card-description">Client Details</p>
+                  
+                      <div class="form-group">
+                        <label for="companyName">Company Name</label>
+                        <input type="text" class="form-control" name="companyName" placeholder="Company Name" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="contactPerson">Contact Person</label>
+                        <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email Id</label>
+                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" name="address" placeholder="Address" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" name="city" placeholder="City" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="state">State</label>
+                        <select name="state" class="form-control form-control-lg" required>
                           <option>Andhra Pradesh</option>
                           <option>Arunachal Pradesh</option>
                           <option>Assam</option>
@@ -244,47 +327,16 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="industrialArea">Industrial Area </label>
-                        <input type="text" class="form-control" name="industrialArea" placeholder="Industrial Area" required>
-                      </div>
-                     <br>
-                     <p class="card-description">Client Details</p>
-                  
-                      <div class="form-group">
-                        <label for="companyName">Company Name</label>
-                        <input type="text" class="form-control" name="companyName" placeholder="Company Name" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="contactPerson">Contact Person</label>
-                        <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" required> 
-                      </div>
-                      <div class="form-group">
-                        <label for="email">Email Id</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="address">Address</label>
-                        <input type="text" class="form-control" name="address" placeholder="Address" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="city">City</label>
-                        <input type="text" class="form-control" name="city" placeholder="City" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="state">State</label>
-                        <input type="text" class="form-control" name="state" placeholder="State" required>
-                      </div>
-                      <div class="form-group">
                         <label for="contactNumber">Contact Number</label>
                         <input type="number" class="form-control" name="contactNumber" placeholder="Contact Number" maxlength="10" required>
                       </div>
                       <div class="form-group">
                         <label for="whatsappNumber">Whatsapp Number</label>
-                        <input type="number" class="form-control" name="whatsappNumber" placeholder="Whatsapp Number" maxlength="10" required>
+                        <input type="number" class="form-control" name="whatsappNumber" placeholder="Whatsapp Number" maxlength="10" required> 
                       </div>
                       <div class="form-group">
                         <label for="gstin">GSTIN</label>
-                        <input type="text" class="form-control" name="gstin" placeholder="GSTIN" maxlength="10" required>
+                        <input type="text" class="form-control" name="gstin" placeholder="GSTIN"  maxlength="15" required>
                       </div>
                       <div class="form-group">
                         <label for="orderType">Order Type</label>
@@ -299,6 +351,7 @@
                         <label for="material">Material</label>
                         <input type="text" class="form-control" name="material" placeholder="Material" required>
                       </div>
+                    
                       <div class="form-group">
                         <label for="specification">Specification</label>
                         <textarea class="form-control" placeholder="Specification" name="specification" rows="6" required></textarea>
@@ -331,25 +384,11 @@
                             
                             <!-- Modal body -->
                             <div class="modal-body">
-                              <h3> DEFINITIONS</h3>
-                             
-                               <p> Rawmet is an e-commerce service provider mandated by the seller/buyer to facilitate virtual auctions by the seller/buyer. The website is an online auction platform, a virtual marketplace/venue for sellers/buyers to conduct sale/purchase of assets, and for bidders to make/place bids/offers on such assets. Rawmet is considered as third party not particularly interested in the item/s being sold/bought on behalf of the seller/buyer.
-                              </p>
-                                DEFINITIONS
-                             <p>1. SELLER/BUYER - SELLER/BUYER - Seller/Buyer referred to in this agreement is any real individual or legal entity who wishes to sell/buy his/her/its assets through internet driven online auctions on the website and who has mandated Rawmet to provide the website and other related support services.
-                             <p>2. BIDDER - Any legal entity who is registered with Rawmet and who makes or places a bid on the website to buy/sell the assets either in part or in full is considered as a Bidder. An individual can represent as a bidder on his own behalf and on behalf of other legal entities, provided he registers with Rawmet separately in those capacities. A successful Bidder is that Bidder in whose name the sale certificate or purchase order is issued by the Seller/Buyer.</p>   
-                                3. PAID MEMBER - Any Bidder who pays the annual membership fee as prescribed by Rawmet is a paid member.
-                                4. USER - Any legal entity who uses the website and/or the related services provided by Rawmet is considered as a User.
-                                5. AGREEMENT - The terms and conditions, together with any additional terms and conditions specific to an online auction event on the website (which can be found through one or more links on the website for the auction in question) constitute the Agreement.
-                                6. ONLINE BIDDING EVENT - An Online Bidding Event is a process for price determination through competitive interaction between Bidders on the website. Online Bidding Events initiated by the Seller are known as Forward Auctions and those initiated by the Buyers are known as Reverse Auctions.
-                                7. On accessing the website or using the services provided by Rawmet or by registering either as a Buyer/ Seller / User you agree that you have read the General Terms and Conditions, including the terms and conditions specific to an online auction event.
-                                8. You are bound by these terms and conditions, including those specific to a particular online auction event
-                                
-                                MODIFICATIONS TO WEBSITE, SERVICES AND TERMS AND CONDITIONS
-                                Rawmet reserves the right to modify, amend, suspend or discontinue any aspect of the services or the website at any time without notice.
-                                
-                                Rawmet reserves the right to amend any, or all the terms and conditions without notice at any time at its sole discretion and announce the same on the website. Accessing the website and/or using the services shall constitute acceptance of the terms and conditions including the amendments.</p>
-                             
+                              <h3>Some text to enable scrolling..</h3>
+                              <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                              <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    
+                              <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             </div>
                             
                             <!-- Modal footer -->

@@ -6,8 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $infoId = isset($_POST['infoId']) ? $_POST['infoId'] : '';
     $ir = isset($_POST['ir']) ? $_POST['ir'] : '';
     $fe = isset($_POST['fe']) ? $_POST['fe'] : '';
-
     $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : '';
+    $unit = isset($_POST['unit']) ? $_POST['unit'] : '';
     $dealValue= isset($_POST['dealValue']) ? $_POST['dealValue'] : '';
     $dealDatetime = isset($_POST['dealDatetime']) ? $_POST['dealDatetime'] : '';
     $docCreatedby = isset($_POST['docCreatedby']) ? $_POST['docCreatedby'] : '';
@@ -38,11 +38,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conn->connect_error) {
         die('Connection failed: ' . $conn->connect_error);
     }
+    
+    $value = $quantity . ' ' . $unit;
 
     $sql = "INSERT INTO deals ( category, infoId, ir, fe,quantity, dealValue ,dealDatetime, docCreatedby, location, 
     industrialArea,companyName, contactPerson, email, address, city, state, contactNumber, 
     whatsappNumber,gstin, orderType, material,specification, dor, expQuotation) 
-  VALUES ('$category', '$infoId', '$ir',  '$fe', '$quantity','$dealValue', '$dealDatetime',' $docCreatedby',  '$location', '$industrialArea',
+  VALUES ('$category', '$infoId', '$ir',  '$fe', '$value','$dealValue', '$dealDatetime',' $docCreatedby',  '$location', '$industrialArea',
    '$companyName',   '$contactPerson', '$email','$address', '$city',  '$state', '$contactNumber', '$whatsappNumber',
     '$gstin', '$orderType', '$material', '$specification','$dor', '$expQuotation');";
 

@@ -293,7 +293,7 @@ h4,
 <li class="nav-item "><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item active"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
-<li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
+<li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
 <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
 
 </ul>
@@ -315,7 +315,7 @@ h4,
  <div class="clearfix some-new-selector">
   <div class="pull-left">
   <div class="pull-right span9" style="color: #9e9797; padding:10px">
-    <h6>Home /Exclusive Deal search /Exclusive Deal Detail</h6>
+    <h6>Home /Exclusive Deal Search /Exclusive Deal Detail</h6>
     <br>
     <?php
                     $id = $_GET['g'];
@@ -349,6 +349,13 @@ h4,
       <td><a href="price.html">XXXXX</a></td>
     </tr>
     <tr>
+    <tr>
+
+    <td >Exclusive Deal Value </td>
+    <td>
+    <b> ₹&nbsp<?php echo $row['dealValue']; ?>
+    </td></b>
+</tr>
      
       <td >Lead Date</td>
       <td><?php echo $row['dealDatetime']; ?></td>
@@ -374,11 +381,6 @@ h4,
       <td >Material</td>
       <td><?php echo $row['material']; ?></td>
     </tr>
-    <tr>
-     
-     <td>Expected Quotation</td>
-     <td><?php echo $row['expQuotation']; ?>&nbspBillion</td>
-   </tr>
 
     <tr>
      
@@ -406,17 +408,10 @@ h4,
    
     <tr>
      
-      <td>Bronze</td>
+      <td><?php echo $row['material'];?></td>
     
     </tr>
-    <tr>
-    <td>Steel</td>
-    
-    </tr>
-    <tr>
-    <td>Silver</td>
-    
-    </tr>
+   
      
     
    
@@ -441,9 +436,9 @@ h4,
   <div class="card"
     style="background-color: #3b8beb; margin-left:550px; margin-top:-810px; margin-bottom:600px; padding:10px; ">
     <div class="card-body">
-      <h6 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?>&nbspTONS</h6>
+      <h6 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h6>
       <hr>
-      <h6 style="color:#fff;">APPROX ORDER VALUE: ₹&nbsp<?php echo $row['dealValue']; ?>00.00</h6><hr>
+      <h6 style="color:#fff;">Expected Quotation: ₹&nbsp<?php echo $row['expQuotation']; ?></h6><hr>
 
       <h5 style="color:#fff;">Deal Opening Date and Time :<br>
       <h6 style="color:#fff;"><i class='bx bx-calendar-alt'><?php echo $row['dealDatetime']; ?> </i>

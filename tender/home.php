@@ -108,7 +108,7 @@ include "connect.php";
 
           </div><br>
           <a href="signin.html" style="font-size: medium;">
-            <i class="fa-solid fa-user-plus"></i>SignIn
+            <i class="fa-solid fa-user"></i>SignIn
           </a>
           <a href="signup.html" style="font-size: medium; padding: 20px; ">
             <i class="fa-solid fa-user-plus"></i>SignUp
@@ -132,7 +132,7 @@ include "connect.php";
             <li class="nav-item"><a href="deals.php" class="nav-link">Deals</a></li>
             <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
             <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
-            <li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
+            <li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
             <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
           </ul>
         </div>

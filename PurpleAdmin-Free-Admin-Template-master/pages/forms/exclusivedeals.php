@@ -6,6 +6,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $infoId = isset($_POST['infoId']) ? $_POST['infoId'] : '';
     $ir = isset($_POST['ir']) ? $_POST['ir'] : '';
     $fe = isset($_POST['fe']) ? $_POST['fe'] : '';
+    $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : '';
+    $unit = isset($_POST['unit']) ? $_POST['unit'] : '';
+    $dealValue= isset($_POST['dealValue']) ? $_POST['dealValue'] : '';
     $dealDatetime = isset($_POST['dealDatetime']) ? $_POST['dealDatetime'] : '';
     $docCreatedby = isset($_POST['docCreatedby']) ? $_POST['docCreatedby'] : '';
     $location = isset($_POST['location']) ? $_POST['location'] : '';
@@ -35,17 +38,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conn->connect_error) {
         die('Connection failed: ' . $conn->connect_error);
     }
+    
+    $value = $quantity . ' ' . $unit;
 
-    $sql = "INSERT INTO exclusive_deals ( category, infoId, ir, fe, dealDatetime, docCreatedby, location, 
+    $sql = "INSERT INTO exclusive_deals ( category, infoId, ir, fe,quantity, dealValue ,dealDatetime, docCreatedby, location, 
     industrialArea,companyName, contactPerson, email, address, city, state, contactNumber, 
     whatsappNumber,gstin, orderType, material,specification, dor, expQuotation) 
-  VALUES ('$category', '$infoId', '$ir',  '$fe', '$dealDatetime',' $docCreatedby',  '$location', '$industrialArea',
+  VALUES ('$category', '$infoId', '$ir',  '$fe', '$value','$dealValue', '$dealDatetime',' $docCreatedby',  '$location', '$industrialArea',
    '$companyName',   '$contactPerson', '$email','$address', '$city',  '$state', '$contactNumber', '$whatsappNumber',
     '$gstin', '$orderType', '$material', '$specification','$dor', '$expQuotation');";
 
     if ($conn->query($sql) === true) {
 
-        echo "Deal successful!";
+        ?> <script>
+        alert("Exclusive Deal Added!");
+        window.location.replace("./exclusivedeals.html");
+    </script>
+    <?php
+        //header("Location: /PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");
+        //echo "Hi";
+    
+    
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -80,72 +93,8 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 
-<!-- HTML form -->
-<form action="exclusivedeals.php" method="POST" class="forms-sample">
-    <!-- Form fields here -->
-
-<!-- Display the stored data -->
-<?php if (!empty($data)): ?>
-    <table>
-        <thead>
-            <tr>
-                <th>Category</th>
-                <th>Information Number</th>
-                <th>ir</th>
-                <th>fe</th>
-                <th>dealDatetime</th>
-                <th>docCreatedby</th>
-                <th>location</th>
-                <th>industrialArea</th>
-                <th>companyName</th>
-                <th>contactPerson</th>
-                <th>email</th>
-                <th>address</th>
-                <th>city</th>
-                <th>state</th>
-                <th>contactNumber</th>
-                <th>whatsappNumber</th>
-                <th>gstin</th>
-                <th>orderType</th>
-                <th>material</th>
-                <th>specification</th>
-                <th>dor</th>
-                <th>expQuotation</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($data as $row): ?>
-                <tr>
-                    <td><?php echo $row['category']; ?></td>
-                    <td><?php echo $row['infoId']; ?></td>
-                    <td><?php echo $row['ir']; ?></td>
-                    <td><?php echo $row['fe']; ?></td>
-                    <td><?php echo $row['dealDatetime']; ?></td>
-                    <td><?php echo $row['docCreatedby']; ?></td>
-                    <td><?php echo $row['location']; ?></td>
-                    <td><?php echo $row['industrialArea']; ?></td>
-                    <td><?php echo $row['companyName']; ?></td>
-                    <td><?php echo $row['contactPerson']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['address']; ?></td>
-                    <td><?php echo $row['city']; ?></td>
-                    <td><?php echo $row['state']; ?></td>
-                    <td><?php echo $row['contactNumber']; ?></td>
-                    <td><?php echo $row['whatsappNumber']; ?></td>
-                    <td><?php echo $row['gstin']; ?></td>
-                    <td><?php echo $row['orderType']; ?></td>
-                    <td><?php echo $row['material']; ?></td>
-                    <td><?php echo $row['specification']; ?></td>
-                    <td><?php echo $row['dor']; ?></td>
-                    <td><?php echo $row['expQuotation']; ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-<?php else: ?>
-    <p>No data found.</p>
-<?php endif; ?>
-
+<?php
+?>
 
 
 

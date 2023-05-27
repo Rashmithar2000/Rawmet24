@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tenderNumber = isset($_POST['tenderNumber']) ? $_POST['tenderNumber'] : '';
     $tenderDesc = isset($_POST['tenderDesc']) ? $_POST['tenderDesc'] : '';
     $material = isset($_POST['material']) ? $_POST['material'] : '';
-    $material = isset($_POST['material']) ? $_POST['material'] : '';
+    $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : '';
+    $unit = isset($_POST['unit']) ? $_POST['unit'] : '';
     $publishingDatetime = isset($_POST['publishingDatetime']) ? $_POST['publishingDatetime'] : '';
     $startDatetime = isset($_POST['startDatetime']) ? $_POST['startDatetime'] : '';
     $endDatetime = isset($_POST['endDatetime']) ? $_POST['endDatetime'] : '';
@@ -65,15 +66,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conn->connect_error) {
         die('Connection failed: ' . $conn->connect_error);
     }
+    
+    $value = $quantity . ' ' . $unit;
 
     $sql = "INSERT INTO tenders (category, infoId, ownership, tenderLocation, sector, tenderNumber,
      tenderDesc, material, quantity,publishingDatetime, startDatetime, endDatetime, 
      emdType, emdAmt, tenderValue,companyName, location, street, city, 
      telephone, email, contactPerson, img) 
     VALUES ('$category', '$infoId', '$ownership', '$tenderLocation', '$sector', '$tenderNumber', 
-    '$tenderDesc', '$material','$quantity','$publishingDatetime','$startDatetime', '
-    $endDatetime','$emdType', '$emdAmt','$tenderValue', '$companyName',
-     '$location', '$street', '$city', '$telephone', '$email', '$contactPerson', '$fname2')";
+
+    '$tenderDesc', '$material','$value', '$publishingDatetime', '$startDatetime', '
+    $endDatetime', '$emdType', '$emdAmt','$tenderValue', '$companyName',
+     '$location', '$street', '$city', '$telephone', '$email', '$contactPerson')";
+
+
 
     if ($conn->query($sql) === true) {
         ?> <script>
