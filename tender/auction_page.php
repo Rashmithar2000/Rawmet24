@@ -486,7 +486,7 @@ include "connect.php";
 
 
   <div class="container">
-    <div class="card" style="margin-top:-160px;">
+    <div class="card" style="margin-top:-350px;">
       <div class="card-body">
         <h3>Images</h3><hr>
         <div class="row">

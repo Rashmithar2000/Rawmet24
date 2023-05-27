@@ -348,67 +348,7 @@ include "connect.php";
   </section>
 
   <!-- Remove the container if you want to extend the Footer to full width. -->
-  <footer class="page-footer font-small mdb-color lighten-3 pt-4">
-    <div class="container">
-      <h3 align="center" style="color: #3b8beb;">OUR CLIENTS</h3>
-      <hr>
-      <center>
-        <div class="row">
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="https://shopemet.in/images/clients/client-6.png" class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-12 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="https://shopemet.in/images/clients/client-5.png" width="200px" ; class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-1.png" class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-2.png" class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-12 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-3.png" class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <div class="view overlay z-depth-1-half">
-              <img src="	https://shopemet.in/images/clients/client-4.png" class="img-fluid" alt="">
-              <a href="">
-                <div class="mask rgba-white-light"></div>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </center>
-    </div>
-    </div>
-
-  </footer>
+  
   <br><br>
 
 
