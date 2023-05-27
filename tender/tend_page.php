@@ -500,73 +500,47 @@ include "connect.php";
       <div class="card-body">
         <h3>Images</h3><hr>
         <div class="row">
+        <?php 
+           //print_r($result);
+           $sql = "select * from tenders where id=$id";
+           $result = mysqli_query($con, $sql);
+          $row= mysqli_fetch_assoc($result);
+          //var_dump($row);
+          //die;
+          $a = unserialize($row['img']);
+          $ctshalom = 0;
+          foreach($a as $shalom){
+          ?>
           <div class="col-md-2">
-            <img src="https://media.istockphoto.com/id/646996026/photo/metal-profiles-and-tubes-different-stainless-steel-products.jpg?s=612x612&w=0&k=20&c=h3Kmz9NBC9Egi3KvQHVO-_UXBQ2ciU0jEunusO72tIY=" width="200px" height="200px" class="img-fluid" alt="Image 1" data-toggle="modal" data-target="#myModal1">
+            <img src="../PurpleAdmin-Free-Admin-Template-master/pages/forms/uploads/<?php echo $shalom; ?>" width="400px" height="200px" class="img-fluid" alt="Image 1" data-toggle="modal" data-target="#myModal<?php echo $ctshalom?>">
           </div>
-          <div class="col-md-2">
-            <img src="https://ichef.bbci.co.uk/images/ic/448xn/p0b760td.jpg" width="200px" height="200px" class="img-fluid" alt="Image 4" data-toggle="modal" data-target="#myModal2">
-          </div>
-          <div class="col-md-2">
-            <img src="https://5.imimg.com/data5/LH/QO/MY-43959358/1-250x250.jpg" width="200px" height="200px" class="img-fluid" alt="Image 2" data-toggle="modal" data-target="#myModal3">
-          </div>
-          
-          <div class="col-md-2">
-            <img src="https://www.thoughtco.com/thmb/8cblL7z5t71vPXXVmUbZLZ99Sc8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/collection-of-bolts-and-nuts-of-different-sizes-688358622-5b4b1e9a46e0fb005ba8e4a9.jpg" width="200px" height="200px"  class="img-fluid" alt="Image 3" data-toggle="modal" data-target="#myModal4">
-          </div>
-          
-          <div class="col-md-2">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Alloy_and_metal_samples_-_Beryllium-Copper%2C_Inconel%2C_Steel%2C_Titanium%2C_Aluminum%2C_Magnesium.jpg" width="200px" height="200px" class="img-fluid" alt="Image 5" data-toggle="modal" data-target="#myModal5">
-          </div>
+          <?php  $ctshalom++; } ?>
+         
         </div>
       </div>
     </div>
   </div>
-
-  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<?php             $sql = "select * from tenders where id=$id";
+           $result = mysqli_query($con, $sql);
+          $row= mysqli_fetch_assoc($result);
+          $a = unserialize($row['img']);
+          $ctshalom = 0;
+          foreach($a as $shalom){
+          ?>
+  <div class="modal fade" id="myModal<?php echo $ctshalom ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
-          <img src="https://media.istockphoto.com/id/646996026/photo/metal-profiles-and-tubes-different-stainless-steel-products.jpg?s=612x612&w=0&k=20&c=h3Kmz9NBC9Egi3KvQHVO-_UXBQ2ciU0jEunusO72tIY=" class="img-fluid" alt="Zoomed Image">
+          <img src="../PurpleAdmin-Free-Admin-Template-master/pages/forms/uploads/<?php echo $shalom; ?>" class="img-fluid" alt="Zoomed Image">
         </div>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://ichef.bbci.co.uk/images/ic/448xn/p0b760td.jpg" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://5.imimg.com/data5/LH/QO/MY-43959358/1-250x250.jpg" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://www.thoughtco.com/thmb/8cblL7z5t71vPXXVmUbZLZ99Sc8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/collection-of-bolts-and-nuts-of-different-sizes-688358622-5b4b1e9a46e0fb005ba8e4a9.jpg" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Alloy_and_metal_samples_-_Beryllium-Copper%2C_Inconel%2C_Steel%2C_Titanium%2C_Aluminum%2C_Magnesium.jpg" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
+  <?php  $ctshalom++; } ?>
+ 
+  
+ 
+ 
 
 
 
