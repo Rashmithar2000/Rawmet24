@@ -543,34 +543,32 @@ include "connect.php";
         <hr>
       </div>
       <div class="card-columns">
-        <div class="card" style="width:150px;">
-          <center> <img class="card-img-top"
-              src="https://www.pcworld.com/wp-content/uploads/2022/08/pdf-icon.jpg?quality=50&strip=all"
-              alt="Card image" style="width:70%"></center>
-          <div class="card-body">
-            <h4 class="card-title"></h4>
-            <p class="card-text">viewNtlPdf_76656788(1).pdf</p>
-          </div>
-        </div>&nbsp; &nbsp; &nbsp;
-        <div class="card" style="width:150px;margin-left: 15px; ">
-          <center><img class="card-img-top"
-              src="https://www.pcworld.com/wp-content/uploads/2022/08/pdf-icon.jpg?quality=50&strip=all"
-              alt="Card image" style="width:70%"></center>
-          <div class="card-body">
-            <h4 class="card-title"></h4>
-            <p class="card-text">viewNtlPdf_76656788(1).pdf</p>
-          </div>
-        </div>
+
+      <?php 
+           //print_r($result);
+           $sql = "select * from tenders where id=$id";
+           $result = mysqli_query($con, $sql);
+          $row= mysqli_fetch_assoc($result);
+          //var_dump($row);
+          //die;
+          $a = unserialize($row['file']);
+          // print_r($a); die;
+          $ctsindu = 0;
+          foreach($a as $sindu){
+            // echo $sindu;
+            // die;
+          ?>
 
         <div class="card" style="width:150px; ">
           <center style="margin-left: 4px;"> <img class="card-img-top"
-              src="https://cdn-icons-png.flaticon.com/512/5968/5968517.png" alt="Card image" style="width:48%"></center>
+              src="https://www.pcworld.com/wp-content/uploads/2022/08/pdf-icon.jpg?quality=50&strip=all" alt="Card image" style="width:48%"></center>
           <div class="card-body">
             <h4 class="card-title"></h4>
-            <p class="card-text">viewhuldoc_67897742(1).doc</p>
+            <p class="card-text"><?php echo $sindu?></p>
           </div>
         </div>
       </div>
+      <?php  $ctsindu++; } ?>
   <div class="container">
    <a href="price.html"> <h4 style="margin-left:900px;">Download All ></h4><br></a>
     </div>
