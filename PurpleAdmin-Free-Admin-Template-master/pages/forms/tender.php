@@ -100,19 +100,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "INSERT INTO tenders (category, infoId, ownership, tenderLocation, sector, tenderNumber,
      tenderDesc, material, quantity,publishingDatetime, startDatetime, endDatetime, 
      emdType, emdAmt, tenderValue,companyName, location, street, city, 
-     telephone, email, contactPerson, img) 
+     telephone, email, contactPerson, img,file) 
     VALUES ('$category', '$infoId', '$ownership', '$tenderLocation', '$sector', '$tenderNumber', 
 
     '$tenderDesc', '$material','$value', '$publishingDatetime', '$startDatetime', '
     $endDatetime', '$emdType', '$emdAmt','$tenderValue', '$companyName',
-     '$location', '$street', '$city', '$telephone', '$email', '$contactPerson','$fname2')";
+     '$location', '$street', '$city', '$telephone', '$email', '$contactPerson','$fname2','$dname2')";
 
 
 
     if ($conn->query($sql) === true) {
         ?> <script>
         alert("Tender Data Added!");
-        window.location.replace("./tender.html");
+        window.location.replace("./tenders.html");
     </script>
     <?php
     } else {

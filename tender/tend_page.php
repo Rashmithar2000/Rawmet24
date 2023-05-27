@@ -545,7 +545,7 @@ include "connect.php";
           $row= mysqli_fetch_assoc($result);
           //var_dump($row);
           //die;
-          $a = unserialize($row['filenames']);
+          $a = unserialize($row['file']);
           // print_r($a); die;
           $ctsindu = 0;
           foreach($a as $sindu){
