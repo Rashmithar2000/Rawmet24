@@ -9,10 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sector = isset($_POST['sector']) ? $_POST['sector'] : '';
     $aucNumber = isset($_POST['aucNumber']) ? $_POST['aucNumber'] : '';
     $aucDescription = isset($_POST['aucDescription']) ? $_POST['aucDescription'] : '';
-    $aucvalue = isset($_POST['aucvalue']) ? $_POST['aucvalue'] : '';
+    $aucValue = isset($_POST['aucValue']) ? $_POST['aucValue'] : '';
     $aucSource = isset($_POST['aucSource']) ? $_POST['aucSource'] : '';
     $material = isset($_POST['material']) ? $_POST['material'] : '';
     $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : '';
+    $unit = isset($_POST['unit']) ? $_POST['unit'] : '';
     $ePublishingDateTime = isset($_POST['ePublishingDateTime']) ? $_POST['ePublishingDateTime'] : '';
     $startDatetime = isset($_POST['startDatetime']) ? $_POST['startDatetime'] : '';
     $endDatetime = isset($_POST['endDatetime']) ? $_POST['endDatetime'] : '';
@@ -40,14 +41,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conn->connect_error) {
         die('Connection failed: ' . $conn->connect_error);
     }
+    $value = $quantity . ' ' . $unit;
 
     // Insert the form data into the database
     $sql = "INSERT INTO auction (category, infoId, ownership, aucLocation, sector, aucNumber,
-     aucDescription, aucvalue ,aucSource, material,quantity, ePublishingDateTime, startDatetime, endDatetime, 
+     aucDescription, aucValue ,aucSource, material,quantity, ePublishingDateTime, startDatetime, endDatetime, 
      insStartdatetime, insEnddatetime, emdType, emdAmt, companyName, location, street, city, 
      telephone, email, contactPerson) 
     VALUES ('$category', '$infoId', '$ownership', '$aucLocation', '$sector', '$aucNumber', 
-    '$aucDescription', '$aucvalue', '$aucSource', '$material', '$quantity','$ePublishingDateTime', '$startDatetime', '
+    '$aucDescription', '$aucValue', '$aucSource', '$material', '$value','$ePublishingDateTime', '$startDatetime', '
     $endDatetime', '$insStartdatetime', '$insEnddatetime', '$emdType', '$emdAmt', '$companyName',
      '$location', '$street', '$city', '$telephone', '$email', '$contactPerson')";
 

@@ -211,7 +211,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <div class="card-body">
                                               <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
                         <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">
-                        MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbspTONS
+                        MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?>
                         </h5>
     <p><?php echo $row['specification'];?></p>
    
@@ -237,7 +237,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <div class="card-body">
                                               <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
                         <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?><br><br>
-                        QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbspTONS</h5>
+                        QUANTITY:&nbsp<?php echo $row['quantity'];?></h5>
     <p><?php echo $row['specification'];?></p>
    
 

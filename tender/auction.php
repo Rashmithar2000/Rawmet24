@@ -208,7 +208,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     <div class="card">
                         <div class="card-body">
                                               <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?>| Biz value : <?php echo $row['aucNumber'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL :&nbsp <?php echo $row['material'];?> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbspTONS</p></h5>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL :&nbsp <?php echo $row['material'];?> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
                     
                         <p><?php echo $row['aucDescription'];?></p>
    
@@ -231,8 +231,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                     <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?>| Biz value : <?php echo $row['aucNumber'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL :&nbsp <?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbspTONS</p></h5>
+                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?>| Biz value : <?php echo $row['aucValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL :&nbsp <?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
                     
                         <p><?php echo $row['aucDescription'];?></p>
    

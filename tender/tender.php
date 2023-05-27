@@ -91,24 +91,23 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="me-5">
       <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
   
-    </div>&nbsp   <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
-    <div class="container" style="margin-left: 370px; ">
-<form class="form-inline" action="/action_page.php">
-    <label for="email"></label>
-    <input type="email" class="form-control" id="email" placeholder="Username" name="email">
-    <label for="pwd"></label>&nbsp
-    <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
-    <div class="form-check">
-      
-    </div><br>
-    <a href="signin.html" style="font-size: medium;">
-        <i class="fa-solid fa-user-plus"></i>SignIn
-      </a>
-      <a href="signup.html" style="font-size: medium; padding: 20px; ">
-        <i class="fa-solid fa-user-plus"></i>SignUp
-      </a>
-  </form>
-</div>
+    </div>&nbsp <p style="margin-top: 25px;" class="tft">RAWMET24 <div class="container" >
+        <form class="form-inline" action="/action_page.php">
+          <label for="email"></label>
+          <input type="email" class="form-control" id="email" placeholder="Username" name="email">
+          <label for="pwd"></label>&nbsp
+          <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
+          <div class="form-check">
+          <a href="signin.html" style="font-size: medium;text-decoration:none">
+            <i class="fa-solid fa-user-plus"></i>SignIn
+          </a>&nbsp&nbsp
+          <a href="signup.html" style="font-size: medium;text-decoration:none">
+            <i class="fa-solid fa-user-plus"></i>SignUp
+          </a>
+          </div><br>
+          
+        </form</p>
+      </div>
    
   </section>
 
@@ -209,7 +208,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     <div class="card-body">
                     <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>
                     | Approximate Value : <?php echo $row['tenderValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbspTONS</p></h5>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
                     
                         <p><?php echo $row['tenderDesc'];?></p>
 
@@ -234,7 +233,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                               <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>| Biz value : <?php echo $row['tenderValue'];?> Bn | Bid Before : 
                                                 <?php echo $row['endDatetime'];?>
                                                  <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">QUANTITY:&nbsp<?php echo $row['quantity'];?>&nbsp TONS <br> <br>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">QUANTITY:&nbsp<?php echo $row['quantity'];?><br> <br>
                         MATERIAL :&nbsp<?php echo $row['material'];?>&nbsp 
                         </h5>
     <p><?php echo $row['tenderDesc'];?></p>

@@ -213,12 +213,9 @@
                           <option>Chandigarh</option>
                           <option>Dadra and Nagar Haveli</option>
                           <option>Daman and Diu</option>
-                          <option>Delhi</option>
                           <option>Lakshadweep</option>
                           <option>Puducherry</option>
                         </select>
-                      
-                      
                       </div>
                       <div class="form-group">
                         <label for="sector">Sector</label>
@@ -253,7 +250,15 @@
                       </div>
                       <div class="form-group">
                         <label for="quantity">Quantity</label>
-                        <input type="text" class="form-control" name="quantity" placeholder="Quantity">
+                        <input type="number" id="quantity" name="quantity" required>&nbsp&nbsp&nbsp
+                        <label for="unit">Unit:</label>
+                        <select id="unit" name="unit" required>
+                          <option value="">-- Select Unit --</option>
+                          <option value="kg">KG</option>
+                          <option value="ton">TON</option>
+                          <option value="mt">MT</option>
+                          <option value="nos">Nos</option>
+                        </select>
                       </div>
             
                       <div class="form-group">

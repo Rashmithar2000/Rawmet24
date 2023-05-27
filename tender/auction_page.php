@@ -11,7 +11,7 @@ include "connect.php";
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <title>Home Page</title>
+  <title>Auction Page</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -358,13 +358,20 @@ include "connect.php";
                           </td>
                         </tr>
                       
-
+                        <tr>
                           <td>Auction No</td>
                           <td>
                           <a href="price.html">XXXXX</a>
                           </td>
                         </tr>
                         <tr>
+                       
+
+                        <td >Auction Value </td>
+                        <td>
+                       <b> ₹&nbsp<?php echo $row['aucValue']; ?>
+                      </td></b>
+                      </tr>
 
                           <td>ePublishing Date & Time</td>
                           <td>
@@ -451,8 +458,8 @@ include "connect.php";
 <div class="row">
 <div class="card" style="background-color: #3b8beb; margin-left:550px; margin-top:-850px; margin-bottom:700px; padding:10px; ">
 <div class="card-body">
-<h4 style="color:#fff;">AUCTION VALUE:&nbsp ₹<?php echo $row['aucValue']; ?>000.00</h4><hr>
-<h4 style="color:#fff;">QUANTITY :&nbsp <?php echo $row['quantity']; ?> TONS</h4><hr>
+<h4 style="color:#fff;">AUCTION VALUE:&nbsp ₹<?php echo $row['aucValue']; ?></h4><hr>
+<h4 style="color:#fff;">QUANTITY :&nbsp <?php echo $row['quantity']; ?></h4><hr>
 
   <h5 style="color:#fff;">Opening date and time :<br><i class='bx bx-calendar-alt'>&nbsp<?php echo $row['ePublishingDateTime']; ?> </i><br>
                     

@@ -12,7 +12,7 @@ include "connect.php";
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <title>Home Page</title>
+  <title>Tender Page</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -364,7 +364,7 @@ include "connect.php";
 
                             <td >Tender Value </td>
                                 <td>
-                                <b><?php echo $row['tenderValue']; ?>&nbspBn
+                                <b> ₹&nbsp<?php echo $row['tenderValue']; ?>
                           </td></b>
                       </tr>
                         <tr>
@@ -474,8 +474,8 @@ include "connect.php";
     <div class="card"
     style="background-color: #3b8beb; margin-left:550px; margin-top:-1100px; margin-bottom:700px; padding:10px; ">
     <div class="card-body">
-    <h4 style="color:#fff;">TENDER VALUE: ₹<?php echo $row['tenderValue']; ?>000.00</h4><hr>
-    <h4 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?>&nbsp TONS</h4><hr>
+    <h4 style="color:#fff;">TENDER VALUE: ₹<?php echo $row['tenderValue']; ?></h4><hr>
+    <h4 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h4><hr>
     <h5 style="color:#fff;">Opening date and time :<br><i class='bx bx-calendar-alt'>&nbsp<?php echo $row['publishingDatetime']; ?> </i><br>
                     
                     <br> Bid Submission Started <br>

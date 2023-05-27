@@ -108,7 +108,7 @@ include "connect.php";
 
           </div><br>
           <a href="signin.html" style="font-size: medium;">
-            <i class="fa-solid fa-user-plus"></i>SignIn
+            <i class="fa-solid fa-user"></i>SignIn
           </a>
           <a href="signup.html" style="font-size: medium; padding: 20px; ">
             <i class="fa-solid fa-user-plus"></i>SignUp
