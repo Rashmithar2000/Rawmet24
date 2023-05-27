@@ -530,6 +530,7 @@ include "connect.php";
 </center>
 
 
+
 <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-between p-3" style="background-color:#3b8beb">
@@ -585,33 +586,14 @@ include "connect.php";
             <a href="#!" class="text-white">Why Tender</a>
           </p>
           <p>
-            <a href="#!" class="text-white">Feedback</a>
+            <a href="policy.html" class="text-white">Privacy Policy</a>
           </p>
           <p>
             <a href="#!" class="text-white">Solutions</a>
           </p>
 
         </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold" style="color: #fff;">Useful links</h6>
-          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
-          <p>
-            <a href="#!" class="text-white">Your Account</a>
-          </p>
-          <p>
-            <a href="#!" class="text-white">Become an Affiliate</a>
-          </p>
-          <p>
-            <a href="#!" class="text-white" style="color: #fff;">Help</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
+   
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Contact</h6>
@@ -635,6 +617,7 @@ include "connect.php";
   </div>
   <!-- Copyright -->
 </footer>
+
 
 
 <script src="js/jquery.min.js"></script>

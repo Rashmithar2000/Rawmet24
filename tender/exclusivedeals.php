@@ -264,15 +264,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
   
 
 <!-- Footer -->
-<footer
-        class="text-center text-lg-start text-white"
-        style="background-color: #1c2331"
-        >
+
+
+<footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
   <!-- Section: Social media -->
-  <section
-           class="d-flex justify-content-between p-3"
-           style="background-color:#3b8beb"
-           >
+  <section class="d-flex justify-content-between p-3" style="background-color:#3b8beb">
     <!-- Left -->
 
     <div class="me-5">
@@ -289,7 +285,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <a href="" class="text-white me-4">
         <i class="fa-brands fa-instagram"></i>
       </a>
- 
+
     </div>
     <!-- Left -->
 
@@ -304,13 +300,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <!-- Grid column -->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
-          <h6 class="text-uppercase fw-bold">Company name</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #3b8beb; height: 2px"
-              />
+          <h6 class="text-uppercase fw-bold" style="color: #fff;">Company name</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
-            SHOPEMET is a world class general Refined metal trading company that has served as a foundation for growth of basic material industry in India
+            SHOPEMET is a world class general Refined metal trading company that has served as a foundation for growth
+            of basic material industry in India
           </p>
         </div>
         <!-- Grid column -->
@@ -318,11 +312,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <!-- Grid column -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold">Key links</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #3b8beb; height: 2px"
-              />
+          <h6 class="text-uppercase fw-bold" style="color: #fff;">Key links</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
             <a href="#!" class="text-white">About Us</a>
           </p>
@@ -330,43 +321,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
             <a href="#!" class="text-white">Why Tender</a>
           </p>
           <p>
-            <a href="#!" class="text-white">Feedback</a>
+            <a href="policy.html" class="text-white">Privacy Policy</a>
           </p>
           <p>
             <a href="#!" class="text-white">Solutions</a>
           </p>
-          
-        </div>
-        <!-- Grid column -->
 
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold">Useful links</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #3b8beb; height: 2px"
-              />
-          <p>
-            <a href="#!" class="text-white">Your Account</a>
-          </p>
-          <p>
-            <a href="#!" class="text-white">Become an Affiliate</a>
-          </p>
-          <p>
-            <a href="#!" class="text-white">Help</a>
-          </p>
         </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
+   
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold">Contact</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #3b8beb; height: 2px"
-              />
+          <h6 class="text-uppercase fw-bold" style="color: #fff;">Contact</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p><i class="fa fa-envelope" aria-hidden="true"></i> shopemet@gmail.com</p>
           <p><i class="fa fa-phone" aria-hidden="true"></i> +91 8766443234</p>
           <p><i class="fa fa-phone" aria-hidden="true"></i> +91 1234567819</p>
@@ -379,16 +345,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <!-- Section: Links  -->
 
   <!-- Copyright -->
-  <div
-       class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-       
-    © 2023 
-    <a class="text-white" href="https://mdbootstrap.com/"
-       >shopemet.com</a>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+
+    © 2023
+    <a class="text-white" href="https://mdbootstrap.com/">shopemet.com</a>
   </div>
   <!-- Copyright -->
 </footer>
-
 
 
 <script src="js/jquery.min.js"></script>

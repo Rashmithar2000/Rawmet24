@@ -1,7 +1,3 @@
-<?php
-include "connect.php";
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -242,7 +238,7 @@ include "connect.php";
     h6 {
       color: #757b89;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-      font-size: medium;
+      font-size:18px;
 
     }
 
@@ -251,17 +247,14 @@ include "connect.php";
 
 
     }
-    .table-container {
-  
-  top: 50%; /* Adjust the value based on your desired vertical position */
-  left: 50%; /* Adjust the value based on your desired horizontal position */
- /* Centers the table in the middle */
-  max-height: 300px; /* Adjust the value based on your desired maximum height */
-  overflow: visible;
-   /* Optional: Specify a z-index if needed */
-  / 
-  
-}
+    .color{
+      color: #fff !important;
+    }
+    .modal-body img {
+      width: 100%;
+      height: auto;
+    }
+   
   </style>
   <section class="ftco-section" style="padding-top: 5px;">
 
@@ -270,7 +263,7 @@ include "connect.php";
         <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
 
       </div>&nbsp <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
-      <div class="container" style="margin-left: 270px; ">
+      <div class="container" style="margin-left: 370px; ">
         <form class="form-inline" action="/action_page.php">
           <label for="email"></label>
           <input type="email" class="form-control" id="email" placeholder="Username" name="email">
@@ -279,12 +272,10 @@ include "connect.php";
           <div class="form-check">
 
           </div><br>
-          <button type="submit" class="btn btn-primary"
-            style="background-color: #3b8beb !important; border-color: #3b8beb;"> <a href="signin.html"
-              style="font-size: medium;color: #ffffff; ">
-              <i class="fa-solid fa-user" style="padding: 5px; "></i>SignIn
-            </a></button>
-          <a href="signup.html" style="font-size: medium; padding: 25px; ">
+          <a href="signin.html" style="font-size: medium;">
+            <i class="fa-solid fa-user-plus"></i>SignIn
+          </a>
+          <a href="signup.html" style="font-size: medium; padding: 20px; ">
             <i class="fa-solid fa-user-plus"></i>SignUp
           </a>
         </form>
@@ -304,13 +295,14 @@ include "connect.php";
             <li class="nav-item"><a href="tender.php" class="nav-link">Tenders</a></li>
 
             <li class="nav-item"><a href="auction.php" class="nav-link">Auctions</a></li>
+            </li>
 
             <li class="nav-item"><a href="deals.php" class="nav-link">Deals</a></li>
             <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
-            <li class="nav-item"><a href="metalprice.html" class="nav-link">Metal Prices</a></li>
+            <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
+
             <li class="nav-item"><a href="info_page.html" class="nav-link">Information Document</a></li>
             <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
-
           </ul>
         </div>
       </div>
@@ -318,161 +310,64 @@ include "connect.php";
   </section>
 
 
+<div class="container-fluid" style="background-color: #3b8beb; padding: 30px;"><br>
 
-  <div class="container-fluid" style="background-color: #3b8beb; padding: 30px;"><br>
-    <h2 style="color: #ffffff;">Upcoming Events Information</h2><br>
-
-    <a href="price.html"><button class="btn btn-primary" style="border-color: #fff;">View All
-        Information</button></a><br><br><br><br>
-  </div>
-
-
-
-  <div class="container" class="col-lg-6 col-md-12" style="margin-top: -130px;"><br><br>
-  <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Table Card</h5>
-    <div class="table-responsive">
-      <table class="table">
-           <?php 
-             $sql = "select * from info_table";
-             $result = mysqli_query($con, $sql);
-           if ($result) {
-
-    while ($row = mysqli_fetch_assoc($result)) {
-      //print_r($row);die;
-      ?>
-
-              <h3 style="color: #595a62;">
-                <?php echo $row['showName']; ?>
-              </h3>
-              <h5><i class='bx bx-map'></i>
-                <?php echo $row['venue']; ?>
-              </h5><br>
-              <hr>
-
-              <div style="margin-left: 40px;">
-              
-                <table class="table table-bordered table-container">
-                  
-                  <thead>
-                    <tr>
-
-
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-
-                      <td>Document Type</td>
-                      <td>RID</td>
-                    </tr>
-                    <tr>
-
-                      <td>INFORMATION NO</td>
-                      <td>
-                        <?php echo $row['infoId']; ?>
-                      </td>
-                    </tr>
-
-                    <tr>
-
-                      <td>TRADE SHOW</td>
-                      <td>
-                        <?php echo $row['showName']; ?>
-                      </td>
-                    </tr>
-                    <tr>
-
-                      <td>DATE</td>
-                      <td><i class='bx bx-calendar-alt'></i>
-                        <?php echo $row['dateTime']; ?>
-                      </td>
-                    </tr>
-                    <tr>
-
-                      <td>EXHIBITOR PRODUCT PROFILE</td>
-                      <td>
-                        <?php echo $row['profile']; ?>
-                      </td>
-                    </tr>
-                    <tr>
-
-                      <td>VENUE</td>
-                      <td>
-                        <?php echo $row['venue']; ?>
-                      </td>
-                    </tr>
-                    <tr>
-
-                      <td>ORGANIZED BY</td>
-                      <td>
-                        <?php echo $row['organizedBy']; ?>
-                      </td>
-                    </tr>
-                    <tr>
-
-                      <td>ORGANIZER ADDRESS</td>
-                      <td>
-                        <?php echo $row['organizedAdd']; ?>
-                      </td>
-                    </tr>
-                    
-                      <?php
-$sentence =  $row['map']; 
-
-$characterCount = 70; // Maximum character count per line
-
-$characters = mb_str_split($sentence); // Split the sentence into an array of characters
-$wrappedSentence = '';
-
-$currentCount = 0;
-foreach ($characters as $character) {
-    $wrappedSentence .= $character;
-    $currentCount++;
-
-    if ($currentCount % $characterCount == 0) {
-        $wrappedSentence .= "<br>";
-    }
-}
-
-?>
-                    <tr>
-                      <td>GOOGLE MAPS</td>
-                      <td><?php echo $wrappedSentence; ?>
-                       
-                      </td>
-                    </tr>
-                    <tr>
-
-                  </tbody>
-
-                </table><br><br><br><br>
-
-</div>          
-           
-           
-                <?php
-    }
-  }
-  ?>
-  
-         
-      </div>
+<div class="container">
+    <div class="card">
+        <div class="card-body" style="padding: 80px 120px 120px 120px;">
+            <h3>Privacy Policy</h3><hr>
+           <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">This privacy policy describes how we handle your personal information. We
+collect, use, and share personal information to help the Rawmet24 website
+(rawmet24.com) work and to keep it safe. All information posted in Rawmet24.com is publicly available. However we
+are presenting it over the Internet media so as to make easier to get. Any information which we collect of the users via registration such as e- mail ID, Phone Number etc and while browsing such as IP address will be
+stored on our servers.<br> <br>(Browsing data is collected by cookies,If you don't
+want this data to be collected cookies can be disabled )
+All information which we collected will be used by us to notify you of
+updates(Can be disabled by notifying us info@Rawmet24.com),get your
+feedback,troubleshoot problems and calculate our site statistics such as
+avg.time spent on site,no of page views etc... so that we can find out where
+we are lacking and improve the site.<br><br> The users privacy is very important to us. We do not and shall not at any
+point in time, either sell or rent users personal information to third parties
+without users explicit consent. We may be required from time to time to disclose users personal
+information to Governmental or law enforcing agencies or our regulators, but we will only do so under proper authority. We may also disclose personal information to enforce our policies, respond
+to claims that a posting or other content violates other's rights, or protects
+anyone's rights, property or safety. We may also share personal information with:<br><br><i class="fa fa-stop" ></i> &nbsp Corporate affiliates who help detect or prevent potentially illegal acts and
+provide joint services (Our corporate affiliates will market only to users who
+ask them to). <br><br><i class="fa fa-stop" ></i> &nbsp Service providers who help with our business operations.<br><br> You may use personal information gathered from Rawmet24.com only to
+follow up with another user about a specific posting, not to send
+spam/phising or collect personal information from someone who hasn't
+agreed to that.
+We use a number of mechanisms (encryption, passwords, physical security)
+to protect the security and integrity of your personal information against
+unauthorized access and disclosure.<br><br> Unfortunately, no data transmission
+over the internet can be guaranteed to be completely secure. So while we
+strive to protect such information, we cannot ensure or warrant the security
+of any information you transmit to us and you do so at your own risk. Once
+any personal information comes into our possession, we will take reasonable
+steps to protect that information from misuse and loss and from
+unauthorised access, modification or disclosure.<br><br> Vendors who use any of the features on Rawmet24.com agree and accept
+that they have been fully informed by Rawmet24.com that the use of
+features may lead to publication of any personal information posted by them
+while using any specific feature on Rawmet24.com. Users further agree that
+the authenticity of, and consequences from the posting by users of any
+personal information of themselves or any other person, are the sole
+responsibility of the user.<br><br> Users further agree and accept that the terms of
+the Privacy Policy will be applicable to the use of all features, existing and
+new. However, the Users agree and accept that confidentiality of
+information posted on such features has been waived by the Users of such
+features themselves. <br><br>We may update, upgrade, modify (partially &/or fully) this policy at any
+time, with updates taking effect when you next visit or after 7 days, whichever is sooner. If we or our corporate affiliates are involved in a
+merger or acquisition, we may share personal information with another
+company, but this policy will continue to apply. Send questions about this
+policy to support@Rawmet24.com</p> 
+            
+            
+            
+            </div></div>
+    
     </div>
-  </div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
- 
 
 <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
   <!-- Section: Social media -->
@@ -562,25 +457,15 @@ foreach ($characters as $character) {
 </footer>
 
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816"
-    integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw=="
-    data-cf-beacon='{"rayId":"7c68315d0b4f26b5","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.4.0","si":100}'
-    crossorigin="anonymous"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7c68315d0b4f26b5","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.4.0","si":100}' crossorigin="anonymous"></script>
   <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-</body>
-
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>
