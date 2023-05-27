@@ -155,7 +155,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Auction Details</h4>
-                    <form action="auction.php" method="POST" class="forms-sample">
+                    <form action="auction.php" method="POST" class="forms-sample" enctype="multipart/form-data">
                   
                       <div class="form-group">
                         <label for="category">Category</label>
@@ -364,16 +364,27 @@
                         <input type="checkbox" class="form-check-input" checked>I agree terms and conditions </label>
                     </div>                      
                       
-                      <div class="form-group">
-                        <label>Auction File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-primary" type="button"disabled>Upload</button>
-                          </span>
-                        </div>
+                    <div class="form-group">
+                      <label>Auction File upload</label>
+                      <input type="file" name="img[]" class="file-upload-default" multiple>
+                      <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                        </span>
                       </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Auction File upload</label>
+                      <input type="file" name="file[]" class="file-upload-default" multiple>
+                      <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                        </span>
+                      </div>
+                    </div>
+
                              
                       <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
                     

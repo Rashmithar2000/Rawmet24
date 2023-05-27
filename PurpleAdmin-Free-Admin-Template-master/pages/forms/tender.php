@@ -57,40 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //=========================================================================================
 
-
-
-    $dname=$_FILES["file"]["name"];
-    //print_r($fname);die;
-    $dname2="";
-    $ctr=0;
-    foreach($dname as $fn){
-        $targetDir = "uploads/"; // Directory to store uploaded images
-        $targetFile = $targetDir . basename($_FILES["file"]["name"][$ctr]);
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-       
-
-        // Allow only certain file formats
-        if ($imageFileType != "pdf" ) {
-            echo "Error: Only pdf files are allowed.";
-            $uploadOk = 0;
-        }
-        if ($uploadOk == 1) {
-            move_uploaded_file($_FILES["file"]["tmp_name"][$ctr], $targetFile);  
-            $dname2 = serialize($dname);    
-        }
-
-        $ctr++;
-    }
-
-
-
-
-
-
-    //=======================================================doc upload ====================
-
-
     $servername = 'localhost';
     $username = 'root';
     $password = '';
@@ -106,12 +72,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "INSERT INTO tenders (category, infoId, ownership, tenderLocation, sector, tenderNumber,
      tenderDesc, material, quantity,publishingDatetime, startDatetime, endDatetime, 
      emdType, emdAmt, tenderValue,companyName, location, street, city, 
-     telephone, email, contactPerson, img, file) 
+     telephone, email, contactPerson, img) 
     VALUES ('$category', '$infoId', '$ownership', '$tenderLocation', '$sector', '$tenderNumber', 
 
     '$tenderDesc', '$material','$value', '$publishingDatetime', '$startDatetime', '
     $endDatetime', '$emdType', '$emdAmt','$tenderValue', '$companyName',
-     '$location', '$street', '$city', '$telephone', '$email', '$contactPerson','$fname2','$dname2')";
+     '$location', '$street', '$city', '$telephone', '$email', '$contactPerson','$fname2')";
 
 
 
