@@ -216,6 +216,41 @@ include "connect.php";
         <tbody>
 
           <?php
+        if(isset($_GET['metal']) && isset($_GET['category'])){
+       $a = $_GET['metal'];
+       $b = $_GET['category'];
+       $sql = "select * from metal WHERE metal='$a' AND scrap_metal='$b'";
+          $result = mysqli_query($con, $sql);
+          //print_r($result);die;
+          if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
+              //print_r($row);die;
+              ?>
+              <tr>
+                <td class="lalign">
+                  <?php echo $row['id']; ?>
+                </td>
+                <td>
+                  <?php echo $row['metal']; ?>
+                </td>
+                <td>
+                  <?php echo $row['scrap_metal']; ?>
+                </td>
+                <td>
+                  <?php echo $row['price']; ?>
+                </td>
+                <td>
+                  <?php
+                  echo $row['timestamp']; ?>
+                </td>
+              </tr>
+
+              <?php
+            }
+          }
+
+
+        }else{
           $sql = "select * from metal ";
           $result = mysqli_query($con, $sql);
           //print_r($result);die;
@@ -245,6 +280,8 @@ include "connect.php";
               <?php
             }
           }
+
+        }
           ?>
 
         </tbody>
