@@ -56,7 +56,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     //=========================================================================================
+    $dname=$_FILES["file"]["name"];
+    //print_r($fname);die;
+    $dname2="";
+    $ctr=0;
+    foreach($dname as $fn){
+        $targetDir = "uploads/"; // Directory to store uploaded images
+        $targetFile = $targetDir . basename($_FILES["file"]["name"][$ctr]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+       
 
+        // Allow only certain file formats
+        if ($imageFileType != "pdf" ) {
+            echo "Error: Only pdf files are allowed.";
+            $uploadOk = 0;
+        }
+        if ($uploadOk == 1) {
+            move_uploaded_file($_FILES["file"]["tmp_name"][$ctr], $targetFile);  
+            $dname2 = serialize($dname);    
+        }
+
+        $ctr++;
+    }
+
+
+
+
+
+    
     $servername = 'localhost';
     $username = 'root';
     $password = '';
