@@ -24,6 +24,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telephone = isset($_POST['telephone']) ? $_POST['telephone'] : '';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
     $contactPerson = isset($_POST['contactPerson']) ? $_POST['contactPerson'] : '';
+    //=======================================================upload ====================
+
+    $fname=$_FILES["img"]["name"];
+    //print_r($fname);die;
+    $fname2="";
+    $ctr=0;
+    foreach($fname as $fn){
+        $targetDir = "uploads/"; // Directory to store uploaded images
+        $targetFile = $targetDir . basename($_FILES["img"]["name"][$ctr]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+       
+
+        // Allow only certain file formats
+        if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif") {
+            echo "Error: Only JPG, JPEG, PNG, and GIF files are allowed.";
+            $uploadOk = 0;
+        }
+        if ($uploadOk == 1) {
+            move_uploaded_file($_FILES["img"]["tmp_name"][$ctr], $targetFile);  
+            $fname2 = serialize($fname);    
+        }
+
+        $ctr++;
+    }
+
+
+    
+
+
+    //=========================================================================================
 
     $servername = 'localhost';
     $username = 'root';
@@ -38,11 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "INSERT INTO tenders (category, infoId, ownership, tenderLocation, sector, tenderNumber,
      tenderDesc, material, quantity,publishingDatetime, startDatetime, endDatetime, 
      emdType, emdAmt, tenderValue,companyName, location, street, city, 
-     telephone, email, contactPerson) 
+     telephone, email, contactPerson, img) 
     VALUES ('$category', '$infoId', '$ownership', '$tenderLocation', '$sector', '$tenderNumber', 
-    '$tenderDesc', '$material','$quantity', '$publishingDatetime', '$startDatetime', '
-    $endDatetime', '$emdType', '$emdAmt','$tenderValue', '$companyName',
-     '$location', '$street', '$city', '$telephone', '$email', '$contactPerson')";
+    '$tenderDesc', '$material','$quantity','$publishingDatetime','$startDatetime', '
+    $endDatetime','$emdType', '$emdAmt','$tenderValue', '$companyName',
+     '$location', '$street', '$city', '$telephone', '$email', '$contactPerson', '$fname2')";
 
     if ($conn->query($sql) === true) {
         ?> <script>
