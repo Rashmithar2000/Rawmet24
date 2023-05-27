@@ -253,6 +253,10 @@ include "connect.php";
     .color{
       color: #fff !important;
     }
+    .modal-body img {
+      width: 100%;
+      height: auto;
+    }
   </style>
   <section class="ftco-section" style="padding-top: 5px;">
 
@@ -449,6 +453,8 @@ include "connect.php";
     </div>
   </div>
 
+
+
   <div class="container">
 
 <div class="row">
@@ -482,8 +488,87 @@ include "connect.php";
 </div>
   </div>
 
+
   <div class="container">
-    <div class="card" style="margin-top:-300px;">
+    <div class="card"style="margin-top:-290px" >
+      <div class="card-body">
+        <h3>Images</h3><hr>
+        <div class="row">
+          <div class="col-md-2">
+            <img src="https://media.istockphoto.com/id/646996026/photo/metal-profiles-and-tubes-different-stainless-steel-products.jpg?s=612x612&w=0&k=20&c=h3Kmz9NBC9Egi3KvQHVO-_UXBQ2ciU0jEunusO72tIY=" width="200px" height="200px" class="img-fluid" alt="Image 1" data-toggle="modal" data-target="#myModal1">
+          </div>
+          <div class="col-md-2">
+            <img src="https://ichef.bbci.co.uk/images/ic/448xn/p0b760td.jpg" width="200px" height="200px" class="img-fluid" alt="Image 4" data-toggle="modal" data-target="#myModal2">
+          </div>
+          <div class="col-md-2">
+            <img src="https://5.imimg.com/data5/LH/QO/MY-43959358/1-250x250.jpg" width="200px" height="200px" class="img-fluid" alt="Image 2" data-toggle="modal" data-target="#myModal3">
+          </div>
+          
+          <div class="col-md-2">
+            <img src="https://www.thoughtco.com/thmb/8cblL7z5t71vPXXVmUbZLZ99Sc8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/collection-of-bolts-and-nuts-of-different-sizes-688358622-5b4b1e9a46e0fb005ba8e4a9.jpg" width="200px" height="200px"  class="img-fluid" alt="Image 3" data-toggle="modal" data-target="#myModal4">
+          </div>
+          
+          <div class="col-md-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Alloy_and_metal_samples_-_Beryllium-Copper%2C_Inconel%2C_Steel%2C_Titanium%2C_Aluminum%2C_Magnesium.jpg" width="200px" height="200px" class="img-fluid" alt="Image 5" data-toggle="modal" data-target="#myModal5">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://media.istockphoto.com/id/646996026/photo/metal-profiles-and-tubes-different-stainless-steel-products.jpg?s=612x612&w=0&k=20&c=h3Kmz9NBC9Egi3KvQHVO-_UXBQ2ciU0jEunusO72tIY=" class="img-fluid" alt="Zoomed Image">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://ichef.bbci.co.uk/images/ic/448xn/p0b760td.jpg" class="img-fluid" alt="Zoomed Image">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://5.imimg.com/data5/LH/QO/MY-43959358/1-250x250.jpg" class="img-fluid" alt="Zoomed Image">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://www.thoughtco.com/thmb/8cblL7z5t71vPXXVmUbZLZ99Sc8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/collection-of-bolts-and-nuts-of-different-sizes-688358622-5b4b1e9a46e0fb005ba8e4a9.jpg" class="img-fluid" alt="Zoomed Image">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Alloy_and_metal_samples_-_Beryllium-Copper%2C_Inconel%2C_Steel%2C_Titanium%2C_Aluminum%2C_Magnesium.jpg" class="img-fluid" alt="Zoomed Image">
+        </div>
+      </div>
+    </div>
+  </div>
+
+                      </div>
+                      <br><br><br><br><br><br><br>
+
+
+
+  <div class="container">
+    <div class="card" style="margin-top:-150px;">
       <div class="card-body" >
 
         <h3>Documents</h3>
@@ -653,7 +738,17 @@ include "connect.php";
   </div>
   <!-- Copyright -->
 </footer>
-
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    // Add click event listener to all zoomable images
+    var zoomImages = document.querySelectorAll('.zoom-img');
+    zoomImages.forEach(function(image) {
+      image.addEventListener('click', function() {
+        var modalImage = document.querySelector('#myModal .modal-body img');
+        modalImage.src = this.src;
+      });
+    });
+  </script>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
