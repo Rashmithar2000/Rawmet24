@@ -1,12 +1,16 @@
-<!DOCTYPE html>
+<?php
+include "connect.php";
+?>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Auction</title>
+    <title>Deals</title>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
@@ -15,7 +19,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/_buttons.scss">
 <link rel="stylesheet" href="css/buttons.scss">
-<link rel="stylesheet" href="tender.css">
+<link rel="stylesheet" href="css/auction.css">
 <link rel="stylesheet" href="css/reboot.scss">
 <!-- <link rel="stylesheet" href="css/buttons.scss"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,11 +31,9 @@
 <!-- <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css"> -->
 
 <script nonce="10103964-004b-4a99-b2c8-e02088e28228">(function(w,d){!function(bg,bh,bi,bj){bg[bi]=bg[bi]||{};bg[bi].executed=[];bg.zaraz={deferred:[],listeners:[]};bg.zaraz.q=[];bg.zaraz._f=function(bk){return function(){var bl=Array.prototype.slice.call(arguments);bg.zaraz.q.push({m:bk,a:bl})}};for(const bm of["track","set","debug"])bg.zaraz[bm]=bg.zaraz._f(bm);bg.zaraz.init=()=>{var bn=bh.getElementsByTagName(bj)[0],bo=bh.createElement(bj),bp=bh.getElementsByTagName("title")[0];bp&&(bg[bi].t=bh.getElementsByTagName("title")[0].text);bg[bi].x=Math.random();bg[bi].w=bg.screen.width;bg[bi].h=bg.screen.height;bg[bi].j=bg.innerHeight;bg[bi].e=bg.innerWidth;bg[bi].l=bg.location.href;bg[bi].r=bh.referrer;bg[bi].k=bg.screen.colorDepth;bg[bi].n=bh.characterSet;bg[bi].o=(new Date).getTimezoneOffset();if(bg.dataLayer)for(const bt of Object.entries(Object.entries(dataLayer).reduce(((bu,bv)=>({...bu[1],...bv[1]})))))zaraz.set(bt[0],bt[1],{scope:"page"});bg[bi].q=[];for(;bg.zaraz.q.length;){const bw=bg.zaraz.q.shift();bg[bi].q.push(bw)}bo.defer=!0;for(const bx of[localStorage,sessionStorage])Object.keys(bx||{}).filter((bz=>bz.startsWith("_zaraz_"))).forEach((by=>{try{bg[bi]["z_"+by.slice(7)]=JSON.parse(bx.getItem(by))}catch{bg[bi]["z_"+by.slice(7)]=bx.getItem(by)}}));bo.referrerPolicy="origin";bo.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(bg[bi])));bn.parentNode.insertBefore(bo,bn)};["complete","interactive"].includes(bh.readyState)?zaraz.init():bg.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document);</script></head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
-<style>
+  <style>
     .scroller {
   height: 300px !important;
   overflow-y: scroll !important;
@@ -121,19 +123,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <ul class="navbar-nav m-auto">
 <li class="nav-item "><a href="home.php" class="nav-link">Home</a></li>
 <li class="nav-item"><a href="tender.php" class="nav-link">Tenders</a></li>
-<li class="nav-item active"><a href="#" class="nav-link">Auctions</a></li>
-<li class="nav-item"><a href="deals.php" class="nav-link">Deals</a></li>
+
+<li class="nav-item "><a href="auction.php" class="nav-link">Auctions</a></li>
+<li class="nav-item active"><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
-<li class="nav-item"><a href="metalsearch.html" class="nav-link">Metal Prices</a></li>
+<li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
 <li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
 <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
-
 </ul>
 </div>
 </div>
 </nav>
 </section>
-
 
 <section class="home">
 <br>
@@ -263,15 +264,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 <!-- Footer -->
-<footer
-        class="text-center text-lg-start text-white"
-        style="background-color: #1c2331"
-        >
+
+
+<footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
   <!-- Section: Social media -->
-  <section
-           class="d-flex justify-content-between p-3"
-           style="background-color:#3b8beb"
-           >
+  <section class="d-flex justify-content-between p-3" style="background-color:#3b8beb">
     <!-- Left -->
 
     <div class="me-5">
@@ -288,7 +285,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <a href="" class="text-white me-4">
         <i class="fa-brands fa-instagram"></i>
       </a>
- 
+
     </div>
     <!-- Left -->
 
@@ -303,13 +300,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <!-- Grid column -->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
-          <h6 class="text-uppercase fw-bold">Company name</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #3b8beb; height: 2px"
-              />
+          <h6 class="text-uppercase fw-bold" style="color: #fff;">Company name</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
-            SHOPEMET is a world class general Refined metal trading company that has served as a foundation for growth of basic material industry in India
+            SHOPEMET is a world class general Refined metal trading company that has served as a foundation for growth
+            of basic material industry in India
           </p>
         </div>
         <!-- Grid column -->
@@ -317,11 +312,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <!-- Grid column -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold">Key links</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #3b8beb; height: 2px"
-              />
+          <h6 class="text-uppercase fw-bold" style="color: #fff;">Key links</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
             <a href="#!" class="text-white">About Us</a>
           </p>
@@ -329,43 +321,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
             <a href="#!" class="text-white">Why Tender</a>
           </p>
           <p>
-            <a href="#!" class="text-white">Feedback</a>
+            <a href="policy.html" class="text-white">Privacy Policy</a>
           </p>
           <p>
             <a href="#!" class="text-white">Solutions</a>
           </p>
-          
-        </div>
-        <!-- Grid column -->
 
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold">Useful links</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #3b8beb; height: 2px"
-              />
-          <p>
-            <a href="#!" class="text-white">Your Account</a>
-          </p>
-          <p>
-            <a href="#!" class="text-white">Become an Affiliate</a>
-          </p>
-          <p>
-            <a href="#!" class="text-white">Help</a>
-          </p>
         </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
+   
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold">Contact</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #3b8beb; height: 2px"
-              />
+          <h6 class="text-uppercase fw-bold" style="color: #fff;">Contact</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p><i class="fa fa-envelope" aria-hidden="true"></i> shopemet@gmail.com</p>
           <p><i class="fa fa-phone" aria-hidden="true"></i> +91 8766443234</p>
           <p><i class="fa fa-phone" aria-hidden="true"></i> +91 1234567819</p>
@@ -378,12 +345,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <!-- Section: Links  -->
 
   <!-- Copyright -->
-  <div
-       class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-       
-    © 2023 
-    <a class="text-white" href="https://mdbootstrap.com/"
-       >shopemet.com</a>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+
+    © 2023
+    <a class="text-white" href="https://mdbootstrap.com/">shopemet.com</a>
   </div>
   <!-- Copyright -->
 </footer>
@@ -391,7 +356,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 
-// <script src="js/toggle.js"></script>
+<script src="js/toggle.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>

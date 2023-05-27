@@ -1,6 +1,3 @@
-<?php
-include "connect.php";
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,7 +6,7 @@ include "connect.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Exclusive Deal Page</title>
+    <title>Home Page</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -159,7 +156,6 @@ tr {
 tr:hover td {
   background:#828393;
   color:#FFFFFF;
-  border-top: 1px solid #22262e;
 }
  
 tr:first-child {
@@ -197,6 +193,8 @@ td {
   border-right: 1px solid #C1C3D1;
 }
  
+ 
+ 
  td:last-child {
   border-right: 0px;
 }
@@ -225,28 +223,21 @@ td.text-right {
   text-align: right;
 }
 
-h4,
-    h5,
-    h6 {
-      color: #757b89;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-      font-size:18px;
+h4,h5,h6 {
+color: #757b89;
+font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+font-size:medium;
 
-    }
-
-    .space {
-      padding: 6px;
+}
+.space
+{
+    padding:6px;
 
 
-    }
-    .color{
-      color: #fff !important;
-    }
-   
-    .modal-body img {
-      width: 100%;
-      height: auto;
-    }
+}
+
+
+
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
   
@@ -285,16 +276,16 @@ h4,
 </button>
 <div class="collapse navbar-collapse" id="ftco-nav">
 <ul class="navbar-nav m-auto">
-<li class="nav-item "><a href="home.php" class="nav-link">Home</a></li>
-<li class="nav-item"><a href="tender.php" class="nav-link">Tenders</a></li>
+<li class="nav-item active"><a href="home.html" class="nav-link">Home</a></li>
+<li class="nav-item"><a href="tender.html" class="nav-link">Tenders</a></li>
 
-<li class="nav-item"><a href="auction.php" class="nav-link">Auctions</a></li>
+<li class="nav-item"><a href="auction.html" class="nav-link">Auctions</a></li>
+</li>
 
-<li class="nav-item "><a href="deals.php" class="nav-link">Deals</a></li>
-<li class="nav-item active"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
-<li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
-<li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
-<li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
+<li class="nav-item"><a href="deals.html" class="nav-link">Deals</a></li>
+<li class="nav-item"><a href="exclusivedeals.html" class="nav-link">Exclusive Deals</a></li>
+<li class="nav-item"><a href="metalsearch.html" class="nav-link">Metal Prices</a></li>
+
 
 </ul>
 </div>
@@ -306,233 +297,146 @@ h4,
 
 <div class="container-fluid" style="background-color: #3b8beb; padding: 30px;"><br>
 
-<a href="price.html"><button class="btn btn-primary" style="border-color: #fff;" >View All Deals</button><br><br><br><br></a>
-</div>
-
     <div class="container" class="col-lg-6 col-md-12" style="margin-top: -130px;"><br><br>
  <div class="card">
  <div class="card-body">
  <div class="clearfix some-new-selector">
   <div class="pull-left">
   <div class="pull-right span9" style="color: #9e9797; padding:10px">
-    <h6>Home /Exclusive Deal Search /Exclusive Deal Detail</h6>
+    <h6>Home / Tender Search / Tender Detail</h6>
     <br>
-    <?php
-                    $id = $_GET['g'];
-                    $sql = "select * from exclusive_deals where id=$id";
-                    $result = mysqli_query($con, $sql);
-                    if ($result) {
-                      while ($row = mysqli_fetch_assoc($result)) {
-
-                        ?>
-    <h3 style="color: #595a62;">COMPANY NAME: &nbsp<a href="price.html">XXXXX</a></h3>
-    <h5><i class='bx bx-map'></i> <?php echo $row['location']; ?></h5><br>
+    <h3 style="color: #595a62;"> Bharat Heavy Electricals Limited Tender</h3>
+    <h5><i class='bx bx-map'></i> Mumbai, Maharastra</h5><br>
     <hr>
     <div style="margin-left: 40px;">
-      <table class="table table-bordered">
+     <table class="table table-bordered">
   <thead>
     <tr>
 
     </tr>
   </thead>
   <tbody>
- 
+    <tr>
+      <td>Reference No </td>
+      <td>59890270</td>
+    </tr>
+    <tr>
+     
+      <td>Tender source </td>
+      <td><button class="btn btn-primary">Open Website</button>
+</td>
+    </tr>
+    <tr>
+     
+      <td >Important Dates </td>
+      <td><i class='bx bx-calendar-alt'></i> 29th Sep, 2023 <br> Bid Submission Started<br><br>
+        <i class='bx bx-calendar-alt'></i> 29th Sep, 2023 <br> Bid Submission Started
+</td>
+    </tr>
+    <tr>
+     
+      <td>Tender Value </td>
+      <td>Not Specified</td>
+    </tr>
+    <tr>
+     
+      <td>Ownership</td>
+      <td>Company</td>
+    </tr>
+    <tr>
+     
+      <td >Location</td>
+      <td>Bangalore</td>
+    </tr>
+    <tr>
+     
+      <td>Sector</td>
+      <td>Private</td>
+    </tr>
+    <tr>
+     
+      <td>Tender No</td>
+      <td>RTD/598908</td>
+    </tr>
+    <tr>
+     
+      <td >ePublishing Date & Time</td>
+      <td>dd/mm/yy</td>
+    </tr>
+    <tr>
+     
+      <td>Bid Submission Date</td>
+      <td>dd/mm/yy</td>
+    </tr>
+    <tr>
+     
+      <td>Bid Submission Close Date</td>
+      <td>dd/mm/yy</td>
+    </tr>
+    <tr>
+     
+      <td >Inspection From Date</td>
+      <td>dd/mm/yy</td>
+    </tr>
+    <tr>
+     
+      <td>Inspection Closing Date</td>
+      <td>dd/mm/yy</td>
+    </tr>
+    <tr>
+     
+      <td>EMD amount</td>
+      <td>34000</td>
+    </tr>
    
-    <tr>
-     
-      <td>IR Executive </td>
-      <td><?php echo $row['ir']; ?></td>
-    </tr>
-    <tr>
-     
-      <td>FE Executive</td>
-      <td><a href="price.html">XXXXX</a></td>
-    </tr>
-    <tr>
-    <tr>
-
-    <td >Exclusive Deal Value </td>
-    <td>
-    <b> ₹&nbsp<?php echo $row['dealValue']; ?>
-    </td></b>
-</tr>
-     
-      <td >Lead Date</td>
-      <td><?php echo $row['dealDatetime']; ?></td>
-    </tr>
-    <tr>
-     
-      <td>Lead Document Created by</td>
-      <td><?php echo $row['docCreatedby']; ?></td>
-    </tr>
-    <tr>
-     
-      <td>Location</td>
-      <td><?php echo $row['location']; ?></td>
-    </tr>
-    <tr>
-     
-      <td >Industrial Area</td>
-      <td><a href="price.html">XXXXX</a></td>
-    </tr>
-   
-    <tr>
-     
-      <td >Material</td>
-      <td><?php echo $row['material']; ?></td>
-    </tr>
-
-    <tr>
-     
-     <td>Date of Requirement (DOR)</td>
-     <td><a href="price.html">XXXXX</a></td>
-   </tr>
-  
   </tbody>
 </table>
-</div>
-      <div class="space">
-  
-
-  
-</div></div>
-<div style="margin-left: 40px;">
-      <table class="table table-bordered">
-  <thead>
-    <tr>
-     <th>List of Materials</th>
-    </tr>
-  </thead>
-  <tbody>
- 
-   
-    <tr>
-     
-      <td><?php echo $row['material'];?></td>
-    
-    </tr>
-   
-     
-    
-   
-</table>
-
 
       <div class="space">
-  
-
   </div>
 </div></div>
 </div>
 </div></div></div></div>
-
 
 <div class="container" >
   
   <div class="row">
   
   
-   
-  <div class="card"
-    style="background-color: #3b8beb; margin-left:550px; margin-top:-810px; margin-bottom:600px; padding:10px; ">
-    <div class="card-body">
-      <h6 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h6>
+    <div class="card"style="background-color: #3b8beb; margin-left:650px; margin-top:-1070px; margin-bottom:600px; padding:10px; ">
+      <div class="card-body"><h5 style="color:#ffffff;">Similar Live Tenders</h5>
       <hr>
-      <h6 style="color:#fff;">Expected Quotation: ₹&nbsp<?php echo $row['expQuotation']; ?></h6><hr>
-
-      <h5 style="color:#fff;">Deal Opening Date and Time :<br>
-      <h6 style="color:#fff;"><i class='bx bx-calendar-alt'><?php echo $row['dealDatetime']; ?> </i>
-                &nbsp </h6>         
-                     
-             </h5>
-
-              </div>     
-         <center>     <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
+     <h5 style="color:#fff;"> STAINLESS STEEL GATE VALUE<h5>
+      <h6 style="color:#fff;">KERALA<h6>
+     <h6 style="color:#fff;"><i class='bx bxs-calendar-alt' ></i> Expires on 12th Oct, 2021 &nbsp &nbsp &nbsp Not specified</h6>
+     <hr>
+     <h5 style="color:#fff;"> STAINLESS STEEL GATE VALUE<h5>
+      <h6 style="color:#fff;">KERALA<h6>
+     <h6 style="color:#fff;"><i class='bx bxs-calendar-alt' ></i> Expires on 12th Oct, 2021 &nbsp &nbsp &nbsp Not specified</h6>
+     <hr>
+     <h5 style="color:#fff;"> STAINLESS STEEL GATE VALUE<h5>
+      <h6 style="color:#fff;">KERALA<h6>
+     <h6 style="color:#fff;"><i class='bx bxs-calendar-alt' ></i> Expires on 12th Oct, 2021 &nbsp &nbsp &nbsp Not specified</h6>
+     <hr>
+     <h5 style="color:#fff;"> STAINLESS STEEL GATE VALUE<h5>
+      <h6 style="color:#fff;">KERALA<h6>
+     <h6 style="color:#fff;"><i class='bx bxs-calendar-alt' ></i> Expires on 12th Oct, 2021 &nbsp &nbsp &nbsp Not specified</h6>
+     <hr>
+     
+     <h5 style="color:#fff;"> STAINLESS STEEL GATE VALUE<h5>
+      <h6 style="color:#fff;">KERALA<h6>
+        <h6 style="color:#fff;"><i class='bx bxs-calendar-alt' ></i> Expires on 12th Oct, 2021 &nbsp &nbsp &nbsp Not specified</h6>
+      </div>     
     </div>
-    
-
-
-    <div class="container">
-    <div class="card" style="margin-top:-200px">
-      <div class="card-body">
-        <h3>Images</h3><hr>
-        <div class="row">
-          <div class="col-md-2">
-            <img src="https://media.istockphoto.com/id/646996026/photo/metal-profiles-and-tubes-different-stainless-steel-products.jpg?s=612x612&w=0&k=20&c=h3Kmz9NBC9Egi3KvQHVO-_UXBQ2ciU0jEunusO72tIY=" width="200px" height="200px" class="img-fluid" alt="Image 1" data-toggle="modal" data-target="#myModal1">
-          </div>
-          <div class="col-md-2">
-            <img src="https://ichef.bbci.co.uk/images/ic/448xn/p0b760td.jpg" width="200px" height="200px" class="img-fluid" alt="Image 4" data-toggle="modal" data-target="#myModal2">
-          </div>
-          <div class="col-md-2">
-            <img src="https://5.imimg.com/data5/LH/QO/MY-43959358/1-250x250.jpg" width="200px" height="200px" class="img-fluid" alt="Image 2" data-toggle="modal" data-target="#myModal3">
-          </div>
-          
-          <div class="col-md-2">
-            <img src="https://www.thoughtco.com/thmb/8cblL7z5t71vPXXVmUbZLZ99Sc8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/collection-of-bolts-and-nuts-of-different-sizes-688358622-5b4b1e9a46e0fb005ba8e4a9.jpg" width="200px" height="200px"  class="img-fluid" alt="Image 3" data-toggle="modal" data-target="#myModal4">
-          </div>
-          
-          <div class="col-md-2">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Alloy_and_metal_samples_-_Beryllium-Copper%2C_Inconel%2C_Steel%2C_Titanium%2C_Aluminum%2C_Magnesium.jpg" width="200px" height="200px" class="img-fluid" alt="Image 5" data-toggle="modal" data-target="#myModal5">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://media.istockphoto.com/id/646996026/photo/metal-profiles-and-tubes-different-stainless-steel-products.jpg?s=612x612&w=0&k=20&c=h3Kmz9NBC9Egi3KvQHVO-_UXBQ2ciU0jEunusO72tIY=" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://ichef.bbci.co.uk/images/ic/448xn/p0b760td.jpg" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://5.imimg.com/data5/LH/QO/MY-43959358/1-250x250.jpg" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://www.thoughtco.com/thmb/8cblL7z5t71vPXXVmUbZLZ99Sc8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/collection-of-bolts-and-nuts-of-different-sizes-688358622-5b4b1e9a46e0fb005ba8e4a9.jpg" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Alloy_and_metal_samples_-_Beryllium-Copper%2C_Inconel%2C_Steel%2C_Titanium%2C_Aluminum%2C_Magnesium.jpg" class="img-fluid" alt="Zoomed Image">
-        </div>
-      </div>
-    </div>
-  </div>
-
+  </div></div></div></div>
+</div>
 
 <div class="container">
- <div class="card">
+ <div class="card" style="margin-top: -100px;">
  <div class="card-body">
 
     <h3>Documents</h3>
-    <hr>
-    
+    <hr>   
  </div>
  <div class="card-columns">
  <div class="card" style="width:150px;">
@@ -549,30 +453,22 @@ h4,
       <p class="card-text">viewNtlPdf_76656788(1).pdf</p>
       </div>
     </div>
-   
-
+  
     <div class="card" style="width:150px; ">
    <center style="margin-left: 4px;"> <img  class="card-img-top" src="https://cdn-icons-png.flaticon.com/512/5968/5968517.png" alt="Card image" style="width:48%"></center>
     <div class="card-body">
       <h4 class="card-title"></h4>
       <p class="card-text">viewhuldoc_67897742(1).doc</p>
-     
+      </div>
     </div>
     </div>
-    </div>
-     <div class="container">
-     <a href="price.html"> <h4 style="margin-left:900px;">Download All ></h4><br></a>
-    </div>
+    
   </div>
-  
  </div>
  </div>
  
-</div>
-<?php
-                      }
-                    }
-                    ?>
+
+
   </body>
     
     </div></div></div></div></div></div></center>
@@ -671,18 +567,6 @@ h4,
   <!-- Copyright -->
 </footer>
 
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <script>
-    // Add click event listener to all zoomable images
-    var zoomImages = document.querySelectorAll('.zoom-img');
-    zoomImages.forEach(function(image) {
-      image.addEventListener('click', function() {
-        var modalImage = document.querySelector('#myModal .modal-body img');
-        modalImage.src = this.src;
-      });
-    });
-  </script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
