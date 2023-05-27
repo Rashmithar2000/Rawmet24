@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 26, 2023 at 04:08 PM
+-- Generation Time: May 27, 2023 at 01:26 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -82,14 +82,10 @@ CREATE TABLE `auction` (
 --
 
 INSERT INTO `auction` (`id`, `category`, `infoId`, `ownership`, `aucLocation`, `sector`, `aucNumber`, `aucDescription`, `aucValue`, `aucSource`, `material`, `quantity`, `ePublishingDateTime`, `startDatetime`, `endDatetime`, `insStartdatetime`, `insEnddatetime`, `emdType`, `emdAmt`, `companyName`, `location`, `street`, `city`, `telephone`, `email`, `contactPerson`) VALUES
-(70, 'Consultancy Tenders', 'RAD1', 'Shopemet', 'Goa', 'Private', '111', 'Appointment of Advanced Metering Infrastructure (AMI) Service Provider for Smart Prepaid Metering.', '121', 'www.google.com', 'Glass', '100', '2023-05-25 09:46:00', '2023-05-27 09:46:00', '2023-05-30 09:46:00', '2023-05-28 09:46:00', '2023-05-29 09:46:00', 'Online Payment/ Net Banking', 70000.00, 'Shopemet', 'Bangalore', 'Indiranagar', 'Bangalore', '8792299684', 'rashpriya2211@gmail.com', 'Rashmitha'),
-(71, 'Disposal Tenders', 'RAD2', 'Shopemet', 'Manipur', 'Private', '222', 'Appointment of Advanced Metering Infrastructure (AMI) Service Provider for Smart Prepaid Metering.', '800', 'www.google.com', 'Brass', '50', '2023-05-25 09:46:00', '2023-05-27 12:46:00', '2023-05-30 15:46:00', '2023-05-28 10:46:00', '2023-05-29 09:51:00', 'Online Payment/ Net Banking', 70000.00, 'Shopemet', 'Bangalore', 'Indiranagar', 'Bangalore', '8792299684', 'rashpriya2211@gmail.com', 'Rashmitha'),
-(72, 'Disposal Tenders', 'RAD2', 'Shopemet', 'Kerala', 'Private', '222', 'Appointment of Advanced Metering Infrastructure (AMI) Service Provider for Smart Prepaid Metering.', '822', 'www.google.com', 'Glass', '90', '2023-05-25 09:46:00', '2023-05-27 12:46:00', '2023-05-30 15:46:00', '2023-05-28 10:46:00', '2023-05-29 09:51:00', 'Online Payment/ Net Banking', 70000.00, 'Shopemet', 'Bangalore', 'Indiranagar', 'Bangalore', '8792299684', 'rashpriya2211@gmail.com', 'Rashmitha'),
-(73, 'Disposal Tenders', 'RAD2', 'Shopemet', 'Assam', 'Private', '222', 'Appointment of Advanced Metering Infrastructure (AMI) Service Provider for Smart Prepaid Metering.', '68', 'www.google.com', 'Glass', '70', '2023-05-25 09:46:00', '2023-05-27 12:46:00', '2023-05-30 15:46:00', '2023-05-28 10:46:00', '2023-05-29 09:51:00', 'Online Payment/ Net Banking', 70000.00, 'Shopemet', 'Bangalore', 'Indiranagar', 'Bangalore', '8792299684', 'rashpriya2211@gmail.com', 'Rashmitha'),
-(74, 'Consultancy Tenders', 'RA123', 'Shopemet', 'Dadra and Nagar Haveli', 'Private', '362', 'Design, Manufacturing & Supply of Domestic Content Requirement Complaint Mono Perc Bifacial Solar Module 530 WP+ for Pavagada Solar PV Project at .', '70', 'www.google.com', 'Steel', '500', '2023-05-25 16:13:00', '2023-05-31 16:13:00', '2023-06-01 16:13:00', '2023-05-28 16:13:00', '2023-05-29 16:13:00', 'Cash', 80000.00, 'L& T ', 'Bangalore', 'Binnamangala', 'Bangalore Rural', '22996840879', 'shopemet@gmail.com', 'Soumya'),
-(75, 'Procurement Tenders', '1A1', 'Surya Fintech', 'Manipur', 'Private', '999', 'Undertaking General Consultancy For Vetting Of Dpr, Bid Process Management And Pmc For Construction And Implementation Of Innovative Urban Transportation Ropeways, Lifts, Escalators Projects,', '80', 'www.google.com', 'Copper', '440', '2023-05-25 17:27:00', '2023-05-31 22:27:00', '2023-06-01 19:27:00', '2023-05-27 17:27:00', '2023-05-29 17:27:00', 'DD', 9999.00, 'Shopemet', 'Bangalore R', 'Commercial', 'Manipur', '8792299684', 'priya2211@gmail.com', 'Rashmitha'),
-(77, 'Procurement Tenders', '1A1', 'Surya Fintech', 'Manipur', 'Private', '999', 'Undertaking General Consultancy For Vetting Of Dpr, Bid Process Management And Pmc For Construction And Implementation Of Innovative Urban Transportation Ropeways, Lifts, Escalators Projects,', '78', 'www.google.com', 'Copper', '440', '2023-05-25 17:27:00', '2023-05-31 22:27:00', '2023-06-01 19:27:00', '2023-05-27 17:27:00', '2023-05-29 17:27:00', 'DD', 9999.00, 'Shopemet', 'Bangalore R', 'Commercial', 'Manipur', '8792299684', 'priya2211@gmail.com', 'Rashmitha'),
-(79, 'Manufacturing Tenders', 'RAD123', 'Bharath Heavy Electricals Limited', 'Tamil Nadu', 'Public', 'BHEL/00729', 'Disposal of Copper Scrap materials \r\n1 Copper Scrap 10059 Kgs( Materials as is where is basis )\r\n2 Iron Scrap (200 Mt)\r\n3 Electrical Scrap (1 Lot)', '0', 'www.bhel.co.in', ' Copper Scrap, Iron Scrap, Electrical Scrap', '10059', '2023-05-25 12:00:00', '2023-05-31 16:00:00', '2023-05-31 18:00:00', '2023-05-26 09:00:00', '2023-05-30 17:00:00', 'DD', 15000000.00, 'Bharath Heavy Electrical Limited', 'Tamil Nadu', 'No 2, Tamburam Street , Coimbatore', 'Coimbatore', '033-2658-1233', 'sales@bhel.co.in', 'Manikantan');
+(87, 'Manufacturing Tenders', '1A1a', 'Shopemetaal', 'Mizoram', 'Public', '222', 'THFH', '121999', 'www.bhel.co.i', 'Steelaewc', '120 mt', '2023-05-27 10:04:00', '2023-05-30 10:04:00', '2023-05-31 10:04:00', '2023-05-28 10:04:00', '2023-05-29 10:04:00', 'Cash', 1222.00, 'dwasd', 'Bangalore', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '8792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R'),
+(89, 'Disposal Tenders', '1A1a', 'a', 'Meghalaya', 'Private', 'AUC/DTDPL/Ferrous/12/20/7', 'Steel', '1897', 'www.google.com', 'Steel', '25 ton', '2023-05-27 12:24:00', '2023-05-29 12:24:00', '2023-05-30 12:24:00', '2023-05-27 12:24:00', '2023-05-28 12:24:00', 'DD', 8999.00, 'SNPL', 'Bangalore ', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R'),
+(90, 'Disposal Tenders', '1A1', 'Shopemetaal', 'Haryana', 'Public', 'AUC/DTDPL/Ferrous/12/20/8', 'Ferrous Components', '125225', 'www.bhel.co.in', 'Iron', '80 kg', '2023-05-26 12:50:00', '2023-06-01 12:50:00', '2023-06-02 12:50:00', '2023-05-27 12:51:00', '2023-05-28 12:51:00', 'DD', 888.00, 'Shopemet', 'Bangalore', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'sales@gmail.com', 'Suchitha'),
+(91, 'Consultancy Tenders', '1A1', 'Shopemetaal', 'Haryana', 'Private', 'AUC/20/8DTDPL/Ferrous/12/', 'Aluminium Components', '125225', 'www.bhel.co.in', 'Aluminium ', '78 kg', '2023-05-26 12:50:00', '2023-06-01 12:50:00', '2023-06-02 12:50:00', '2023-05-27 12:51:00', '2023-05-28 12:51:00', 'DD', 70000.00, 'Shopemet', 'Bangalore', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'sales@gmail.com', 'Suchitha');
 
 -- --------------------------------------------------------
 
@@ -154,15 +150,18 @@ CREATE TABLE `deals` (
 --
 
 INSERT INTO `deals` (`id`, `category`, `infoId`, `ir`, `fe`, `quantity`, `dealValue`, `dealDatetime`, `docCreatedby`, `location`, `industrialArea`, `companyName`, `contactPerson`, `email`, `address`, `city`, `state`, `contactNumber`, `whatsappNumber`, `gstin`, `orderType`, `material`, `specification`, `dor`, `expQuotation`) VALUES
-(37, 'Disposal Tenders', 'RLD', 'Shalom', 'Shariff', '90', '7800', '2023-05-29 10:03:00', ' Raksha', 'Bihar', 'Peenya', 'SNPL', 'Robin', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '44448792299684', 'Procurement', 'Bronze', 'Design, Manufacturing & Supply of Domestic Content Requirement Complaint Mono Perc Bifacial Solar Module 530 WP+ for Pavagada Solar PV Project at Karnataka.', '2023-05-30 10:04:00', 9999),
-(38, 'Disposal Tenders', 'RLD', 'Shalom', 'Shariff', '30', '680', '2023-06-03 13:03:00', ' Raksha', 'Nagaland', 'Peenya', 'RAWMET', 'Surya', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '44448792299684', 'Service', 'Glass', 'Design, Manufacturing & Supply of Domestic Content Requirement Complaint Mono Perc Bifacial Solar Module 530 WP+ for Pavagada Solar PV Project at Karnataka.', '2023-06-05 10:04:00', 3339),
-(39, 'Public Tenders', 'RLD5', 'Shariff', 'Shalom', '70', '6894', '2023-05-31 10:07:00', ' Abhirami', 'Chhattisgarh', 'Indiranangar', 'SNPL', 'Abhirami', 'rashpriya2211@gmail.com', 'Vinayaka Layout,', 'Bangalore ', 'Manipur', '8792299684', '9968487922', '85558792299684', 'Service', 'Copper', 'Construction of 4laning from Saura (Sasaram) at Ch.0.000 to Pattar at Ch 84.400 of Patna-Arraha-Sasaram corridor of NH-119A with a SPUR connectivity of 4.3 km with Arraha Mohania (new NH-319) at Asni under BMP in the State of Bihar on HAM Mode', '2023-06-05 10:08:00', 999),
-(40, 'Manufacturing Tenders', 'RLD5', 'Shariff', 'Shalom', '74', '6894', '2023-05-31 10:07:00', ' Abhirami', 'Karnataka', 'Bangalore', 'Manipur Traders', 'Abhirami', 'rashpriya2211@gmail.com', 'Vinayaka Layout,', 'Bangalore', 'Karnataka', '8792299684', '9968487922', '85558792299684', 'Procurement', 'Gold', 'Construction of 4laning from Saura (Sasaram) at Ch.0.000 to Pattar at Ch 84.400 of Patna-Arraha-Sasaram corridor of NH-119A with a SPUR connectivity of 4.3 km with Arraha Mohania (new NH-319) at Asni under BMP in the State of Bihar on HAM Mode', '2023-06-05 10:08:00', 999),
-(41, 'Manufacturing Tenders', 'RLD5', 'Sangam', 'Cyril', '200', '888', '2023-05-31 10:07:00', ' Aarav', 'Gujarat', 'Gaya', 'Chinanai Enterprises', 'Aarav', 'rashpriya2211@gmail.com', 'Vinayaka Layout,', 'Gaya', 'Gujarat', '8792299684', '9968487922', '85558792299684', 'Procurement', 'Steel', 'Arraha Mohania (new NH-319) at Asni under BMP in the State of Bihar on HAM Mode Construction of 4laning from Saura (Sasaram) at Ch.0.000 to Pattar at Ch 84.400 of Patna-Arraha-Sasaram corridor of NH-119A with a SPUR connectivity of 4.3 km with ', '2023-06-05 10:08:00', 777),
-(42, 'Manufacturing Tenders', 'RLD6', 'Chaitra', 'Chandan', '80', '888', '2023-05-31 10:07:00', ' Sangam', 'Chhattisgarh', 'Chirapunji', 'Chirapunji Traders', 'Aarav', 'rashpriya2211@gmail.com', 'Commercial Layout,', 'Gaya', 'Chhattisgarh', '8793499684', '8799968422', '22996848555879', 'Service', 'Timber', 'BMP in the State of Bihar on HAM Mode Construction of 4laning from Saura (Sasaram) at Ch.0.000 to Pattar at Ch 84.400 of Patna-Arraha-Sasaram corridor of NH-119A with a SPUR connectivity of 4.3 km with  BMP in the State of Bihar on HAM Mode Construction o', '2023-06-05 10:08:00', 10000),
-(43, 'Manufacturing Tenders', 'RLD6', 'Bob', 'Tarun', '55', '455', '2023-05-31 13:10:00', ' Sagar', 'Haryana', 'Chirapunji', 'Chirapunji Traders', 'Aarav', 'rashpriya2211@gmail.com', 'Commercial Layout,', 'Gaya', 'Haryana', '6842299684', '6842287999', '55587922996848', 'Service', 'Timber', 'BMP in the State of Bihar on HAM Mode Construction of 4laning from Saura (Sasaram) at Ch.0.000 to Pattar at Ch 84.400 of Patna-Arraha-Sasaram corridor of NH-119A wit-Sasaram corridor of NH-119A with a SPUR connectivity of 4.3 km with Arraha Mohania (new N', '2023-06-05 10:08:00', 999),
-(44, 'Procurement Tenders', 'RLD8', 'Sagar', 'Sagar', '75', '769', '2023-05-31 13:10:00', ' Sagar', 'Odisha', 'Chirapunji', 'L& T ', 'Sagar', 'rashpriya2211@gmail.com', 'Commercial Layout,', 'Sagar', 'Odisha', '6842299684', '6842287999', '96848555879229', 'Service', 'Brass', 'HAM Mode Construction of 4laning from Saura (Sasaram) at Ch.0.000 to Pattar at Ch 84.400 of Patna-Arraha-Sasaram corridor of NH-119A wit-Sasaram corridor of NH-119A with a SPUR connectivity of 4.3 km with Arraha Mohania (new NH-319) at Asni under BMP in t', '2023-06-05 10:08:00', 10000),
-(46, 'Disposal Tenders', '14W12465', 'Chaitra', 'Shariff', '123', '568', '2023-05-25 17:37:00', ' Sagar', 'Meghalaya', 'Peenya', 'SNPL', 'Rashmitha ', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '879229968413212', 'Service', 'Steel', 'Appointment of Advanced Metering Infrastructure (AMI) Service Provider for Smart Prepaid Metering.', '2023-06-03 17:38:00', 7878);
+(37, 'Disposal Tenders', 'RLD', 'Shalom', 'Shariff', '90 MT', '7800', '2023-05-29 10:03:00', ' Raksha', 'Bihar', 'Peenya', 'SNPL', 'Robin', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '44448792299684', 'Procurement', 'Bronze', 'Design, Manufacturing & Supply of Domestic Content Requirement Complaint Mono Perc Bifacial Solar Module 530 WP+ for Pavagada Solar PV Project at Karnataka.', '2023-05-30 10:04:00', 9999),
+(38, 'Disposal Tenders', 'RLD', 'Shalom', 'Shariff', '30 KG', '680', '2023-06-03 13:03:00', ' Raksha', 'Nagaland', 'Peenya', 'RAWMET', 'Surya', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '44448792299684', 'Service', 'Glass', 'Design, Manufacturing & Supply of Domestic Content Requirement Complaint Mono Perc Bifacial Solar Module 530 WP+ for Pavagada Solar PV Project at Karnataka.', '2023-06-05 10:04:00', 3339),
+(39, 'Public Tenders', 'RLD5', 'Shariff', 'Shalom', '70 MT', '6894', '2023-05-31 10:07:00', ' Abhirami', 'Chhattisgarh', 'Indiranangar', 'SNPL', 'Abhirami', 'rashpriya2211@gmail.com', 'Vinayaka Layout,', 'Bangalore ', 'Manipur', '8792299684', '9968487922', '85558792299684', 'Service', 'Copper', 'Construction of 4laning from Saura (Sasaram) at Ch.0.000 to Pattar at Ch 84.400 of Patna-Arraha-Sasaram corridor of NH-119A with a SPUR connectivity of 4.3 km with Arraha Mohania (new NH-319) at Asni under BMP in the State of Bihar on HAM Mode', '2023-06-05 10:08:00', 999),
+(40, 'Manufacturing Tenders', 'RLD5', 'Shariff', 'Shalom', '74 NOs', '6894', '2023-05-31 10:07:00', ' Abhirami', 'Karnataka', 'Bangalore', 'Manipur Traders', 'Abhirami', 'rashpriya2211@gmail.com', 'Vinayaka Layout,', 'Bangalore', 'Karnataka', '8792299684', '9968487922', '85558792299684', 'Procurement', 'Gold', 'Construction of 4laning from Saura (Sasaram) at Ch.0.000 to Pattar at Ch 84.400 of Patna-Arraha-Sasaram corridor of NH-119A with a SPUR connectivity of 4.3 km with Arraha Mohania (new NH-319) at Asni under BMP in the State of Bihar on HAM Mode', '2023-06-05 10:08:00', 999),
+(41, 'Manufacturing Tenders', 'RLD5', 'Sangam', 'Cyril', '200 NOs', '888', '2023-05-31 10:07:00', ' Aarav', 'Gujarat', 'Gaya', 'Chinanai Enterprises', 'Aarav', 'rashpriya2211@gmail.com', 'Vinayaka Layout,', 'Gaya', 'Gujarat', '8792299684', '9968487922', '85558792299684', 'Procurement', 'Steel', 'Arraha Mohania (new NH-319) at Asni under BMP in the State of Bihar on HAM Mode Construction of 4laning from Saura (Sasaram) at Ch.0.000 to Pattar at Ch 84.400 of Patna-Arraha-Sasaram corridor of NH-119A with a SPUR connectivity of 4.3 km with ', '2023-06-05 10:08:00', 777),
+(42, 'Manufacturing Tenders', 'RLD6', 'Chaitra', 'Chandan', '80 KG', '888', '2023-05-31 10:07:00', ' Sangam', 'Chhattisgarh', 'Chirapunji', 'Chirapunji Traders', 'Aarav', 'rashpriya2211@gmail.com', 'Commercial Layout,', 'Gaya', 'Chhattisgarh', '8793499684', '8799968422', '22996848555879', 'Service', 'Timber', 'BMP in the State of Bihar on HAM Mode Construction of 4laning from Saura (Sasaram) at Ch.0.000 to Pattar at Ch 84.400 of Patna-Arraha-Sasaram corridor of NH-119A with a SPUR connectivity of 4.3 km with  BMP in the State of Bihar on HAM Mode Construction o', '2023-06-05 10:08:00', 10000),
+(43, 'Manufacturing Tenders', 'RLD6', 'Bob', 'Tarun', '55 MT', '455', '2023-05-31 13:10:00', ' Sagar', 'Haryana', 'Chirapunji', 'Chirapunji Traders', 'Aarav', 'rashpriya2211@gmail.com', 'Commercial Layout,', 'Gaya', 'Haryana', '6842299684', '6842287999', '55587922996848', 'Service', 'Timber', 'BMP in the State of Bihar on HAM Mode Construction of 4laning from Saura (Sasaram) at Ch.0.000 to Pattar at Ch 84.400 of Patna-Arraha-Sasaram corridor of NH-119A wit-Sasaram corridor of NH-119A with a SPUR connectivity of 4.3 km with Arraha Mohania (new N', '2023-06-05 10:08:00', 999),
+(44, 'Procurement Tenders', 'RLD8', 'Sagar', 'Sagar', '75 MT', '769', '2023-05-31 13:10:00', ' Sagar', 'Odisha', 'Chirapunji', 'L& T ', 'Sagar', 'rashpriya2211@gmail.com', 'Commercial Layout,', 'Sagar', 'Odisha', '6842299684', '6842287999', '96848555879229', 'Service', 'Brass', 'HAM Mode Construction of 4laning from Saura (Sasaram) at Ch.0.000 to Pattar at Ch 84.400 of Patna-Arraha-Sasaram corridor of NH-119A wit-Sasaram corridor of NH-119A with a SPUR connectivity of 4.3 km with Arraha Mohania (new NH-319) at Asni under BMP in t', '2023-06-05 10:08:00', 10000),
+(46, 'Disposal Tenders', '14W12465', 'Chaitra', 'Shariff', '123 MT', '568', '2023-05-25 17:37:00', ' Sagar', 'Meghalaya', 'Peenya', 'SNPL', 'Rashmitha ', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '879229968413212', 'Service', 'Steel', 'Appointment of Advanced Metering Infrastructure (AMI) Service Provider for Smart Prepaid Metering.', '2023-06-03 17:38:00', 7878),
+(47, 'Manufacturing Tenders', '1A1a', 'a', 'Shalom', '120 nos', '2112', '2023-05-29 10:39:00', ' Sagar', 'Telangana', 'Indiranangara', 'SNPL', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '87922996841231', 'Service', 'Steel', 'DAhEBYMBFMCHYUYUZ,HCSFWEN SZkbwjsdnwekjbfc,uaeiruvn.rjkdfc ', '2023-05-30 10:39:00', 12323),
+(49, 'Disposal Tenders', '1A1a', 'Chaitra', 'ShahidaShariff', '88 nos', '88989', '2023-05-24 11:27:00', ' Raksha', 'Nagaland', 'Peenya', 'SNPLaaa', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '85558792299684', 'Service', 'Steel', 'ewgfergfersfvesd', '2023-05-29 11:27:00', 89889),
+(50, 'Manufacturing Tenders', '1A1a', 'Chaitra', 'ShahidaShariff', '89 nos', '3434', '2023-05-27 11:37:00', ' Rashaa', 'Madhya Pradesh', 'aasd', 'SNPLaaa', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '87922996841234', 'Procurement', 'Steelaewc', 'SteelaewcSteelaewcSteelaewcSteelaewcSteelaewcSteelaewcSteelaewcSteelaewcSteelaewcSteelaewcSteelaewcSteelaewc', '2023-05-26 11:37:00', 21322);
 
 -- --------------------------------------------------------
 
@@ -203,8 +202,10 @@ CREATE TABLE `exclusive_deals` (
 --
 
 INSERT INTO `exclusive_deals` (`id`, `category`, `infoId`, `ir`, `fe`, `quantity`, `dealValue`, `dealDatetime`, `docCreatedby`, `location`, `industrialArea`, `companyName`, `contactPerson`, `email`, `address`, `city`, `state`, `contactNumber`, `whatsappNumber`, `gstin`, `orderType`, `material`, `specification`, `dor`, `expQuotation`) VALUES
-(2, 'Manufacturing Tenders', '1A1a', 'Shariff', '12dda', '85', '100', '2023-05-25 11:10:00', ' Rash', 'Bangalore Rural', 'Indiranangara', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '87922996841111', 'Service', 'Steel', 'Maximum 100 tons', '2023-05-27 11:12:00', 889999),
-(3, 'Procurement Tenders', '1A1a', 'Shariff', '12dda', '', '', '2023-05-25 11:10:00', ' Rash', 'Bangalore Rural', 'Indiranangara', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '87922996841111', 'Service', 'Steel', 'Maximum 100 tons', '2023-05-27 11:12:00', 889999);
+(7, 'Manufacturing Tenders', '1A1a', 'Shalom', 'Shariff', '150 mt', '7775', '2023-05-27 11:17:00', ' Rasheee', 'Haryana', 'Chirapunji', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '8792299684', 'Service', 'Steelw11', 'w3rfeargvrdtdb', '2023-05-27 11:18:00', 213123),
+(8, 'Manufacturing Tenders', '1A1a', '2323a', '12dda', '120 mt', '248498', '2023-05-30 11:31:00', ' Rashaa', 'Goa', 'Peenya', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '879229252', '9449868952652', 'Service', 'Copper', 'frweter4zeryergzze', '2023-06-01 11:31:00', 1528),
+(10, 'Procurement Tenders', '1A1a', '2323a', '12dda', '120 ton', '223', '2023-06-02 11:39:00', ' Raksha', 'Meghalaya', 'Indiranangara', 'SNPL', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '9238237733', '323333332wdw323', 'Procurement', 'Steel', 'e3wedw3d', '2023-05-29 11:39:00', 2322323),
+(11, 'Business Tenders', '1A1', 'Shalom', 'Shalom', '555 ton', '55878', '2023-05-27 11:41:00', ' Sagar', 'Meghalaya', 'Indiranangara', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '8792299684125', 'Service', 'Aluminium', 'AluminiumAluminiumAluminiumAluminiumAluminium', '2023-05-30 11:42:00', 33232);
 
 -- --------------------------------------------------------
 
@@ -286,6 +287,31 @@ INSERT INTO `location` (`state_id`, `state_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `metal`
+--
+
+CREATE TABLE `metal` (
+  `id` int(11) NOT NULL,
+  `metal` varchar(100) NOT NULL,
+  `scrap_metal` varchar(100) NOT NULL,
+  `price` int(100) NOT NULL,
+  `timestamp` datetime(6) NOT NULL DEFAULT current_timestamp(6)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `metal`
+--
+
+INSERT INTO `metal` (`id`, `metal`, `scrap_metal`, `price`, `timestamp`) VALUES
+(1, 'Copper', 'Cu1', 9831, '2023-05-26 09:57:56.457255'),
+(2, 'Copper', 'Cu2', 10831, '2023-05-26 09:57:56.457255'),
+(3, 'Aluminium', 'ADC1', 2460, '2023-05-26 09:57:56.457255'),
+(4, 'Aluminium', 'ADC2', 2360, '2023-05-26 09:57:56.457255'),
+(5, 'Aluminium', 'ADC3', 2550, '2023-05-26 09:57:56.457255');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `signup`
 --
 
@@ -320,7 +346,7 @@ CREATE TABLE `tenders` (
   `tenderNumber` int(255) DEFAULT NULL,
   `tenderDesc` text DEFAULT NULL,
   `material` varchar(255) DEFAULT NULL,
-  `quantity` int(255) NOT NULL,
+  `quantity` varchar(255) NOT NULL,
   `publishingDatetime` datetime DEFAULT NULL,
   `startDatetime` datetime DEFAULT NULL,
   `endDatetime` datetime DEFAULT NULL,
@@ -333,23 +359,18 @@ CREATE TABLE `tenders` (
   `city` varchar(255) DEFAULT NULL,
   `telephone` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `contactPerson` varchar(255) DEFAULT NULL
+  `contactPerson` varchar(255) DEFAULT NULL,
+  `img` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tenders`
 --
 
-INSERT INTO `tenders` (`id`, `category`, `infoId`, `ownership`, `tenderLocation`, `sector`, `tenderNumber`, `tenderDesc`, `material`, `quantity`, `publishingDatetime`, `startDatetime`, `endDatetime`, `emdType`, `emdAmt`, `tenderValue`, `companyName`, `location`, `street`, `city`, `telephone`, `email`, `contactPerson`) VALUES
-(38, 'Procurement Tenders', 'RTD', 'Shopemet', 'Gujarat', 'Private', 11, 'Hiring of HEMM (Shovel, Dumpers/ Tippers, Drills, Dozer, fog canons etc) for removal of all types of materials in all kind of strata for exposing various coal seams from surface down to Lajkura seam including its drilling, excavation, loading, transportation, dumping, spreading, dozing, water sprinkling', 'Copper', 700, '2023-05-25 09:53:00', '2023-05-29 09:53:00', '2023-05-30 09:53:00', 'DD', 40000, 1212, 'Shopemet', 'Bangalore ', ' Vinayaka Layout,', 'Bangalore ', '8792299684', 'rashpriya2211@gmail.com', ' Sindu R'),
-(39, 'Procurement Tenders', 'RTD2', 'SNPL', 'Jammu and Kashmir', 'Public', 11, 'Hiring of HEMM (Shovel, Dumpers/ Tippers, Drills, Dozer, fog canons etc) for removal of all types of materials in all kind of strata for exposing various coal seams from surface down to Lajkura seam including its drilling, excavation, loading, transportation, dumping, spreading, dozing, water sprinkling', 'Glass', 200, '2023-05-25 09:53:00', '2023-05-29 09:53:00', '2023-05-30 09:53:00', 'DD', 40000, 1212, 'SNPL', 'Bangalore ', ' Vinayaka Layout,', 'Bangalore ', '8792299684', 'rashpriya2211@gmail.com', ' Sindu R'),
-(40, 'Business Tenders', 'RTD4', 'National Highway', 'Jammu and Kashmir', 'Private', 78, 'Hiring of HEMM (Shovel, Dumpers/ Tippers, Drills, Dozer, fog canons etc) for removal of all types of materials in all kind of strata for exposing various coal seams from surface down to Lajkura seam including its drilling, excavation, loading, transportation, dumping, spreading, dozing, water sprinkling', 'Glass', 50, '2023-05-25 09:53:00', '2023-05-29 09:53:00', '2023-05-30 09:53:00', 'DD', 40000, 1212, 'SNPL', 'Bangalore ', ' Vinayaka Layout,', 'Bangalore ', '8792299684', 'rashpriya2211@gmail.com', ' Sindu R'),
-(41, 'Business Tenders', 'RTD4', 'National Highway', 'Jammu and Kashmir', 'Private', 78, 'Hiring of HEMM (Shovel, Dumpers/ Tippers, Drills, Dozer, fog canons etc) for removal of all types of materials in all kind of strata for exposing various coal seams from surface down to Lajkura seam including its drilling, excavation, loading, transportation, dumping, spreading, dozing, water sprinkling', 'Aluminium', 90, '2023-05-25 09:53:00', '2023-05-29 09:53:00', '2023-05-30 09:53:00', 'Online Payment/ Net Banking', 98000, 89, 'SNPL', 'Mangalore', 'Commercial', 'Managlore', '9849684694', 'rashpriya2211@gmail.com', ' Surya'),
-(42, 'Business Tenders', 'RTD4', 'L&T', 'Jammu and Kashmir', 'Private', 78, 'Hiring of HEMM (Shovel, Dumpers/ Tippers, Drills, Dozer, fog canons etc) for removal of all types of materials in all kind of strata for exposing various coal seams from surface down to Lajkura seam including its drilling, excavation, loading, transportation, dumping, spreading, dozing, water sprinkling', 'Aluminium', 55, '2023-05-25 09:53:00', '2023-05-29 09:53:00', '2023-05-30 09:53:00', 'Online Payment/ Net Banking', 798, 55, 'Surya Tech', 'Shimogga', 'Commercial', 'Managlore', '9849684694', 'rashpriya2211@gmail.com', ' Surya'),
-(43, 'Manufacturing Tenders', '1A1', 'Lead', 'Uttar Pradesh', 'Public', 111, 'Appointment of Advanced Metering Infrastructure (AMI) Service Provider for Smart Prepaid Metering .', 'Aluminium', 0, '2023-05-25 20:40:00', '2023-06-02 17:40:00', '2023-06-03 17:40:00', 'DD', 2558, 5855, 'Surya Tech', 'Uttar Pradesh', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '8792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R'),
-(44, 'Consultancy Tenders', 'RTD', 'Bharath Heavy Electricals Limited', 'Tamil Nadu', 'Public', 32451, 'Supply of Iron Angles 500 metric Ton', 'Iron Angles', 45, '2023-05-25 18:51:00', '2023-05-30 08:00:00', '2023-05-30 18:51:00', 'DD', 1255, 6000, 'Bharath Heavy Electrical Limited', 'Tamil Nadu', 'No 2 ,Coimbatore', 'Coimbatore', '08792299685', 'sales@bhel.co.in', 'Manikantan'),
-(45, 'Disposal Tenders', 'RTDD', 'Lead Squared', 'Puducherry', 'Private', 1112, 'Waste Management', 'Copper Turnings', 0, '2023-05-26 22:04:00', '2023-05-29 19:04:00', '2023-05-31 19:04:00', 'Online Payment/ Net Banking', 12500, 150000, 'Lead Squared', 'Puducherry', 'Church', 'Puducherry', '08792299684', 'leadsquared@gmail.com', 'Soumya '),
-(46, 'Public Tenders', 'BHEL1', 'Shopemetal', 'Mizoram', 'Private', 9589, 'Waste Disposal', 'Platinum', 0, '2023-05-27 19:06:00', '2023-06-01 23:06:00', '2023-06-05 11:06:00', 'Online Payment/ Net Banking', 16588, 150000, 'SNPLaa', 'Mizoram', 'Commercial', 'Mizoram', '08792299684', 'priya2211rash@gmail.com', ' Naresh');
+INSERT INTO `tenders` (`id`, `category`, `infoId`, `ownership`, `tenderLocation`, `sector`, `tenderNumber`, `tenderDesc`, `material`, `quantity`, `publishingDatetime`, `startDatetime`, `endDatetime`, `emdType`, `emdAmt`, `tenderValue`, `companyName`, `location`, `street`, `city`, `telephone`, `email`, `contactPerson`, `img`) VALUES
+(48, 'Procurement Tenders', '1A1a', 'Shopemetaal', 'Mizoram', 'Private', 111, 'Waste Management', 'Steel', '120 nos', '2023-05-27 15:49:00', '2023-05-31 15:49:00', '2023-06-01 15:49:00', 'Cash', 8700, 150000, 'SNPL', 'Mizoram', 'Mizo Street', 'Mizoram', '08792299684', 'sales2211@gmail.com', 'Indu ', 'a:2:{i:0;s:18:\"Screenshot (2).png\";i:1;s:18:\"Screenshot (3).png\";}'),
+(50, 'Disposal Tenders', '1A1a', 'Lead', 'Mizoram', 'Public', 1112, 'NJZSKAB,DJBAW', 'Glass', '120 nos', '2023-05-27 16:46:00', '2023-06-06 16:46:00', '2023-06-07 16:46:00', 'Cash', 123, 999999, 'SNPLa', 'Bangalore Rural', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R', 'a:2:{i:0;s:19:\"Screenshot (17).png\";i:1;s:19:\"Screenshot (24).png\";}'),
+(51, 'Business Tenders', 'RTD', 'Shopemetal', 'Haryana', 'Private', 0, 'Steel ', 'Steel', '120 mt', '2023-05-27 16:49:00', '2023-05-29 16:49:00', '2023-05-28 16:49:00', 'DD', 7847, 999, 'SNPL', 'Bangalore ', 'No 135/73, Vinayaka Layout, Opposite to Binnamangala Nursery, Nelamangala', 'Bangalore Rural', '08792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R', 'a:2:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}');
 
 -- --------------------------------------------------------
 
@@ -421,6 +442,12 @@ ALTER TABLE `location`
   ADD PRIMARY KEY (`state_id`);
 
 --
+-- Indexes for table `metal`
+--
+ALTER TABLE `metal`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `signup`
 --
 ALTER TABLE `signup`
@@ -452,7 +479,7 @@ ALTER TABLE `admin_login`
 -- AUTO_INCREMENT for table `auction`
 --
 ALTER TABLE `auction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -464,19 +491,25 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `deals`
 --
 ALTER TABLE `deals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `exclusive_deals`
 --
 ALTER TABLE `exclusive_deals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `info_table`
 --
 ALTER TABLE `info_table`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `metal`
+--
+ALTER TABLE `metal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `signup`
@@ -488,7 +521,7 @@ ALTER TABLE `signup`
 -- AUTO_INCREMENT for table `tenders`
 --
 ALTER TABLE `tenders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `uploaded_files`

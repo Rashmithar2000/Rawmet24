@@ -147,7 +147,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <form action="deals.php?l=" method="GET">
                     <div class="card shadow mt-3">
                         <div class="card-header">
-                            <h5>Filter
+                            <h5>Filter&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 <button type="submit" class="btn btn-primary btn-sm float-end">Search</button>
                             </h5>
                         </div>
