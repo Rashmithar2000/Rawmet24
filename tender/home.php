@@ -470,7 +470,7 @@ include "connect.php";
                 <section>
                 <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 750px;">4 Days to go</button>
                  <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?>  </h5>
-                <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">Approximate Business: ₹<?php echo $row['tenderValue']; ?>000.00 </h5>
+                <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">Approximate Business: ₹<?php echo $row['tenderValue']; ?> </h5>
                         Bid Before :<?php echo $row['startDatetime'];?>
                   
     <p style="color:#3b8beb;"> &nbsp<?php echo $row['tenderDesc'];?></p>
@@ -505,7 +505,7 @@ include "connect.php";
                  
                  <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 750px;">4 Days to go</button>
                  <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?>  </h5>
-                <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">Approximate Business: ₹<?php echo $row['expQuotation']; ?>000.00 </h5>
+                <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">Approximate Business: ₹<?php echo $row['expQuotation']; ?></h5>
                         Bid Before :<?php echo $row['dealDatetime'];?>
                   
     <p style="color:#3b8beb;"> &nbsp<?php echo $row['specification'];?></p>
