@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = "INSERT INTO category (categoryName, subCategory) VALUES ('$categoryName', '$subCategory')";
     
     if ($connection->query($query) === TRUE) {
-        header("Location: category.html"); 
+        header("Location: categories.php"); 
         alert("Successfully added");
         
     } else {

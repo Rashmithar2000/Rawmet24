@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -19,7 +18,7 @@ $conn = new mysqli($servername, $username, $password, $database);
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Exclusive Deals Page</title>
+    <title>Deals Page</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -137,7 +136,7 @@ $conn = new mysqli($servername, $username, $password, $database);
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="exculsivedeals.php">
+              <a class="nav-link" href="exclusivedeals.php">
                 <span class="menu-title">Exclusive Deals</span>
                 <i class="mdi mdi-diamond menu-icon"></i>
               </a>
@@ -169,8 +168,8 @@ $conn = new mysqli($servername, $username, $password, $database);
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Exclusive Deals Details</h4>
-                    <form action="exclusivedeal.php" method="post" class="forms-sample" enctype="multipart/form-data">
+                    <h4 class="card-title">Deals Details</h4>
+                    <form action="deal.php" method="post" class="forms-sample" enctype="multipart/form-data">
                   
                       <div class="form-group">
                         <label for="category">Category</label>
@@ -373,7 +372,7 @@ $conn = new mysqli($servername, $username, $password, $database);
                       </div>
                   
                       <div class="form-group">
-                        <label>Exclusive Deal Image upload</label>
+                        <label>Deal Image upload</label>
                         <input type="file" name="img[]" class="file-upload-default" multiple>
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" placeholder="Upload File">
@@ -383,7 +382,7 @@ $conn = new mysqli($servername, $username, $password, $database);
                         </div>
                       </div>
                       <div class="form-group">
-                        <label>Exclusive Deal File upload</label>
+                        <label>Deal File upload</label>
                         <input type="file" name="file[]" class="file-upload-default" multiple>
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" placeholder="Upload File">
