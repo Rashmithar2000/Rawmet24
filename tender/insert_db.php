@@ -28,12 +28,12 @@ $sql = "INSERT INTO signup (name, email, password) VALUES ('$name', '$email', '$
 
 
 if ($conn->query($sql) === TRUE) {
-    // echo "Data inserted successfully";
     header("location: home.php");
+    session_close();
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-
+v
 $conn->close();
 ?>

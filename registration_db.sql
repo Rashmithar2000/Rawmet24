@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 29, 2023 at 10:37 AM
+-- Host: 127.0.0.1
+-- Generation Time: May 29, 2023 at 03:08 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -84,7 +84,25 @@ CREATE TABLE `auction` (
 --
 
 INSERT INTO `auction` (`id`, `category`, `infoId`, `ownership`, `aucLocation`, `sector`, `aucNumber`, `aucDescription`, `aucValue`, `aucSource`, `material`, `quantity`, `ePublishingDateTime`, `startDatetime`, `endDatetime`, `insStartdatetime`, `insEnddatetime`, `emdType`, `emdAmt`, `companyName`, `location`, `street`, `city`, `telephone`, `email`, `contactPerson`, `img`, `file`) VALUES
-(95, 'Procurement Tenders', '346', 'dfgh', 'Maharashtra', 'Public', '545656', 'asdxcvbnm,', '3456', 'Azsdxcfgvbhnm,.', 'qwxsddse', '8 kg', '2023-05-29 18:32:00', '2023-05-19 18:32:00', '2023-05-27 21:33:00', '2023-05-27 18:37:00', '2023-05-27 18:37:00', 'DD', 8455.00, 'shopemet', 'ease', 'awsxse', 'AAASAS', '1232454', 'hr@example.com', 'xfvgbhjn', 'a:3:{i:0;s:5:\"4.png\";i:1;s:5:\"5.png\";i:2;s:5:\"6.png\";}', 'a:1:{i:0;s:10:\"ESE TT.pdf\";}');
+(95, 'Procurement Tenders', '346', 'dfgh', 'Maharashtra', 'Public', '545656', 'asdxcvbnm,', '3456', 'Azsdxcfgvbhnm,.', 'qwxsddse', '8 kg', '2023-05-29 18:32:00', '2023-05-19 18:32:00', '2023-05-27 21:33:00', '2023-05-27 18:37:00', '2023-05-27 18:37:00', 'DD', 8455.00, 'shopemet', 'ease', 'awsxse', 'AAASAS', '1232454', 'hr@example.com', 'xfvgbhjn', 'a:3:{i:0;s:5:\"4.png\";i:1;s:5:\"5.png\";i:2;s:5:\"6.png\";}', 'a:1:{i:0;s:10:\"ESE TT.pdf\";}'),
+(96, 'Procurement Tenders', '456', 'shopemet', 'Andhra Pradesh', 'Public', '54488', 'dfrgijdfhiuaesd', '54', 'sddefrdf', 'copper', '4184 mt', '2023-05-29 16:28:00', '2023-06-02 16:28:00', '2023-06-07 16:28:00', '2023-05-30 16:28:00', '2023-05-31 16:29:00', 'Online Payment/ Net Banking', 41.00, 'sdfrfg', 'zsxdfgthyjukl', 'sdfbhnjkm', 'zsxdcfvgb', '4851', 'ram@gmail.com', 'ram', 'a:1:{i:0;s:27:\"2018-02-04-11-22-06-355.jpg\";}', 'a:1:{i:0;s:20:\"Abhirami_Aadhaar.pdf\";}');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `buyer_dashboard`
+--
+
+CREATE TABLE `buyer_dashboard` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `subscription` varchar(255) NOT NULL DEFAULT '0',
+  `amount` int(11) NOT NULL,
+  `fromDate` timestamp NULL DEFAULT NULL,
+  `toDate` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -360,7 +378,8 @@ CREATE TABLE `tenders` (
 --
 
 INSERT INTO `tenders` (`id`, `category`, `infoId`, `ownership`, `tenderLocation`, `sector`, `tenderNumber`, `tenderDesc`, `material`, `quantity`, `publishingDatetime`, `startDatetime`, `endDatetime`, `emdType`, `emdAmt`, `tenderValue`, `companyName`, `location`, `street`, `city`, `telephone`, `email`, `contactPerson`, `img`, `file`) VALUES
-(56, 'Business Tenders', '1A1a', 'Shopemet', 'Manipur', 'Public', 1112, 'Steel', 'Steel', '555 ton', '2023-05-27 19:21:00', '2023-06-05 19:21:00', '2023-06-06 19:21:00', 'DD', 555, 8988, 'SNPL', 'Bangalore Rural', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R', 'a:2:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}', 'a:2:{i:0;s:45:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023 (1).pdf\";i:1;s:41:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023.pdf\";}');
+(56, 'Business Tenders', '1A1a', 'Shopemet', 'Manipur', 'Public', 1112, 'Steel', 'Steel', '555 ton', '2023-05-27 19:21:00', '2023-06-05 19:21:00', '2023-06-06 19:21:00', 'DD', 555, 8988, 'SNPL', 'Bangalore Rural', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R', 'a:2:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}', 'a:2:{i:0;s:45:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023 (1).pdf\";i:1;s:41:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023.pdf\";}'),
+(58, 'Procurement Tenders', '456', 'shopemet', 'Gujarat', 'Private', 58578, 'aertyuio;lkjhgvfcdxsertyuio', 'copper', '845 ton', '2023-05-30 16:18:00', '2023-05-30 16:18:00', '2023-06-03 16:18:00', 'DD', 457, 0, 'werstfyguhijkl;', 'asedrfghjk', 'qawestfrghj', 'asdfgbhnjkm', '785247852', 'ram@gmail.com', 'ram', 'a:1:{i:0;s:19:\"Screenshot (21).png\";}', 'a:1:{i:0;s:53:\"acknowledgementSlip_S2254700850000 ABHIRAMI_ADDAR.pdf\";}');
 
 -- --------------------------------------------------------
 
@@ -399,6 +418,12 @@ ALTER TABLE `admin_login`
 -- Indexes for table `auction`
 --
 ALTER TABLE `auction`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `buyer_dashboard`
+--
+ALTER TABLE `buyer_dashboard`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -469,7 +494,13 @@ ALTER TABLE `admin_login`
 -- AUTO_INCREMENT for table `auction`
 --
 ALTER TABLE `auction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+
+--
+-- AUTO_INCREMENT for table `buyer_dashboard`
+--
+ALTER TABLE `buyer_dashboard`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -511,7 +542,7 @@ ALTER TABLE `signup`
 -- AUTO_INCREMENT for table `tenders`
 --
 ALTER TABLE `tenders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `uploaded_files`
