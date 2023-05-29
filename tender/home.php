@@ -147,31 +147,32 @@ include "connect.php";
 
       <div class="row ">
         <div class="col-12 col-md-10 col-lg-8">
-          <form method="GET" action="search.php">
+          
 
-            <form class="card card-sm">
+            <div class="card card-sm">
               <div class="card-body row no-gutters align-items-center" style="background-color: #eae9e9;">
                 <div class="col-auto">
                   <i class="fa fa-search" style="font-size: 30px; margin-right: 8px;"></i>
                 </div>
                 <!--end of col-->
                 <div class="col">
-                  <input class="form-control form-control-lg form-control-borderless" type="search"
+                  <input class="form-control form-control-lg form-control-borderless" type="search" id="meterial"
                     placeholder="Search topics or keywords" style="padding:10px 0px 10px 6px; margin-right: 100px;">
                 </div>
-                <select name="sort" style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;"
+                <select name="sort" id="tender" style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;"
                   placeholder="Search ">
-                  <option value="procDeals">Procurement Deals</option>
+                  
                   <option value="tenders">Tenders</option>
-                  <option value="serviceDeals">Service Deals</option>
-                  <option value="projects">Projects</option>
+                  <option value="auction">Auctions</option>
+                  <option value="deals">Deals</option>
+
                 </select>
 
                 <div class="col-auto">
-                  <button class="btn btn-primary" type="submit">Search</button>
+                  <button class="btn btn-primary" onclick="myFunction()" type="submit">Search</button>
                 </div>
               </div>
-            </form>
+            
         </div>
       </div>
     </div>
@@ -622,7 +623,26 @@ include "connect.php";
   <!-- Copyright -->
 </footer>
 
- 
+<script>
+function myFunction() {
+  var val = document.getElementById("tender").value;
+  var idval =document.getElementById("meterial").value;
+  //alert(idval);return false;
+  if (val=="tenders") {
+    //alert("tenders");
+    window.location.replace('tender_search.php?search='+idval);
+    return false;
+  } else  if (val=="auction") {
+    //alert("tenders");
+    window.location.replace('auction_search.php?search='+idval);
+    return false;
+  }else if (val=="deals") {
+    //alert("tenders");
+    window.location.replace('deals_search.php?search='+idval);
+    return false;
+  }
+}
+</script>
 
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.js"></script>
