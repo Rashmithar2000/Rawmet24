@@ -54,7 +54,7 @@ include "connect.php";
   </style>
 
   <div class="strip">
-    <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: +91 9945454505</a>
+    <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: 08042332722</a>
     <div class="container-fluid px-md-5">
       <div id="typedtext" class="ml-5" style="color: white;">
       </div>
@@ -240,9 +240,8 @@ include "connect.php";
                   <?php echo $row['price']; ?>
                 </td>
                 <td>
-                  <?php
-                  echo $row['timestamp']; ?>
-                </td>
+        <?php echo date('Y-m-d', strtotime($row['timestamp'])); ?>
+    </td>
               </tr>
 
               <?php
@@ -272,8 +271,7 @@ include "connect.php";
                   <?php echo $row['price']; ?>
                 </td>
                 <td>
-                  <?php
-                  echo $row['timestamp']; ?>
+                <?php echo date('Y-m-d', strtotime($row['timestamp'])); ?>
                 </td>
               </tr>
 
@@ -365,13 +363,13 @@ include "connect.php";
       <img src="image/rawmetlogo.jpeg" width="60px" height="50px" style="border-radius: 5px;">
     </div>
     <div class="icon" style="font-size: 35px; padding-right: 0px;word-spacing: 10px;">
-      <a href="" class="text-white me-4">
+      <a href="https://www.facebook.com/profile.php?id=100089553145382" class="text-white me-4">
         <i class="fa-brands fa-square-facebook"></i>
       </a>
-      <a href="" class="text-white me-4">
+      <a href="https://www.linkedin.com/company/shopemet/" class="text-white me-4">
         <i class="fa-brands fa-linkedin"></i>
       </a>
-      <a href="" class="text-white me-4">
+      <a href="https://www.instagram.com/shopemet/" class="text-white me-4">
         <i class="fa-brands fa-instagram"></i>
       </a>
 
@@ -389,11 +387,11 @@ include "connect.php";
         <!-- Grid column -->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
-          <h6 class="text-uppercase fw-bold" style="color: #fff;">Company name</h6>
+          <h6 class="text-uppercase fw-bold" style="color: #fff;">Rawmet24</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
-            SHOPEMET is a world class general Refined metal trading company that has served as a foundation for growth
-            of basic material industry in India
+            Our concept is to provide the complete information solution that enables each trader to 
+            diversify their trading profile in order to maximize their returns.
           </p>
         </div>
         <!-- Grid column -->
@@ -407,13 +405,12 @@ include "connect.php";
             <a href="#!" class="text-white">About Us</a>
           </p>
           <p>
-            <a href="#!" class="text-white">Why Tender</a>
           </p>
           <p>
             <a href="policy.html" class="text-white">Privacy Policy</a>
           </p>
           <p>
-            <a href="#!" class="text-white">Solutions</a>
+            <a href="terms_of_service.html" class="text-white">Terms of Service</a>
           </p>
 
         </div>
@@ -422,9 +419,11 @@ include "connect.php";
           <!-- Links -->
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Contact</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
-          <p><i class="fa fa-envelope" aria-hidden="true"></i> shopemet@gmail.com</p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i> info@Rawmet24.com
+          </p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i>support@Rawmet24.com
+          </p>
           <p><i class="fa fa-phone" aria-hidden="true"></i> +91 8766443234</p>
-          <p><i class="fa fa-phone" aria-hidden="true"></i> +91 1234567819</p>
         </div>
         <!-- Grid column -->
       </div>
@@ -437,7 +436,7 @@ include "connect.php";
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
 
     © 2023
-    <a class="text-white" href="https://mdbootstrap.com/">shopemet.com</a>
+    <a class="text-white" href="https://mdbootstrap.com/">info@Rawmet24.com</a>
   </div>
   <!-- Copyright -->
 </footer>
