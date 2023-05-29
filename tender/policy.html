@@ -8,7 +8,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <title>Home Page</title>
+  <title>Privacy Policy Page</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,7 +33,6 @@
   <script
     nonce="10103964-004b-4a99-b2c8-e02088e28228">(function (w, d) { !function (bg, bh, bi, bj) { bg[bi] = bg[bi] || {}; bg[bi].executed = []; bg.zaraz = { deferred: [], listeners: [] }; bg.zaraz.q = []; bg.zaraz._f = function (bk) { return function () { var bl = Array.prototype.slice.call(arguments); bg.zaraz.q.push({ m: bk, a: bl }) } }; for (const bm of ["track", "set", "debug"]) bg.zaraz[bm] = bg.zaraz._f(bm); bg.zaraz.init = () => { var bn = bh.getElementsByTagName(bj)[0], bo = bh.createElement(bj), bp = bh.getElementsByTagName("title")[0]; bp && (bg[bi].t = bh.getElementsByTagName("title")[0].text); bg[bi].x = Math.random(); bg[bi].w = bg.screen.width; bg[bi].h = bg.screen.height; bg[bi].j = bg.innerHeight; bg[bi].e = bg.innerWidth; bg[bi].l = bg.location.href; bg[bi].r = bh.referrer; bg[bi].k = bg.screen.colorDepth; bg[bi].n = bh.characterSet; bg[bi].o = (new Date).getTimezoneOffset(); if (bg.dataLayer) for (const bt of Object.entries(Object.entries(dataLayer).reduce(((bu, bv) => ({ ...bu[1], ...bv[1] }))))) zaraz.set(bt[0], bt[1], { scope: "page" }); bg[bi].q = []; for (; bg.zaraz.q.length;) { const bw = bg.zaraz.q.shift(); bg[bi].q.push(bw) } bo.defer = !0; for (const bx of [localStorage, sessionStorage]) Object.keys(bx || {}).filter((bz => bz.startsWith("_zaraz_"))).forEach((by => { try { bg[bi]["z_" + by.slice(7)] = JSON.parse(bx.getItem(by)) } catch { bg[bi]["z_" + by.slice(7)] = bx.getItem(by) } })); bo.referrerPolicy = "origin"; bo.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(bg[bi]))); bn.parentNode.insertBefore(bo, bn) };["complete", "interactive"].includes(bh.readyState) ? zaraz.init() : bg.addEventListener("DOMContentLoaded", zaraz.init) }(w, d, "zarazData", "script"); })(window, document);</script>
 </head>
-</head>
 
 <body>
   <style>
@@ -41,6 +40,7 @@
       height: 300px !important;
       overflow-y: scroll !important;
       scroll-snap-type: y mandatory !important;
+      
     }
 
     .scroller section {
@@ -56,183 +56,6 @@
     </div>
   </div>
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .strip {
-      width: 100%;
-      background-color: #3b8beb;
-      overflow: auto;
-    }
-
-    .strip a {
-      float: right;
-      margin-right: 15px;
-      padding-left: 10px;
-      color: white;
-      text-decoration: none;
-      font-size: 15px;
-    }
-
-    .strip a:hover {
-      color: #000000;
-    }
-
-
-    @media screen and (max-width: 500px) {
-      .strip a {
-        float: none;
-        display: block;
-      }
-    }
-
-    @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
-
-    body {
-
-      font-family: "Roboto", helvetica, arial, sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      text-rendering: optimizeLegibility;
-    }
-
-    div.table-title {
-      display: block;
-      margin: auto;
-      max-width: 600px;
-      padding: 5px;
-      width: 100%;
-    }
-
-    .table-title h3 {
-      color: #3b8beb;
-      font-size: 30px;
-      font-weight: 400;
-      font-style: normal;
-      font-family: "Roboto", helvetica, arial, sans-serif;
-      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-      text-transform: uppercase;
-    }
-
-
-    /*** Table Styles **/
-
-    .table-fill {
-      background: white;
-      border-radius: 3px;
-      border-collapse: collapse;
-      height: 120px;
-      margin: auto;
-      max-width: 600px;
-      padding: 5px;
-      width: 100%;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      animation: float 5s infinite;
-    }
-
-    th {
-      color: #ffffff;
-      ;
-      background: #3b8beb;
-      border-bottom: 4px solid #9ea7af;
-      border-right: 1px solid #343a45;
-      font-size: 18px;
-      font-weight: 500;
-      padding: 10px;
-      text-align: left;
-      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-      vertical-align: middle;
-    }
-
-    th:first-child {
-      border-top-left-radius: 3px;
-    }
-
-    th:last-child {
-      border-top-right-radius: 3px;
-      border-right: none;
-    }
-
-    tr {
-      border-top: 1px solid #C1C3D1;
-      border-bottom: 1px solid #C1C3D1;
-      color: #666B85;
-      font-size: 16px;
-      font-weight: normal;
-      text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
-    }
-
-    tr:hover td {
-      background: #828393;
-      color: #FFFFFF;
-    }
-
-    tr:first-child {
-      border-top: none;
-    }
-
-    tr:last-child {
-      border-bottom: none;
-    }
-
-    tr:nth-child(odd) td {
-      background: #EBEBEB;
-    }
-
-    tr:nth-child(odd):hover td {
-      background: #828393;
-    }
-
-    tr:last-child td:first-child {
-      border-bottom-left-radius: 3px;
-    }
-
-    tr:last-child td:last-child {
-      border-bottom-right-radius: 3px;
-    }
-
-    td {
-      background: #FFFFFF;
-      padding: 10px;
-      text-align: center;
-      vertical-align: middle;
-      font-weight: 300;
-      font-size: 18px;
-      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-      border-right: 1px solid #C1C3D1;
-    }
-
-
-
-    td:last-child {
-      border-right: 0px;
-    }
-
-    th.text-left {
-      text-align: left;
-    }
-
-    th.text-center {
-      text-align: center;
-    }
-
-    th.text-right {
-      text-align: right;
-    }
-
-    td.text-left {
-      text-align: left;
-    }
-
-    td.text-center {
-      text-align: center;
-    }
-
-    td.text-right {
-      text-align: right;
-    }
-
     h4,
     h5,
     h6 {
@@ -316,7 +139,7 @@
     <div class="card">
         <div class="card-body" style="padding: 80px 120px 120px 120px;">
             <h3>Privacy Policy</h3><hr>
-           <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">This privacy policy describes how we handle your personal information. We
+           <p style="font-family: Helvetica ;text-align:justify;">This privacy policy describes how we handle your personal information. We
 collect, use, and share personal information to help the Rawmet24 website
 (rawmet24.com) work and to keep it safe. All information posted in Rawmet24.com is publicly available. However we
 are presenting it over the Internet media so as to make easier to get. Any information which we collect of the users via registration such as e- mail ID, Phone Number etc and while browsing such as IP address will be
