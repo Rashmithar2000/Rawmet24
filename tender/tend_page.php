@@ -295,8 +295,8 @@ include "connect.php";
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav m-auto">
-            <li class="nav-item active"><a href="home.php" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="tender.php" class="nav-link">Tenders</a></li>
+            <li class="nav-item"><a href="home.php" class="nav-link">Home</a></li>
+            <li class="nav-item active"><a href="tender.php" class="nav-link">Tenders</a></li>
 
             <li class="nav-item"><a href="auction.php" class="nav-link">Auctions</a></li>
             </li>
