@@ -86,7 +86,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
   
-  <section
+<section
            class="d-flex justify-content-between p-3"
            style="background-color:white"
            >
@@ -103,10 +103,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="form-check">
       
     </div><br>
-    <a href="signin.html" style="font-size: medium;">
+    <a href="signin.html" style="font-size: medium;text-decoration:none;">
         <i class="fa-solid fa-user"></i>SignIn
       </a>
-      <a href="signup.html" style="font-size: medium; padding: 20px; ">
+      <a href="signup.html" style="font-size: medium; padding: 20px;text-decoration:none; ">
         <i class="fa-solid fa-user-plus"></i>SignUp
       </a>
   </form>
@@ -122,10 +122,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="collapse navbar-collapse" id="ftco-nav">
 <ul class="navbar-nav m-auto">
 <li class="nav-item "><a href="home.php" class="nav-link">Home</a></li>
-<li class="nav-item"><a href="tender.php" class="nav-link">Tenders</a></li>
+<li class="nav-item "><a href="tender.php" class="nav-link">Tenders</a></li>
 
-<li class="nav-item "><a href="auction.php" class="nav-link">Auctions</a></li>
-<li class="nav-item active"><a href="#" class="nav-link">Deals</a></li>
+<li class="nav-item  "><a href="auction.php" class="nav-link">Auctions</a></li>
+<li class="nav-item active "><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
 <li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
@@ -138,17 +138,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 <section class="home">
-  <br>
+<br>
  <center>
  <h2 style="color: #7e828b;">DEALS</h2> </center>
- <div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <form action="deals.php?l=" method="GET">
+                <form action="tender_search.php?l=" method="GET">
                     <div class="card shadow mt-3">
                         <div class="card-header">
                             <h5>Filter&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <button type="submit" class="btn btn-primary btn-sm float-end">Search</button>
+                                <button type="submit" class="btn btn-primary btn-sm float-end" >Search</button>
                             </h5>
                         </div>
                         <div class="card-body">
@@ -200,7 +200,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                             //print_r($branchecked);die;
                             //echo $branchecked; die;
                             foreach ($branchecked as $rowbrand) {
-                                 $sql = "SELECT * FROM deals WHERE location='".$rowbrand."'";
+                                 $sql = "SELECT * FROM deals WHERE aucLocation='".$rowbrand."'";
 
                                 $result = mysqli_query($con, $sql);
                                 if (mysqli_num_rows($result) > 0) {
@@ -220,51 +220,60 @@ body {font-family: Arial, Helvetica, sans-serif;}
                       </div>
                     </div>
                   </div>
-                  
                                         <?php
                                     endforeach;
+                                } else{
+                                  echo "No result is found";
                                 }
 
                             }
                         } else {
-                            $sql = "SELECT * FROM deals";
-                            $result = mysqli_query($con, $sql);
-                            if (mysqli_num_rows($result) > 0) {
-                                foreach ($result as $row):
-                                    ?>
-                      <div class="col-md-12 grid-margin stretch-card">
+                          if(isset($_GET['search'])){
+                            $a = $_GET['search'];
+                           
+                            $sql = "select * from deals WHERE material LIKE '$a%' OR 	specification LIKE '$a%' ";
+                               $result = mysqli_query($con, $sql);
+                               //print_r($result);die;
+                               if (mysqli_num_rows($result) > 0) {
+                                 while ($row = mysqli_fetch_assoc($result)) {
+                                   //print_r($row);die;
+                                   ?>
+                                    <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                                               <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?><br><br>
-                        QUANTITY:&nbsp<?php echo $row['quantity'];?></h5>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">
+                        MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?>
+                        </h5>
     <p><?php echo $row['specification'];?></p>
    
 
-    <a href="deal_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Deal</button></a></h6>
+    <a href="excluedeal_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Deal</button></a></h6>
                       </div>
                     </div>
                   </div>
-                  
-                                <?php
-                                endforeach;
-                            } else {
-                                echo "No Items Found";
-                            }
-                        }
+                                   <?php
+                                 }
+                               }else{
+                                echo "No result is found";
+                               }
+                     
+                     
+                             }}
                         ?>
                 </div>
             </div>
         </div>
     </div>
     </div>
-    </div>
-
-<br>
-<center style="color: #3b8beb;"> 
+    <br><br>
+    <center style="color: #3b8beb;"> 
 
 
-  
+    <!-- Remove the container if you want to extend the Footer to full width. -->
+   
+    <br><br>
+
 
 <!-- Footer -->
 
@@ -356,7 +365,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <!-- Copyright -->
 </footer>
 
-
+// <script src="js/toggle.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -367,5 +376,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+
+</body>
+
 </html>

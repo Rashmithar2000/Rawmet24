@@ -270,10 +270,11 @@ include "connect.php";
           <div class="form-check">
 
           </div><br>
-          <a href="signin.html"
-              style="font-size: medium;color: #3b8beb; ">
+          <button type="submit" class="btn btn-primary"
+            style="background-color: #3b8beb !important; border-color: #3b8beb;"> <a href="signin.html"
+              style="font-size: medium;color: #ffffff; ">
               <i class="fa-solid fa-user" style="padding: 5px; "></i>SignIn
-            </a>
+            </a></button>
           <a href="signup.html" style="font-size: medium; padding: 25px; ">
             <i class="fa-solid fa-user-plus"></i>SignUp
           </a>

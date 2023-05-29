@@ -122,10 +122,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="collapse navbar-collapse" id="ftco-nav">
 <ul class="navbar-nav m-auto">
 <li class="nav-item "><a href="home.php" class="nav-link">Home</a></li>
-<li class="nav-item"><a href="tender.php" class="nav-link">Tenders</a></li>
+<li class="nav-item active"><a href="tender.php" class="nav-link">Tenders</a></li>
 
 <li class="nav-item "><a href="auction.php" class="nav-link">Auctions</a></li>
-<li class="nav-item active"><a href="deals.php" class="nav-link">Deals</a></li>
+<li class="nav-item "><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
 <li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
@@ -221,17 +221,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
                   </div>
                                         <?php
                                     endforeach;
+                                } else{
+                                  echo "No result is found";
                                 }
 
                             }
                         } else {
-                          if(isset($_GET['material'])){
-                            $a = $_GET['material'];
+                          if(isset($_GET['search'])){
+                            $a = $_GET['search'];
                            
-                            $sql = "select * from tenders WHERE material='$a''";
+                            $sql = "select * from tenders WHERE material LIKE '$a%' OR tenderDesc LIKE '$a%' ";
                                $result = mysqli_query($con, $sql);
                                //print_r($result);die;
-                               if ($result) {
+                               if (mysqli_num_rows($result) > 0) {
                                  while ($row = mysqli_fetch_assoc($result)) {
                                    //print_r($row);die;
                                    ?>
@@ -250,6 +252,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
                   </div>
                                    <?php
                                  }
+                               }else{
+                                echo "No result is found";
                                }
                      
                      
