@@ -240,9 +240,8 @@ include "connect.php";
                   <?php echo $row['price']; ?>
                 </td>
                 <td>
-                  <?php
-                  echo $row['timestamp']; ?>
-                </td>
+        <?php echo date('Y-m-d', strtotime($row['timestamp'])); ?>
+    </td>
               </tr>
 
               <?php
@@ -272,8 +271,7 @@ include "connect.php";
                   <?php echo $row['price']; ?>
                 </td>
                 <td>
-                  <?php
-                  echo $row['timestamp']; ?>
+                <?php echo date('Y-m-d', strtotime($row['timestamp'])); ?>
                 </td>
               </tr>
 
