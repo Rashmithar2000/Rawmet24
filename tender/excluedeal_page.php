@@ -598,7 +598,7 @@ h4,
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Key links</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
-            <a href="#!" class="text-white">About Us</a>
+            <a href="aboutus.html" class="text-white">About Us</a>
           </p>
           <p>
           </p>
