@@ -183,14 +183,7 @@ a:hover{
                 </div>
                 <button class="btn btn-block btn-lg btn-gradient-primary mt-4"><a href="pages/forms/category.html">+ Add a Category</a></button>
               </span>
-              <span class="nav-link">
-                <div class="border-bottom">
-                  <h6 class="font-weight-normal mb-3">Materials</h6>
-                </div>
-                <button class="btn btn-block btn-lg btn-gradient-primary mt-4"><a href="pages/forms/material.html">+ Add a Material</a></button>
-              </span>
-            </li>
-            
+             </li>
           </ul>
         </nav>
         <!-- partial -->
