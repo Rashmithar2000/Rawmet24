@@ -270,7 +270,7 @@ include "connect.php";
         <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
 
       </div>&nbsp <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
-      <div class="container" style="margin-left: 270px; ">
+      <div class="container" style="margin-left: 420px; ">
         <form class="form-inline" action="/action_page.php">
           <label for="email"></label>
           <input type="email" class="form-control" id="email" placeholder="Username" name="email">
