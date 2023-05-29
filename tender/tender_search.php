@@ -225,10 +225,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
                             }
                         } else {
-                          if(isset($_GET['material'])){
-                            $a = $_GET['material'];
-                           
-                            $sql = "select * from tenders WHERE material='$a''";
+                          if(isset($_GET['search'])){
+                            $a = $_GET['search'];
+                            $sql = "select * from tenders WHERE material LIKE '$a%' OR tenderDesc LIKE '$a%'";
+                            //die;
                                $result = mysqli_query($con, $sql);
                                //print_r($result);die;
                                if ($result) {
