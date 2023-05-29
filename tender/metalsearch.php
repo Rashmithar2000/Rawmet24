@@ -54,7 +54,7 @@ include "connect.php";
   </style>
 
   <div class="strip">
-    <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: +91 9945454505</a>
+    <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: 08042332722</a>
     <div class="container-fluid px-md-5">
       <div id="typedtext" class="ml-5" style="color: white;">
       </div>
@@ -240,9 +240,8 @@ include "connect.php";
                   <?php echo $row['price']; ?>
                 </td>
                 <td>
-                  <?php
-                  echo $row['timestamp']; ?>
-                </td>
+        <?php echo date('Y-m-d', strtotime($row['timestamp'])); ?>
+    </td>
               </tr>
 
               <?php
@@ -272,8 +271,7 @@ include "connect.php";
                   <?php echo $row['price']; ?>
                 </td>
                 <td>
-                  <?php
-                  echo $row['timestamp']; ?>
+                <?php echo date('Y-m-d', strtotime($row['timestamp'])); ?>
                 </td>
               </tr>
 

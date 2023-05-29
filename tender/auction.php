@@ -48,7 +48,7 @@ include "connect.php";
     </style>
   
 <div class="strip">
-  <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: +91 9945454505</a> 
+  <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: 08042332722</a> 
   <div class="container-fluid px-md-5">
   <div id="typedtext" class="ml-5"  style="color: white;">
 </div>
@@ -336,7 +336,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
           </p>
           <p><i class="fa fa-envelope" aria-hidden="true"></i>support@Rawmet24.com
           </p>
-          <p><i class="fa fa-phone" aria-hidden="true"></i> +91 8766443234</p>
+          <p><i class="fa fa-phone" aria-hidden="true"></i>08042332722</p>
         </div>
         <!-- Grid column -->
       </div>
