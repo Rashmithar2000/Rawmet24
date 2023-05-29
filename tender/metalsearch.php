@@ -54,7 +54,7 @@ include "connect.php";
   </style>
 
   <div class="strip">
-    <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: +91 9945454505</a>
+    <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: 08042332722</a>
     <div class="container-fluid px-md-5">
       <div id="typedtext" class="ml-5" style="color: white;">
       </div>
