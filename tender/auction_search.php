@@ -86,7 +86,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
   
-  <section
+<section
            class="d-flex justify-content-between p-3"
            style="background-color:white"
            >
@@ -122,10 +122,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="collapse navbar-collapse" id="ftco-nav">
 <ul class="navbar-nav m-auto">
 <li class="nav-item "><a href="home.php" class="nav-link">Home</a></li>
-<li class="nav-item"><a href="tender.php" class="nav-link">Tenders</a></li>
+<li class="nav-item "><a href="tender.php" class="nav-link">Tenders</a></li>
 
-<li class="nav-item "><a href="auction.php" class="nav-link">Auctions</a></li>
-<li class="nav-item active"><a href="deals.php" class="nav-link">Deals</a></li>
+<li class="nav-item active "><a href="auction.php" class="nav-link">Auctions</a></li>
+<li class="nav-item "><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
 <li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
@@ -136,6 +136,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </nav>
 </section>
 
+
 <section class="home">
 <br>
  <center>
@@ -143,11 +144,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <form action="auction.php?l=" method="GET">
+                <form action="tender_search.php?l=" method="GET">
                     <div class="card shadow mt-3">
                         <div class="card-header">
                             <h5>Filter&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <button type="submit" class="btn btn-primary btn-sm float-end">Search</button>
+                                <button type="submit" class="btn btn-primary btn-sm float-end" >Search</button>
                             </h5>
                         </div>
                         <div class="card-body">
@@ -207,47 +208,56 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                         ?>
                                        <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
-                        <div class="card-body">
-                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?>| Auction Value : <?php echo $row['aucValue'];?> | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL :&nbsp <?php echo $row['material'];?> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
+                    <div class="card-body">
+                    <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?>
+                    | Approximate Value : <?php echo $row['aucValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
                     
                         <p><?php echo $row['aucDescription'];?></p>
-   
 
-    <a href="auction_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Auction</button></a></h6>
+    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
                       </div>
                     </div>
                   </div>
                                         <?php
                                     endforeach;
+                                } else{
+                                  echo "No result is found";
                                 }
 
                             }
                         } else {
-                            $sql = "SELECT * FROM auction";
-                            $result = mysqli_query($con, $sql);
-                            if (mysqli_num_rows($result) > 0) {
-                                foreach ($result as $row):
-                                    ?>
+                          if(isset($_GET['search'])){
+                            $a = $_GET['search'];
+                           
+                            $sql = "select * from auction WHERE material LIKE '$a%' OR aucDescription LIKE '$a%' ";
+                               $result = mysqli_query($con, $sql);
+                               //print_r($result);die;
+                               if (mysqli_num_rows($result) > 0) {
+                                 while ($row = mysqli_fetch_assoc($result)) {
+                                   //print_r($row);die;
+                                   ?>
                                     <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
-                        <div class="card-body">
-                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?>&nbsp| AUCTION VALUE:&nbsp₹<?php echo $row['aucValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL :&nbsp <?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
+                    <div class="card-body">
+                    <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?>
+                    | Approximate Value : <?php echo $row['aucValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
                     
                         <p><?php echo $row['aucDescription'];?></p>
-   
 
-    <a href="auction_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Auction</button></a></h6>
+    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
                       </div>
                     </div>
                   </div>
-                                <?php
-                                endforeach;
-                            } else {
-                                echo "No Items Found";
-                            }
-                        }
+                                   <?php
+                                 }
+                               }else{
+                                echo "No result is found";
+                               }
+                     
+                     
+                             }}
                         ?>
                 </div>
             </div>
@@ -259,7 +269,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
     <!-- Remove the container if you want to extend the Footer to full width. -->
-    
+   
     <br><br>
 
 
@@ -353,10 +363,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <!-- Copyright -->
 </footer>
 
-
-
-
-<script src="js/toggle.js"></script>
+// <script src="js/toggle.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>

@@ -4,36 +4,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the form data
     $category = isset($_POST['category']) ? $_POST['category'] : '';
     $infoId = isset($_POST['infoId']) ? $_POST['infoId'] : '';
-    $ownership = isset($_POST['ownership']) ? $_POST['ownership'] : '';
-    $aucLocation = isset($_POST['aucLocation']) ? $_POST['aucLocation'] : '';
-    $sector = isset($_POST['sector']) ? $_POST['sector'] : '';
-    $aucNumber = isset($_POST['aucNumber']) ? $_POST['aucNumber'] : '';
-    $aucDescription = isset($_POST['aucDescription']) ? $_POST['aucDescription'] : '';
-    $aucValue = isset($_POST['aucValue']) ? $_POST['aucValue'] : '';
-    $aucSource = isset($_POST['aucSource']) ? $_POST['aucSource'] : '';
-    $material = isset($_POST['material']) ? $_POST['material'] : '';
+    $ir = isset($_POST['ir']) ? $_POST['ir'] : '';
+    $fe = isset($_POST['fe']) ? $_POST['fe'] : '';
     $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : '';
     $unit = isset($_POST['unit']) ? $_POST['unit'] : '';
-    $ePublishingDateTime = isset($_POST['ePublishingDateTime']) ? $_POST['ePublishingDateTime'] : '';
-    $startDatetime = isset($_POST['startDatetime']) ? $_POST['startDatetime'] : '';
-    $endDatetime = isset($_POST['endDatetime']) ? $_POST['endDatetime'] : '';
-    $insStartdatetime = isset($_POST['insStartdatetime']) ? $_POST['insStartdatetime'] : '';
-    $insEnddatetime = isset($_POST['insEnddatetime']) ? $_POST['insEnddatetime'] : '';
-    $emdType = isset($_POST['emdType']) ? $_POST['emdType'] : '';
-    $emdAmt = isset($_POST['emdAmt']) ? $_POST['emdAmt'] : '';
-    $companyName = isset($_POST['companyName']) ? $_POST['companyName'] : '';
+    $dealValue= isset($_POST['dealValue']) ? $_POST['dealValue'] : '';
+    $dealDatetime = isset($_POST['dealDatetime']) ? $_POST['dealDatetime'] : '';
+    $docCreatedby = isset($_POST['docCreatedby']) ? $_POST['docCreatedby'] : '';
     $location = isset($_POST['location']) ? $_POST['location'] : '';
-    $street = isset($_POST['street']) ? $_POST['street'] : '';
-    $city = isset($_POST['city']) ? $_POST['city'] : '';
-    $telephone = isset($_POST['telephone']) ? $_POST['telephone'] : '';
-    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $industrialArea = isset($_POST['industrialArea']) ? $_POST['industrialArea'] : '';
+    $companyName = isset($_POST['companyName']) ? $_POST['companyName'] : '';
     $contactPerson = isset($_POST['contactPerson']) ? $_POST['contactPerson'] : '';
-
-
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $address = isset($_POST['address']) ? $_POST['address'] : '';
+    $city = isset($_POST['city']) ? $_POST['city'] : '';   
+    $state = isset($_POST['state']) ? $_POST['state'] : '';
+    $contactNumber = isset($_POST['contactNumber']) ? $_POST['contactNumber'] : '';
+    $whatsappNumber = isset($_POST['whatsappNumber']) ? $_POST['whatsappNumber'] : '';   
+    $gstin = isset($_POST['gstin']) ? $_POST['gstin'] : '';
+    $orderType = isset($_POST['orderType']) ? $_POST['orderType'] : ''; 
+    $material = isset($_POST['material']) ? $_POST['material'] : '';
+    $specification = isset($_POST['specification']) ? $_POST['specification'] : '';
+    $dor = isset($_POST['dor']) ? $_POST['dor'] : '';
+    $expQuotation = isset($_POST['expQuotation']) ? $_POST['expQuotation'] : '';
      //=======================================================upload ====================
 
      $fname=$_FILES["img"]["name"];
-    
+     //print_r($fname);die;
      $fname2="";
      $ctr=0;
      foreach($fname as $fn){
@@ -57,7 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      }
  
  
-     
+    //  print_r($fname2);
+    //  die;
  
  
      //=========================================================================================
@@ -94,11 +92,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  
  
      //=======================================================doc upload ====================
+ print_r($fname2);
+ print_r($dname2);
  
-
-    // TODO: Validate and sanitize the form data before storing it in the database
-
-    // Database connection
     $servername = 'localhost';
     $username = 'root';
     $password = '';
@@ -108,28 +104,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conn->connect_error) {
         die('Connection failed: ' . $conn->connect_error);
     }
+    
     $value = $quantity . ' ' . $unit;
 
-    // Insert the form data into the database
-    $sql = "INSERT INTO auction (category, infoId, ownership, aucLocation, sector, aucNumber,
-     aucDescription, aucValue ,aucSource, material,quantity, ePublishingDateTime, startDatetime, endDatetime, 
-     insStartdatetime, insEnddatetime, emdType, emdAmt, companyName, location, street, city, 
-     telephone, email, contactPerson, img, file) 
-    VALUES ('$category', '$infoId', '$ownership', '$aucLocation', '$sector', '$aucNumber', 
-    '$aucDescription', '$aucValue', '$aucSource', '$material', '$value','$ePublishingDateTime', '$startDatetime', '
-    $endDatetime', '$insStartdatetime', '$insEnddatetime', '$emdType', '$emdAmt', '$companyName',
-     '$location', '$street', '$city', '$telephone', '$email', '$contactPerson' , '$fname2', '$dname2')";
+    $sql = "INSERT INTO exclusive_deals ( category, infoId, ir, fe,quantity, dealValue ,dealDatetime, docCreatedby, location, 
+    industrialArea,companyName, contactPerson, email, address, city, state, contactNumber, 
+    whatsappNumber,gstin, orderType, material,specification, dor, expQuotation, img , filenames) 
+  VALUES ('$category', '$infoId', '$ir',  '$fe', '$value','$dealValue', '$dealDatetime',' $docCreatedby',  '$location', '$industrialArea',
+   '$companyName',   '$contactPerson', '$email','$address', '$city',  '$state', '$contactNumber', '$whatsappNumber',
+    '$gstin', '$orderType', '$material', '$specification','$dor', '$expQuotation','$fname2','$dname2');";
 
     if ($conn->query($sql) === true) {
-      ?> <script>
-    alert("Auction Added!");
-    window.location.replace("./auctions.php");
-</script>
-<?php
-    //header("Location: /PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");
-    //echo "Hi";
 
-
+        ?> <script>
+        alert("Exclusive Deal Added!");
+        window.location.replace("./exclusivedeals.php");
+    </script>
+    <?php
+        //header("Location: /PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");
+        //echo "Hi";
+    
+    
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -149,14 +144,13 @@ if ($conn->connect_error) {
 }
 
 // Retrieve data from the database
-$sql = "SELECT * FROM auction";
+$sql = "SELECT * FROM exclusive_deals";
 $result = $conn->query($sql);
 
 $data = array();
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $data[] = $row;
-
     }
 } else {
     echo "No data found.";
@@ -165,13 +159,8 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 
-<!-- HTML form -->
-
-
-<!-- Display the stored data -->
-<?php 
-
-
+<?php
 ?>
-    
+
+
 

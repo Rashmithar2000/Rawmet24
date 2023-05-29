@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         ?> <script>
         alert("Deal Added!");
-        window.location.replace("./deals.html");
+        window.location.replace("./deals.php");
     </script>
     <?php
         //header("Location: /PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");

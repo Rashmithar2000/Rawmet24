@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conn->query($sql) === true) {
         ?> <script>
         alert("Tender Data Added!");
-        window.location.replace("./tenders.html");
+        window.location.replace("./tenders.php");
     </script>
     <?php
     } else {

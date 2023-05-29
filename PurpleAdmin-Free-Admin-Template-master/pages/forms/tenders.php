@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -13,13 +12,14 @@ $database = 'registration_db';
 
 $conn = new mysqli($servername, $username, $password, $database);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Exclusive Deals Page</title>
+    <title>Tender Page</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -50,7 +50,6 @@ $conn = new mysqli($servername, $username, $password, $database);
       </style>
   <body>
 
-
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -62,8 +61,8 @@ $conn = new mysqli($servername, $username, $password, $database);
           </button>
           <ul class="navbar-nav navbar-nav-right">
                
-           
-           
+            
+              
             
             <li class="nav-item d-none d-lg-block full-screen-link">
               <a class="nav-link">
@@ -137,13 +136,13 @@ $conn = new mysqli($servername, $username, $password, $database);
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="exculsivedeals.php">
+              <a class="nav-link" href="exclusivedeals.php">
                 <span class="menu-title">Exclusive Deals</span>
                 <i class="mdi mdi-diamond menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="informations.php">
+              <a class="nav-link" href="information.php">
                 <span class="menu-title">Information</span>
                 <i class="mdi mdi-note menu-icon"></i>
               </a>
@@ -151,53 +150,105 @@ $conn = new mysqli($servername, $username, $password, $database);
             <li class="nav-item sidebar-actions">
               <span class="nav-link">
                 <div class="border-bottom">
-                <h6 class="font-weight-normal mb-3">Categories</h6>
+                  <h6 class="font-weight-normal mb-3">Categories</h6>
                 </div>
                 <button class="btn btn-block btn-lg btn-gradient-primary mt-4"><a href="categories.php">+ Add a Category</a></button>
-                <div class="mt-4">
-                
-                 
-                </div>
               </span>
             </li>
+            
           </ul>
         </nav>
-        <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
           
             <div class="col-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Exclusive Deals Details</h4>
-                    <form action="exclusivedeal.php" method="post" class="forms-sample" enctype="multipart/form-data">
-                  
-                      <div class="form-group">
-                        <label for="category">Category</label>
-                        <select name="category" class="form-control form-control-lg" required>
-                            <option>Consultancy Tenders</option>
-                            <option>Procurement Tenders</option>
-                            <option>Manufacturing Tenders</option>
-                            <option>Disposal Tenders</option>
-                            <option>Business Tenders</option>
-                            <option>Public Tenders</option>
-                          </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="infoId">Information Number</label>
-                        <input type="text" class="form-control" name="infoId" placeholder="Information Number" required>
-                      </div>
-                      
-                      <div class="form-group">
-                        <label for="ir">IR Executive</label>
-                        <input type="text" class="form-control" name="ir" placeholder="IR Executive" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="fe">FE Executive</label>
-                        <input type="text" class="form-control" name="fe" placeholder="FE Executive" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="quantity">Quantity</label>
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Tenders Details</h4>
+                  <form action="tender.php" method="POST" class="forms-sample" enctype="multipart/form-data">
+                
+                    <div class="form-group">
+                      <label for="category">Category</label>
+                      <select name="category" class="form-control form-control-lg" required>
+                          <option>Consultancy Tenders</option>
+                          <option>Procurement Tenders</option>
+                          <option>Manufacturing Tenders</option>
+                          <option>Disposal Tenders</option>
+                          <option>Business Tenders</option>
+                          <option>Public Tenders</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="infoId">Information Number</label>
+                      <input type="text" class="form-control" name="infoId" placeholder="Information Number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="ownership">Ownership</label>
+                      <input type="text" class="form-control" name="ownership" placeholder="Ownership" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="tenderLocation">Tender Location</label>
+                      <select name="tenderLocation" class="form-control form-control-lg" required>
+                        <option>Andhra Pradesh</option>
+                        <option>Arunachal Pradesh</option>
+                        <option>Assam</option>
+                        <option>Bihar</option>
+                        <option>Chhattisgarh</option>
+                        <option>Gujarat</option>
+                        <option>Haryana</option>
+                        <option>Himachal Pradesh</option>
+                        <option>Jammu and Kashmir</option>
+                        <option>Goa</option>
+                        <option>Jharkhand</option>
+                        <option>Karnataka</option>
+                        <option>Kerala</option>
+                        <option>Madhya Pradesh</option>
+                        <option>Maharashtra</option>
+                        <option>Manipur</option>
+                        <option>Meghalaya</option>
+                        <option>Mizoram</option>
+                        <option>Nagaland</option>
+                        <option>Odisha</option>
+                        <option>Punjab</option>
+                        <option>Rajasthan</option>
+                        <option>Sikkim</option>
+                        <option>Tamil Nadu</option>
+                        <option>Telangana</option>
+                        <option>Tripura</option>
+                        <option>Uttarakhand</option>
+                        <option>Uttar Pradesh</option>
+                        <option>West Bengal</option>
+                        <option>Andaman and Nicobar Islands</option>
+                        <option>Chandigarh</option>
+                        <option>Dadra and Nagar Haveli</option>
+                        <option>Daman and Diu</option>
+                        <option>Lakshadweep</option>
+                        <option>Puducherry</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="sector">Sector</label>
+                      <select name="sector" class="form-control form-control-lg" required>
+                          <option>Public</option>
+                          <option>Private</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="tenderNumber">Tender Number</label>
+                      <input type="text" class="form-control" name="tenderNumber" placeholder="Tender Number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="tenderDesc">Tender Description</label>
+                      <textarea class="form-control" placeholder="Tender Description" name="tenderDesc" rows="6" required></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="material">Material</label>
+                      <input type="text" class="form-control" name="material" placeholder="Material" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="quantity">Quantity</label>
                         <input type="number" id="quantity" name="quantity" required>&nbsp&nbsp&nbsp
                         <label for="unit">Unit:</label>
                         <select id="unit" name="unit" required>
@@ -207,192 +258,71 @@ $conn = new mysqli($servername, $username, $password, $database);
                           <option value="mt">MT</option>
                           <option value="nos">Nos</option>
                         </select>
-                      </div>
+                    </div>
           
-                      <div class="form-group">
-                        <label for="dealValue">Deal Value</label>
-                        <input type="number" class="form-control" name="dealValue" placeholder="Deal Value" required>
-                      </div>
-                     
-                      <div class="form-group">
-                        <label for="dealDatetime">Deal Date and Time</label>
-                        <input type="datetime-local" class="form-control" name="dealDatetime" placeholder="Deal Date and Time" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="docCreatedby">Lead Document Created by</label>
-                        <input type="text" class="form-control" name="docCreatedby" placeholder="Document Created by" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="location">Deal Location</label>
-                        <select name="location" class="form-control form-control-lg" required>
-                          <option>Andhra Pradesh</option>
-                          <option>Arunachal Pradesh</option>
-                          <option>Assam</option>
-                          <option>Bihar</option>
-                          <option>Chhattisgarh</option>
-                          <option>Gujarat</option>
-                          <option>Haryana</option>
-                          <option>Himachal Pradesh</option>
-                          <option>Jammu and Kashmir</option>
-                          <option>Goa</option>
-                          <option>Jharkhand</option>
-                          <option>Karnataka</option>
-                          <option>Kerala</option>
-                          <option>Madhya Pradesh</option>
-                          <option>Maharashtra</option>
-                          <option>Manipur</option>
-                          <option>Meghalaya</option>
-                          <option>Mizoram</option>
-                          <option>Nagaland</option>
-                          <option>Odisha</option>
-                          <option>Punjab</option>
-                          <option>Rajasthan</option>
-                          <option>Sikkim</option>
-                          <option>Tamil Nadu</option>
-                          <option>Telangana</option>
-                          <option>Tripura</option>
-                          <option>Uttarakhand</option>
-                          <option>Uttar Pradesh</option>
-                          <option>West Bengal</option>
-                          <option>Andaman and Nicobar Islands</option>
-                          <option>Chandigarh</option>
-                          <option>Dadra and Nagar Haveli</option>
-                          <option>Daman and Diu</option>
-                          <option>Lakshadweep</option>
-                          <option>Puducherry</option>
+                    <div class="form-group">
+                      <label for="publishingDatetime">Publishing Date and Time</label>
+                      <input type="datetime-local" class="form-control" name="publishingDatetime" placeholder="Publishing Date and Time" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="startDatetime">Tender Start Time</label>
+                      <input type="datetime-local" class="form-control" name="startDatetime" placeholder="Start Time dd-mm-yy --:--" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="endDatetime">Tender End Time</label>
+                      <input type="datetime-local" class="form-control" name="endDatetime" placeholder="End Time -mm-yy --:--" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="emdType">EMD Type</label>
+                      <select name="emdType" class="form-control form-control-lg" required>
+                          <option>Online Payment/ Net Banking</option>
+                          <option>DD</option>
+                          <option>Cash</option>
                         </select>
-                      
-                      
-                      </div>
-                      <div class="form-group">
-                        <label for="industrialArea">Industrial Area </label>
-                        <input type="text" class="form-control" name="industrialArea" placeholder="Industrial Area" required>
-                      </div>
-                     <br>
-                     <p class="card-description">Client Details</p>
-                  
-                      <div class="form-group">
-                        <label for="companyName">Company Name</label>
-                        <input type="text" class="form-control" name="companyName" placeholder="Company Name" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="contactPerson">Contact Person</label>
-                        <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="email">Email Id</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="address">Address</label>
-                        <input type="text" class="form-control" name="address" placeholder="Address" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="city">City</label>
-                        <input type="text" class="form-control" name="city" placeholder="City" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="state">State</label>
-                        <select name="state" class="form-control form-control-lg" required>
-                          <option>Andhra Pradesh</option>
-                          <option>Arunachal Pradesh</option>
-                          <option>Assam</option>
-                          <option>Bihar</option>
-                          <option>Chhattisgarh</option>
-                          <option>Gujarat</option>
-                          <option>Haryana</option>
-                          <option>Himachal Pradesh</option>
-                          <option>Jammu and Kashmir</option>
-                          <option>Goa</option>
-                          <option>Jharkhand</option>
-                          <option>Karnataka</option>
-                          <option>Kerala</option>
-                          <option>Madhya Pradesh</option>
-                          <option>Maharashtra</option>
-                          <option>Manipur</option>
-                          <option>Meghalaya</option>
-                          <option>Mizoram</option>
-                          <option>Nagaland</option>
-                          <option>Odisha</option>
-                          <option>Punjab</option>
-                          <option>Rajasthan</option>
-                          <option>Sikkim</option>
-                          <option>Tamil Nadu</option>
-                          <option>Telangana</option>
-                          <option>Tripura</option>
-                          <option>Uttarakhand</option>
-                          <option>Uttar Pradesh</option>
-                          <option>West Bengal</option>
-                          <option>Andaman and Nicobar Islands</option>
-                          <option>Chandigarh</option>
-                          <option>Dadra and Nagar Haveli</option>
-                          <option>Daman and Diu</option>
-                          <option>Delhi</option>
-                          <option>Lakshadweep</option>
-                          <option>Puducherry</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="contactNumber">Contact Number</label>
-                        <input type="number" class="form-control" name="contactNumber" placeholder="Contact Number" maxlength="10" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="whatsappNumber">Whatsapp Number</label>
-                        <input type="number" class="form-control" name="whatsappNumber" placeholder="Whatsapp Number" maxlength="10" required> 
-                      </div>
-                      <div class="form-group">
-                        <label for="gstin">GSTIN</label>
-                        <input type="text" class="form-control" name="gstin" placeholder="GSTIN"  maxlength="15" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="orderType">Order Type</label>
-                        <select name="orderType" class="form-control form-control-lg" required>
-                            <option>Procurement</option>
-                            <option>Service</option>
-                  
-                          </select>
-                      </div>
-                      <p class="card-description">Requirement Description</p>
-                      <div class="form-group">
-                        <label for="material">Material</label>
-                        <input type="text" class="form-control" name="material" placeholder="Material" required>
-                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="emdAmt">EMD Amount</label>
+                      <input type="number" class="form-control" name="emdAmt" placeholder="EMD Amount(value only)" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="tenderValue">Tender Value</label>
+                      <input type="text" class="form-control" name="tenderValue" placeholder="Tender Value" required>
+                    </div>
+                   <br>
+                   <p class="card-description">Express of Interest</p>
+             
+                    <div class="form-group">
+                      <label for="companyName">Company Name</label>
+                      <input type="text" class="form-control" name="companyName" placeholder="Company Name" required>
+                    </div>
+                           <div class="form-group">
+                      <label for="location">Location</label>
+                      <input type="text" class="form-control" name="location" placeholder="Location" required>
+                    </div>
+               
+                    <div class="form-group">
+                      <label for="street">Street</label>
+                      <input type="text" class="form-control" name="street" placeholder="Street" required>
+                    </div>
+          
+                    <div class="form-group">
+                      <label for="city">City</label>
+                      <input type="text" class="form-control" name="city" placeholder="City" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="telephone">Telephone</label>
+                      <input type="text" class="form-control" name="telephone" placeholder="Telephone" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" class="form-control" name="email" placeholder="Email" required>
+                    </div>
                     
-                      <div class="form-group">
-                        <label for="specification">Specification</label>
-                        <textarea class="form-control" placeholder="Specification" name="specification" rows="6" required></textarea>
-                      </div>
-                     
-                      <div class="form-group">
-                        <label for="dor">Date of Requirement</label>
-                        <input type="datetime-local" class="form-control" name="dor" placeholder="Start Time dd-mm-yy --:--" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="expQuotation">Expected Quotation</label>
-                        <input type="number" class="form-control" name="expQuotation" placeholder="Expected Quotation" required>
-                      </div>
-                  
-                      <div class="form-group">
-                        <label>Exclusive Deal Image upload</label>
-                        <input type="file" name="img[]" class="file-upload-default" multiple>
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" placeholder="Upload File">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>Exclusive Deal File upload</label>
-                        <input type="file" name="file[]" class="file-upload-default" multiple>
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" placeholder="Upload File">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                          </span>
-                        </div>
-                      </div>
-
+                    <div class="form-group">
+                      <label for="contactPerson">Contact Person</label>
+                      <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" required>
+                    </div>
+                
                       <button type="button" class="btn btn-gradient-primary" data-toggle="modal" data-target="#myModal">
                         Terms and Conditions
                       </button>
@@ -689,7 +619,6 @@ $conn = new mysqli($servername, $username, $password, $database);
                               shall still be allowed to apply for injunctive remedies (or an equivalent type
                               of urgent legal relief) in any jurisdiction.</p>
                             </div>
-                            
                             <!-- Modal footer -->
                             <div class="modal-footer">
                               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -704,6 +633,27 @@ $conn = new mysqli($servername, $username, $password, $database);
                         <input type="checkbox" class="form-check-input" checked>I agree terms and conditions </label>
                     </div>                      
                       
+                    <div class="form-group">
+                      <label>Tender Image upload</label>
+                      <input type="file" name="img[]" class="file-upload-default" multiple>
+                      <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info"  placeholder="Upload File">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Tender File upload</label>
+                      <input type="file" name="file[]" class="file-upload-default" multiple>
+                      <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info"  placeholder="Upload File">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                        </span>
+                      </div>
+                    </div>
+
                       
                      
                       <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
@@ -715,7 +665,6 @@ $conn = new mysqli($servername, $username, $password, $database);
               
             </div>
           </div></div>
-
 
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->

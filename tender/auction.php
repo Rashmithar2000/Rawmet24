@@ -220,7 +220,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
                   </div>
                                         <?php
                                     endforeach;
-                                }
+                                }else{
+                                  echo "No result is found";
+                                 }
 
                             }
                         } else {
