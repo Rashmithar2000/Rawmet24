@@ -6,12 +6,7 @@ if (!isset($_SESSION['name'])){
   header("Location: /Rawmet24/PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");
 
 }
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'registration_db';
-
-$conn = new mysqli($servername, $username, $password, $database);
+include "connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

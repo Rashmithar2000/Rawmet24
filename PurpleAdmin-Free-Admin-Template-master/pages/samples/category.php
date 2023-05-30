@@ -5,11 +5,7 @@ session_start();
 $categoryName = $_POST['categoryName'];
 $subCategory = $_POST['subCategory'];
 
-$dbHost = "localhost";
-$dbUser = "root";
-$dbPassword = "";
-$dbName = "registration_db";
-$conn = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
+include "../forms/connect.php";
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

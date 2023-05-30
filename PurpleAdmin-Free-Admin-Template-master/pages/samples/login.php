@@ -3,12 +3,7 @@ session_start();
 
 $name = $_POST['name'];
 $password = $_POST['password'];
-
-$dbHost = "localhost";
-$dbUser = "root";
-$dbPassword = "";
-$dbName = "registration_db";
-$conn = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
+include "../forms/connect.php";
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

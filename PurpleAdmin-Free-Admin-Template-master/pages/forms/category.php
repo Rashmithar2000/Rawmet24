@@ -1,12 +1,6 @@
 <?php
 
-$hostname = 'localhost';   
-$username = 'root';  
-$password = '';  
-$database = 'registration_db';  
-
-
-$connection = new mysqli($hostname, $username, $password, $database);
+include "connect.php";
 
 if ($connection->connect_error) {
     die('Connection failed: ' . $connection->connect_error);
