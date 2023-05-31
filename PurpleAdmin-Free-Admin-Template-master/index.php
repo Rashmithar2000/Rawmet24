@@ -7,7 +7,7 @@ if (!isset($_SESSION['name'])){
 }
 $servername = 'localhost';
 $username = 'root';
-$password = '';
+$password = 'newpassword';
 $database = 'registration_db';
 
 $conn = new mysqli($servername, $username, $password, $database);

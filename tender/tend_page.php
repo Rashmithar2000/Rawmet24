@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "connect.php";
 ?>
 
@@ -273,33 +274,42 @@ include "connect.php";
   </style>
   <section class="ftco-section" style="padding-top: 5px;">
 
-  <section
-           class="d-flex justify-content-between p-3"
-           style="background-color:white"
-           >
-    <div class="me-5">
-      <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
-  
-    </div>&nbsp   <p class="tft desktop-view" style="position:absolute; margin-left:130px; margin-top: 25px;" >RAWMET24</p>
-<form class="form-inline" action="/action_page.php"><br>
-    <label for="email"></label>
-    <input type="email" class="form-control" id="email" placeholder="Username" name="email">
-    <label for="pwd"></label>&nbsp
-    <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
-    <div class="form-check">
-      
+    <section class="d-flex justify-content-between p-3" style="background-color:white">
+      <div class="me-5">
+        <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
 
-          </div><br>
-          <a href="signin.html" style="font-size: medium;">
-            <i class="fa-solid fa-user-plus"></i>SignIn
-          </a>
-          <a href="signup.html" style="font-size: medium; padding: 20px; ">
-            <i class="fa-solid fa-user-plus"></i>SignUp
-          </a>
-        </form>
-      </div>
-
-    </section>
+      </div>&nbsp <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
+      <?php 
+       
+       if(!isset($_SESSION['name'])){
+ 
+       ?>
+       <div class="container" style="margin-left: 370px; ">
+         <form class="form-inline" action="verify.php" method="post">
+           <label for="email"></label>
+           <input type="email" class="form-control" name="email" placeholder="Username" name="email">
+           <label for="pwd"></label>&nbsp
+           <input type="password" class="form-control" name="password" placeholder="Password" name="pswd">&nbsp&nbsp
+           <div class="form-check">
+ 
+           </div><br>
+           <button class="btn btn-primary" type="submit">Sign in</button>
+           <a href="signup.html" style="font-size: medium; padding: 20px; ">
+             <i class="fa-solid fa-user-plus"></i>SignUp
+           </a>
+         </form>
+       </div>
+         
+         <?php }else{
+ 
+         ?>
+     <div class="container" style=" margin-top: 25px;margin-left: 870px; ">
+      Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+       <a href="signout.php"> Signout </a>
+ 
+       </div><?php
+      } ?>
+     </section>
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container-fluid">
@@ -343,6 +353,13 @@ include "connect.php";
               <h6>Home / Tender Search / Tender Detail</h6>
               <br>
               <?php
+               if(isset($_SESSION['sub'])){
+                $subscription=$_SESSION['sub'];
+                //print_r($subscription);
+                //die;
+                }else{
+                  $subscription=false;
+               }
                     $id = $_GET['g'];
                     $sql = "select * from tenders where id=$id";
                     $result = mysqli_query($con, $sql);
@@ -350,7 +367,9 @@ include "connect.php";
                       while ($row = mysqli_fetch_assoc($result)) {
 
                         ?>
-             <h3 style="color: #595a62;"> COMPANY NAME: <a href="price.html">XXXXX</a></h3>
+             <h3 style="color: #595a62;"> COMPANY NAME: &nbsp<?php if($subscription){
+                              echo $row['companyName'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a></h3>
               <h5><i class='bx bx-map'></i> <?php echo $row['tenderLocation']; ?></h5>
               <hr>
               <div style="margin-left: 40px;">
@@ -389,7 +408,9 @@ include "connect.php";
 
                           <td>Ownership</td>
                           <td>
-                          <a href="price.html">XXXXX</a>
+                          <?php if($subscription){
+                              echo $row['ownership'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
                           </td>
                         </tr>
                         <tr>
@@ -410,7 +431,9 @@ include "connect.php";
 
                           <td>Tender No</td>
                           <td>
-                          <a href="price.html">XXXXX</a>
+                          <?php if($subscription){
+                              echo $row['tenderNumber'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
                           </td>
                         </tr>
                         <tr>
@@ -439,7 +462,9 @@ include "connect.php";
 
                           <td>EMD amount</td>
                           <td>
-                          <a href="price.html">XXXXX</a>
+                          <?php if($subscription){
+                              echo $row['emdAmt'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
                           </td>
                         </tr>
                        

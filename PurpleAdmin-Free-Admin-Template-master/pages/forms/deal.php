@@ -96,7 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  print_r($fname2);
  print_r($dname2);
  
-  
     if ($conn->connect_error) {
         die('Connection failed: ' . $conn->connect_error);
     }

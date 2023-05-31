@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "connect.php";
 ?>
 <!doctype html>
@@ -269,26 +270,38 @@ h4,
     <div class="me-5">
       <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
   
-    </div>&nbsp   <p class="tft desktop-view" style="position:absolute; margin-left:130px; margin-top: 25px;" >RAWMET24</p>
-<form class="form-inline" action="/action_page.php"><br>
-    <label for="email"></label>
-    <input type="email" class="form-control" id="email" placeholder="Username" name="email">
-    <label for="pwd"></label>&nbsp
-    <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
-    <div class="form-check">
-      
-    </div><br>
-    <a href="signin.html"
-              style="font-size: medium;color: #3b8beb; ">
-              <i class="fa-solid fa-user" style="padding: 5px; "></i>SignIn
-            </a>
-          <a href="signup.html" style="font-size: medium; padding: 25px; ">
-            <i class="fa-solid fa-user-plus"></i>SignUp
-          </a>
-  </form>
-</div>
-   
-  </section>
+    </div>&nbsp   <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
+    <?php 
+       
+       if(!isset($_SESSION['name'])){
+ 
+       ?>
+       <div class="container" style="margin-left: 370px; ">
+         <form class="form-inline" action="verify.php" method="post">
+           <label for="email"></label>
+           <input type="email" class="form-control" name="email" placeholder="Username" name="email">
+           <label for="pwd"></label>&nbsp
+           <input type="password" class="form-control" name="password" placeholder="Password" name="pswd">&nbsp&nbsp
+           <div class="form-check">
+ 
+           </div><br>
+           <button class="btn btn-primary" type="submit">Sign in</button>
+           <a href="signup.html" style="font-size: medium; padding: 20px; ">
+             <i class="fa-solid fa-user-plus"></i>SignUp
+           </a>
+         </form>
+       </div>
+         
+         <?php }else{
+ 
+         ?>
+     <div class="container" style=" margin-top: 25px;margin-left: 870px; ">
+      Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+       <a href="signout.php"> Signout </a>
+ 
+       </div><?php
+      } ?>
+     </section>
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 <div class="container-fluid">
@@ -330,6 +343,13 @@ h4,
     <h6>Home / Deal search / Deal Detail</h6>
     <br>
     <?php
+    if(isset($_SESSION['sub'])){
+      $subscription=$_SESSION['sub'];
+      //print_r($subscription);
+      //die;
+    }else{
+      $subscription=false;
+    }
                     $id = $_GET['g'];
                     $sql = "select * from deals where id=$id";
                     $result = mysqli_query($con, $sql);
@@ -337,7 +357,9 @@ h4,
                       while ($row = mysqli_fetch_assoc($result)) {
 
                         ?>
-    <h3 style="color: #595a62;">COMPANY NAME: &nbsp<a href="price.html">XXXXX</a></h3>
+    <h3 style="color: #595a62;">COMPANY NAME:  &nbsp<?php if($subscription){
+                              echo $row['companyName'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a></h3>
     <h5><i class='bx bx-map'></i> <?php echo $row['location']; ?></h5><br>
     <hr>
     <div style="margin-left: 40px;">
@@ -358,7 +380,10 @@ h4,
     <tr>
      
       <td>FE Executive</td>
-      <td><a href="price.html">XXXXX</a></td>
+      <td><?php if($subscription){
+                              echo $row['fe'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
     </tr>
     <tr>
 
@@ -385,7 +410,10 @@ h4,
     <tr>
      
       <td >Industrial Area</td>
-      <td><a href="price.html">XXXXX</a></td>
+      <td><?php if($subscription){
+                              echo $row['industrialArea'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
     </tr>
    
     <tr>
@@ -398,7 +426,10 @@ h4,
     <tr>
      
      <td>Date of Requirement (DOR)</td>
-     <td><a href="price.html">XXXXX</a></td>
+     <td><?php if($subscription){
+                              echo $row['dor'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
    </tr>
   
   </tbody>
