@@ -485,11 +485,12 @@ include "connect.php";
   </div>
 
 
+
   <div class="container">
-    <div class="card" style="margin-top:-350px;">
+    <div class="card" style="margin-top:-360px;">
       <div class="card-body">
         <h3>Images</h3><hr>
-        <div class="row">
+        <div class="row" style="margin-left:-350px;">
         <?php 
            //print_r($result);
            $sql = "select * from auction where id=$id";
@@ -499,12 +500,15 @@ include "connect.php";
           //die;
           $a = unserialize($row['img']);
           $ctshalom = 0;
-          foreach($a as $shalom){
+          if (empty($a)) {
+            echo "No Images Uploaded";
+        } else {
+            foreach ($a as $shalom) {
           ?>
           <div class="col-md-2">
             <img src="../PurpleAdmin-Free-Admin-Template-master/pages/forms/uploads/<?php echo $shalom; ?>" width="400px" height="200px" class="img-fluid" alt="Image 1" data-toggle="modal" data-target="#myModal<?php echo $ctshalom?>">
           </div>
-          <?php  $ctshalom++; } ?>
+          <?php  $ctshalom++; } }?>
          
         </div>
       </div>
@@ -515,7 +519,10 @@ include "connect.php";
           $row= mysqli_fetch_assoc($result);
           $a = unserialize($row['img']);
           $ctshalom = 0;
-          foreach($a as $shalom){
+          if (empty($a)) {
+            echo "";
+        } else {
+            foreach ($a as $shalom) {
           ?>
   <div class="modal fade" id="myModal<?php echo $ctshalom ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -526,7 +533,7 @@ include "connect.php";
       </div>
     </div>
   </div>
-  <?php  $ctshalom++; } ?>
+  <?php  $ctshalom++; }} ?>
  
   
  
@@ -534,15 +541,11 @@ include "connect.php";
 
 
 
-
   <div class="container">
     <div class="card" >
       <div class="card-body">
-
-        <h3>Documents</h3>
-        <hr>
-      </div>
-      <div class="card-columns">
+        <h3>Documents</h3><hr>
+        <div class="row" style="margin-left:-280px;">
 
       <?php 
            //print_r($result);
@@ -554,28 +557,24 @@ include "connect.php";
           $a = unserialize($row['file']);
           // print_r($a); die;
           $ctsindu = 0;
-          foreach($a as $sindu){
-            // echo $sindu;
-            // die;
+          if (empty($a)) {
+            echo "No documents found";
+        } else {
+            foreach ($a as $sindu) {
           ?>
-
-        <div class="card" style="width:150px; ">
-          <center style="margin-left: 4px;"> <img class="card-img-top"
-              src="https://www.pcworld.com/wp-content/uploads/2022/08/pdf-icon.jpg?quality=50&strip=all" alt="Card image" style="width:48%"></center>
-          <div class="card-body">
-            <h4 class="card-title"></h4>
-            <p class="card-text"><?php echo $sindu?></p>
-          </div>
+        <div class="col-md-2" >
+        <img class="card-img-top"
+            src="https://www.pcworld.com/wp-content/uploads/2022/08/pdf-icon.jpg?quality=50&strip=all" alt="Card image" style="width:100px">
+        <p><?php echo $sindu?></p>
         </div>
-      </div>
-      <?php  $ctsindu++; } ?>
+       
+
+        <?php  $ctsindu++; } } ?>
   <div class="container">
    <a href="price.html"> <h4 style="margin-left:900px;">Download All ></h4><br></a>
     </div>
     </div>
-  </div>
-  </div>
-
+  
   <?php
                       }
                     }
@@ -587,9 +586,6 @@ include "connect.php";
 </div>
 </div>
 </div>
-</div>
-</div>
-</center>
 
 
 

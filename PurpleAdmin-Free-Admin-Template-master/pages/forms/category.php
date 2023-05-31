@@ -1,12 +1,6 @@
 <?php
 
-$hostname = 'localhost';   
-$username = 'root';  
-$password = '';  
-$database = 'registration_db';  
-
-
-$connection = new mysqli($hostname, $username, $password, $database);
+include "connect.php";
 
 if ($connection->connect_error) {
     die('Connection failed: ' . $connection->connect_error);
@@ -21,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = "INSERT INTO category (categoryName, subCategory) VALUES ('$categoryName', '$subCategory')";
     
     if ($connection->query($query) === TRUE) {
-        header("Location: category.html"); 
+        header("Location: categories.php"); 
         alert("Successfully added");
         
     } else {

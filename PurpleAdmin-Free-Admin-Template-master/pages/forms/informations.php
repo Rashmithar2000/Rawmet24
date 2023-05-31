@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -13,7 +14,7 @@ include "connect.php";
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Deals Page</title>
+    <title>Information Page</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -80,7 +81,6 @@ include "connect.php";
                    <a class="dropdown-item" href="../../signout.php">
                     <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
               </div>
-              
             </li>
           </ul>
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -138,11 +138,11 @@ include "connect.php";
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="informations.php">
-                <span class="menu-title">Information</span>
-                <i class="mdi mdi-note menu-icon"></i>
-              </a>
-            </li>
+                <a class="nav-link" href="informations.php">
+                  <span class="menu-title">Information</span>
+                  <i class="mdi mdi-note menu-icon"></i>
+                </a>
+              </li>
             <li class="nav-item sidebar-actions">
               <span class="nav-link">
                 <div class="border-bottom">
@@ -155,171 +155,69 @@ include "connect.php";
                 </div>
               </span>
             </li>
-           
           </ul>
         </nav>
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-            <div class="page-header">
-              <h3 class="page-title"> Registration Form </h3>
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Registration Form</li>
-                </ol>
-              </nav>
-            </div>
-           
-              <div class="col-12">
+          
+            <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <form class="form-sample">
-                      <p class="card-description">Company info </p>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Auction Name</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Company Name</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
+                    <h4 class="card-title">Information Details</h4>
+                    <form action="information.php" method="post" class="forms-sample">
+                  
+                      
+                      <div class="form-group">
+                        <label for="infoId">INFORMATION NUMBER</label>
+                        <input type="text" class="form-control" name="infoId" placeholder="INFORMATION NUMBER" required>
                       </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label"></label>
-                            <div class="col-sm-4">
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked>Public</label>
-                              </div>
-                            </div>
-                            <div class="col-sm-5">
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2">Private</label>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Company Type</label>
-                            <div class="col-sm-9">
-                              <select class="form-control">
-                                <option>Govt Regd Company</option>
-                                <option>Ltd, Pvt Ltd, LLP, Corp</option>
-                                <option>Partnership, Proprietorship, OPC</option>
-                                <option>Others</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
+                      
+                      <div class="form-group">
+                        <label for="showName">TRADE SHOW</label>
+                        <input type="text" class="form-control" name="showName" placeholder="TRADE SHOW" required>
+                      </div>
+                      
                      
+                      <div class="form-group">
+                        <label for="dateTime">DATE and TIME </label>
+                        <input type="datetime-local" class="form-control" name="dateTime" placeholder="Show Date and Time" required>
+                      </div>
+                     
+                      <div class="form-group">
+                        <label for="profile">EXHIBITOR PRODUCT PROFILE</label>
+                        <input type="text area" class="form-control" name="profile" placeholder="EXHIBITOR PRODUCT" required>
+                      </div>
+                     <br>
+                     <div class="form-group">
+                      <label for="organizedBy">ORGANIZED BY</label>
+                      <input type="text" class="form-control" name="organizedBy" placeholder="ORGANIZED BY" required>
                     </div>
-            
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">PAN</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">GST Number</label>
-                            <div class="col-sm-9">
-                              <input class="form-control"  />
-                            </div>
-                          </div>
-                        </div>
+                    <div class="form-group">
+                      <label for="organizedAdd">ORGANIZED ADDRESS</label>
+                      <input type="text" class="form-control" name="organizedAdd" placeholder="ORGANIZED ADDRESS" required>
+                    </div>
+                  
+                      <div class="form-group">
+                        <label for="venue">VENUE</label>
+                        <input type="text" class="form-control" name="venue" placeholder="VENUE" required>
                       </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">GST Number</label>
-                              <div class="col-sm-9">
-                                <input class="form-control"  />
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">GST Number</label>
-                              <div class="col-sm-9">
-                                <input class="form-control"  />
-                              </div>
-                            </div>
-                          </div>
+                      <div class="form-group">
+                        <label for="map">GOOGLE MAPS</label>
+                        <input type="text" class="form-control" name="map" placeholder="GOOGLE MAPS" required>
+                      </div>
+
+                      <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
                     
-                      </div>
-                      <p class="card-description"> Address </p>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Location </label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">State</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control"/>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">City</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Pincode</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                            <label>File upload</label>
-                            <input type="file" name="img[]" class="file-upload-default">
-                            <div class="input-group col-xs-12">
-                              <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                              <span class="input-group-append">
-                                <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                              </span>
-                            </div>
-                          </div>
                     </form>
                   </div>
                 </div>
               </div>
+              
             </div>
-          </div></div> 
-                         
+          </div></div></div></div></div>
+
+
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
           <footer class="footer">

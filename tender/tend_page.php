@@ -277,7 +277,7 @@ include "connect.php";
 
           </div><br>
           <a href="signin.html" style="font-size: medium;">
-            <i class="fa-solid fa-user-plus"></i>SignIn
+            <i class="fa-solid fa-user"></i>SignIn
           </a>
           <a href="signup.html" style="font-size: medium; padding: 20px; ">
             <i class="fa-solid fa-user-plus"></i>SignUp
@@ -486,10 +486,10 @@ include "connect.php";
 
 
   <div class="container">
-    <div class="card" style="margin-top:-160px;">
+    <div class="card" style="margin-top:-115px;" >
       <div class="card-body">
         <h3>Images</h3><hr>
-        <div class="row">
+        <div class="row"style="margin-left:-550px;">    
         <?php 
            //print_r($result);
            $sql = "select * from tenders where id=$id";
@@ -498,24 +498,31 @@ include "connect.php";
           //var_dump($row);
           //die;
           $a = unserialize($row['img']);
+          // print_r($a)
           $ctshalom = 0;
-          foreach($a as $shalom){
+          if (empty($a)) {
+            echo "No Images Uploaded";
+        } else {
+            foreach ($a as $shalom) {
           ?>
           <div class="col-md-2">
             <img src="../PurpleAdmin-Free-Admin-Template-master/pages/forms/uploads/<?php echo $shalom; ?>" width="400px" height="200px" class="img-fluid" alt="Image 1" data-toggle="modal" data-target="#myModal<?php echo $ctshalom?>">
           </div>
-          <?php  $ctshalom++; } ?>
-         
+          <?php  $ctshalom++; } }?>
         </div>
       </div>
     </div>
   </div>
-<?php             $sql = "select * from tenders where id=$id";
+
+  <?php             $sql = "select * from tenders where id=$id";
            $result = mysqli_query($con, $sql);
           $row= mysqli_fetch_assoc($result);
           $a = unserialize($row['img']);
           $ctshalom = 0;
-          foreach($a as $shalom){
+          if (empty($a)) {
+            echo "";
+        } else {
+            foreach ($a as $shalom) {
           ?>
   <div class="modal fade" id="myModal<?php echo $ctshalom ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -526,65 +533,58 @@ include "connect.php";
       </div>
     </div>
   </div>
-  <?php  $ctshalom++; } ?>
- 
+  <?php  $ctshalom++; }} ?>
+
 
   <div class="container">
     <div class="card" >
       <div class="card-body">
-
-        <h3>Documents</h3>
-        <hr>
-      </div>
-      <div class="card-columns">
-
-      <?php 
+        <h3>Documents</h3><hr>
+        <div class="row" style="margin-left:-550px;">    
+        <?php 
            //print_r($result);
-           $sql = "select * from tenders where id=$id";
-           $result = mysqli_query($con, $sql);
-          $row= mysqli_fetch_assoc($result);
-          //var_dump($row);
-          //die;
-          $a = unserialize($row['file']);
-          // print_r($a); die;
-          $ctsindu = 0;
-          foreach($a as $sindu){
-            // echo $sindu;
-            // die;
-          ?>
-
-        <div class="card" style="width:150px; ">
-          <center style="margin-left: 4px;"> <img class="card-img-top"
-              src="https://www.pcworld.com/wp-content/uploads/2022/08/pdf-icon.jpg?quality=50&strip=all" alt="Card image" style="width:48%"></center>
-          <div class="card-body">
-            <h4 class="card-title"></h4>
-            <p class="card-text"><?php echo $sindu?></p>
+             //print_r($result);
+             $sql = "select * from tenders where id=$id";
+             $result = mysqli_query($con, $sql);
+            $row= mysqli_fetch_assoc($result);
+            //var_dump($row);
+            //die;
+            $a = unserialize($row['file']);
+            // print_r($a); die;
+            $ctsindu = 0;
+            if (empty($a)) {
+              echo "No documents found";
+          } else {
+              foreach ($a as $sindu) {
+            ?>
+          <div class="col-md-2" >
+          <img class="card-img-top"
+              src="https://www.pcworld.com/wp-content/uploads/2022/08/pdf-icon.jpg?quality=50&strip=all" alt="Card image" style="width:100px">
+          <p><?php echo $sindu?></p>
           </div>
+         
+
+          <?php  $ctsindu++; } } ?>
         </div>
       </div>
-      <?php  $ctsindu++; } ?>
-  <div class="container">
-   <a href="price.html"> <h4 style="margin-left:900px;">Download All ></h4><br></a>
-    </div>
+      <a href="price.html"> <h4 style="margin-left:900px;">Download All ></h4><br></a>
     </div>
   </div>
-  </div>
+
 
   <?php
                       }
                     }
                     ?>
 
-</body>
 
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</center>
 
+
+
+
+
+  </div></div>
+    
 
 
 

@@ -101,7 +101,7 @@ include "connect.php";
       </div>&nbsp <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
       <?php 
        
-        if(!isset($_SESSION['name'])){
+      if(!isset($_SESSION['name'])){
 
       ?>
       <div class="container" style="margin-left: 370px; ">
@@ -123,9 +123,12 @@ include "connect.php";
         <?php }else{
 
         ?>
-    <div class="container" style="margin-left: 370px; ">
-    <p>Hi! <?php echo $_SESSION['name'];?></p>
-      </div><?php } ?>
+    <div class="container" style=" margin-top: 25px;margin-left: 870px; ">
+     Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <a href="signout.php"> Signout </a>
+
+      </div><?php
+     } ?>
     </section>
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -152,12 +155,10 @@ include "connect.php";
 
   <br>
   <section class="home">
-
     <div class="container">
 
       <div class="row ">
-        <div class="col-12 col-md-10 col-lg-8">
-          
+        <div class="col-12 col-md-10 col-lg-8">         
 
             <div class="card card-sm">
               <div class="card-body row no-gutters align-items-center" style="background-color: #eae9e9;">

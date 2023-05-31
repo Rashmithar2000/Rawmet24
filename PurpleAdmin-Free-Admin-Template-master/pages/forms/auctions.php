@@ -1,161 +1,3 @@
-
-<?php
-// Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve the form data
-    $category = isset($_POST['category']) ? $_POST['category'] : '';
-    $infoId = isset($_POST['infoId']) ? $_POST['infoId'] : '';
-    $ir = isset($_POST['ir']) ? $_POST['ir'] : '';
-    $fe = isset($_POST['fe']) ? $_POST['fe'] : '';
-    $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : '';
-    $unit = isset($_POST['unit']) ? $_POST['unit'] : '';
-    $dealValue= isset($_POST['dealValue']) ? $_POST['dealValue'] : '';
-    $dealDatetime = isset($_POST['dealDatetime']) ? $_POST['dealDatetime'] : '';
-    $docCreatedby = isset($_POST['docCreatedby']) ? $_POST['docCreatedby'] : '';
-    $location = isset($_POST['location']) ? $_POST['location'] : '';
-    $industrialArea = isset($_POST['industrialArea']) ? $_POST['industrialArea'] : '';
-    $companyName = isset($_POST['companyName']) ? $_POST['companyName'] : '';
-    $contactPerson = isset($_POST['contactPerson']) ? $_POST['contactPerson'] : '';
-    $email = isset($_POST['email']) ? $_POST['email'] : '';
-    $address = isset($_POST['address']) ? $_POST['address'] : '';
-    $city = isset($_POST['city']) ? $_POST['city'] : '';   
-    $state = isset($_POST['state']) ? $_POST['state'] : '';
-    $contactNumber = isset($_POST['contactNumber']) ? $_POST['contactNumber'] : '';
-    $whatsappNumber = isset($_POST['whatsappNumber']) ? $_POST['whatsappNumber'] : '';   
-    $gstin = isset($_POST['gstin']) ? $_POST['gstin'] : '';
-    $orderType = isset($_POST['orderType']) ? $_POST['orderType'] : ''; 
-    $material = isset($_POST['material']) ? $_POST['material'] : '';
-    $specification = isset($_POST['specification']) ? $_POST['specification'] : '';
-    $dor = isset($_POST['dor']) ? $_POST['dor'] : '';
-    $expQuotation = isset($_POST['expQuotation']) ? $_POST['expQuotation'] : '';
-     //=======================================================upload ====================
-
-     $fname=$_FILES["img"]["name"];
-     //print_r($fname);die;
-     $fname2="";
-     $ctr=0;
-     foreach($fname as $fn){
-         $targetDir = "uploads/"; // Directory to store uploaded images
-         $targetFile = $targetDir . basename($_FILES["img"]["name"][$ctr]);
-         $uploadOk = 1;
-         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-        
- 
-         // Allow only certain file formats
-         if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif") {
-             echo "Error: Only JPG, JPEG, PNG, and GIF files are allowed.";
-             $uploadOk = 0;
-         }
-         if ($uploadOk == 1) {
-             move_uploaded_file($_FILES["img"]["tmp_name"][$ctr], $targetFile);  
-             $fname2 = serialize($fname);    
-         }
- 
-         $ctr++;
-     }
- 
- 
-    //  print_r($fname2);
-    //  die;
- 
- 
-     //=========================================================================================
- 
- 
- 
-     $dname=$_FILES["file"]["name"];
-     //print_r($fname);die;
-     $dname2="";
-     $ctr=0;
-     foreach($dname as $fn){
-         $targetDir = "uploads/"; // Directory to store uploaded images
-         $targetFile = $targetDir . basename($_FILES["file"]["name"][$ctr]);
-         $uploadOk = 1;
-         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-        
- 
-         // Allow only certain file formats
-         if ($imageFileType != "pdf" ) {
-             echo "Error: Only pdf files are allowed.";
-             $uploadOk = 0;
-         }
-         if ($uploadOk == 1) {
-             move_uploaded_file($_FILES["file"]["tmp_name"][$ctr], $targetFile);  
-             $dname2 = serialize($dname);    
-         }
- 
-         $ctr++;
-     }
- 
- 
- 
- 
- 
- 
-     //=======================================================doc upload ====================
- print_r($fname2);
- print_r($dname2);
- 
-    $servername = 'localhost';
-    $username = 'root';
-    $password = 'newpassword';
-    $database = 'registration_db';
-
-    $conn = new mysqli($servername, $username, $password, $database);
-    if ($conn->connect_error) {
-        die('Connection failed: ' . $conn->connect_error);
-    }
-    
-    $value = $quantity . ' ' . $unit;
-
-    $sql = "INSERT INTO exclusive_deals ( category, infoId, ir, fe,quantity, dealValue ,dealDatetime, docCreatedby, location, 
-    industrialArea,companyName, contactPerson, email, address, city, state, contactNumber, 
-    whatsappNumber,gstin, orderType, material,specification, dor, expQuotation, img , filenames) 
-  VALUES ('$category', '$infoId', '$ir',  '$fe', '$value','$dealValue', '$dealDatetime',' $docCreatedby',  '$location', '$industrialArea',
-   '$companyName',   '$contactPerson', '$email','$address', '$city',  '$state', '$contactNumber', '$whatsappNumber',
-    '$gstin', '$orderType', '$material', '$specification','$dor', '$expQuotation','$fname2','$dname2');";
-
-    if ($conn->query($sql) === true) {
-
-        ?> <script>
-        alert("Exclusive Deal Added!");
-        window.location.replace("./exclusivedeals.html");
-    </script>
-    <?php
-        //header("Location: /PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");
-        //echo "Hi";
-    
-    
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
-    $conn->close();
-}
-
-// Retrieve the stored data from the database
-
-if ($conn->connect_error) {
-    die('Connection failed: ' . $conn->connect_error);
-}
-
-// Retrieve data from the database
-$sql = "SELECT * FROM exclusive_deals";
-$result = $conn->query($sql);
-
-$data = array();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $data[] = $row;
-    }
-} else {
-    echo "No data found.";
-}
-
-$conn->close();
-?>
-
-
 <?php
 
 session_start();
@@ -163,31 +5,25 @@ if (!isset($_SESSION['name'])){
   header("Location: /Rawmet24/PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");
 
 }
-include_once "connect.php";
+include "connect.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Exclusive Deals Page</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <title>Auction Page</title>
+
+  <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
   </head>
   <style>
     a{
@@ -201,7 +37,6 @@ include_once "connect.php";
     
       </style>
   <body>
-
 
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.html -->
@@ -235,7 +70,7 @@ include_once "connect.php";
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                 <a class="dropdown-item" href="elements.php">
                   <i class="mdi mdi-login me-2 text-primary"></i>Register now </a>
-                   <a class="dropdown-item" href="../../signout.php">
+                  <a class="dropdown-item" href="../../signout.php">
                     <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
               </div>
             </li>
@@ -265,7 +100,7 @@ include_once "connect.php";
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../index.php">
+              <a class="nav-link" href="http://localhost/PurpleAdmin-Free-Admin-Template-master/index.html">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
@@ -289,13 +124,13 @@ include_once "connect.php";
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="exculsivedeals.php">
+              <a class="nav-link" href="exclusivedeals.php">
                 <span class="menu-title">Exclusive Deals</span>
                 <i class="mdi mdi-diamond menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="informations.php">
+              <a class="nav-link" href="information.php">
                 <span class="menu-title">Information</span>
                 <i class="mdi mdi-note menu-icon"></i>
               </a>
@@ -303,11 +138,11 @@ include_once "connect.php";
             <li class="nav-item sidebar-actions">
               <span class="nav-link">
                 <div class="border-bottom">
-                <h6 class="font-weight-normal mb-3">Categories</h6>
+                 <h6 class="font-weight-normal mb-3">Categories</h6>
                 </div>
                 <button class="btn btn-block btn-lg btn-gradient-primary mt-4"><a href="categories.php">+ Add a Category</a></button>
                 <div class="mt-4">
-                
+                  
                  
                 </div>
               </span>
@@ -321,8 +156,8 @@ include_once "connect.php";
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Exclusive Deals Details</h4>
-                    <form action="exclusivedeal.php" method="post" class="forms-sample" enctype="multipart/form-data">
+                    <h4 class="card-title">Auction Details</h4>
+                    <form action="auction.php" method="POST" class="forms-sample" enctype="multipart/form-data">
                   
                       <div class="form-group">
                         <label for="category">Category</label>
@@ -337,16 +172,83 @@ include_once "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="infoId">Information Number</label>
-                        <input type="text" class="form-control" name="infoId" placeholder="Information Number" required>
+                        <input type="text" class="form-control" name="infoId"  placeholder="Information Number" required>
                       </div>
                       
                       <div class="form-group">
-                        <label for="ir">IR Executive</label>
-                        <input type="text" class="form-control" name="ir" placeholder="IR Executive" required>
+                        <label for="ownership">Ownership</label>
+                        <input type="text" class="form-control" name="ownership" placeholder="Ownership" required>
                       </div>
                       <div class="form-group">
-                        <label for="fe">FE Executive</label>
-                        <input type="text" class="form-control" name="fe" placeholder="FE Executive" required>
+                        <label for="aucLocation">Auction Location</label>
+                        <select name="aucLocation" class="form-control form-control-lg" required>
+                          <option>Andhra Pradesh</option>
+                          <option>Arunachal Pradesh</option>
+                          <option>Assam</option>
+                          <option>Bihar</option>
+                          <option>Chhattisgarh</option>
+                          <option>Gujarat</option>
+                          <option>Haryana</option>
+                          <option>Himachal Pradesh</option>
+                          <option>Jammu and Kashmir</option>
+                          <option>Goa</option>
+                          <option>Jharkhand</option>
+                          <option>Karnataka</option>
+                          <option>Kerala</option>
+                          <option>Madhya Pradesh</option>
+                          <option>Maharashtra</option>
+                          <option>Manipur</option>
+                          <option>Meghalaya</option>
+                          <option>Mizoram</option>
+                          <option>Nagaland</option>
+                          <option>Odisha</option>
+                          <option>Punjab</option>
+                          <option>Rajasthan</option>
+                          <option>Sikkim</option>
+                          <option>Tamil Nadu</option>
+                          <option>Telangana</option>
+                          <option>Tripura</option>
+                          <option>Uttarakhand</option>
+                          <option>Uttar Pradesh</option>
+                          <option>West Bengal</option>
+                          <option>Andaman and Nicobar Islands</option>
+                          <option>Chandigarh</option>
+                          <option>Dadra and Nagar Haveli</option>
+                          <option>Daman and Diu</option>
+                          <option>Lakshadweep</option>
+                          <option>Puducherry</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="sector">Sector</label>
+                        <select name="sector" class="form-control form-control-lg" required>
+                            <option>Public</option>
+                            <option>Private</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="aucNumber">Auction Number</label>
+                        <input type="text" class="form-control" name="aucNumber" placeholder="Auction Number" required>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="aucDescription">Auction Description</label>
+                        <textarea class="form-control" placeholder="Auction Description" name="aucDescription" rows="6" required></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="aucValue">Auction Value</label>
+                        <input type="text" class="form-control" name="aucValue" placeholder="Auction Value" required>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="aucSource">Auction Source Website</label>
+                        <input type="text" class="form-control" name="aucSource" placeholder="Auction Source Website" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="material">Material</label>
+                        <input type="text" class="form-control" name="material" placeholder="Material">
                       </div>
                       <div class="form-group">
                         <label for="quantity">Quantity</label>
@@ -360,191 +262,74 @@ include_once "connect.php";
                           <option value="nos">Nos</option>
                         </select>
                       </div>
-          
+            
                       <div class="form-group">
-                        <label for="dealValue">Deal Value</label>
-                        <input type="number" class="form-control" name="dealValue" placeholder="Deal Value" required>
-                      </div>
-                     
-                      <div class="form-group">
-                        <label for="dealDatetime">Deal Date and Time</label>
-                        <input type="datetime-local" class="form-control" name="dealDatetime" placeholder="Deal Date and Time" required>
+                        <label for="ePublishingDateTime">ePublishing Date and Time</label>
+                        <input type="datetime-local" class="form-control" name="ePublishingDateTime" placeholder="ePublishing Date and Time" required>
                       </div>
                       <div class="form-group">
-                        <label for="docCreatedby">Lead Document Created by</label>
-                        <input type="text" class="form-control" name="docCreatedby" placeholder="Document Created by" required>
+                        <label for="startDatetime">Auction Start Time</label>
+                        <input type="datetime-local" class="form-control" name="startDatetime" placeholder="Start Time dd-mm-yy --:--" required>
                       </div>
                       <div class="form-group">
-                        <label for="location">Deal Location</label>
-                        <select name="location" class="form-control form-control-lg" required>
-                          <option>Andhra Pradesh</option>
-                          <option>Arunachal Pradesh</option>
-                          <option>Assam</option>
-                          <option>Bihar</option>
-                          <option>Chhattisgarh</option>
-                          <option>Gujarat</option>
-                          <option>Haryana</option>
-                          <option>Himachal Pradesh</option>
-                          <option>Jammu and Kashmir</option>
-                          <option>Goa</option>
-                          <option>Jharkhand</option>
-                          <option>Karnataka</option>
-                          <option>Kerala</option>
-                          <option>Madhya Pradesh</option>
-                          <option>Maharashtra</option>
-                          <option>Manipur</option>
-                          <option>Meghalaya</option>
-                          <option>Mizoram</option>
-                          <option>Nagaland</option>
-                          <option>Odisha</option>
-                          <option>Punjab</option>
-                          <option>Rajasthan</option>
-                          <option>Sikkim</option>
-                          <option>Tamil Nadu</option>
-                          <option>Telangana</option>
-                          <option>Tripura</option>
-                          <option>Uttarakhand</option>
-                          <option>Uttar Pradesh</option>
-                          <option>West Bengal</option>
-                          <option>Andaman and Nicobar Islands</option>
-                          <option>Chandigarh</option>
-                          <option>Dadra and Nagar Haveli</option>
-                          <option>Daman and Diu</option>
-                          <option>Lakshadweep</option>
-                          <option>Puducherry</option>
-                        </select>
-                      
-                      
+                        <label for="endDatetime">Auction End Time</label>
+                        <input type="datetime-local" class="form-control" name="endDatetime" placeholder="End Time -mm-yy --:--" required>
                       </div>
                       <div class="form-group">
-                        <label for="industrialArea">Industrial Area </label>
-                        <input type="text" class="form-control" name="industrialArea" placeholder="Industrial Area" required>
+                        <label for="insStartdatetime">Inspection Start Time</label>
+                        <input type="datetime-local" class="form-control" name="insStartdatetime" placeholder="Inspection Start Time dd-mm-yy --:--" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="insEnddatetime">Inspection End Time</label>
+                        <input type="datetime-local" class="form-control" name="insEnddatetime" placeholder="Inspection End Time -mm-yy --:--" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="emdType">EMD Type</label>
+                        <select name="emdType" class="form-control form-control-lg" required>
+                            <option>Online Payment/ Net Banking</option>
+                            <option>DD</option>
+                            <option>Cash</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="emdAmt">EMD Amount</label>
+                        <input type="number" class="form-control" name="emdAmt" placeholder="EMD Amount" required>
                       </div>
                      <br>
-                     <p class="card-description">Client Details</p>
-                  
+                     <p class="card-description">Express of Interest</p>
+               
                       <div class="form-group">
                         <label for="companyName">Company Name</label>
                         <input type="text" class="form-control" name="companyName" placeholder="Company Name" required>
                       </div>
-                      <div class="form-group">
-                        <label for="contactPerson">Contact Person</label>
-                        <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" required>
+                             <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" class="form-control" name="location" placeholder="Location" required>
                       </div>
+                 
                       <div class="form-group">
-                        <label for="email">Email Id</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        <label for="street">Street</label>
+                        <input type="text" class="form-control" name="street" placeholder="Street" required>
                       </div>
-                      <div class="form-group">
-                        <label for="address">Address</label>
-                        <input type="text" class="form-control" name="address" placeholder="Address" required>
-                      </div>
+
                       <div class="form-group">
                         <label for="city">City</label>
                         <input type="text" class="form-control" name="city" placeholder="City" required>
                       </div>
                       <div class="form-group">
-                        <label for="state">State</label>
-                        <select name="state" class="form-control form-control-lg" required>
-                          <option>Andhra Pradesh</option>
-                          <option>Arunachal Pradesh</option>
-                          <option>Assam</option>
-                          <option>Bihar</option>
-                          <option>Chhattisgarh</option>
-                          <option>Gujarat</option>
-                          <option>Haryana</option>
-                          <option>Himachal Pradesh</option>
-                          <option>Jammu and Kashmir</option>
-                          <option>Goa</option>
-                          <option>Jharkhand</option>
-                          <option>Karnataka</option>
-                          <option>Kerala</option>
-                          <option>Madhya Pradesh</option>
-                          <option>Maharashtra</option>
-                          <option>Manipur</option>
-                          <option>Meghalaya</option>
-                          <option>Mizoram</option>
-                          <option>Nagaland</option>
-                          <option>Odisha</option>
-                          <option>Punjab</option>
-                          <option>Rajasthan</option>
-                          <option>Sikkim</option>
-                          <option>Tamil Nadu</option>
-                          <option>Telangana</option>
-                          <option>Tripura</option>
-                          <option>Uttarakhand</option>
-                          <option>Uttar Pradesh</option>
-                          <option>West Bengal</option>
-                          <option>Andaman and Nicobar Islands</option>
-                          <option>Chandigarh</option>
-                          <option>Dadra and Nagar Haveli</option>
-                          <option>Daman and Diu</option>
-                          <option>Delhi</option>
-                          <option>Lakshadweep</option>
-                          <option>Puducherry</option>
-                        </select>
+                        <label for="telephone">Telephone</label>
+                        <input type="text" class="form-control" name="telephone" placeholder="Telephone" required>
                       </div>
                       <div class="form-group">
-                        <label for="contactNumber">Contact Number</label>
-                        <input type="number" class="form-control" name="contactNumber" placeholder="Contact Number" maxlength="10" required>
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="Email" required>
                       </div>
+                      
                       <div class="form-group">
-                        <label for="whatsappNumber">Whatsapp Number</label>
-                        <input type="number" class="form-control" name="whatsappNumber" placeholder="Whatsapp Number" maxlength="10" required> 
+                        <label for="contactPerson">Contact Person</label>
+                        <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" required>
                       </div>
-                      <div class="form-group">
-                        <label for="gstin">GSTIN</label>
-                        <input type="text" class="form-control" name="gstin" placeholder="GSTIN"  maxlength="15" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="orderType">Order Type</label>
-                        <select name="orderType" class="form-control form-control-lg" required>
-                            <option>Procurement</option>
-                            <option>Service</option>
-                  
-                          </select>
-                      </div>
-                      <p class="card-description">Requirement Description</p>
-                      <div class="form-group">
-                        <label for="material">Material</label>
-                        <input type="text" class="form-control" name="material" placeholder="Material" required>
-                      </div>
-                    
-                      <div class="form-group">
-                        <label for="specification">Specification</label>
-                        <textarea class="form-control" placeholder="Specification" name="specification" rows="6" required></textarea>
-                      </div>
-                     
-                      <div class="form-group">
-                        <label for="dor">Date of Requirement</label>
-                        <input type="datetime-local" class="form-control" name="dor" placeholder="Start Time dd-mm-yy --:--" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="expQuotation">Expected Quotation</label>
-                        <input type="number" class="form-control" name="expQuotation" placeholder="Expected Quotation" required>
-                      </div>
-                  
-                      <div class="form-group">
-                        <label>Exclusive Deal Image upload</label>
-                        <input type="file" name="img[]" class="file-upload-default" multiple>
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" placeholder="Upload File">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>Exclusive Deal File upload</label>
-                        <input type="file" name="file[]" class="file-upload-default" multiple>
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" placeholder="Upload File">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                          </span>
-                        </div>
-                      </div>
-
+                
                       <button type="button" class="btn btn-gradient-primary" data-toggle="modal" data-target="#myModal">
                         Terms and Conditions
                       </button>
@@ -846,9 +631,7 @@ include_once "connect.php";
                             <div class="modal-footer">
                               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
-                            
-
-              
+                              
                 </div></div></div>
                     
                     <div class="form-check mx-sm-2">
@@ -856,8 +639,28 @@ include_once "connect.php";
                         <input type="checkbox" class="form-check-input" checked>I agree terms and conditions </label>
                     </div>                      
                       
-                      
-                     
+                    <div class="form-group">
+                      <label>Auction File upload</label>
+                      <input type="file" name="img[]" class="file-upload-default" multiple>
+                      <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Auction File upload</label>
+                      <input type="file" name="file[]" class="file-upload-default" multiple>
+                      <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                        </span>
+                      </div>
+                    </div>
+
+                             
                       <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
                     
                     </form>
@@ -867,7 +670,6 @@ include_once "connect.php";
               
             </div>
           </div></div>
-
 
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
