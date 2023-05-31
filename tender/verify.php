@@ -1,24 +1,20 @@
 <?php
 
 session_start();
-
+include "connect.php";
 $email = isset($_POST['email']) ? $_POST['email'] : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-$dbHost = "localhost";
-$dbUser = "root";
-$dbPassword = "newpassword";
-$dbName = "registration_db";
-$conn = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
 }
 
 $epassword=base64_encode($password);
 
 $sql = "SELECT * FROM buyer_dashboard WHERE email = '$email' and password='$epassword'";
-$result = $conn->query($sql);
+$result = $con->query($sql);
 $row = $result->fetch_assoc();
 $subscription=$row['subscription'];
 $name=$row['name'];
@@ -41,5 +37,5 @@ if ($result->num_rows == 1) {
         
         }
     session_close();
-$conn->close();
+$con->close();
 ?>

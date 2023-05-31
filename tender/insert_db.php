@@ -1,4 +1,5 @@
 <?php
+include "connect.php";
 
 session_start();
 
@@ -14,26 +15,22 @@ if ($password !== $conPassword) {
 
 $hashedPassword = base64_encode($password);
 
-$dbHost = "localhost";
-$dbUser = "root";
-$dbPassword = "newpassword";
-$dbName = "registration_db";
-$conn = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
 }
 
 $sql = "INSERT INTO signup (name, email, password) VALUES ('$name', '$email', '$hashedPassword')";
 
 
-if ($conn->query($sql) === TRUE) {
+if ($con->query($sql) === TRUE) {
     header("location: home.php");
     session_close();
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $con->error;
 }
 
 
-$conn->close();
+$con->close();
 ?>
