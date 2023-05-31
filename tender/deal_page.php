@@ -247,6 +247,18 @@ h4,
       width: 100%;
       height: auto;
     }
+    @media (max-width: 767px) {
+  .desktop-view {
+    display:none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-view {
+    display: none;
+  }
+}
+
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
   
@@ -257,9 +269,8 @@ h4,
     <div class="me-5">
       <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
   
-    </div>&nbsp   <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
-    <div class="container" style="margin-left: 270px; ">
-<form class="form-inline" action="/action_page.php">
+    </div>&nbsp   <p class="tft desktop-view" style="position:absolute; margin-left:130px; margin-top: 25px;" >RAWMET24</p>
+<form class="form-inline" action="/action_page.php"><br>
     <label for="email"></label>
     <input type="email" class="form-control" id="email" placeholder="Username" name="email">
     <label for="pwd"></label>&nbsp
@@ -310,7 +321,7 @@ h4,
 <a href="price.html"><button class="btn btn-primary" style="border-color: #fff;" >View All Deals</button><br><br><br><br></a>
 </div>
 
-    <div class="container" class="col-lg-6 col-md-12" style="margin-top: -130px;"><br><br>
+    <div class="container desktop-view" class="col-lg-6 col-md-12" style="margin-top: -130px;"><br><br>
  <div class="card">
  <div class="card-body">
  <div class="clearfix some-new-selector">
@@ -419,16 +430,133 @@ h4,
   </div>
 </div></div>
 </div>
-      <div class="space">
-  
 
-  
-</div></div>
 
 </div></div></div></div>
 
 
-<div class="container" >
+
+
+
+<!-- =======================================================table mobile====================================================-->
+
+
+
+
+
+<div class="container mobile-view" style="margin-top:-130px" ><br><br>
+ <div class="card">
+ <div class="card-body">
+
+    <h6>Home / Deal search / Deal Detail</h6>
+    <br>
+    <?php
+                    $id = $_GET['g'];
+                    $sql = "select * from deals where id=$id";
+                    $result = mysqli_query($con, $sql);
+                    if ($result) {
+                      while ($row = mysqli_fetch_assoc($result)) {
+
+                        ?>
+    <h3 style="color: #595a62;">COMPANY NAME: &nbsp<a href="price.html">XXXXX</a></h3>
+    <h5><i class='bx bx-map'></i> <?php echo $row['location']; ?></h5><br>
+    <hr>
+    <div >
+      <table class="table table-bordered">
+  <thead>
+    <tr>
+
+    </tr>
+  </thead>
+  <tbody>
+ 
+   
+    <tr>
+     
+      <td>IR Executive </td>
+      <td><?php echo $row['ir']; ?></td>
+    </tr>
+    <tr>
+     
+      <td>FE Executive</td>
+      <td><a href="price.html">XXXXX</a></td>
+    </tr>
+    <tr>
+
+      <td >Deal Value </td>
+    <td>
+    <b> ₹&nbsp<?php echo $row['dealValue']; ?>
+    </td></b>
+    </tr>
+    <tr>
+     
+      <td >Lead Date</td>
+      <td><?php echo $row['dealDatetime']; ?></td>
+    </tr>
+    <tr>
+     
+      <td>Lead Document Created by</td>
+      <td><?php echo $row['docCreatedby']; ?></td>
+    </tr>
+    <tr>
+     
+      <td>Location</td>
+      <td><?php echo $row['location']; ?></td>
+    </tr>
+    <tr>
+     
+      <td >Industrial Area</td>
+      <td><a href="price.html">XXXXX</a></td>
+    </tr>
+   
+    <tr>
+     
+      <td >Material</td>
+      <td><?php echo $row['material']; ?></td>
+    </tr>
+    
+
+    <tr>
+     
+     <td>Date of Requirement (DOR)</td>
+     <td><a href="price.html">XXXXX</a></td>
+   </tr>
+  
+  </tbody>
+</table>
+</div>
+
+
+      <table class="table table-bordered">
+  <thead>
+    <tr>
+     <th>Materials</th>
+    </tr>
+  </thead>
+  <tbody>
+ 
+   
+  <tr>
+     
+     <td> <b><?php echo $row['material'];?>:&nbsp<?php echo $row['quantity'];?></b></td>
+
+     </tr>
+   
+</table>
+
+
+      <div class="space">
+  
+
+  </div>
+</div>
+
+</div>
+</div>
+
+<!-- ==============================================================blue box desktop=============================================== -->
+
+<div class="container desktop-view" >
   
   <div class="row">
   
@@ -436,6 +564,7 @@ h4,
   <div class="card"
     style="background-color: #3b8beb; margin-left:550px; margin-top:-750px; margin-bottom:600px; padding:10px; ">
     <div class="card-body">
+    
       <h6 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h6>
       <hr>
       <h6 style="color:#fff;">Expected Quotation: ₹&nbsp<?php echo $row['expQuotation']; ?></h6><hr>
@@ -449,8 +578,37 @@ h4,
               </div>     
          <center> <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
     </div>
-    
-    <div class="container">
+    </div>
+    </div>
+
+<!-- ==============================================================blue box mobile===================================================================== -->
+
+
+<div class="container mobile-view" >
+  <div class="card" style=" background-color:#3b8beb;" >
+    <div class="card-body">
+    <h6 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h6>
+      <hr>
+      <h6 style="color:#fff;">Expected Quotation: ₹&nbsp<?php echo $row['expQuotation']; ?></h6><hr>
+
+      <h5 style="color:#fff;">Deal Opening Date and Time :<br>
+      <h6 style="color:#fff;"><i class='bx bx-calendar-alt'><?php echo $row['dealDatetime']; ?> </i>
+                &nbsp </h6>         
+                     
+             </h5>
+  
+      <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
+</div>
+  </div>
+</div>
+<?php }  ?>
+
+<!-- =================================================================images=========================================================== -->
+
+
+
+
+    <div class="container desktop-view">
     <div class="card" style="margin-top:-115px;" >
       <div class="card-body">
         <h3>Images</h3><hr>
@@ -501,7 +659,46 @@ h4,
   <?php  $ctshalom++; }} ?>
 
 
-  <div class="container">
+  <!-- =========================================================images mobile=============================================================== -->
+ 
+ 
+  <div class="container mobile-view">
+  
+    <div class="card">
+      <div class="card-body">
+        <h3>Images</h3><hr>
+        <div class="row">
+        <?php 
+           //print_r($result);
+           $sql = "select * from deals where id=$id";
+           $result = mysqli_query($con, $sql);
+          $row= mysqli_fetch_assoc($result);
+          //var_dump($row);
+          //die;
+          $a = unserialize($row['img']);
+          $ctshalom = 0;
+          if (empty($a)) {
+            echo "No Images Uploaded";
+        } else {
+            foreach ($a as $shalom) {
+          ?>
+          <div class="col-md-2">
+            <img src="../PurpleAdmin-Free-Admin-Template-master/pages/forms/uploads/<?php echo $shalom; ?>" width="400px" height="200px" class="img-fluid" alt="Image 1" data-toggle="modal" data-target="#myModal<?php echo $ctshalom?>">
+          </div>
+          <?php  $ctshalom++; } }?>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ==============================================================documents=================================================== -->
+
+
+
+  <div class="container desktop-view">
     <div class="card" >
       <div class="card-body">
         <h3>Documents</h3><hr>
@@ -540,7 +737,7 @@ h4,
 
   <?php
                       }
-                    }
+                    }}
                     ?>
 
 
@@ -551,7 +748,45 @@ h4,
 
   </div></div>
     
-    
+  <!-- =============================================================document mobile================================================== -->
+  
+  <div class="container  mobile-view" >
+    <div class="card" >
+      <div class="card-body">
+        <h3>Documents</h3><hr>
+        <div class="row">
+
+        <?php 
+           //print_r($result);
+             //print_r($result);
+             $sql = "select * from deals where id=$id";
+             $result = mysqli_query($con, $sql);
+            $row= mysqli_fetch_assoc($result);
+            //var_dump($row);
+            //die;
+            $a = unserialize($row['filenames']);
+            // print_r($a); die;
+            $ctsindu = 0;
+            
+            if (empty($a)) {
+              echo "No documents found";
+          } else {
+              foreach ($a as $sindu) {
+            ?>
+          <div class="col-md-2" >
+          <img class="card-img-top"
+              src="https://www.pcworld.com/wp-content/uploads/2022/08/pdf-icon.jpg?quality=50&strip=all" alt="Card image" style="width:100px">
+          <p><?php echo $sindu?></p>
+          </div>
+         
+
+          <?php  $ctsindu++; } } ?>
+        </div>
+      </div>
+      <a href="price.html"> <h4 style="padding:20px;"> Download All ></h4><br></a>
+    </div>
+   </div>
+</div></div></div></div>
 
 
 

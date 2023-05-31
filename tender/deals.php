@@ -43,7 +43,17 @@ include "connect.php";
 .scroller section {
   scroll-snap-align: start !important;
 } 
-    
+@media (max-width: 767px) {
+  .desktop-view {
+    display:none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-view {
+    display: none;
+  }
+} 
     
     </style>
   
@@ -86,16 +96,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
   
-  <section
+<section
            class="d-flex justify-content-between p-3"
            style="background-color:white"
            >
     <div class="me-5">
       <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
   
-    </div>&nbsp   <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
-    <div class="container" style="margin-left: 370px; ">
-<form class="form-inline" action="/action_page.php">
+    </div>&nbsp   <p class="tft desktop-view" style="position:absolute; margin-left:130px; margin-top: 25px;" >RAWMET24</p>
+<form class="form-inline" action="/action_page.php"><br>
     <label for="email"></label>
     <input type="email" class="form-control" id="email" placeholder="Username" name="email">
     <label for="pwd"></label>&nbsp
