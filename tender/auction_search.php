@@ -144,7 +144,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <form action="tender_search.php?l=" method="GET">
+                <form action="auction_search.php?l=" method="GET">
                     <div class="card shadow mt-3">
                         <div class="card-header">
                             <h5>Filter&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -215,7 +215,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     
                         <p><?php echo $row['aucDescription'];?></p>
 
-    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
+    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View auction</button></a></h6>
                       </div>
                     </div>
                   </div>
@@ -246,7 +246,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     
                         <p><?php echo $row['aucDescription'];?></p>
 
-    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
+    <a href="auction_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View auction</button></a></h6>
                       </div>
                     </div>
                   </div>
