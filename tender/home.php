@@ -1,5 +1,7 @@
 <?php
 session_start();
+// print_r($_SESSION);
+// die;
 include "connect.php";
 ?>
 <!doctype html>
@@ -124,7 +126,7 @@ include "connect.php";
 
         ?>
     <div class="container" style=" margin-top: 25px;margin-left: 870px; ">
-     Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
       <a href="signout.php"> Signout </a>
 
       </div><?php

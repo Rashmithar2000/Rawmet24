@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "connect.php";
 ?>
 
@@ -341,6 +342,13 @@ include "connect.php";
               <h6>Home / Tender Search / Tender Detail</h6>
               <br>
               <?php
+               if(isset($_SESSION['sub'])){
+                $subscription=$_SESSION['sub'];
+                //print_r($subscription);
+                //die;
+                }else{
+                  $subscription=false;
+               }
                     $id = $_GET['g'];
                     $sql = "select * from tenders where id=$id";
                     $result = mysqli_query($con, $sql);
@@ -348,7 +356,9 @@ include "connect.php";
                       while ($row = mysqli_fetch_assoc($result)) {
 
                         ?>
-             <h3 style="color: #595a62;"> COMPANY NAME: <a href="price.html">XXXXX</a></h3>
+             <h3 style="color: #595a62;"> COMPANY NAME: &nbsp<?php if($subscription){
+                              echo $row['companyName'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a></h3>
               <h5><i class='bx bx-map'></i> <?php echo $row['tenderLocation']; ?></h5>
               <hr>
               <div style="margin-left: 40px;">
@@ -387,7 +397,9 @@ include "connect.php";
 
                           <td>Ownership</td>
                           <td>
-                          <a href="price.html">XXXXX</a>
+                          <?php if($subscription){
+                              echo $row['ownership'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
                           </td>
                         </tr>
                         <tr>
@@ -408,7 +420,9 @@ include "connect.php";
 
                           <td>Tender No</td>
                           <td>
-                          <a href="price.html">XXXXX</a>
+                          <?php if($subscription){
+                              echo $row['tenderNumber'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
                           </td>
                         </tr>
                         <tr>
@@ -437,7 +451,9 @@ include "connect.php";
 
                           <td>EMD amount</td>
                           <td>
-                          <a href="price.html">XXXXX</a>
+                          <?php if($subscription){
+                              echo $row['emdAmt'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
                           </td>
                         </tr>
                        

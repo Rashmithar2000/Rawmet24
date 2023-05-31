@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "connect.php";
 ?>
 <!doctype html>
@@ -327,9 +328,16 @@ h4,
  <div class="clearfix some-new-selector">
   <div class="pull-left">
   <div class="pull-right span9" style="color: #9e9797; padding:10px">
-    <h6>Home / Deal search / Deal Detail</h6>
+    <h6>Home /Exclusive Deal search /Exclusive Deal Detail</h6>
     <br>
     <?php
+        if(isset($_SESSION['sub'])){
+        $subscription=$_SESSION['sub'];
+        //print_r($subscription);
+        //die;
+        }else{
+          $subscription=false;
+       }
                     $id = $_GET['g'];
                     $sql = "select * from exclusive_deals where id=$id";
                     $result = mysqli_query($con, $sql);
@@ -337,7 +345,9 @@ h4,
                       while ($row = mysqli_fetch_assoc($result)) {
 
                         ?>
-    <h3 style="color: #595a62;">COMPANY NAME: &nbsp<a href="price.html">XXXXX</a></h3>
+    <h3 style="color: #595a62;">COMPANY NAME: &nbsp<?php if($subscription){
+                              echo $row['companyName'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a></h3>
     <h5><i class='bx bx-map'></i> <?php echo $row['location']; ?></h5><br>
     <hr>
     <div style="margin-left: 40px;">
@@ -358,7 +368,10 @@ h4,
     <tr>
      
       <td>FE Executive</td>
-      <td><a href="price.html">XXXXX</a></td>
+      <td><?php if($subscription){
+                              echo $row['fe'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
     </tr>
     <tr>
 
@@ -385,7 +398,10 @@ h4,
     <tr>
      
       <td >Industrial Area</td>
-      <td><a href="price.html">XXXXX</a></td>
+      <td><?php if($subscription){
+                              echo $row['industrialArea'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
     </tr>
    
     <tr>
@@ -398,7 +414,10 @@ h4,
     <tr>
      
      <td>Date of Requirement (DOR)</td>
-     <td><a href="price.html">XXXXX</a></td>
+     <td><?php if($subscription){
+                              echo $row['dor'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
    </tr>
   
   </tbody>
