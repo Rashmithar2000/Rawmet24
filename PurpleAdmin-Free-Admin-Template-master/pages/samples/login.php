@@ -6,7 +6,7 @@ $password = $_POST['password'];
 
 $dbHost = "localhost";
 $dbUser = "root";
-$dbPassword = "";
+$dbPassword = "newpassword";
 $dbName = "registration_db";
 $conn = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
 

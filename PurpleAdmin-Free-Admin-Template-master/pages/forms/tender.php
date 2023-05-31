@@ -81,13 +81,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-
-
-
-    
     $servername = 'localhost';
     $username = 'root';
-    $password = '';
+    $password = 'newpassword';
     $database = 'registration_db';
 
     $conn = new mysqli($servername, $username, $password, $database);
@@ -102,7 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      emdType, emdAmt, tenderValue,companyName, location, street, city, 
      telephone, email, contactPerson, img,file) 
     VALUES ('$category', '$infoId', '$ownership', '$tenderLocation', '$sector', '$tenderNumber', 
-
     '$tenderDesc', '$material','$value', '$publishingDatetime', '$startDatetime', '
     $endDatetime', '$emdType', '$emdAmt','$tenderValue', '$companyName',
      '$location', '$street', '$city', '$telephone', '$email', '$contactPerson','$fname2','$dname2')";
