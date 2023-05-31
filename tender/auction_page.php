@@ -325,16 +325,34 @@ include "connect.php";
             <div class="pull-right span9" style="color: #9e9797; padding:10px">
               <h6>Home / Auction Search / Auction Detail</h6>
               <br>
-              <?php
-                    $id = $_GET['g'];
-                    $sql = "select * from auction where id=$id";
-                    $result = mysqli_query($con, $sql);
-                    if ($result) {
-                      while ($row = mysqli_fetch_assoc($result)) {
+             <?php
+             if(!isset($_SESSION['name'])){
+                  $id = $_GET['g'];
+                  $sql = "SELECT * FROM auction WHERE id=$id";
+                  $result = mysqli_query($con, $sql);
 
-                        ?>
-              <h3 style="color: #595a62;"> COMPANY NAME: <a href="price.html">XXXXX</a></h3>
-              <h5><i class='bx bx-map'></i> <?php echo $row['aucLocation']; ?></h5>
+              if ($result) {
+              $row = mysqli_fetch_assoc($result);
+                $subscription_query = "SELECT subscription FROM buyer_dashboard WHERE name='buyer' and password='YnV5ZXI='";
+    $subscription_result = mysqli_query($con, $subscription_query);
+    
+    if ($subscription_result) {
+        $subscription_row = mysqli_fetch_assoc($subscription_result);
+        $subscription = $subscription_row['subscription'];
+
+        if ($subscription == 1) {
+            echo "<h3 style='color: #595a62;'>COMPANY NAME: ".$row['companyName']."</h3>";
+            echo "<h5><i class='bx bx-map'></i> ".$row['aucLocation']."</h5>";
+        } else {
+            header("Location: price.html");
+            exit; // Terminate script execution after the header redirect
+        }
+    }
+}}else {
+  header("Location: home.php");
+  exit; // Terminate script execution after the header redirect
+}
+?>
               <hr>
               <div style="margin-left: 40px;">
                 <table class="table table-bordered">
@@ -576,8 +594,8 @@ include "connect.php";
     </div>
   
   <?php
-                      }
-                    }
+                      
+                    
                     ?>
 
 </body>

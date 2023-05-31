@@ -96,35 +96,33 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </div>&nbsp   <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
     <?php 
        
-      if(!isset($_SESSION['name'])){
+       if(!isset($_SESSION['name'])){
 
-      ?>
-      <div class="container" style="margin-left: 370px; ">
-        <form class="form-inline" action="verify.php" method="post">
-          <label for="email"></label>
-          <input type="email" class="form-control" name="email" placeholder="Username" name="email">
-          <label for="pwd"></label>&nbsp
-          <input type="password" class="form-control" name="password" placeholder="Password" name="pswd">&nbsp&nbsp
-          <div class="form-check">
+     ?>
+     <div class="container" style="margin-left: 370px; ">
+       <form class="form-inline" action="verify.php" method="post">
+         <label for="email"></label>
+         <input type="email" class="form-control" name="email" placeholder="Username" name="email">
+         <label for="pwd"></label>&nbsp
+         <input type="password" class="form-control" name="password" placeholder="Password" name="pswd">&nbsp&nbsp
+         <div class="form-check">
 
-          </div><br>
-          <button class="btn btn-primary" type="submit">Sign in</button>
-          <a href="signup.html" style="font-size: medium; padding: 20px; ">
-            <i class="fa-solid fa-user-plus"></i>SignUp
-          </a>
-        </form>
-      </div>
-        
-        <?php }else{
+         </div><br>
+         <button class="btn btn-primary" type="submit">Sign in</button>
+         <a href="signup.html" style="font-size: medium; padding: 20px; ">
+           <i class="fa-solid fa-user-plus"></i>SignUp
+         </a>
+       </form>
+     </div>
+       
+       <?php }else{
 
-        ?>
-    <div class="container" style=" margin-top: 25px;margin-left: 870px; ">
-     Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-      <a href="signout.php"> Signout </a>
-
-      </div><?php
-     } ?>
-    </section>
+       ?>
+   <div class="container" style="margin-left: 370px; ">
+   <p>Hi! <?php echo $_SESSION['name'];?></p>
+     </div><?php
+    } ?>
+   </section>
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 <div class="container-fluid">
@@ -166,8 +164,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                             <h6>Location</h6>
                             <hr>
                             <?php
-                            $con = mysqli_connect("localhost", "root", "newpassword", "registration_db");
-
+                           
                             $brand_query = "SELECT * FROM location";
                             $brand_query_run = mysqli_query($con, $brand_query);
 

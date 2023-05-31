@@ -155,7 +155,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                             <h6>Location</h6>
                             <hr>
                             <?php
-                            $con = mysqli_connect("localhost", "root", "", "registration_db");
+                        
 
                             $brand_query = "SELECT * FROM location";
                             $brand_query_run = mysqli_query($con, $brand_query);

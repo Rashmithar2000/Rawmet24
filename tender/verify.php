@@ -33,7 +33,7 @@ if ($result->num_rows == 1) {
     $_SESSION['sub'] = $subscription;
     $_SESSION['name'] = $name;
     header("Location: home.php"); //Redirect user to home page
-       
+    // header("Location: ".$_SERVER['PHP_SELF']);  
     }else {
 
         //    alert("Invalid Password");
