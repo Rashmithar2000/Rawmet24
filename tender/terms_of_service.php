@@ -137,11 +137,13 @@
        </form>
     
        
-       <?php }else{
+       
+       <?php }else{ ?>
+          <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;">
+          Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp
+              <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
 
-?>
-Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="signout.php"> Signout </a>
+          </p></div>
 
 </div><?php
 } ?>
@@ -516,15 +518,14 @@ Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Key links</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
-            <a href="aboutus.html" class="text-white">About Us</a>
+            <a href="aboutus.php" class="text-white">About Us</a>
+          </p>
+       
+          <p>
+            <a href="policy.php" class="text-white">Privacy Policy</a>
           </p>
           <p>
-          </p>
-          <p>
-            <a href="policy.html" class="text-white">Privacy Policy</a>
-          </p>
-          <p>
-            <a href="terms_of_service.html" class="text-white">Terms of Service</a>
+            <a href="#" class="text-white">Terms of Service</a>
           </p>
 
         </div>
