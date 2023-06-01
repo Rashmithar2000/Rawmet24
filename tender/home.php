@@ -93,6 +93,17 @@ include "connect.php";
         display: block;
       }
     }
+    @media (max-width: 767px) {
+  .desktop-view {
+    display:none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-view {
+    display: none;
+  }
+}
   </style>
   <section class="ftco-section" style="padding-top: 5px;">
 

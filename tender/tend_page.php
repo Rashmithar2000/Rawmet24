@@ -259,6 +259,17 @@ include "connect.php";
       width: 100%;
       height: auto;
     }
+    @media (max-width: 767px) {
+    .desktop-view {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .mobile-view {
+      display: none;
+    }
+  }
    
   </style>
   <section class="ftco-section" style="padding-top: 5px;">
@@ -333,7 +344,7 @@ include "connect.php";
 
   <a href="price.html"><button class="btn btn-primary" style="border-color: #fff;" >View All Tenders</button></a><br><br><br><br>
 </div>
-  <div class="container" class="col-lg-6 col-md-12" style="margin-top: -130px;"><br><br>
+  <div class="container desktop-view" class="col-lg-6 col-md-12" style="margin-top: -130px;"><br><br>
     <div class="card">
       <div class="card-body">
         <div class="clearfix some-new-selector">
@@ -487,9 +498,156 @@ include "connect.php";
     </div>
   </div>
 
+<!-- =======================================================table mobile====================================================-->
 
 
-  <div class="container">
+
+
+
+
+<div class="container mobile-view" style="margin-top:-130px" ><br><br>
+ <div class="card">
+ <div class="card-body">
+
+    <h6>Home / Tender search / Tender Detail</h6>
+    <br>
+    <?php
+                    $id = $_GET['g'];
+                    $sql = "select * from tenders where id=$id";
+                    $result = mysqli_query($con, $sql);
+                    if ($result) {
+                      while ($row = mysqli_fetch_assoc($result)) {
+
+                        ?>
+             <h3 style="color: #595a62;"> COMPANY NAME: <a href="price.html">XXXXX</a></h3>
+              <h5><i class='bx bx-map'></i> <?php echo $row['tenderLocation']; ?></h5>
+              <hr>
+              <div >
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                        <tr>
+                          <td>Reference No </td>
+                          <td>
+                            <?php echo $row['infoId']; ?>
+                          </td>
+                        </tr>
+                      
+                        <tr>
+
+                          <td>Important Dates </td>
+                          <td><i class='bx bx-calendar-alt'></i>
+                            <?php echo $row['startDatetime']; ?><br> Bid Submission Started<br><br>
+                            <i class='bx bx-calendar-alt'></i>
+                            <?php echo $row['endDatetime']; ?> <br> Bid Submission End
+                          </td>
+                        </tr>
+                        <tr>
+
+                            <td >Tender Value </td>
+                                <td>
+                                <b> ₹&nbsp<?php echo $row['tenderValue']; ?>
+                          </td></b>
+                      </tr>
+                        <tr>
+
+                          <td>Ownership</td>
+                          <td>
+                          <a href="price.html">XXXXX</a>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td>Location</td>
+                          <td>
+                            <?php echo $row['location']; ?>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td>Sector</td>
+                          <td>
+                            <?php echo $row['sector']; ?>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td>Tender No</td>
+                          <td>
+                          <a href="price.html">XXXXX</a>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td>ePublishing Date & Time</td>
+                          <td>
+                            <?php echo $row['publishingDatetime']; ?>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td>Bid Submission Date</td>
+                          <td>
+                            <?php echo $row['startDatetime']; ?>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td>Bid Submission Close Date</td>
+                          <td>
+                            <?php echo $row['endDatetime']; ?>
+                          </td>
+                        </tr>
+
+                        <tr>
+
+                          <td>EMD amount</td>
+                          <td>
+                          <a href="price.html">XXXXX</a>
+                          </td>
+                        </tr>
+                       
+
+                  </tbody>
+                </table>
+                      </div>
+                
+              <table class="table table-bordered">
+              <thead>
+                <tr>
+                   <th class="text-center">List of Materials</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+     
+                   <td> <b><?php echo $row['material'];?>:&nbsp<?php echo $row['quantity'];?></b></td>
+
+
+     </tr>
+   
+</table>
+
+
+      <div class="space">
+  
+
+  </div>
+</div>
+</div></div>           </div>
+</div>
+</div>
+
+<!-- ==============================================================blue box desktop=============================================== -->
+
+
+
+  <div class="container desktop-view">
 
     <div class="row">
     <div class="card"
@@ -511,9 +669,40 @@ include "connect.php";
                 </div>    
           <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
   </div>
+                      </div></div><?php } ?></div></div>
+
+<!-- ==============================================================blue box mobile===================================================================== -->
 
 
-  <div class="container">
+<div class="container mobile-view" >
+  <div class="card" style=" background-color:#3b8beb;" >
+    <div class="card-body">
+
+    <h4 style="color:#fff;">TENDER VALUE: ₹<?php echo $row['tenderValue']; ?></h4><hr>
+    <h4 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h4><hr>
+    <h5 style="color:#fff;">Opening date and time :<br><i class='bx bx-calendar-alt'>&nbsp<?php echo $row['publishingDatetime']; ?> </i><br>
+                    
+                    <br> Bid Submission Started <br>
+                    <h6 style="color:#fff;"><i class='bx bxs-calendar-alt'></i> <?php echo $row['startDatetime']; ?> &nbsp &nbsp
+                        &nbsp </h6>
+                  <hr>
+
+      <h6 style="color:#fff;">Sector:&nbsp<?php echo $row['sector']; ?></h6><hr>
+
+              <h6 style="color:#fff;"><i class='bx bxs-calendar-alt'></i> Expires on <?php echo $row['endDatetime']; ?> &nbsp &nbsp
+                &nbsp </h6>
+                </div> 
+  
+      <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
+</div><?php }  ?>
+  </div>
+</div>
+</div></div></div>
+
+<!-- =================================================================images=========================================================== -->
+
+
+  <div class="container desktop-view">
     <div class="card" style="margin-top:-115px;" >
       <div class="card-body">
         <h3>Images</h3><hr>
@@ -561,10 +750,48 @@ include "connect.php";
       </div>
     </div>
   </div>
-  <?php  $ctshalom++; }} ?>
+  <?php  $ctshalom++; } }?>
+  <!-- =========================================================images mobile=============================================================== -->
+ 
+ 
+  <div class="container mobile-view">
+  
+    <div class="card">
+      <div class="card-body">
+        <h3>Images</h3><hr>
+        <div class="row">
+        <?php 
+           //print_r($result);
+           $sql = "select * from tenders where id=$id";
+           $result = mysqli_query($con, $sql);
+          $row= mysqli_fetch_assoc($result);
+          //var_dump($row);
+          //die;
+          $a = unserialize($row['img']);
+          $ctshalom = 0;
+          if (empty($a)) {
+            echo "No Images Uploaded";
+        } else {
+            foreach ($a as $shalom) {
+          ?>
+          <div class="col-md-2">
+            <img src="../PurpleAdmin-Free-Admin-Template-master/pages/forms/uploads/<?php echo $shalom; ?>" width="400px" height="200px" class="img-fluid" alt="Image 1" data-toggle="modal" data-target="#myModal<?php echo $ctshalom?>">
+          </div>
+          <?php  $ctshalom++; } }?>
+         
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-  <div class="container">
+
+  <!-- ==============================================================documents=================================================== -->
+
+
+
+
+  <div class="container desktop-view">
     <div class="card" >
       <div class="card-body">
         <h3>Documents</h3><hr>
@@ -611,7 +838,50 @@ include "connect.php";
 
 
 
-  </div></div>
+</div></div>
+    
+    <!-- =============================================================document mobile================================================== -->
+    
+    <div class="container  mobile-view" >
+      <div class="card" >
+        <div class="card-body">
+          <h3>Documents</h3><hr>
+          <div class="row">
+  
+          <?php 
+             //print_r($result);
+               //print_r($result);
+               $sql = "select * from deals where id=$id";
+               $result = mysqli_query($con, $sql);
+              $row= mysqli_fetch_assoc($result);
+              //var_dump($row);
+              //die;
+              $a = unserialize($row['filenames']);
+              // print_r($a); die;
+              $ctsindu = 0;
+              
+              if (empty($a)) {
+                echo "No documents found";
+            } else {
+                foreach ($a as $sindu) {
+              ?>
+            <div class="col-md-2" >
+            <img class="card-img-top"
+                src="https://www.pcworld.com/wp-content/uploads/2022/08/pdf-icon.jpg?quality=50&strip=all" alt="Card image" style="width:100px">
+            <p><?php echo $sindu?></p>
+            </div>
+           
+  
+            <?php  $ctsindu++; } } ?>
+          </div>
+        </div>
+        <a href="price.html"> <h4 style="padding:20px;"> Download All ></h4><br></a>
+      </div>
+     </div>
+  </div></div></div></div>
+  
+  
+<!-- =====================================================footer=================================================================-->  
     
 
 

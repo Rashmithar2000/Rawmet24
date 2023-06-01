@@ -43,7 +43,17 @@ include "connect.php";
 .scroller section {
   scroll-snap-align: start !important;
 } 
-    
+@media (max-width: 767px) {
+  .desktop-view {
+    display:none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-view {
+    display: none;
+  }
+} 
     
     </style>
   
@@ -86,7 +96,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
   
-  <section
+<section
            class="d-flex justify-content-between p-3"
            style="background-color:white"
            >

@@ -43,7 +43,17 @@ include "connect.php";
 .scroller section {
   scroll-snap-align: start !important;
 } 
-    
+@media (max-width: 767px) {
+  .desktop-view {
+    display:none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-view {
+    display: none;
+  }
+}
     
     </style>
   

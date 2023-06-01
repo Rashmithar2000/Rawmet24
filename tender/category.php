@@ -125,6 +125,217 @@ body {font-family: Arial, Helvetica, sans-serif;}
        </div><?php
       } ?>
      </section>
+    @media screen and (max-width: 500px) {
+      .strip a {
+        float: none;
+        display: block;
+      }
+    }
+
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+    body {
+
+      font-family: "Roboto", helvetica, arial, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      text-rendering: optimizeLegibility;
+    }
+
+    div.table-title {
+      display: block;
+      margin: auto;
+      max-width: 600px;
+      padding: 5px;
+      width: 100%;
+    }
+
+    .table-title h3 {
+      color: #3b8beb;
+      font-size: 30px;
+      font-weight: 400;
+      font-style: normal;
+      font-family: "Roboto", helvetica, arial, sans-serif;
+      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+      text-transform: uppercase;
+    }
+
+    /*** Table Styles **/
+
+    .table-fill {
+      background: white;
+      border-radius: 3px;
+      border-collapse: collapse;
+      height: 120px;
+      margin: auto;
+      max-width: 600px;
+      padding: 5px;
+      width: 100%;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      animation: float 5s infinite;
+    }
+
+    th {
+      color: #ffffff;
+      ;
+      background: #3b8beb;
+      border-bottom: 4px solid #9ea7af;
+      border-right: 1px solid #343a45;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 10px;
+      text-align: left;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      vertical-align: middle;
+    }
+
+    th:first-child {
+      border-top-left-radius: 3px;
+    }
+
+    th:last-child {
+      border-top-right-radius: 3px;
+      border-right: none;
+    }
+
+    tr {
+      border-top: 1px solid #C1C3D1;
+      border-bottom: 1px solid #C1C3D1;
+      color: #666B85;
+      font-size: 16px;
+      font-weight: normal;
+      text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+    }
+
+    tr:hover td {
+      background: #828393;
+      color: #FFFFFF;
+
+    }
+
+    tr:first-child {
+      border-top: none;
+    }
+
+    tr:last-child {
+      border-bottom: none;
+    }
+
+    tr:nth-child(odd) td {
+      background: #EBEBEB;
+    }
+
+    tr:nth-child(odd):hover td {
+      background: #828393;
+    }
+
+    tr:last-child td:first-child {
+      border-bottom-left-radius: 3px;
+    }
+
+    tr:last-child td:last-child {
+      border-bottom-right-radius: 3px;
+    }
+
+    td {
+      background: #FFFFFF;
+      padding: 10px;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: 300;
+      font-size: 18px;
+      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+      border-right: 1px solid #C1C3D1;
+    }
+
+
+
+    td:last-child {
+      border-right: 0px;
+    }
+
+    th.text-left {
+      text-align: left;
+    }
+
+    th.text-center {
+      text-align: center;
+    }
+
+    th.text-right {
+      text-align: right;
+    }
+
+    td.text-left {
+      text-align: left;
+    }
+
+    td.text-center {
+      text-align: center;
+    }
+
+    td.text-right {
+      text-align: right;
+    }
+
+    h4,
+    h5,
+    h6 {
+      color: #757b89;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      font-size:18px;
+
+    }
+
+    .space {
+      padding: 6px;
+
+
+    }
+    .color{
+      color: #fff !important;
+    }
+    @media (max-width: 767px) {
+  .desktop-view {
+    display:none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-view {
+    display: none;
+  }
+}
+  </style>
+  <section class="ftco-section" style="padding-top: 5px;">
+
+  <section
+           class="d-flex justify-content-between p-3"
+           style="background-color:white"
+           >
+    <div class="me-5">
+      <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
+  
+    </div>&nbsp   <p class="tft desktop-view" style="position:absolute; margin-left:130px; margin-top: 25px;" >RAWMET24</p>
+<form class="form-inline" action="/action_page.php"><br>
+    <label for="email"></label>
+    <input type="email" class="form-control" id="email" placeholder="Username" name="email">
+    <label for="pwd"></label>&nbsp
+    <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
+    <div class="form-check">
+          </div><br>
+          <button type="submit" class="btn btn-primary"
+            style="background-color: #3b8beb !important; border-color: #3b8beb;"> <a href="signin.html"
+              style="font-size: medium;color: #ffffff; ">
+              <i class="fa-solid fa-user" style="padding: 5px; "></i>SignIn
+            </a></button>
+          <a href="signup.html" style="font-size: medium; padding: 25px; ">
+            <i class="fa-solid fa-user-plus"></i>SignUp
+          </a>
+        </form>
+      </div>
+
+    </section>
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 <div class="container-fluid">
