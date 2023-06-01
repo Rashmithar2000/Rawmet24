@@ -2,7 +2,7 @@
 // Database credentials
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "sNpl@18mgroad";
 $dbname = "registration_db";
 
 // Create connection
