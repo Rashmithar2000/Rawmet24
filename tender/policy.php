@@ -8,7 +8,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <title>About Us </title>
+  <title>Privacy Policy </title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,17 +45,6 @@
     .scroller section {
       scroll-snap-align: start !important;
     }
-    @media (max-width: 767px) {
-  .desktop-view {
-    display:none;
-  }
-}
-
-@media (min-width: 768px) {
-  .mobile-view {
-    display: none;
-  }
-}
   </style>
 
   <div class="strip">
@@ -83,35 +72,81 @@
     font-size: 15px;
 }
 
+    h4,
+    h5,
+    h6 {
+      color: #757b89;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      font-size:18px;
+
+    }
+
+    .space {
+      padding: 6px;
 
 
+    }
+    .color{
+      color: #fff !important;
+    }
+    .modal-body img {
+      width: 100%;
+      height: auto;
+    }
+    @media (max-width: 767px) {
+  .desktop-view {
+    display:none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-view {
+    display: none;
+  }
+}
+   
   </style>
   <section class="ftco-section" style="padding-top: 5px;">
 
-    <section class="d-flex justify-content-between p-3" style="background-color:white">
-      <div class="me-5">
-        <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
+  <section class="ftco-section" style="padding-top: 5px;">
 
-      </div>&nbsp <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
-      <div class="container" style="margin-left: 420px; ">
-        <form class="form-inline" action="/action_page.php">
-          <label for="email"></label>
-          <input type="email" class="form-control" id="email" placeholder="Username" name="email">
-          <label for="pwd"></label>&nbsp
-          <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
-          <div class="form-check">
+<section
+         class="d-flex justify-content-between p-3"
+         style="background-color:white"
+         >
+  <div class="me-5">
+    <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
 
-          </div><br>
-          <a href="signin.html" style="font-size: medium;">
-            <i class="fa-solid fa-user"></i>SignIn
-          </a>
-          <a href="signup.html" style="font-size: medium; padding: 20px; ">
-            <i class="fa-solid fa-user-plus"></i>SignUp
-          </a>
-        </form>
-      </div>
+  </div>&nbsp   <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
+  <?php 
+     
+     if(!isset($_SESSION['name'])){
 
-    </section>
+     ?>
+       <form class="form-inline" action="verify.php" method="post">
+         <label for="email"></label>
+         <input type="email" class="form-control" name="email" placeholder="Username" name="email">
+         <label for="pwd"></label>&nbsp
+         <input type="password" class="form-control" name="password" placeholder="Password" name="pswd">&nbsp&nbsp
+         <div class="form-check">
+
+         </div><br>
+         <button class="btn btn-primary" type="submit">Sign in</button>
+         <a href="signup.html" style="font-size: medium; padding: 20px; ">
+           <i class="fa-solid fa-user-plus"></i>SignUp
+         </a>
+       </form>
+     
+       
+       <?php }else{
+
+?>
+Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="signout.php"> Signout </a>
+
+</div><?php
+} ?>
+</section>
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container-fluid">
@@ -121,7 +156,7 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav m-auto">
-            <li class="nav-item "><a href="home.php" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="home.php" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="tender.php" class="nav-link">Tenders</a></li>
 
             <li class="nav-item"><a href="auction.php" class="nav-link">Auctions</a></li>
@@ -145,15 +180,54 @@
 <div class="container">
     <div class="card">
         <div class="card-body" style="padding: 80px 120px 120px 120px;">
-            <center> <h3>About Us</h3></center> <hr>
-           <p style="font-family: Helvetica ;text-align:justify;">
-           Shopemet Networks Pvt Ltd was built up in 2018 to offer an extensive assistance to makers of Machnical
-           Equipments, Machineries, Electronic Equipments and building items in Indian markets just as outside India. From our offices based at Bangalore, we arrange
-           deliveries of a wide range of quality raw materials which we source from leading manufacturers worldwide. Our expertise in all aspects of procuring and moving goods has resulted in us becoming a leading supplier to manufacturing industries in our market territories.
-           <br><br> Shopemet Networks supplies just about any raw material which might be needed, and we control the entire process of moving goods from factory to destination to ensure minimum delays of your consignments. We are also able to consolidate mixed container loads of smaller items at
-           our warehouse, again ensuring safe and efficient carriage to final destination. <br>
-           <br> Our Product has undertaken a most ambitious project —to be the Google of local industrial supplies materialsinventory data. We aim the site to reach 1 MillionUserwith our beta Version and we are trying to create amassive database of real-time inventory fromIndustrial
-           material suppliers, Traders and Importers Inventory.</p> 
+            <center> <h3>Privacy Policy</h3></center> <hr>
+           <p style="font-family: Helvetica ;text-align:justify;">This privacy policy describes how we handle your personal information. We
+collect, use, and share personal information to help the Rawmet24 website
+(rawmet24.com) work and to keep it safe. All information posted in Rawmet24.com is publicly available. However we
+are presenting it over the Internet media so as to make easier to get. Any information which we collect of the users via registration such as e- mail ID, Phone Number etc and while browsing such as IP address will be
+stored on our servers.<br> <br>(Browsing data is collected by cookies,If you don't
+want this data to be collected cookies can be disabled )
+All information which we collected will be used by us to notify you of
+updates(Can be disabled by notifying us info@Rawmet24.com),get your
+feedback,troubleshoot problems and calculate our site statistics such as
+avg.time spent on site,no of page views etc... so that we can find out where
+we are lacking and improve the site.<br><br> The users privacy is very important to us. We do not and shall not at any
+point in time, either sell or rent users personal information to third parties
+without users explicit consent. We may be required from time to time to disclose users personal
+information to Governmental or law enforcing agencies or our regulators, but we will only do so under proper authority. We may also disclose personal information to enforce our policies, respond
+to claims that a posting or other content violates other's rights, or protects
+anyone's rights, property or safety. We may also share personal information with:<br><br><i class="fa fa-stop" ></i> &nbsp Corporate affiliates who help detect or prevent potentially illegal acts and
+provide joint services (Our corporate affiliates will market only to users who
+ask them to). <br><i class="fa fa-stop" ></i> &nbsp Service providers who help with our business operations.<br><br> You may use personal information gathered from Rawmet24.com only to
+follow up with another user about a specific posting, not to send
+spam/phising or collect personal information from someone who hasn't
+agreed to that.
+We use a number of mechanisms (encryption, passwords, physical security)
+to protect the security and integrity of your personal information against
+unauthorized access and disclosure.<br><br> Unfortunately, no data transmission
+over the internet can be guaranteed to be completely secure. So while we
+strive to protect such information, we cannot ensure or warrant the security
+of any information you transmit to us and you do so at your own risk. Once
+any personal information comes into our possession, we will take reasonable
+steps to protect that information from misuse and loss and from
+unauthorised access, modification or disclosure.<br><br> Vendors who use any of the features on Rawmet24.com agree and accept
+that they have been fully informed by Rawmet24.com that the use of
+features may lead to publication of any personal information posted by them
+while using any specific feature on Rawmet24.com. Users further agree that
+the authenticity of, and consequences from the posting by users of any
+personal information of themselves or any other person, are the sole
+responsibility of the user.<br><br> Users further agree and accept that the terms of
+the Privacy Policy will be applicable to the use of all features, existing and
+new. However, the Users agree and accept that confidentiality of
+information posted on such features has been waived by the Users of such
+features themselves. <br><br>We may update, upgrade, modify (partially &/or fully) this policy at any
+time, with updates taking effect when you next visit or after 7 days, whichever is sooner. If we or our corporate affiliates are involved in a
+merger or acquisition, we may share personal information with another
+company, but this policy will continue to apply. Send questions about this
+policy to support@Rawmet24.com</p> 
+            
+            
+            
             </div></div>
     
     </div>
@@ -209,7 +283,7 @@
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Key links</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
-            <a href="#!" class="text-white">About Us</a>
+            <a href="aboutus.html" class="text-white">About Us</a>
           </p>
           <p>
           </p>

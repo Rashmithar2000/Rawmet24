@@ -93,13 +93,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="me-5">
       <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
   
-    </div>&nbsp   <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
+    </div>&nbsp   <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
     <?php 
        
        if(!isset($_SESSION['name'])){
  
        ?>
-       <div class="container" style="margin-left: 370px; ">
          <form class="form-inline" action="verify.php" method="post">
            <label for="email"></label>
            <input type="email" class="form-control" name="email" placeholder="Username" name="email">
@@ -113,18 +112,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
              <i class="fa-solid fa-user-plus"></i>SignUp
            </a>
          </form>
-       </div>
-         
+       
+       
          <?php }else{
- 
-         ?>
-     <div class="container" style=" margin-top: 25px;margin-left: 870px; ">
-      Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-       <a href="signout.php"> Signout </a>
- 
-       </div><?php
-      } ?>
-     </section>
+
+?>
+Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="signout.php"> Signout </a>
+
+</div><?php
+} ?>
+</section>
    <style> @media screen and (max-width: 500px) {
       .strip a {
         float: none;

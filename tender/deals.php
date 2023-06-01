@@ -96,45 +96,43 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
   
-<section class="d-flex justify-content-between p-3" style="background-color:white">
-  <div class="me-5">
-    <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
-
-  </div>&nbsp <p style="position:absolute;margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
-
-  <?php 
+<section
+           class="d-flex justify-content-between p-3"
+           style="background-color:white"
+           >
+    <div class="me-5">
+      <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
+  
+    </div>&nbsp   <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
+    <?php 
        
        if(!isset($_SESSION['name'])){
  
        ?>
+         <form class="form-inline" action="verify.php" method="post">
+           <label for="email"></label>
+           <input type="email" class="form-control" name="email" placeholder="Username" name="email">
+           <label for="pwd"></label>&nbsp
+           <input type="password" class="form-control" name="password" placeholder="Password" name="pswd">&nbsp&nbsp
+           <div class="form-check">
+ 
+           </div><br>
+           <button class="btn btn-primary" type="submit">Sign in</button>
+           <a href="signup.html" style="font-size: medium; padding: 20px; ">
+             <i class="fa-solid fa-user-plus"></i>SignUp
+           </a>
+         </form>
+    
+       
+         <?php }else{
 
-    <form class="form-inline" action="/action_page.php">
-      <label for="email"></label>
-      <input type="email" class="form-control" id="email" placeholder="Username" name="email">
-      <label for="pwd"></label>&nbsp
-      <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
-      <div class="form-check">
+?>
+Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="signout.php"> Signout </a>
 
-      </div><br>
-    <a href="signin.html" style="font-size: medium;text-decoration:none;">
-        <i class="fa-solid fa-user"></i>SignIn
-      </a>
-      <a href="signup.html" style="font-size: medium; padding: 20px;text-decoration:none; ">
-        <i class="fa-solid fa-user-plus"></i>SignUp
-      </a>
-  </form>
-</div>
-        
-        <?php }else{
-
-        ?>
-    <div class="container" style=" margin-top: 25px;margin-left: 870px; ">
-     Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-      <a href="signout.php"> Signout </a>
-
-      </div><?php
-     } ?>
-    </section>
+</div><?php
+} ?>
+</section>
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 <div class="container-fluid">
