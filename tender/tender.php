@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "connect.php";
 ?>
 <!doctype html>
@@ -123,8 +124,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
              <i class="fa-solid fa-user-plus"></i>SignUp
            </a>
          </form>
-       </div>
-   
+      
+       <?php }else{
+ 
+ ?>
+Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="signout.php"> Signout </a>
+
+</div><?php
+} ?>
   </section>
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -264,7 +272,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                             } else {
                                 echo "No Items Found";
                             }
-                        } }
+                        } 
                         ?>
                 </div>
             </div>
