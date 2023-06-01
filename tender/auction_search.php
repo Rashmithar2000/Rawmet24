@@ -275,8 +275,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                }else{
                                 echo "No result is found";
                                }
-                     
-                     
                              }}
                         ?>
                 </div>
