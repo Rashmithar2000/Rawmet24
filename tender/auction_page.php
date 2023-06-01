@@ -13,7 +13,7 @@ include "connect.php";
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <title>Tender Page</title>
+  <title>Auction Page</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -274,33 +274,42 @@ include "connect.php";
   </style>
   <section class="ftco-section" style="padding-top: 5px;">
 
-  <section
-           class="d-flex justify-content-between p-3"
-           style="background-color:white"
-           >
-    <div class="me-5">
-      <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
-  
-    </div>&nbsp   <p class="tft desktop-view" style="position:absolute; margin-left:130px; margin-top: 25px;" >RAWMET24</p>
-<form class="form-inline" action="/action_page.php"><br>
-    <label for="email"></label>
-    <input type="email" class="form-control" id="email" placeholder="Username" name="email">
-    <label for="pwd"></label>&nbsp
-    <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
-    <div class="form-check">
-      
+    <section class="d-flex justify-content-between p-3" style="background-color:white">
+      <div class="me-5">
+        <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
 
-          </div><br>
-          <a href="signin.html" style="font-size: medium;">
-            <i class="fa-solid fa-user-plus"></i>SignIn
-          </a>
-          <a href="signup.html" style="font-size: medium; padding: 20px; ">
-            <i class="fa-solid fa-user-plus"></i>SignUp
-          </a>
-        </form>
-      </div>
-
-    </section>
+      </div>&nbsp <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
+      <?php 
+       
+       if(!isset($_SESSION['name'])){
+ 
+       ?>
+       <div class="container" style="margin-left: 370px; ">
+         <form class="form-inline" action="verify.php" method="post">
+           <label for="email"></label>
+           <input type="email" class="form-control" name="email" placeholder="Username" name="email">
+           <label for="pwd"></label>&nbsp
+           <input type="password" class="form-control" name="password" placeholder="Password" name="pswd">&nbsp&nbsp
+           <div class="form-check">
+ 
+           </div><br>
+           <button class="btn btn-primary" type="submit">Sign in</button>
+           <a href="signup.html" style="font-size: medium; padding: 20px; ">
+             <i class="fa-solid fa-user-plus"></i>SignUp
+           </a>
+         </form>
+       </div>
+         
+         <?php }else{
+ 
+         ?>
+     <div class="container" style=" margin-top: 25px;margin-left: 870px; ">
+      Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+       <a href="signout.php"> Signout </a>
+ 
+       </div><?php
+      } ?>
+     </section>
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container-fluid">
@@ -333,7 +342,7 @@ include "connect.php";
   <div class="container-fluid" style="background-color: #3b8beb; padding: 30px;"><br>
 
 
-  <a href="price.html"><button class="btn btn-primary" style="border-color: #fff;" >View All Tenders</button></a><br><br><br><br>
+  <a href="price.html"><button class="btn btn-primary" style="border-color: #fff;" >View All Auctions</button></a><br><br><br><br>
 </div>
   <div class="container desktop-view" class="col-lg-6 col-md-12" style="margin-top: -130px;"><br><br>
     <div class="card">
@@ -341,25 +350,24 @@ include "connect.php";
         <div class="clearfix some-new-selector">
           <div class="pull-left">
             <div class="pull-right span9" style="color: #9e9797; padding:10px">
-              <h6>Home / Tender Search / Tender Detail</h6>
+              <h6>Home / Auction Search / Auction Detail</h6>
               <br>
               <?php
-              if(isset($_SESSION['sub'])){
+               if(isset($_SESSION['sub'])){
                 $subscription=$_SESSION['sub'];
                 //print_r($subscription);
                 //die;
-              }else{
-                $subscription=false;
-              }
+                }else{
+                  $subscription=false;
+               }
                     $id = $_GET['g'];
-                    $sql = "select * from tenders where id=$id";
+                    $sql = "select * from auction where id=$id";
                     $result = mysqli_query($con, $sql);
                     if ($result) {
                       while ($row = mysqli_fetch_assoc($result)) {
-                          // print_r($row);
-                          // die;
+
                         ?>
-              <h3 style="color: #595a62;"> COMPANY NAME: <?php if($subscription){
+             <h3 style="color: #595a62;"> COMPANY NAME: &nbsp<?php if($subscription){
                               echo $row['companyName'];
                           }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a></h3>
               <h5><i class='bx bx-map'></i> <?php echo $row['aucLocation']; ?></h5>
@@ -391,16 +399,18 @@ include "connect.php";
                         </tr>
                         <tr>
 
-                            <td >Tender Value </td>
+                            <td >Auction Value </td>
                                 <td>
-                                <b> ₹&nbsp<?php echo $row['tenderValue']; ?>
+                                <b> ₹&nbsp<?php echo $row['aucValue']; ?>
                           </td></b>
                       </tr>
                         <tr>
 
                           <td>Ownership</td>
                           <td>
-                          <a href="price.html">XXXXX</a>
+                          <?php if($subscription){
+                              echo $row['ownership'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
                           </td>
                         </tr>
                         <tr>
@@ -414,6 +424,13 @@ include "connect.php";
 
                           <td>Sector</td>
                           <td>
+                            <?php echo $row['sector']; ?>
+                          </td>
+                        </tr>
+                        <tr>
+
+                          <td>Auction No</td>
+                          <td>
                           <?php if($subscription){
                               echo $row['aucNumber'];
                           }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
@@ -421,16 +438,9 @@ include "connect.php";
                         </tr>
                         <tr>
 
-                          <td>Tender No</td>
-                          <td>
-                          <a href="price.html">XXXXX</a>
-                          </td>
-                        </tr>
-                        <tr>
-
                           <td>ePublishing Date & Time</td>
                           <td>
-                            <?php echo $row['publishingDatetime']; ?>
+                            <?php echo $row['ePublishingDateTime']; ?>
                           </td>
                         </tr>
                         <tr>
@@ -453,7 +463,7 @@ include "connect.php";
                           <td>EMD amount</td>
                           <td>
                           <?php if($subscription){
-                              echo $row['insStartdatetime'];
+                              echo $row['emdAmt'];
                           }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
                           </td>
                         </tr>
@@ -499,18 +509,18 @@ include "connect.php";
  <div class="card">
  <div class="card-body">
 
-    <h6>Home / Tender search / Tender Detail</h6>
+    <h6>Home / Auction search / Auction Detail</h6>
     <br>
     <?php
                     $id = $_GET['g'];
-                    $sql = "select * from tenders where id=$id";
+                    $sql = "select * from auction where id=$id";
                     $result = mysqli_query($con, $sql);
                     if ($result) {
                       while ($row = mysqli_fetch_assoc($result)) {
 
                         ?>
              <h3 style="color: #595a62;"> COMPANY NAME: <a href="price.html">XXXXX</a></h3>
-              <h5><i class='bx bx-map'></i> <?php echo $row['tenderLocation']; ?></h5>
+              <h5><i class='bx bx-map'></i> <?php echo $row['aucLocation']; ?></h5>
               <hr>
               <div >
                 <table class="table table-bordered">
@@ -539,18 +549,16 @@ include "connect.php";
                         </tr>
                         <tr>
 
-                            <td >Tender Value </td>
+                            <td >Auction Value </td>
                                 <td>
-                                <b> ₹&nbsp<?php echo $row['tenderValue']; ?>
+                                <b> ₹&nbsp<?php echo $row['aucValue']; ?>
                           </td></b>
                       </tr>
                         <tr>
 
                           <td>Ownership</td>
                           <td>
-                          <?php if($subscription){
-                              echo $row['insEnddatetime'];
-                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
+                          <a href="price.html">XXXXX</a>
                           </td>
                         </tr>
                         <tr>
@@ -569,18 +577,16 @@ include "connect.php";
                         </tr>
                         <tr>
 
-                          <td>Tender No</td>
+                          <td>Auction No</td>
                           <td>
-                          <?php if($subscription){
-                              echo $row['insEnddatetime'];
-                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
+                          <a href="price.html">XXXXX</a>
                           </td>
                         </tr>
                         <tr>
 
                           <td>ePublishing Date & Time</td>
                           <td>
-                            <?php echo $row['publishingDatetime']; ?>
+                            <?php echo $row['ePublishingDateTime']; ?>
                           </td>
                         </tr>
                         <tr>
@@ -602,9 +608,7 @@ include "connect.php";
 
                           <td>EMD amount</td>
                           <td>
-                          <?php if($subscription){
-                              echo $row['emdAmt'];
-                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
+                          <a href="price.html">XXXXX</a>
                           </td>
                         </tr>
                        
@@ -649,9 +653,9 @@ include "connect.php";
     <div class="card"
     style="background-color: #3b8beb; margin-left:550px; margin-top:-980px; margin-bottom:700px; padding:10px; ">
     <div class="card-body">
-    <h4 style="color:#fff;">TENDER VALUE: ₹<?php echo $row['tenderValue']; ?></h4><hr>
+    <h4 style="color:#fff;">Auction VALUE: ₹<?php echo $row['aucValue']; ?></h4><hr>
     <h4 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h4><hr>
-    <h5 style="color:#fff;">Opening date and time :<br><i class='bx bx-calendar-alt'>&nbsp<?php echo $row['publishingDatetime']; ?> </i><br>
+    <h5 style="color:#fff;">Opening date and time :<br><i class='bx bx-calendar-alt'>&nbsp<?php echo $row['ePublishingDateTime']; ?> </i><br>
                     
                     <br> Bid Submission Started <br>
                     <h6 style="color:#fff;"><i class='bx bxs-calendar-alt'></i> <?php echo $row['startDatetime']; ?> &nbsp &nbsp
@@ -674,9 +678,9 @@ include "connect.php";
   <div class="card" style=" background-color:#3b8beb;" >
     <div class="card-body">
 
-    <h4 style="color:#fff;">TENDER VALUE: ₹<?php echo $row['tenderValue']; ?></h4><hr>
+    <h4 style="color:#fff;">Auction VALUE: ₹<?php echo $row['aucValue']; ?></h4><hr>
     <h4 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h4><hr>
-    <h5 style="color:#fff;">Opening date and time :<br><i class='bx bx-calendar-alt'>&nbsp<?php echo $row['publishingDatetime']; ?> </i><br>
+    <h5 style="color:#fff;">Opening date and time :<br><i class='bx bx-calendar-alt'>&nbsp<?php echo $row['ePublishingDateTime']; ?> </i><br>
                     
                     <br> Bid Submission Started <br>
                     <h6 style="color:#fff;"><i class='bx bxs-calendar-alt'></i> <?php echo $row['startDatetime']; ?> &nbsp &nbsp
@@ -705,7 +709,7 @@ include "connect.php";
         <div class="row"style="margin-left:-550px;">    
         <?php 
            //print_r($result);
-           $sql = "select * from tenders where id=$id";
+           $sql = "select * from auction where id=$id";
            $result = mysqli_query($con, $sql);
           $row= mysqli_fetch_assoc($result);
           //var_dump($row);
@@ -727,7 +731,7 @@ include "connect.php";
     </div>
   </div>
 
-  <?php             $sql = "select * from tenders where id=$id";
+  <?php             $sql = "select * from auction where id=$id";
            $result = mysqli_query($con, $sql);
           $row= mysqli_fetch_assoc($result);
           $a = unserialize($row['img']);
@@ -758,7 +762,7 @@ include "connect.php";
         <div class="row">
         <?php 
            //print_r($result);
-           $sql = "select * from tenders where id=$id";
+           $sql = "select * from auction where id=$id";
            $result = mysqli_query($con, $sql);
           $row= mysqli_fetch_assoc($result);
           //var_dump($row);
@@ -795,7 +799,7 @@ include "connect.php";
         <?php 
            //print_r($result);
              //print_r($result);
-             $sql = "select * from tenders where id=$id";
+             $sql = "select * from auction where id=$id";
              $result = mysqli_query($con, $sql);
             $row= mysqli_fetch_assoc($result);
             //var_dump($row);
