@@ -136,11 +136,9 @@ include "connect.php";
          </form>
        
        
-         <?php }else{
-
-?>
-Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="signout.php"> Signout </a>
+         <?php }else{ ?>
+              Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp
+              <a href="signout.php"> Signout </a>
 
 </div><?php
 } ?>

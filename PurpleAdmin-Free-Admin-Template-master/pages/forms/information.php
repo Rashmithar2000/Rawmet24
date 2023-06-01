@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ?>
         <script>
             alert("Information Added!");
-            window.location.replace("./information.php");
+            window.location.replace("./informations.php");
         </script>
         <?php
     } else {

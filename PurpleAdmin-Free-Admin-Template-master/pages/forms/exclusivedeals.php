@@ -1,5 +1,6 @@
 
 <?php
+include_once "connect.php";
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the form data
@@ -119,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         ?> <script>
         alert("Exclusive Deal Added!");
-        window.location.replace("./exclusivedeals.html");
+        window.location.replace("./exclusivedeals.php");
     </script>
     <?php
         //header("Location: /PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");
@@ -163,7 +164,7 @@ if (!isset($_SESSION['name'])){
   header("Location: /Rawmet24/PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");
 
 }
-include_once "connect.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
