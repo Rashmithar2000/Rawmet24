@@ -672,7 +672,7 @@ include "connect.php";
                 </div>    
           <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
   </div>
-                      </div></div><?php } ?></div></div>
+                      </div></div><?php  ?></div></div>
 
 <!-- ==============================================================blue box mobile===================================================================== -->
 
@@ -695,10 +695,10 @@ include "connect.php";
                 </div> 
   
       <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
-</div>
+</div><?php }}  ?>
   </div>
-</div>
-<?php }  ?>
+</div></div>
+
 
 
 <!-- =================================================================images=========================================================== -->
