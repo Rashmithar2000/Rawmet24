@@ -67,7 +67,7 @@ include "connect.php";
 
     .strip {
       width: 100%;
-      background-color: #5074A8;
+      background-color: #3b8beb;
       overflow: auto;
     }
 
@@ -105,31 +105,34 @@ include "connect.php";
   </style>
   <section class="ftco-section" style="padding-top: 5px;">
 
-    <section class="d-flex justify-content-between p-3" style="background-color:white">
-      <div class="me-5">
-        <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
+  <section class="d-flex justify-content-between p-3" style="background-color:white">
+  <div class="me-5">
+    <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
 
-      </div>&nbsp <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
-      <?php 
+  </div>&nbsp <p style="position:absolute;margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
+
+  <?php 
        
        if(!isset($_SESSION['name'])){
  
        ?>
-       <div class="container" style="margin-left: 370px; ">
-         <form class="form-inline" action="verify.php" method="post">
-           <label for="email"></label>
-           <input type="email" class="form-control" name="email" placeholder="Username" name="email">
-           <label for="pwd"></label>&nbsp
-           <input type="password" class="form-control" name="password" placeholder="Password" name="pswd">&nbsp&nbsp
-           <div class="form-check">
- 
-           </div><br>
-           <button class="btn btn-primary" type="submit">Sign in</button>
-           <a href="signup.html" style="font-size: medium; padding: 20px; ">
-             <i class="fa-solid fa-user-plus"></i>SignUp
-           </a>
-         </form>
-       </div>
+
+    <form class="form-inline" action="/action_page.php">
+      <label for="email"></label>
+      <input type="email" class="form-control" id="email" placeholder="Username" name="email">
+      <label for="pwd"></label>&nbsp
+      <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
+      <div class="form-check">
+
+      </div><br>
+    <a href="signin.html" style="font-size: medium;text-decoration:none;">
+        <i class="fa-solid fa-user"></i>SignIn
+      </a>
+      <a href="signup.html" style="font-size: medium; padding: 20px;text-decoration:none; ">
+        <i class="fa-solid fa-user-plus"></i>SignUp
+      </a>
+  </form>
+</div>
          
          <?php }else{
  
@@ -378,7 +381,7 @@ include "connect.php";
 
   <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
   <!-- Section: Social media -->
-  <section class="d-flex justify-content-between p-3" style="background-color:#5074A8">
+  <section class="d-flex justify-content-between p-3" style="background-color:#3b8beb">
     <!-- Left -->
 
     <div class="me-5">
@@ -411,7 +414,7 @@ include "connect.php";
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Rawmet24</h6>
-          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #5074A8; height: 2px" />
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
             Our concept is to provide the complete information solution that enables each trader to 
             diversify their trading profile in order to maximize their returns.
@@ -423,7 +426,7 @@ include "connect.php";
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Key links</h6>
-          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #5074A8; height: 2px" />
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
             <a href="aboutus.html" class="text-white">About Us</a>
           </p>
@@ -441,7 +444,7 @@ include "connect.php";
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Contact</h6>
-          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #5074A8; height: 2px" />
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p><i class="fa fa-envelope" aria-hidden="true"></i> info@Rawmet24.com
           </p>
           <p><i class="fa fa-envelope" aria-hidden="true"></i>support@Rawmet24.com
