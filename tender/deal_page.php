@@ -487,7 +487,10 @@ Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                       while ($row = mysqli_fetch_assoc($result)) {
 
                         ?>
-    <h3 style="color: #595a62;">COMPANY NAME: &nbsp<a href="price.html">XXXXX</a></h3>
+    <h3 style="color: #595a62;">COMPANY NAME: &nbsp<?php if($subscription){
+                              echo $row['companyName'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></h3>
     <h5><i class='bx bx-map'></i> <?php echo $row['location']; ?></h5><br>
     <hr>
     <div >
@@ -508,7 +511,10 @@ Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <tr>
      
       <td>FE Executive</td>
-      <td><a href="price.html">XXXXX</a></td>
+      <td><?php if($subscription){
+                              echo $row['fe'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
     </tr>
     <tr>
 
@@ -535,7 +541,10 @@ Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <tr>
      
       <td >Industrial Area</td>
-      <td><a href="price.html">XXXXX</a></td>
+      <td><?php if($subscription){
+                              echo $row['industrialArea'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
     </tr>
    
     <tr>
@@ -548,7 +557,10 @@ Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <tr>
      
      <td>Date of Requirement (DOR)</td>
-     <td><a href="price.html">XXXXX</a></td>
+     <td><?php if($subscription){
+                              echo $row['dor'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
    </tr>
   
   </tbody>

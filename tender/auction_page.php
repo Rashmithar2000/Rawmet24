@@ -670,15 +670,13 @@ include "connect.php";
                 </div>    
           <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
   </div>
-                      </div></div><?php } ?></div></div>
+                      </div></div><?php  ?></div></div>
 
 <!-- ==============================================================blue box mobile===================================================================== -->
-
 
 <div class="container mobile-view" >
   <div class="card" style=" background-color:#3b8beb;" >
     <div class="card-body">
-
     <h4 style="color:#fff;">Auction VALUE: ₹<?php echo $row['aucValue']; ?></h4><hr>
     <h4 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h4><hr>
     <h5 style="color:#fff;">Opening date and time :<br><i class='bx bx-calendar-alt'>&nbsp<?php echo $row['ePublishingDateTime']; ?> </i><br>
@@ -695,10 +693,11 @@ include "connect.php";
                 </div> 
   
       <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
-</div><?php }  ?>
+</div><?php }}  ?>
   </div>
-</div>
-</div></div></div>
+</div></div>
+
+
 
 <!-- =================================================================images=========================================================== -->
 
@@ -852,7 +851,7 @@ include "connect.php";
           <?php 
              //print_r($result);
                //print_r($result);
-               $sql = "select * from deals where id=$id";
+               $sql = "select * from auction where id=$id";
                $result = mysqli_query($con, $sql);
               $row= mysqli_fetch_assoc($result);
               //var_dump($row);
