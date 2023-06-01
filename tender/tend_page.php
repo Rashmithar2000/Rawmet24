@@ -519,7 +519,10 @@ include "connect.php";
                       while ($row = mysqli_fetch_assoc($result)) {
 
                         ?>
-             <h3 style="color: #595a62;"> COMPANY NAME: <a href="price.html">XXXXX</a></h3>
+             <h3 style="color: #595a62;"> COMPANY NAME: <?php if($subscription){
+                              echo $row['companyName'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></h3>
               <h5><i class='bx bx-map'></i> <?php echo $row['tenderLocation']; ?></h5>
               <hr>
               <div >
@@ -557,8 +560,11 @@ include "connect.php";
                         <tr>
 
                           <td>Ownership</td>
-                          <td>
-                          <a href="price.html">XXXXX</a>
+                          <td><?php if($subscription){
+                              echo $row['ownership'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a>
+                        
                           </td>
                         </tr>
                         <tr>
@@ -579,7 +585,10 @@ include "connect.php";
 
                           <td>Tender No</td>
                           <td>
-                          <a href="price.html">XXXXX</a>
+                          <?php if($subscription){
+                              echo $row['tenderNumber'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a>
                           </td>
                         </tr>
                         <tr>
@@ -608,7 +617,10 @@ include "connect.php";
 
                           <td>EMD amount</td>
                           <td>
-                          <a href="price.html">XXXXX</a>
+                          <?php if($subscription){
+                              echo $row['emdAmt'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a>
                           </td>
                         </tr>
                        
@@ -669,7 +681,7 @@ include "connect.php";
                 </div>    
           <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
   </div>
-                      </div></div><?php } ?></div></div>
+                      </div></div></div></div>
 
 <!-- ==============================================================blue box mobile===================================================================== -->
 
@@ -692,9 +704,9 @@ include "connect.php";
               <h6 style="color:#fff;"><i class='bx bxs-calendar-alt'></i> Expires on <?php echo $row['endDatetime']; ?> &nbsp &nbsp
                 &nbsp </h6>
                 </div> 
-  
+                
       <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
-</div><?php }  ?>
+</div><?php } } ?>
   </div>
 </div>
 </div></div></div>
@@ -851,12 +863,12 @@ include "connect.php";
           <?php 
              //print_r($result);
                //print_r($result);
-               $sql = "select * from deals where id=$id";
+               $sql = "select * from tenders where id=$id";
                $result = mysqli_query($con, $sql);
               $row= mysqli_fetch_assoc($result);
               //var_dump($row);
               //die;
-              $a = unserialize($row['filenames']);
+              $a = unserialize($row['file']);
               // print_r($a); die;
               $ctsindu = 0;
               
