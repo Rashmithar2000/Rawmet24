@@ -125,7 +125,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
        </div><?php
       } ?>
      </section>
-    @media screen and (max-width: 500px) {
+   <style> @media screen and (max-width: 500px) {
       .strip a {
         float: none;
         display: block;
@@ -306,36 +306,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
     display: none;
   }
 }
-  </style>
+  </style></style>
   <section class="ftco-section" style="padding-top: 5px;">
 
-  <section
-           class="d-flex justify-content-between p-3"
-           style="background-color:white"
-           >
-    <div class="me-5">
-      <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
-  
-    </div>&nbsp   <p class="tft desktop-view" style="position:absolute; margin-left:130px; margin-top: 25px;" >RAWMET24</p>
-<form class="form-inline" action="/action_page.php"><br>
-    <label for="email"></label>
-    <input type="email" class="form-control" id="email" placeholder="Username" name="email">
-    <label for="pwd"></label>&nbsp
-    <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
-    <div class="form-check">
-          </div><br>
-          <button type="submit" class="btn btn-primary"
-            style="background-color: #3b8beb !important; border-color: #3b8beb;"> <a href="signin.html"
-              style="font-size: medium;color: #ffffff; ">
-              <i class="fa-solid fa-user" style="padding: 5px; "></i>SignIn
-            </a></button>
-          <a href="signup.html" style="font-size: medium; padding: 25px; ">
-            <i class="fa-solid fa-user-plus"></i>SignUp
-          </a>
-        </form>
-      </div>
-
-    </section>
+ 
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 <div class="container-fluid">
