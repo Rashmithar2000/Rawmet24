@@ -97,22 +97,26 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
   
-<section
-           class="d-flex justify-content-between p-3"
-           style="background-color:white"
-           >
-    <div class="me-5">
-      <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
-  
-    </div>&nbsp   <p class="tft desktop-view" style="position:absolute; margin-left:130px; margin-top: 25px;" >RAWMET24</p>
-<form class="form-inline" action="/action_page.php"><br>
-    <label for="email"></label>
-    <input type="email" class="form-control" id="email" placeholder="Username" name="email">
-    <label for="pwd"></label>&nbsp
-    <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
-    <div class="form-check">
-      
-    </div><br>
+<section class="d-flex justify-content-between p-3" style="background-color:white">
+  <div class="me-5">
+    <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
+
+  </div>&nbsp <p style="position:absolute;margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
+
+  <?php 
+       
+       if(!isset($_SESSION['name'])){
+ 
+       ?>
+
+    <form class="form-inline" action="/action_page.php">
+      <label for="email"></label>
+      <input type="email" class="form-control" id="email" placeholder="Username" name="email">
+      <label for="pwd"></label>&nbsp
+      <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
+      <div class="form-check">
+
+      </div><br>
     <a href="signin.html" style="font-size: medium;text-decoration:none;">
         <i class="fa-solid fa-user"></i>SignIn
       </a>
@@ -132,10 +136,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="collapse navbar-collapse" id="ftco-nav">
 <ul class="navbar-nav m-auto">
 <li class="nav-item "><a href="home.php" class="nav-link">Home</a></li>
-<li class="nav-item"><a href="tender.php" class="nav-link">Tenders</a></li>
+<li class="nav-item active"><a href="tender.php" class="nav-link">Tenders</a></li>
 
 <li class="nav-item "><a href="auction.php" class="nav-link">Auctions</a></li>
-<li class="nav-item active"><a href="deals.php" class="nav-link">Deals</a></li>
+<li class="nav-item "><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
 <li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
@@ -261,7 +265,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                             } else {
                                 echo "No Items Found";
                             }
-                        }
+                        } }
                         ?>
                 </div>
             </div>
