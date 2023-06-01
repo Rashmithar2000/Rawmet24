@@ -1,11 +1,6 @@
 <?php
 // Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "registration_db";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
+include "connect.php";
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -52,5 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $insertSql = "INSERT INTO images (filename) VALUES ('$filename')";
            
     }
+}
 }
 ?>

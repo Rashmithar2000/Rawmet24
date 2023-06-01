@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "connect.php";
 ?>
 <!doctype html>
@@ -247,37 +248,59 @@ h4,
       width: 100%;
       height: auto;
     }
+    @media (max-width: 767px) {
+  .desktop-view {
+    display:none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-view {
+    display: none;
+  }
+}
+
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
   
-  <section
+<section
            class="d-flex justify-content-between p-3"
            style="background-color:white"
            >
     <div class="me-5">
       <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
   
-    </div>&nbsp   <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
-    <div class="container" style="margin-left: 270px; ">
-<form class="form-inline" action="/action_page.php">
-    <label for="email"></label>
-    <input type="email" class="form-control" id="email" placeholder="Username" name="email">
-    <label for="pwd"></label>&nbsp
-    <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
-    <div class="form-check">
-      
-    </div><br>
-    <a href="signin.html"
-              style="font-size: medium;color: #3b8beb; ">
-              <i class="fa-solid fa-user" style="padding: 5px; "></i>SignIn
-            </a>
-          <a href="signup.html" style="font-size: medium; padding: 25px; ">
-            <i class="fa-solid fa-user-plus"></i>SignUp
-          </a>
-  </form>
-</div>
-   
-  </section>
+    </div>&nbsp   <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
+    <?php 
+       
+       if(!isset($_SESSION['name'])){
+ 
+       ?>
+         <form class="form-inline" action="verify.php" method="post">
+           <label for="email"></label>
+           <input type="email" class="form-control" name="email" placeholder="Username" name="email">
+           <label for="pwd"></label>&nbsp
+           <input type="password" class="form-control" name="password" placeholder="Password" name="pswd">&nbsp&nbsp
+           <div class="form-check">
+ 
+           </div><br>
+           <button class="btn btn-primary" type="submit">Sign in</button>
+           <a href="signup.html" style="font-size: medium; padding: 20px; ">
+             <i class="fa-solid fa-user-plus"></i>SignUp
+           </a>
+         </form>
+       
+       
+         <?php }else{ ?>
+          <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;">
+          Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp
+              <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
+
+          </p></div>
+
+</div><?php
+} ?>
+</section>
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 <div class="container-fluid">
@@ -291,8 +314,8 @@ h4,
 
 <li class="nav-item"><a href="auction.php" class="nav-link">Auctions</a></li>
 
-<li class="nav-item "><a href="deals.php" class="nav-link">Deals</a></li>
-<li class="nav-item active"><a href="#" class="nav-link">Exclusive Deals</a></li>
+<li class="nav-item active"><a href="deals.php" class="nav-link">Deals</a></li>
+<li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
 <li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
 <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
@@ -307,16 +330,155 @@ h4,
 
 <div class="container-fluid" style="background-color: #3b8beb; padding: 30px;"><br>
 
-<a href="price.html"><button class="btn btn-primary" style="border-color: #fff;" >View All Deals</button><br><br><br><br></a>
+<a href="price.html"><button class="btn btn-primary" style="border-color: #fff;" >View All Exclusive Deals</button><br><br><br><br></a>
 </div>
 
-    <div class="container" class="col-lg-6 col-md-12" style="margin-top: -130px;"><br><br>
+    <div class="container desktop-view" class="col-lg-6 col-md-12" style="margin-top: -130px;"><br><br>
  <div class="card">
  <div class="card-body">
  <div class="clearfix some-new-selector">
   <div class="pull-left">
   <div class="pull-right span9" style="color: #9e9797; padding:10px">
-    <h6>Home / Deal search / Deal Detail</h6>
+    <h6>Home /Exclusive Deal search /Exclusive Deal Detail</h6>
+    <br>
+    <?php
+        if(isset($_SESSION['sub'])){
+        $subscription=$_SESSION['sub'];
+        //print_r($subscription);
+        //die;
+        }else{
+          $subscription=false;
+       }
+                    $id = $_GET['g'];
+                    $sql = "select * from exclusive_deals where id=$id";
+                    $result = mysqli_query($con, $sql);
+                    if ($result) {
+                      while ($row = mysqli_fetch_assoc($result)) {
+
+                        ?>
+    <h3 style="color: #595a62;">COMPANY NAME: &nbsp<?php if($subscription){
+                              echo $row['companyName'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a></h3>
+    <h5><i class='bx bx-map'></i> <?php echo $row['location']; ?></h5><br>
+    <hr>
+    <div style="margin-left: 40px;">
+      <table class="table table-bordered">
+  <thead>
+    <tr>
+
+    </tr>
+  </thead>
+  <tbody>
+ 
+   
+    <tr>
+     
+      <td>IR Executive </td>
+      <td><?php echo $row['ir']; ?></td>
+    </tr>
+    <tr>
+     
+      <td>FE Executive</td>
+      <td><?php if($subscription){
+                              echo $row['fe'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
+    </tr>
+    <tr>
+
+      <td >Deal Value </td>
+    <td>
+    <b> ₹&nbsp<?php echo $row['dealValue']; ?>
+    </td></b>
+    </tr>
+    <tr>
+     
+      <td >Lead Date</td>
+      <td><?php echo $row['dealDatetime']; ?></td>
+    </tr>
+    <tr>
+     
+      <td>Lead Document Created by</td>
+      <td><?php echo $row['docCreatedby']; ?></td>
+    </tr>
+    <tr>
+     
+      <td>Location</td>
+      <td><?php echo $row['location']; ?></td>
+    </tr>
+    <tr>
+     
+      <td >Industrial Area</td>
+      <td><?php if($subscription){
+                              echo $row['industrialArea'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
+    </tr>
+   
+    <tr>
+     
+      <td >Material</td>
+      <td><?php echo $row['material']; ?></td>
+    </tr>
+    
+
+    <tr>
+     
+     <td>Date of Requirement (DOR)</td>
+     <td><?php if($subscription){
+                              echo $row['dor'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
+   </tr>
+  
+  </tbody>
+</table>
+</div>
+
+<div style="margin-left: 40px;">
+      <table class="table table-bordered">
+  <thead>
+    <tr>
+     <th>Materials</th>
+    </tr>
+  </thead>
+  <tbody>
+ 
+   
+  <tr>
+     
+     <td> <b><?php echo $row['material'];?>:&nbsp<?php echo $row['quantity'];?></b></td>
+
+     </tr>
+   
+</table>
+
+
+      <div class="space">
+  
+
+  </div>
+</div></div>
+</div>
+
+
+</div></div></div></div>
+
+
+
+
+
+<!-- =======================================================table mobile====================================================-->
+
+
+
+
+
+<div class="container mobile-view" style="margin-top:-130px" ><br><br>
+ <div class="card">
+ <div class="card-body">
+
+    <h6>Home / Exclusive Deal search / Exclusive Deal Detail</h6>
     <br>
     <?php
                     $id = $_GET['g'];
@@ -329,7 +491,7 @@ h4,
     <h3 style="color: #595a62;">COMPANY NAME: &nbsp<a href="price.html">XXXXX</a></h3>
     <h5><i class='bx bx-map'></i> <?php echo $row['location']; ?></h5><br>
     <hr>
-    <div style="margin-left: 40px;">
+    <div >
       <table class="table table-bordered">
   <thead>
     <tr>
@@ -393,7 +555,8 @@ h4,
   </tbody>
 </table>
 </div>
-<div style="margin-left: 40px;">
+
+
       <table class="table table-bordered">
   <thead>
     <tr>
@@ -416,18 +579,14 @@ h4,
   
 
   </div>
-</div></div>
 </div>
-      <div class="space">
-  
 
-  
-</div></div>
+</div>
+</div>
 
-</div></div></div></div>
+<!-- ==============================================================blue box desktop=============================================== -->
 
-
-<div class="container" >
+<div class="container desktop-view" >
   
   <div class="row">
   
@@ -435,6 +594,7 @@ h4,
   <div class="card"
     style="background-color: #3b8beb; margin-left:550px; margin-top:-750px; margin-bottom:600px; padding:10px; ">
     <div class="card-body">
+    
       <h6 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h6>
       <hr>
       <h6 style="color:#fff;">Expected Quotation: ₹&nbsp<?php echo $row['expQuotation']; ?></h6><hr>
@@ -448,8 +608,37 @@ h4,
               </div>     
          <center> <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
     </div>
-    
-    <div class="container">
+    </div>
+    </div>
+
+<!-- ==============================================================blue box mobile===================================================================== -->
+
+
+<div class="container mobile-view" >
+  <div class="card" style=" background-color:#3b8beb;" >
+    <div class="card-body">
+    <h6 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h6>
+      <hr>
+      <h6 style="color:#fff;">Expected Quotation: ₹&nbsp<?php echo $row['expQuotation']; ?></h6><hr>
+
+      <h5 style="color:#fff;">Deal Opening Date and Time :<br>
+      <h6 style="color:#fff;"><i class='bx bx-calendar-alt'><?php echo $row['dealDatetime']; ?> </i>
+                &nbsp </h6>         
+                     
+             </h5>
+  
+      <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
+</div>
+  </div>
+</div>
+<?php }  ?>
+
+<!-- =================================================================images=========================================================== -->
+
+
+
+
+    <div class="container desktop-view">
     <div class="card" style="margin-top:-115px;" >
       <div class="card-body">
         <h3>Images</h3><hr>
@@ -500,7 +689,46 @@ h4,
   <?php  $ctshalom++; }} ?>
 
 
-  <div class="container">
+  <!-- =========================================================images mobile=============================================================== -->
+ 
+ 
+  <div class="container mobile-view">
+  
+    <div class="card">
+      <div class="card-body">
+        <h3>Images</h3><hr>
+        <div class="row">
+        <?php 
+           //print_r($result);
+           $sql = "select * from exclusive_deals where id=$id";
+           $result = mysqli_query($con, $sql);
+          $row= mysqli_fetch_assoc($result);
+          //var_dump($row);
+          //die;
+          $a = unserialize($row['img']);
+          $ctshalom = 0;
+          if (empty($a)) {
+            echo "No Images Uploaded";
+        } else {
+            foreach ($a as $shalom) {
+          ?>
+          <div class="col-md-2">
+            <img src="../PurpleAdmin-Free-Admin-Template-master/pages/forms/uploads/<?php echo $shalom; ?>" width="400px" height="200px" class="img-fluid" alt="Image 1" data-toggle="modal" data-target="#myModal<?php echo $ctshalom?>">
+          </div>
+          <?php  $ctshalom++; } }?>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ==============================================================documents=================================================== -->
+
+
+
+  <div class="container desktop-view">
     <div class="card" >
       <div class="card-body">
         <h3>Documents</h3><hr>
@@ -516,6 +744,7 @@ h4,
             $a = unserialize($row['filenames']);
             // print_r($a); die;
             $ctsindu = 0;
+            
             if (empty($a)) {
               echo "No documents found";
           } else {
@@ -538,7 +767,7 @@ h4,
 
   <?php
                       }
-                    }
+                    }}
                     ?>
 
 
@@ -549,8 +778,48 @@ h4,
 
   </div></div>
     
+  <!-- =============================================================document mobile================================================== -->
+  
+  <div class="container  mobile-view" >
+    <div class="card" >
+      <div class="card-body">
+        <h3>Documents</h3><hr>
+        <div class="row">
 
-</div>
+        <?php 
+           //print_r($result);
+             //print_r($result);
+             $sql = "select * from exclusive_deals where id=$id";
+             $result = mysqli_query($con, $sql);
+            $row= mysqli_fetch_assoc($result);
+            //var_dump($row);
+            //die;
+            $a = unserialize($row['filenames']);
+            // print_r($a); die;
+            $ctsindu = 0;
+            
+            if (empty($a)) {
+              echo "No documents found";
+          } else {
+              foreach ($a as $sindu) {
+            ?>
+          <div class="col-md-2" >
+          <img class="card-img-top"
+              src="https://www.pcworld.com/wp-content/uploads/2022/08/pdf-icon.jpg?quality=50&strip=all" alt="Card image" style="width:100px">
+          <p><?php echo $sindu?></p>
+          </div>
+         
+
+          <?php  $ctsindu++; } } ?>
+        </div>
+      </div>
+      <a href="price.html"> <h4 style="padding:20px;"> Download All ></h4><br></a>
+    </div>
+   </div>
+</div></div></div></div>
+
+
+
 
     
 
@@ -565,13 +834,13 @@ h4,
       <img src="image/rawmetlogo.jpeg" width="60px" height="50px" style="border-radius: 5px;">
     </div>
     <div class="icon" style="font-size: 35px; padding-right: 0px;word-spacing: 10px;">
-      <a href="https://www.facebook.com/profile.php?id=100089553145382" class="text-white me-4">
+      <a href="" class="text-white me-4">
         <i class="fa-brands fa-square-facebook"></i>
       </a>
-      <a href="https://www.linkedin.com/company/shopemet/" class="text-white me-4">
+      <a href="" class="text-white me-4">
         <i class="fa-brands fa-linkedin"></i>
       </a>
-      <a href="https://www.instagram.com/shopemet/" class="text-white me-4">
+      <a href="" class="text-white me-4">
         <i class="fa-brands fa-instagram"></i>
       </a>
 
@@ -589,11 +858,11 @@ h4,
         <!-- Grid column -->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
-          <h6 class="text-uppercase fw-bold" style="color: #fff;">Rawmet24</h6>
+          <h6 class="text-uppercase fw-bold" style="color: #fff;">Company name</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
-            Our concept is to provide the complete information solution that enables each trader to 
-            diversify their trading profile in order to maximize their returns.
+            SHOPEMET is a world class general Refined metal trading company that has served as a foundation for growth
+            of basic material industry in India
           </p>
         </div>
         <!-- Grid column -->
@@ -604,15 +873,14 @@ h4,
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Key links</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
-            <a href="aboutus.html" class="text-white">About Us</a>
+            <a href="aboutus.php" class="text-white">About Us</a>
+          </p>
+       
+          <p>
+            <a href="policy.php" class="text-white">Privacy Policy</a>
           </p>
           <p>
-          </p>
-          <p>
-            <a href="policy.html" class="text-white">Privacy Policy</a>
-          </p>
-          <p>
-            <a href="terms_of_service.html" class="text-white">Terms of Service</a>
+            <a href="terms_of_service.php" class="text-white">Terms of Service</a>
           </p>
 
         </div>
@@ -625,7 +893,7 @@ h4,
           </p>
           <p><i class="fa fa-envelope" aria-hidden="true"></i>support@Rawmet24.com
           </p>
-          <p><i class="fa fa-phone" aria-hidden="true"></i>08042332722</p>
+          <p><i class="fa fa-phone" aria-hidden="true"></i> 08042332722</p>
         </div>
         <!-- Grid column -->
       </div>
@@ -638,7 +906,7 @@ h4,
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
 
     © 2023
-    <a class="text-white" href="https://mdbootstrap.com/">info@Rawmet24.com</a>
+    <a class="text-white" href="https://mdbootstrap.com/">shopemet.com</a>
   </div>
   <!-- Copyright -->
 </footer>

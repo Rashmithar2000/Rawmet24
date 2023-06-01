@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "connect.php";
 ?>
 <!doctype html>
@@ -91,33 +92,56 @@ include "connect.php";
         display: block;
       }
     }
+    @media (max-width: 767px) {
+  .desktop-view {
+    display:none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-view {
+    display: none;
+  }
+}
   </style>
   <section class="ftco-section" style="padding-top: 5px;">
 
-    <section class="d-flex justify-content-between p-3" style="background-color:white">
-      <div class="me-5">
-        <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
+  <section
+           class="d-flex justify-content-between p-3"
+           style="background-color:white"
+           >
+    <div class="me-5">
+      <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
+  
+    </div>&nbsp   <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
+    <?php 
+       
+       if(!isset($_SESSION['name'])){
+ 
+       ?>
+         <form class="form-inline" action="verify.php" method="post">
+           <label for="email"></label>
+           <input type="email" class="form-control" name="email" placeholder="Username" name="email">
+           <label for="pwd"></label>&nbsp
+           <input type="password" class="form-control" name="password" placeholder="Password" name="pswd">&nbsp&nbsp
+           <div class="form-check">
+ 
+           </div><br>
+           <button class="btn btn-primary" type="submit">Sign in</button>
+           <a href="signup.html" style="font-size: medium; padding: 20px; ">
+             <i class="fa-solid fa-user-plus"></i>SignUp
+           </a>
+         </form>
+      
+        <?php }else{ ?>
+          <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;">
+          Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp
+              <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
 
-      </div>&nbsp <p style="  margin-top: 25px;" class="tft">RAWMET24</p>
-      <div class="container" style="margin-left: 370px; ">
-        <form class="form-inline" action="/action_page.php">
-          <label for="email"></label>
-          <input type="email" class="form-control" id="email" placeholder="Username" name="email">
-          <label for="pwd"></label>&nbsp
-          <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">&nbsp&nbsp
-          <div class="form-check">
-
-          </div><br>
-          <a href="signin.html" style="font-size: medium;">
-            <i class="fa-solid fa-user"></i>SignIn
-          </a>
-          <a href="signup.html" style="font-size: medium; padding: 20px; ">
-            <i class="fa-solid fa-user-plus"></i>SignUp
-          </a>
-        </form>
-      </div>
-
-    </section>
+          </p></div>
+</div><?php
+} ?>
+</section>
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container-fluid">
@@ -402,15 +426,14 @@ include "connect.php";
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Key links</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
-            <a href="aboutus.html" class="text-white">About Us</a>
+            <a href="aboutus.php" class="text-white">About Us</a>
+          </p>
+       
+          <p>
+            <a href="policy.php" class="text-white">Privacy Policy</a>
           </p>
           <p>
-          </p>
-          <p>
-            <a href="policy.html" class="text-white">Privacy Policy</a>
-          </p>
-          <p>
-            <a href="terms_of_service.html" class="text-white">Terms of Service</a>
+            <a href="terms_of_service.php" class="text-white">Terms of Service</a>
           </p>
 
         </div>

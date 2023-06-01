@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 29, 2023 at 03:08 PM
+-- Host: localhost
+-- Generation Time: Jun 01, 2023 at 02:56 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -85,7 +85,9 @@ CREATE TABLE `auction` (
 
 INSERT INTO `auction` (`id`, `category`, `infoId`, `ownership`, `aucLocation`, `sector`, `aucNumber`, `aucDescription`, `aucValue`, `aucSource`, `material`, `quantity`, `ePublishingDateTime`, `startDatetime`, `endDatetime`, `insStartdatetime`, `insEnddatetime`, `emdType`, `emdAmt`, `companyName`, `location`, `street`, `city`, `telephone`, `email`, `contactPerson`, `img`, `file`) VALUES
 (95, 'Procurement Tenders', '346', 'dfgh', 'Maharashtra', 'Public', '545656', 'asdxcvbnm,', '3456', 'Azsdxcfgvbhnm,.', 'qwxsddse', '8 kg', '2023-05-29 18:32:00', '2023-05-19 18:32:00', '2023-05-27 21:33:00', '2023-05-27 18:37:00', '2023-05-27 18:37:00', 'DD', 8455.00, 'shopemet', 'ease', 'awsxse', 'AAASAS', '1232454', 'hr@example.com', 'xfvgbhjn', 'a:3:{i:0;s:5:\"4.png\";i:1;s:5:\"5.png\";i:2;s:5:\"6.png\";}', 'a:1:{i:0;s:10:\"ESE TT.pdf\";}'),
-(96, 'Procurement Tenders', '456', 'shopemet', 'Andhra Pradesh', 'Public', '54488', 'dfrgijdfhiuaesd', '54', 'sddefrdf', 'copper', '4184 mt', '2023-05-29 16:28:00', '2023-06-02 16:28:00', '2023-06-07 16:28:00', '2023-05-30 16:28:00', '2023-05-31 16:29:00', 'Online Payment/ Net Banking', 41.00, 'sdfrfg', 'zsxdfgthyjukl', 'sdfbhnjkm', 'zsxdcfvgb', '4851', 'ram@gmail.com', 'ram', 'a:1:{i:0;s:27:\"2018-02-04-11-22-06-355.jpg\";}', 'a:1:{i:0;s:20:\"Abhirami_Aadhaar.pdf\";}');
+(97, 'Procurement Tenders', 'RAD', 'Shopemetal', 'Mizoram', 'Public', 'AUC/DTDPL', 'Copper', '125225', 'www.google.com', 'Copper', '99 ton', '2023-05-30 17:19:00', '2023-06-06 17:19:00', '2023-06-07 17:19:00', '2023-06-02 17:19:00', '2023-06-03 17:19:00', 'Cash', 7000.00, 'SNPL', 'Bangalore Rural', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R', 'a:2:{i:0;s:46:\"background-with-metallic-grid-line-texture.jpg\";i:1;s:53:\"abstract-texture-background-with-metallic-designs.jpg\";}', 'a:1:{i:0;s:12:\"About US.pdf\";}'),
+(99, 'Disposal Tenders', 'RAD', 'Shopemet', 'Chhattisgarh', 'Private', 'AUC/DTDPL/Ferrous', 'Steel Turnings', '99999', 'www.bhel.co.in', 'Steel', '56 mt', '2023-06-01 15:43:00', '2023-06-07 15:43:00', '2023-06-08 15:43:00', '2023-06-02 15:43:00', '2023-06-03 15:43:00', 'DD', 60000.00, 'SNPL', 'Bangalore', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R', 'a:2:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}', 'a:1:{i:0;s:12:\"About US.pdf\";}'),
+(100, 'Manufacturing Tenders', 'RAD', 'Lead', 'Himachal Pradesh', 'Public', 'AUC/Ferrous/12', 'Steel', '900000', 'www.bhel.co.in', 'Steel', '120 ton', '2023-06-01 16:51:00', '2023-06-08 16:51:00', '2023-06-09 16:51:00', '2023-06-03 16:51:00', '2023-06-04 16:51:00', 'Cash', 40000.00, 'Shopemet', 'Bangalore', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R', 'a:2:{i:0;s:46:\"background-with-metallic-grid-line-texture.jpg\";i:1;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";}', 'a:1:{i:0;s:12:\"About US.pdf\";}');
 
 -- --------------------------------------------------------
 
@@ -103,6 +105,13 @@ CREATE TABLE `buyer_dashboard` (
   `fromDate` timestamp NULL DEFAULT NULL,
   `toDate` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `buyer_dashboard`
+--
+
+INSERT INTO `buyer_dashboard` (`id`, `name`, `email`, `password`, `subscription`, `amount`, `fromDate`, `toDate`) VALUES
+(1, 'buyer', 'buyer@gmail.com', 'YnV5ZXI=', '1', 9999, '2023-05-30 12:49:42', '2023-08-30 12:49:42');
 
 -- --------------------------------------------------------
 
@@ -171,7 +180,8 @@ CREATE TABLE `deals` (
 INSERT INTO `deals` (`id`, `category`, `infoId`, `ir`, `fe`, `quantity`, `dealValue`, `dealDatetime`, `docCreatedby`, `location`, `industrialArea`, `companyName`, `contactPerson`, `email`, `address`, `city`, `state`, `contactNumber`, `whatsappNumber`, `gstin`, `orderType`, `material`, `specification`, `dor`, `expQuotation`, `img`, `filenames`) VALUES
 (56, 'Manufacturing Tenders', '1A1', 'Chaitra', '12dda', '120 ton', '2121', '2023-05-27 18:26:00', ' Rasha', 'Meghalaya', 'Indiranangara', 'SNPL', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '87922996841231', 'Service', 'Steel', 'DRCFERVERTV', '2023-05-28 18:27:00', 3222, 'a:2:{i:0;s:19:\"Screenshot (16).png\";i:1;s:19:\"Screenshot (18).png\";}', 'a:2:{i:0;s:31:\"reactjs-interview-questions.pdf\";i:1;s:40:\"html-interview-questions-and-answers.pdf\";}'),
 (57, 'Manufacturing Tenders', '1A1a', 'Chaitra', 'Shariff', '120 kg', '12212', '2023-05-29 18:40:00', ' Rasheee', 'Manipur', 'Indiranangara', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '87922996848', 'Service', 'Steel', 'wqdewferfgear', '2023-05-31 18:41:00', 123, 'a:2:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}', 'a:1:{i:0;s:41:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023.pdf\";}'),
-(58, 'Manufacturing Tenders', '1A1a', 'a', 'Shalom', '222 ton', '2112', '2023-05-28 18:45:00', ' Raksha', 'Jharkhand', 'Indiranangara', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '2923932093', '87922996841231', 'Service', 'Copper', 'Copper', '2023-05-31 18:46:00', 87000, 'a:2:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}', 'a:2:{i:0;s:45:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023 (1).pdf\";i:1;s:41:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023.pdf\";}');
+(58, 'Manufacturing Tenders', '1A1a', 'a', 'Shalom', '222 ton', '2112', '2023-05-28 18:45:00', ' Raksha', 'Jharkhand', 'Indiranangara', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '2923932093', '87922996841231', 'Service', 'Copper', 'Copper', '2023-05-31 18:46:00', 87000, 'a:2:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}', 'a:2:{i:0;s:45:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023 (1).pdf\";i:1;s:41:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023.pdf\";}'),
+(60, 'Manufacturing Tenders', '1A1a', 'Shalom', 'Shariff', '120 nos', '50000', '2023-06-03 10:51:00', ' Rash', 'Madhya Pradesh', 'Indiranangara', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '8792299684684', 'Service', 'Copper', 'Copper', '2023-06-03 10:52:00', 50000, 'a:2:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}', 'a:1:{i:0;s:22:\"Terms & Conditions.pdf\";}');
 
 -- --------------------------------------------------------
 
@@ -214,7 +224,8 @@ CREATE TABLE `exclusive_deals` (
 --
 
 INSERT INTO `exclusive_deals` (`id`, `category`, `infoId`, `ir`, `fe`, `quantity`, `dealValue`, `dealDatetime`, `docCreatedby`, `location`, `industrialArea`, `companyName`, `contactPerson`, `email`, `address`, `city`, `state`, `contactNumber`, `whatsappNumber`, `gstin`, `orderType`, `material`, `specification`, `dor`, `expQuotation`, `img`, `filenames`) VALUES
-(12, 'Manufacturing Tenders', '1A1a', 'a', 'Shalom', '222 ton', '2112', '2023-05-28 18:45:00', ' Raksha', 'Jharkhand', 'Indiranangara', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '2923932093', '87922996841231', 'Service', 'Copper', 'Copper', '2023-05-31 18:46:00', 87000, 'a:2:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}', 'a:2:{i:0;s:45:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023 (1).pdf\";i:1;s:41:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023.pdf\";}');
+(12, 'Manufacturing Tenders', '1A1a', 'a', 'Shalom', '222 ton', '2112', '2023-05-28 18:45:00', ' Raksha', 'Jharkhand', 'Indiranangara', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '2923932093', '87922996841231', 'Service', 'Copper', 'Copper', '2023-05-31 18:46:00', 87000, 'a:2:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}', 'a:2:{i:0;s:45:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023 (1).pdf\";i:1;s:41:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023.pdf\";}'),
+(16, 'Manufacturing Tenders', 'RED', 'Chaitra', 'Shariff', '55 mt', '7500000', '2023-06-03 17:38:00', ' Sagar', 'Uttarakhand', 'Chirapunji', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '87928792299684', 'Service', 'Copper', 'Copper Turnings', '2023-06-03 17:39:00', 500000, 'a:1:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";}', 'a:1:{i:0;s:22:\"Terms & Conditions.pdf\";}');
 
 -- --------------------------------------------------------
 
@@ -239,7 +250,9 @@ CREATE TABLE `info_table` (
 --
 
 INSERT INTO `info_table` (`id`, `infoId`, `showName`, `dateTime`, `profile`, `organizedBy`, `organizedAdd`, `venue`, `map`) VALUES
-(2, 1, 'RID SHOW', '2023-05-26 12:38:00', 'Rasha', 'Rashu', 'organizedAdd', 'Binnamangala', 'https://goo.gl/maps/eGsWmGu9ChwH12FeA');
+(2, 1, 'RID SHOW', '2023-05-26 12:38:00', 'Rasha', 'Rashu', 'organizedAdd', 'Binnamangala', 'https://goo.gl/maps/eGsWmGu9ChwH12FeA'),
+(4, 0, 'RID SHOW2', '2023-06-09 15:54:00', 'Joyalukas', 'Joyalukas Diamonds and Jewellery', 'https://goo.gl/maps/FueV6H6MN1DPkDvF9', 'Joyalukas ', 'https://goo.gl/maps/FueV6H6MN1DPkDvF9'),
+(7, 0, 'RID SHOW2', '2023-06-09 15:54:00', 'Joyalukas', 'Joyalukas Diamonds and Jewellery', 'https://goo.gl/maps/FueV6H6MN1DPkDvF9', 'Joyalukas ', 'https://goo.gl/maps/FueV6H6MN1DPkDvF9');
 
 -- --------------------------------------------------------
 
@@ -379,7 +392,12 @@ CREATE TABLE `tenders` (
 
 INSERT INTO `tenders` (`id`, `category`, `infoId`, `ownership`, `tenderLocation`, `sector`, `tenderNumber`, `tenderDesc`, `material`, `quantity`, `publishingDatetime`, `startDatetime`, `endDatetime`, `emdType`, `emdAmt`, `tenderValue`, `companyName`, `location`, `street`, `city`, `telephone`, `email`, `contactPerson`, `img`, `file`) VALUES
 (56, 'Business Tenders', '1A1a', 'Shopemet', 'Manipur', 'Public', 1112, 'Steel', 'Steel', '555 ton', '2023-05-27 19:21:00', '2023-06-05 19:21:00', '2023-06-06 19:21:00', 'DD', 555, 8988, 'SNPL', 'Bangalore Rural', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R', 'a:2:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}', 'a:2:{i:0;s:45:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023 (1).pdf\";i:1;s:41:\"WEG_INDUSTRIES_HOSUR_DT_30TH_MAY_2023.pdf\";}'),
-(58, 'Procurement Tenders', '456', 'shopemet', 'Gujarat', 'Private', 58578, 'aertyuio;lkjhgvfcdxsertyuio', 'copper', '845 ton', '2023-05-30 16:18:00', '2023-05-30 16:18:00', '2023-06-03 16:18:00', 'DD', 457, 0, 'werstfyguhijkl;', 'asedrfghjk', 'qawestfrghj', 'asdfgbhnjkm', '785247852', 'ram@gmail.com', 'ram', 'a:1:{i:0;s:19:\"Screenshot (21).png\";}', 'a:1:{i:0;s:53:\"acknowledgementSlip_S2254700850000 ABHIRAMI_ADDAR.pdf\";}');
+(62, 'Manufacturing Tenders', 'RTD', 'Lead Squared', 'Mizoram', 'Private', 80, 'wqdwedcfes', 'Steel', '55 mt', '2023-05-31 11:49:00', '2023-06-03 11:49:00', '2023-06-04 11:49:00', 'DD', 5000, 100000, 'SNPL', 'Bangalore ', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R', 'a:2:{i:0;s:53:\"abstract-texture-background-with-metallic-designs.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}', 'a:2:{i:0;s:12:\"About US.pdf\";i:1;s:22:\"Terms & Conditions.pdf\";}'),
+(63, 'Business Tenders', '1A1a', 'Lead', 'West Bengal', 'Public', 112, 'Steeel', 'Steel', '56 ton', '2023-05-31 12:45:00', '2023-06-02 12:45:00', '2023-06-04 12:45:00', 'Cash', 5555, 999999, 'Shopemet', 'Bangalore Rural', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R', 'a:2:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}', 'a:2:{i:0;s:12:\"About US.pdf\";i:1;s:22:\"Terms & Conditions.pdf\";}'),
+(64, 'Disposal Tenders', 'RTD', 'Lead Squared', 'Puducherry', 'Private', 20, 'Copper', 'Copper Turnings', '50 nos', '2023-06-01 15:46:00', '2023-06-09 15:46:00', '2023-06-10 15:46:00', 'DD', 65000, 150000, 'SNPL', 'Bangalore Rural', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R', 'a:2:{i:0;s:46:\"background-with-metallic-grid-line-texture.jpg\";i:1;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";}', 'a:1:{i:0;s:22:\"Terms & Conditions.pdf\";}'),
+(65, 'Consultancy Tenders', 'RTD', 'Shopemet', 'Uttar Pradesh', 'Public', 60, 'Steel', 'Steel', '120 kg', '2023-06-01 18:13:00', '2023-06-07 18:13:00', '2023-06-08 18:13:00', 'DD', 50000, 900000, 'Shopemet', 'Bangalore Rural', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', '08792299684', 'rashpriya2211@gmail.com', 'Rashmitha Soumya Sindu R', 'a:2:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";i:1;s:33:\"large-steel-factory-warehouse.jpg\";}', 'a:2:{i:0;s:12:\"About US.pdf\";i:1;s:22:\"Terms & Conditions.pdf\";}'),
+(66, 'Procurement Tenders', 'RTD', 'Lead Squared', 'Daman and Diu', 'Private', 50, 'Copper', 'Copper Turnings', '85 mt', '2023-06-01 18:17:00', '2023-06-06 18:17:00', '2023-06-07 18:17:00', 'DD', 50000, 700000, 'SNPL', 'Daman and Diu', 'Commercial Street', 'Bangalore ', '08792299684', 'snpl123@gmail.com', 'Suraj', 'a:2:{i:0;s:46:\"background-with-metallic-grid-line-texture.jpg\";i:1;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";}', 'a:2:{i:0;s:12:\"About US.pdf\";i:1;s:22:\"Terms & Conditions.pdf\";}'),
+(67, 'Public Tenders', 'RTD', 'Shopemet', 'Tripura', 'Private', 0, 'Steel Weldings', 'Steel ', '85 nos', '2023-06-01 18:20:00', '2023-06-03 18:21:00', '2023-06-05 18:21:00', 'Cash', 6000, 9000, 'SNPL', 'Tripura', 'No 135/73, Tripura', 'Tripura', '08996847922', 'snpl123@gmail.com', 'Anu', 'a:2:{i:0;s:46:\"background-with-metallic-grid-line-texture.jpg\";i:1;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";}', 'a:1:{i:0;s:12:\"About US.pdf\";}');
 
 -- --------------------------------------------------------
 
@@ -494,13 +512,13 @@ ALTER TABLE `admin_login`
 -- AUTO_INCREMENT for table `auction`
 --
 ALTER TABLE `auction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `buyer_dashboard`
 --
 ALTER TABLE `buyer_dashboard`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -512,19 +530,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `deals`
 --
 ALTER TABLE `deals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `exclusive_deals`
 --
 ALTER TABLE `exclusive_deals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `info_table`
 --
 ALTER TABLE `info_table`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `metal`
@@ -536,13 +554,13 @@ ALTER TABLE `metal`
 -- AUTO_INCREMENT for table `signup`
 --
 ALTER TABLE `signup`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tenders`
 --
 ALTER TABLE `tenders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `uploaded_files`

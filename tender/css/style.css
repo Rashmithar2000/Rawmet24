@@ -2717,13 +2717,13 @@ appearance: none; }
     color: #212529;
     text-align: inherit;
     white-space: nowrap;
-    background-color: transparent;
+    background-color: black;
     border: 0; }
     .dropdown-item:hover, .dropdown-item:focus {
       color: #16181b;
       text-decoration: none;
       background-color: #f8f9fa; }
-    .dropdown-item.active, .dropdown-item:active {
+    .dropdown-item.active {
       color: #fff;
       text-decoration: none;
       background-color: #007bff; }
@@ -8026,9 +8026,13 @@ justify-content: center;
         padding: 10px 15px; } }
     @media (max-width: 991.98px) {
       .ftco-navbar-light .navbar-nav {
-        padding-bottom: 10px; } }
+        padding: 20px;
+        background-color: #000000 !important;
+      
+    color: white !important; } }
     .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
-      font-size: 11px;
+      font-size: 20px;
+      background-color: #000000 !important;
       padding-top: 1.5rem;
       padding-bottom: 1.5rem;
       padding-left: 20px;
@@ -8408,3 +8412,4 @@ form .user-details .input-box{
   background-color: #3b8beb !important;
   padding: 20px !important;
 }
+
