@@ -453,7 +453,7 @@ include "connect.php";
                     </tr>
                     <tr>
                   </tbody>
-                </table><br><br><br><br>
+                </table>
               </div>
             </table>
           </div>
@@ -564,6 +564,27 @@ include "connect.php";
   </div>
   <!-- Copyright -->
 </footer>
+
+
+
+<script>
+$(document).ready(function() {
+  // Close the dropdown menu when clicking outside of it
+  $(document).on('click', function(event) {
+    var $target = $(event.target);
+    if (!$target.closest('.navbar-collapse').length && $('.navbar-collapse').is(':visible')) {
+      $('.navbar-collapse').collapse('hide');
+    }
+  });
+
+  // Prevent dropdown menu from closing on clicking inside
+  $('.navbar-collapse').on('click', function(event) {
+    event.stopPropagation();
+  });
+});
+</script>
+
+
 
 
   <script src="js/jquery.min.js"></script>
