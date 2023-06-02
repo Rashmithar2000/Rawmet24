@@ -310,7 +310,9 @@ include "connect.php";
           Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp
               <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
 
-          </p></div>
+?>
+<h4>Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h4>
+<a href="signout.php"> Signout </a>
 
 </div><?php
 } ?>
@@ -352,21 +354,19 @@ include "connect.php";
 
 
 
-  <div class="container" class="col-lg-6 col-md-12" style="margin-top: -130px;"><br><br>
-  <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Table Card</h5>
-    <div class="table-responsive">
-      <table class="table">
-           <?php 
-             $sql = "select * from info_table";
-             $result = mysqli_query($con, $sql);
-           if ($result) {
-
+  <div class="container" class="col-lg-6 col-md-12" style="margin-top: -130px;">
+  <br><br>
+  <?php
+  $sql = "select * from info_table";
+  $result = mysqli_query($con, $sql);
+  if ($result) {
     while ($row = mysqli_fetch_assoc($result)) {
       //print_r($row);die;
-      ?>
-
+  ?>
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
               <h3 style="color: #595a62;">
                 <?php echo $row['showName']; ?>
               </h3>
@@ -376,115 +376,97 @@ include "connect.php";
               <hr>
 
               <div style="margin-left: 40px;">
-              
                 <table class="table table-bordered table-container">
-                  
                   <thead>
                     <tr>
-
-
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-
                       <td>Document Type</td>
                       <td>RID</td>
                     </tr>
                     <tr>
-
                       <td>INFORMATION NO</td>
                       <td>
                         <?php echo $row['infoId']; ?>
                       </td>
                     </tr>
-
                     <tr>
-
                       <td>TRADE SHOW</td>
                       <td>
                         <?php echo $row['showName']; ?>
                       </td>
                     </tr>
                     <tr>
-
                       <td>DATE</td>
                       <td><i class='bx bx-calendar-alt'></i>
                         <?php echo $row['dateTime']; ?>
                       </td>
                     </tr>
                     <tr>
-
                       <td>EXHIBITOR PRODUCT PROFILE</td>
                       <td>
                         <?php echo $row['profile']; ?>
                       </td>
                     </tr>
                     <tr>
-
                       <td>VENUE</td>
                       <td>
                         <?php echo $row['venue']; ?>
                       </td>
                     </tr>
                     <tr>
-
                       <td>ORGANIZED BY</td>
                       <td>
                         <?php echo $row['organizedBy']; ?>
                       </td>
                     </tr>
                     <tr>
-
                       <td>ORGANIZER ADDRESS</td>
                       <td>
                         <?php echo $row['organizedAdd']; ?>
                       </td>
                     </tr>
-                    
-                      <?php
-$sentence =  $row['map']; 
+                    <?php
+                    $sentence =  $row['map'];
 
-$characterCount = 70; // Maximum character count per line
+                    $characterCount = 70; // Maximum character count per line
 
-$characters = mb_str_split($sentence); // Split the sentence into an array of characters
-$wrappedSentence = '';
+                    $characters = mb_str_split($sentence); // Split the sentence into an array of characters
+                    $wrappedSentence = '';
 
-$currentCount = 0;
-foreach ($characters as $character) {
-    $wrappedSentence .= $character;
-    $currentCount++;
+                    $currentCount = 0;
+                    foreach ($characters as $character) {
+                      $wrappedSentence .= $character;
+                      $currentCount++;
 
-    if ($currentCount % $characterCount == 0) {
-        $wrappedSentence .= "<br>";
-    }
-}
+                      if ($currentCount % $characterCount == 0) {
+                        $wrappedSentence .= "<br>";
+                      }
+                    }
 
-?>
+                    ?>
                     <tr>
                       <td>GOOGLE MAPS</td>
-                      <td><?php echo $wrappedSentence; ?>
-                       
+                      <td>
+                        <?php echo $wrappedSentence; ?>
                       </td>
                     </tr>
                     <tr>
-
                   </tbody>
-
                 </table><br><br><br><br>
-
-</div>          
-           
-           
-                <?php
+              </div>
+            </table>
+          </div>
+                  </div>
+    <?php
     }
   }
   ?>
-  
-         
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+      
 
 
 
@@ -547,15 +529,15 @@ foreach ($characters as $character) {
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Key links</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
-            <a href="aboutus.html" class="text-white">About Us</a>
+            <a href="aboutus.php" class="text-white">About Us</a>
           </p>
           <p>
           </p>
           <p>
-            <a href="policy.html" class="text-white">Privacy Policy</a>
+            <a href="policy.php" class="text-white">Privacy Policy</a>
           </p>
           <p>
-            <a href="terms_of_service.html" class="text-white">Terms of Service</a>
+            <a href="terms_of_service.php" class="text-white">Terms of Service</a>
           </p>
 
         </div>

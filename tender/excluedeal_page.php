@@ -296,7 +296,9 @@ h4,
           Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp
               <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
 
-          </p></div>
+?>
+<h4>Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h4>
+<a href="signout.php"> Signout </a>
 
 </div><?php
 } ?>
@@ -488,7 +490,10 @@ h4,
                       while ($row = mysqli_fetch_assoc($result)) {
 
                         ?>
-    <h3 style="color: #595a62;">COMPANY NAME: &nbsp<a href="price.html">XXXXX</a></h3>
+    <h3 style="color: #595a62;">COMPANY NAME: <?php if($subscription){
+                              echo $row['companyName'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></h3>
     <h5><i class='bx bx-map'></i> <?php echo $row['location']; ?></h5><br>
     <hr>
     <div >
@@ -509,7 +514,10 @@ h4,
     <tr>
      
       <td>FE Executive</td>
-      <td><a href="price.html">XXXXX</a></td>
+      <td><?php if($subscription){
+                              echo $row['fe'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
     </tr>
     <tr>
 
@@ -536,7 +544,10 @@ h4,
     <tr>
      
       <td >Industrial Area</td>
-      <td><a href="price.html">XXXXX</a></td>
+      <td><?php if($subscription){
+                              echo $row['industrialArea'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
     </tr>
    
     <tr>
@@ -549,7 +560,10 @@ h4,
     <tr>
      
      <td>Date of Requirement (DOR)</td>
-     <td><a href="price.html">XXXXX</a></td>
+     <td><?php if($subscription){
+                              echo $row['dor'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
+                          </a></td>
    </tr>
   
   </tbody>
@@ -874,8 +888,11 @@ h4,
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
             <a href="aboutus.php" class="text-white">About Us</a>
+            <a href="aboutus.php" class="text-white">About Us</a>
           </p>
        
+          <p>
+          </p>
           <p>
             <a href="policy.php" class="text-white">Privacy Policy</a>
           </p>
