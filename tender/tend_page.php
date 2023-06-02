@@ -951,8 +951,11 @@ include "connect.php";
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
             <a href="aboutus.php" class="text-white">About Us</a>
+            <a href="aboutus.php" class="text-white">About Us</a>
           </p>
+       
           <p>
+            <a href="policy.php" class="text-white">Privacy Policy</a>
           </p>
           <p>
             <a href="policy.php" class="text-white">Privacy Policy</a>

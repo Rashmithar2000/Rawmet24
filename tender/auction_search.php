@@ -124,12 +124,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
          </form>
        
          
-         <?php }else{
- 
-         ?>
-      <h4>Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h4>
-       <a href="signout.php"> Signout </a>
- 
+         <?php }else{ ?>
+          <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;">
+          Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp
+              <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
+
+          </p></div>
        </div><?php
       } ?>
      </section>
@@ -275,9 +275,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                }else{
                                 echo "No result is found";
                                }
-                     
-                     
-                             }}}
+                             }}
                         ?>
                 </div>
             </div>
@@ -346,7 +344,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
             <a href="aboutus.php" class="text-white">About Us</a>
+            <a href="aboutus.php" class="text-white">About Us</a>
           </p>
+    
           <p>
           </p>
           <p>

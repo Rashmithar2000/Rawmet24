@@ -21,7 +21,7 @@ if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
 
-$sql = "INSERT INTO signup (name, email, password) VALUES ('$name', '$email', '$hashedPassword')";
+$sql = "INSERT INTO buyer_dashboard (name, email, password) VALUES ('$name', '$email', '$hashedPassword')";
 
 
 if ($con->query($sql) === TRUE) {
