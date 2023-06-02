@@ -521,7 +521,9 @@ include "connect.php";
                       while ($row = mysqli_fetch_assoc($result)) {
 
                         ?>
-             <h3 style="color: #595a62;"> COMPANY NAME: <a href="price.html">XXXXX</a></h3>
+             <h3 style="color: #595a62;"> COMPANY NAME:<?php if($subscription){
+                              echo $row['companyName'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a></h3>
               <h5><i class='bx bx-map'></i> <?php echo $row['aucLocation']; ?></h5>
               <hr>
               <div >
@@ -560,7 +562,9 @@ include "connect.php";
 
                           <td>Ownership</td>
                           <td>
-                          <a href="price.html">XXXXX</a>
+                          <?php if($subscription){
+                              echo $row['ownership'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
                           </td>
                         </tr>
                         <tr>
@@ -581,7 +585,9 @@ include "connect.php";
 
                           <td>Auction No</td>
                           <td>
-                          <a href="price.html">XXXXX</a>
+                          <?php if($subscription){
+                              echo $row['aucNumber'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
                           </td>
                         </tr>
                         <tr>
@@ -610,7 +616,9 @@ include "connect.php";
 
                           <td>EMD amount</td>
                           <td>
-                          <a href="price.html">XXXXX</a>
+                          <?php if($subscription){
+                              echo $row['emdAmt'];
+                          }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a>
                           </td>
                         </tr>
                        
