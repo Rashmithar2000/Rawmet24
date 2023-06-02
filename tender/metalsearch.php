@@ -224,91 +224,105 @@ include "connect.php";
       </div>
     </div>
     <br>
-    <div id="wrapper">
-      <h1>Metals Futures Prices</h1>
+   
+    <div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div id="wrapper">
+        <h1>Metals Futures Prices</h1>
 
-      <table id="keywords" cellspacing="0" cellpadding="0">
-        <thead>
-          <tr>
-            <th onclick="sortTable(0)"><span>ID</span></th>
-            <th onclick="sortTable(0)"><span>Metal</span></th>
-            <th onclick="sortTable(0)"><span>Scrap Metal</span></th>
-            <th onclick="sortTable(0)"><span>Price</span></th>
-            <th onclick="sortTable(0)"><span>TimeStamp</span></th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <?php
-        if(isset($_GET['metal']) && isset($_GET['category'])){
-       $a = $_GET['metal'];
-       $b = $_GET['category'];
-       $sql = "select * from metal WHERE metal='$a' AND scrap_metal='$b'";
-          $result = mysqli_query($con, $sql);
-          //print_r($result);die;
-          if ($result) {
-            while ($row = mysqli_fetch_assoc($result)) {
-              //print_r($row);die;
-              ?>
+        <div class="table-responsive">
+          <table id="keywords" class="table" cellspacing="0" cellpadding="0">
+            <thead>
               <tr>
-                <td class="lalign">
-                  <?php echo $row['id']; ?>
-                </td>
-                <td>
-                  <?php echo $row['metal']; ?>
-                </td>
-                <td>
-                  <?php echo $row['scrap_metal']; ?>
-                </td>
-                <td>
-                  <?php echo $row['price']; ?>
-                </td>
-                <td>
-        <?php echo date('Y-m-d', strtotime($row['timestamp'])); ?>
-    </td>
+                <th onclick="sortTable(0)"><span>ID</span></th>
+                <th onclick="sortTable(0)"><span>Metal</span></th>
+                <th onclick="sortTable(0)"><span>Scrap Metal</span></th>
+                <th onclick="sortTable(0)"><span>Price</span></th>
+                <th onclick="sortTable(0)"><span>TimeStamp</span></th>
               </tr>
-
+            </thead>
+            <tbody>
               <?php
-            }
-          }
-
-
-        }else{
-          $sql = "select * from metal ";
-          $result = mysqli_query($con, $sql);
-          //print_r($result);die;
-          if ($result) {
-            while ($row = mysqli_fetch_assoc($result)) {
-              //print_r($row);die;
+              if (isset($_GET['metal']) && isset($_GET['category'])) {
+                $a = $_GET['metal'];
+                $b = $_GET['category'];
+                $sql = "select * from metal WHERE metal='$a' AND scrap_metal='$b'";
+                $result = mysqli_query($con, $sql);
+                if ($result) {
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <tr>
+                      <td class="lalign">
+                        <?php echo $row['id']; ?>
+                      </td>
+                      <td>
+                        <?php echo $row['metal']; ?>
+                      </td>
+                      <td>
+                        <?php echo $row['scrap_metal']; ?>
+                      </td>
+                      <td>
+                        <?php echo $row['price']; ?>
+                      </td>
+                      <td>
+                        <?php echo date('Y-m-d', strtotime($row['timestamp'])); ?>
+                      </td>
+                    </tr>
+                    <?php
+                  }
+                }
+              } else {
+                $sql = "select * from metal";
+                $result = mysqli_query($con, $sql);
+                if ($result) {
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <tr>
+                      <td class="lalign">
+                        <?php echo $row['id']; ?>
+                      </td>
+                      <td>
+                        <?php echo $row['metal']; ?>
+                      </td>
+                      <td>
+                        <?php echo $row['scrap_metal']; ?>
+                      </td>
+                      <td>
+                        <?php echo $row['price']; ?>
+                      </td>
+                      <td>
+                        <?php echo date('Y-m-d', strtotime($row['timestamp'])); ?>
+                      </td>
+                    </tr>
+                    <?php
+                  }
+                }
+              }
               ?>
-              <tr>
-                <td class="lalign">
-                  <?php echo $row['id']; ?>
-                </td>
-                <td>
-                  <?php echo $row['metal']; ?>
-                </td>
-                <td>
-                  <?php echo $row['scrap_metal']; ?>
-                </td>
-                <td>
-                  <?php echo $row['price']; ?>
-                </td>
-                <td>
-                <?php echo date('Y-m-d', strtotime($row['timestamp'])); ?>
-                </td>
-              </tr>
-
-              <?php
-            }
-          }
-
-        }
-          ?>
-
-        </tbody>
-      </table>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     <script>
       function sortTable(n) {
         var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
