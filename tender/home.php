@@ -207,7 +207,7 @@ include "connect.php";
                 <!--end of col-->
                 <div class="col">
                   <input class="form-control form-control-lg form-control-borderless" type="search" id="meterial"
-                    placeholder="Search topics or keywords" style="padding:10px 0px 10px 6px; margin-right: 100px;">
+                    placeholder="Search for Tender, Auction & Deals" style="padding:10px 0px 10px 6px; margin-right: 100px;">
                 </div>
                 <select name="sort" id="tender" style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;"
                   placeholder="Search ">
