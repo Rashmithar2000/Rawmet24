@@ -205,6 +205,41 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
                         </div>
+                        <div class="card-body">
+                            <h6>Material</h6>
+                            <hr>
+                            <?php
+                
+
+                            $brand_query = "SELECT DISTINCT material FROM exclusive_deals";
+                            $brand_query_run = mysqli_query($con, $brand_query);
+
+                            if (mysqli_num_rows($brand_query_run) > 0) {
+                                foreach ($brand_query_run as $materiallist) {
+                                    $checked = [];
+                                    if (isset($_GET['materials'])) {
+                                        $checked = $_GET['materials'];
+                                    }
+                                    ?>
+                                    <div id="checkbox">
+                                        <input type="checkbox" name="materials" value="<?= $materiallist['material']; ?>"
+                                            <?php //if (in_array($materiallist['state_id'], $checked)) {
+                                                //echo "checked";
+                                            //} 
+                                            ?>>
+                                        <?= $materiallist['material']; ?>
+                                    </div>
+                                    <?php
+                                }
+                            } else {
+                                echo "No materials Found";
+                            }
+                            ?>
+
+
+                        </div>
+
+
 
                     </div>
                 </form>
@@ -227,12 +262,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                 if (mysqli_num_rows($result) > 0) {
                                     foreach ($result as $row):
                                         ?>
-                                       <div class="col-md-12 grid-margin stretch-card">
+                                               <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                                               <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL :&nbsp<?php echo $row['material'];?></h5>
-    <p><?php echo $row['specification'];?></p>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?></h5>
+    <p style="color:#3b8beb;"><?php echo $row['specification'];?></p>
    
 
     <a href="excluedeal_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Exclusive Deal</button></a></h6>
@@ -240,12 +275,49 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     </div>
                   </div>
                   
+                  
                                         <?php
                                     endforeach;
-                                }
+                                }else{
+                                  echo "No result is found";
+                                 }
 
                             }
-                        } else {
+                        }else if (isset($_GET['materials'])) {
+                          $branchecked = [];
+                          $branchecked[0] = $_GET['materials'];
+                          //print_r($branchecked);die;
+                          //echo $branchecked; die;
+                          foreach ($branchecked as $rowbrand) {
+                               $sql = "SELECT * FROM exclusive_deals WHERE material='".$rowbrand."'";
+
+                              $result = mysqli_query($con, $sql);
+                              if (mysqli_num_rows($result) > 0) {
+                                  foreach ($result as $row):
+                                      ?>
+                                    <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?></h5>
+    <p style="color:#3b8beb;"><?php echo $row['specification'];?></p>
+   
+
+    <a href="excluedeal_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Exclusive Deal</button></a></h6>
+                      </div>
+                    </div>
+                  </div>
+                  
+                
+                                      <?php
+                                  endforeach;
+                              }else{
+                                echo "No result is found";
+                               }
+
+                          }
+                      } 
+                        else {
                             $sql = "SELECT * FROM exclusive_deals";
                             $result = mysqli_query($con, $sql);
                             if (mysqli_num_rows($result) > 0) {
