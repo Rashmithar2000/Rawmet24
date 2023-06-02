@@ -529,8 +529,7 @@ include "connect.php";
           <p>
             <a href="aboutus.php" class="text-white">About Us</a>
           </p>
-          <p>
-          </p>
+       
           <p>
             <a href="policy.php" class="text-white">Privacy Policy</a>
           </p>

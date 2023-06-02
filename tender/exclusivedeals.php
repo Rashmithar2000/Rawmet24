@@ -343,12 +343,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
           <p>
             <a href="policy.php" class="text-white">Privacy Policy</a>
           </p>
-          <p>
-            <a href="policy.php" class="text-white">Privacy Policy</a>
-          </p>
+         
           <p>
             <a href="terms_of_service.php" class="text-white">Terms of Service</a>
-            <a href="terms_of_service.php" class="text-white">Terms of Service</a>
+          
           </p>
         </div>
    
