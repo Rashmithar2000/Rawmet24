@@ -116,6 +116,8 @@ include "connect.php";
   border-radius: 20px;
   color: #333131;
   background-color: #ffffff;
+  margin-right:20px;
+
 }
 .tender-header,
 .deal-header {

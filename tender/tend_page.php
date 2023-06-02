@@ -787,7 +787,7 @@ include "connect.php";
           ?>
           <div class="col-md-2">
             <img src="../PurpleAdmin-Free-Admin-Template-master/pages/forms/uploads/<?php echo $shalom; ?>" width="400px" height="200px" class="img-fluid" alt="Image 1" data-toggle="modal" data-target="#myModal<?php echo $ctshalom?>">
-          </div>
+          </div><br><br>
           <?php  $ctshalom++; } }?>
          
         </div>
