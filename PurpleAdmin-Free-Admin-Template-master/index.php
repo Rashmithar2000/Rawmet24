@@ -12,7 +12,7 @@ $database = 'registration_db';
 
 $conn = new mysqli($servername, $username, $password, $database);
 ?>
-DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
