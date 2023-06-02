@@ -130,10 +130,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
           <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;">
           Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp
               <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
-
-          </p></div>
  
-       </div><?php
+       </div>
+       <?php
       } ?>
      </section>
 
