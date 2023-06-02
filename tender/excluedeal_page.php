@@ -296,9 +296,6 @@ h4,
           Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp
               <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
 
-?>
-<h4>Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h4>
-<a href="signout.php"> Signout </a>
 
 </div><?php
 } ?>
