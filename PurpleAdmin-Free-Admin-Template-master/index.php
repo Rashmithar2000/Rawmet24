@@ -7,7 +7,7 @@ if (!isset($_SESSION['name'])){
 }
 
 ?>
-DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->

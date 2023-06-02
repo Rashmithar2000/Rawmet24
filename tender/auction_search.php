@@ -343,16 +343,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Key links</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
-            <a href="#!" class="text-white">About Us</a>
+            <a href="aboutus.php" class="text-white">About Us</a>
+            <a href="aboutus.php" class="text-white">About Us</a>
+          </p>
+    
+          <p>
           </p>
           <p>
-            <a href="#!" class="text-white">Why Tender</a>
+            <a href="policy.php" class="text-white">Privacy Policy</a>
           </p>
           <p>
-            <a href="policy.html" class="text-white">Privacy Policy</a>
-          </p>
-          <p>
-            <a href="#!" class="text-white">Solutions</a>
+            <a href="terms_" class="text-white">Terms of Service</a>
           </p>
 
         </div>
