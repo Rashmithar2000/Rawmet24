@@ -207,6 +207,39 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
                         </div>
+                        <div class="card-body">
+                            <h6>Material</h6>
+                            <hr>
+                            <?php
+                
+
+                            $brand_query = "SELECT DISTINCT material FROM tenders";
+                            $brand_query_run = mysqli_query($con, $brand_query);
+
+                            if (mysqli_num_rows($brand_query_run) > 0) {
+                                foreach ($brand_query_run as $materiallist) {
+                                    $checked = [];
+                                    if (isset($_GET['materials'])) {
+                                        $checked = $_GET['materials'];
+                                    }
+                                    ?>
+                                    <div id="checkbox">
+                                        <input type="checkbox" name="materials" value="<?= $materiallist['material']; ?>"
+                                            <?php //if (in_array($materiallist['state_id'], $checked)) {
+                                                //echo "checked";
+                                            //} 
+                                            ?>>
+                                        <?= $materiallist['material']; ?>
+                                    </div>
+                                    <?php
+                                }
+                            } else {
+                                echo "No materials Found";
+                            }
+                            ?>
+
+
+                        </div>
 
                     </div>
                 </form>
