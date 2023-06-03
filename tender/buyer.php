@@ -5,22 +5,18 @@ session_start();
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$dbHost = "localhost";
-$dbUser = "root";
-$dbPassword = "";
-$dbName = "registration_db";
-$conn = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
+include "connect.php";
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
 }
 
 $sql = "SELECT * FROM buyer_dashboard WHERE email = '$email'";
-$result = $conn->query($sql);
+$result = $con->query($sql);
 
 if ($result->num_rows == 1) {
 
-    $_SESSION['name']=$name;
+    $_SESSION['buyer_name']=$name;
     $_SESSION['subscription']=0;
 
 
@@ -40,5 +36,5 @@ if($password==$decode){
         session_close();
     }
 
-$conn->close();
+$con->close();
 ?>

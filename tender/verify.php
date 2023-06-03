@@ -27,7 +27,7 @@ if ($result->num_rows == 1) {
     //$storedHashedPassword = $row['password'];
     // $decode=base64_decode($storedHashedPassword);
     $_SESSION['sub'] = $subscription;   
-    $_SESSION['name'] = $name;
+    $_SESSION['buyer_name'] = $name;
     header("Location: home.php"); //Redirect user to home page
     // header("Location: ".$_SERVER['PHP_SELF']);  
     }else {

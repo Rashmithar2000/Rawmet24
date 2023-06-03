@@ -284,7 +284,7 @@ include "connect.php";
     </div>&nbsp   <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
     <?php 
        
-       if(!isset($_SESSION['name'])){
+       if(!isset($_SESSION['buyer_name'])){
  
        ?>
          <form class="form-inline" action="verify.php" method="post">
@@ -304,7 +304,7 @@ include "connect.php";
          
          <?php }else{ ?>
           <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;">
-          Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp
+          Hi! <?php echo $_SESSION['buyer_name'];?>&nbsp&nbsp
               <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
        </div><?php
       } ?>
@@ -787,7 +787,7 @@ include "connect.php";
           ?>
           <div class="col-md-2">
             <img src="../PurpleAdmin-Free-Admin-Template-master/pages/forms/uploads/<?php echo $shalom; ?>" width="400px" height="200px" class="img-fluid" alt="Image 1" data-toggle="modal" data-target="#myModal<?php echo $ctshalom?>">
-          </div>
+          </div><br><br>
           <?php  $ctshalom++; } }?>
          
         </div>
