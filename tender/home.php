@@ -104,27 +104,6 @@ include "connect.php";
     display: none;
   }
 }
-.auction-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.countdown-btn {
-  padding: 5px;
-  border-color: #0c0c0c;
-  border-radius: 20px;
-  color: #333131;
-  background-color: #ffffff;
-  margin-right:20px;
-
-}
-.tender-header,
-.deal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
   </style>
 
 <section class="ftco-section" style="padding-top: 5px;">
@@ -139,7 +118,7 @@ include "connect.php";
     </div>&nbsp   <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
     <?php 
        
-       if(!isset($_SESSION['buyer_name'])){
+       if(!isset($_SESSION['name'])){
  
        ?>
          <form class="form-inline" action="verify.php" method="post">
@@ -160,7 +139,7 @@ include "connect.php";
          <?php }else{
            ?>
            <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;">
-           Hi! <?php echo $_SESSION['buyer_name'];?>&nbsp&nbsp
+           Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp
                <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
  
 
@@ -207,7 +186,7 @@ include "connect.php";
                 <!--end of col-->
                 <div class="col">
                   <input class="form-control form-control-lg form-control-borderless" type="search" id="meterial"
-                    placeholder="Search for Tender, Auction & Deals" style="padding:10px 0px 10px 6px; margin-right: 100px;">
+                    placeholder="Search topics or keywords" style="padding:10px 0px 10px 6px; margin-right: 100px;">
                 </div>
                 <select name="sort" id="tender" style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;"
                   placeholder="Search ">
@@ -242,7 +221,6 @@ include "connect.php";
       </div>
     </div>
     <br>
-
     <center style="color: #3b8beb;">
       <div class="container">
         <div class="row">
@@ -468,13 +446,16 @@ include "connect.php";
       </section>
 
 
-      <div class="container" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333231; background-color: #ffffff;">
-  <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Auctions</h2>
-  <div class="card-body">
-    <article class="scroller">
-      <?php
-      $sql = "select * from auction";
-      $result = mysqli_query($con, $sql);
+      <div class="container"
+        style="padding:3% ;border-color: #000000; border-radius: 20px; color: #333231; background-color: #ffffff;">
+        <h2 class="GFG" style="color:#3b8beb; font-family: 'Montserrat', sans-serif;">Auctions</h2>
+        <div class="card-body">
+          <article class="scroller">
+
+
+            <?php
+            $sql = "select * from auction";
+            $result = mysqli_query($con, $sql);
 
             if ($result) {
               while ($row = mysqli_fetch_assoc($result)) {
@@ -601,121 +582,6 @@ include "connect.php";
       <br><br>
     </div>
   </section>
-      if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
-          ?>
-          <section>
-            <div class="auction-header">
-              <h6 style="color: #3b8beb;">
-                <i class='bx bxs-map'></i><?php echo $row['location']; ?>
-              </h6>
-              <button class="countdown-btn">4 Days to go</button>
-            </div>
-            <h5 class="auction-info">
-              MATERIAL: <?php echo $row['material']; ?>
-            </h5>
-            <h5 class="auction-info">
-              Approximate Business: ₹<?php echo $row['aucValue']; ?>
-            </h5>
-            <p class="auction-description">
-              <?php echo $row['aucDescription']; ?>
-            </p>
-            <a href="auction_page.php?g=<?php echo $row['id']; ?>" class="btn btn-primary">View Auction</a>
-          </section>
-          <hr>
-          <?php
-        }
-      }
-      ?>
-    </article>
-  </div>
-</div>
-
-<br>
-
-<div class="container" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
-  <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Tenders</h2>
-  <div class="card-body">
-    <article class="scroller">
-      <?php
-      $sql = "select * from tenders";
-      $result = mysqli_query($con, $sql);
-
-      if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
-          ?>
-          <section>
-            <div class="tender-header">
-              <h6 style="color: #3b8beb;">
-                <i class='bx bxs-map'></i><?php echo $row['location']; ?>
-              </h6>
-              <button class="countdown-btn">4 Days to go</button>
-            </div>
-            <h5 class="tender-info">
-              MATERIAL: <?php echo $row['material']; ?>
-            </h5>
-            <h5 class="tender-info">
-              Approximate Business: ₹<?php echo $row['tenderValue']; ?>
-            </h5>
-            <p class="tender-description">
-              <?php echo $row['tenderDesc']; ?>
-            </p>
-            <a href="tend_page.php?g=<?php echo $row['id']; ?>" class="btn btn-primary">View Tender</a>
-          </section>
-          <hr>
-          <?php
-        }
-      }
-      ?>
-    </article>
-  </div>
-</div>
-
-<br><br><br>
-
-<div class="container" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
-  <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Deals</h2>
-  <div class="card-body">
-    <article class="scroller">
-      <?php
-      $sql = "select * from deals";
-      $result = mysqli_query($con, $sql);
-
-      if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
-          ?>
-          <section>
-            <div class="deal-header">
-              <h6 style="color: #3b8beb;">
-                <i class='bx bxs-map'></i><?php echo $row['location']; ?>
-              </h6>
-              <button class="countdown-btn">4 Days to go</button>
-            </div>
-            <h5 class="deal-info">
-              MATERIAL: <?php echo $row['material']; ?>
-            </h5>
-            <h5 class="deal-info">
-              Approximate Business: ₹<?php echo $row['expQuotation']; ?>
-            </h5>
-            <p class="deal-description">
-              <?php echo $row['specification']; ?>
-            </p>
-            <a href="deal_page.php?g=<?php echo $row['id']; ?>" class="btn btn-primary">View Deal</a>
-          </section>
-          <hr>
-          <?php
-        }
-      }
-      ?>
-    </article>
-  </div>
-</div>
-
-</div>
-</div>
-</div>
-</div><br><br><br> 
-
 
   <!-- Remove the container if you want to extend the Footer to full width. -->
   
