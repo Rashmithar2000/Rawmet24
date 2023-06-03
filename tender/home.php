@@ -624,8 +624,8 @@ include "connect.php";
           </section>
           <hr>
           <?php
-        }
-      }
+        // }
+      // }
       ?>
     </article>
   </div>
