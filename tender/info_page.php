@@ -292,7 +292,7 @@ include "connect.php";
        ?>
          <form class="form-inline" action="verify.php" method="post">
            <label for="email"></label>
-           <input type="email" class="form-control" name="email" placeholder="Username" name="email">
+           <input type="email" class="form-control" name="email" placeholder="Email" name="email">
            <label for="pwd"></label>&nbsp
            <input type="password" class="form-control" name="password" placeholder="Password" name="pswd">&nbsp&nbsp
            <div class="form-check">
