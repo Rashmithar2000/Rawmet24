@@ -468,7 +468,7 @@ include "connect.php";
       </section>
 
 
-      <div class="container" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333231; background-color: #ffffff;">
+      <!-- <div class="container" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333231; background-color: #ffffff;">
   <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Auctions</h2>
   <div class="card-body">
     <article class="scroller">
@@ -478,31 +478,7 @@ include "connect.php";
 
             if ($result) {
               while ($row = mysqli_fetch_assoc($result)) {
-                // $time=$row['endDatetime'];
-//                 $endDatetime = $row['endDatetime'];
-
-// // Create DateTime objects for the current date and the end datetime
-// $currentDate = new DateTime(); // Represents today's date
-// $endDatetimeObj = new DateTime($endDatetime);
-
-// // Calculate the difference between the two dates
-// $interval =$endDatetimeObj ->diff($currentDate);
-
-// // Get the remaining days from the difference
-// $daysRemaining = $interval->days;
-
-// // Calculate the due date by adding the remaining days to today's date
-// $dueDate = $currentDate->add(new DateInterval('P' . $daysRemaining . 'D'));
-
-// // Format and display the due date
-// $dueDateFormatted = $dueDate->format('Y-m-d');
-
-// $endDatetime = $row['endDatetime']; // Replace with your end date and time
-
-// $currentDate = new DateTime();
-// $endDate = new DateTime($endDatetime);
-// $interval = $currentDate->diff($endDate);
-// $daysToGo = $interval->format('%a');
+                
 
                 ?>
                 <section>
@@ -525,9 +501,9 @@ include "connect.php";
             ?>
           </article>
         </div>
-      </div>
+      </div> -->
       <br>
-      <div class="container"
+      <!-- <div class="container"
         style="padding:3% ;border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
         <h2 class="GFG" style="color:#3b8beb; font-family: 'Montserrat', sans-serif;">Tenders</h2>
         <div class="card-body">
@@ -558,8 +534,8 @@ include "connect.php";
 
           </article>
         </div>
-      </div>
-      <br><br><br>
+      </div> -->
+      <!-- <br><br><br>
       <div class="container"
         style="padding:3% ;border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
         <h2 class="GFG" style="color:#3b8beb; font-family: 'Montserrat', sans-serif;">Deals</h2>
@@ -597,10 +573,17 @@ include "connect.php";
 
           </article>
         </div>
-      </div>
+      </div> -->
       <br><br>
     </div>
   </section>
+  <div class="container" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
+  <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Auction</h2>
+  <div class="card-body">
+    <article class="scroller">
+  <?php
+      $sql = "select * from auction";
+      $result = mysqli_query($con, $sql);
       if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
           ?>
@@ -624,8 +607,8 @@ include "connect.php";
           </section>
           <hr>
           <?php
-        // }
-      // }
+        }
+      }
       ?>
     </article>
   </div>
