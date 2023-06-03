@@ -24,8 +24,13 @@ if ($con->connect_error) {
 $sql = "INSERT INTO buyer_dashboard (name, email, password) VALUES ('$name', '$email', '$hashedPassword')";
 
 
-if ($con->query($sql) === TRUE) {
-    header("location: home.php");
+if ($con->query($sql) === TRUE) { ?>
+    <script>
+    alert("SignUp Succesfully!");
+    window.location.replace("./signin.html");
+</script>
+    <!-- header("location: signin.html"); -->
+     <?php
     session_close();
 } else {
     echo "Error: " . $sql . "<br>" . $con->error;

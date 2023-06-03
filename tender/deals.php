@@ -112,7 +112,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </div>&nbsp   <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
     <?php 
        
-       if(!isset($_SESSION['name'])){
+       if(!isset($_SESSION['buyer_name'])){
  
        ?>
          <form class="form-inline" action="verify.php" method="post">
@@ -131,7 +131,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     
          <?php }else{ ?>
           <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;">
-          Hi! <?php echo $_SESSION['name'];?>&nbsp&nbsp
+          Hi! <?php echo $_SESSION['buyer_name'];?>&nbsp&nbsp
               <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
 
           </p></div>
