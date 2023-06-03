@@ -95,6 +95,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
     display: none;
   }
 }
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
 
@@ -172,6 +178,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                 <button type="submit" class="btn btn-primary btn-sm float-end">Search</button>
                             </h5>
                         </div>
+
                         <div class="card-body">
                             <h6>Location</h6>
                             <hr>
@@ -321,7 +328,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                     <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?>&nbsp| AUCTION VALUE:&nbsp₹<?php echo $row['aucValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?>&nbsp| AUCTION VALUE:&nbsp₹<?php echo $row['aucValue'];?> | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
                         <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL :&nbsp <?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
                     
                         <p><?php echo $row['aucDescription'];?></p>
