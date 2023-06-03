@@ -459,7 +459,32 @@ include "connect.php";
 
             if ($result) {
               while ($row = mysqli_fetch_assoc($result)) {
-             
+                // $time=$row['endDatetime'];
+//                 $endDatetime = $row['endDatetime'];
+
+// // Create DateTime objects for the current date and the end datetime
+// $currentDate = new DateTime(); // Represents today's date
+// $endDatetimeObj = new DateTime($endDatetime);
+
+// // Calculate the difference between the two dates
+// $interval =$endDatetimeObj ->diff($currentDate);
+
+// // Get the remaining days from the difference
+// $daysRemaining = $interval->days;
+
+// // Calculate the due date by adding the remaining days to today's date
+// $dueDate = $currentDate->add(new DateInterval('P' . $daysRemaining . 'D'));
+
+// // Format and display the due date
+// $dueDateFormatted = $dueDate->format('Y-m-d');
+
+// $endDatetime = $row['endDatetime']; // Replace with your end date and time
+
+// $currentDate = new DateTime();
+// $endDate = new DateTime($endDatetime);
+// $interval = $currentDate->diff($endDate);
+// $daysToGo = $interval->format('%a');
+
                 ?>
                 <section>
                 <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 750px;">4 Days to go</button>
