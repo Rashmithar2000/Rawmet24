@@ -95,6 +95,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
     display: none;
   }
 }
+.countdown-btn {
+  padding: 5px;
+  border-color: #0c0c0c;
+  border-radius: 20px;
+  color: #333131;
+  background-color: #ffffff;
+}
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
   
@@ -265,7 +272,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                        <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button class="countdown-btn"  style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 60px;">4 Days to go</button></h6>
                         <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">
                         MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?>
                         </h5>
@@ -298,7 +305,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                      <div class="col-md-12 grid-margin stretch-card">
                   <div class="card">
                       <div class="card-body">
-                                            <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                                            <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button class="countdown-btn" style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 60px;">4 Days to go</button></h6>
                       <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">
                       MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?>
                       </h5>
@@ -332,7 +339,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                     <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button class="countdown-btn" style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 60px;">4 Days to go</button></h6>
                         <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">
                         MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?>
                         </h5>
