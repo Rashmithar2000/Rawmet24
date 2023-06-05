@@ -170,6 +170,9 @@ include "connect.php";
                         $sql="select * from exclusive_deals where id=$id";
                         $result = mysqli_query($conn , $sql);
                         $row =mysqli_fetch_assoc($result);
+                        $valueParts = explode(' ', $row['quantity'], 2);
+                        $quantity = isset($valueParts[0]) ? $valueParts[0] : '';
+                        $unit = isset($valueParts[1]) ? $valueParts[1] : '';
                 ?>
                       <div class="form-group">
                         <label for="category">Category</label>
@@ -198,10 +201,10 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="quantity">Quantity</label>
-                        <input type="number" id="quantity" name="quantity" >&nbsp&nbsp&nbsp
+                        <input type="number" id="quantity" name="quantity" value="<?php echo  $quantity; ?>" >&nbsp&nbsp&nbsp
                         <label for="unit">Unit:</label>
                         <select id="unit" name="unit" >
-                          <option value="">-- Select Unit --</option>
+                          <option value=""><?php echo  $unit; ?></option>
                           <option value="kg">KG</option>
                           <option value="ton">TON</option>
                           <option value="mt">MT</option>

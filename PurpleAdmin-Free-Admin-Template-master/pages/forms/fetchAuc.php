@@ -163,22 +163,9 @@ include "connect.php";
                         $sql="select * from auction where id=$id";
                         $result = mysqli_query($conn , $sql);
                         $row =mysqli_fetch_assoc($result);
-
-                        
-                          $valueParts = explode(' ', $row['quantity'], 2);
-                          $quantity = isset($valueParts[0]) ? $valueParts[0] : '';
-                          $unit = isset($valueParts[1]) ? $valueParts[1] : '';
-                         
-                          
-                     
-
-                        $v1 = $row['img'];
-                    $array = unserialize($v1);
-                    $filename = $array[0];
-
-                    $v2 =$row['file'];
-                    $array= unserialize($v2);
-                    $docname =$array[0];
+                        $valueParts = explode(' ', $row['quantity'], 2);
+                        $quantity = isset($valueParts[0]) ? $valueParts[0] : '';
+                        $unit = isset($valueParts[1]) ? $valueParts[1] : '';
                 ?>
                       <div class="form-group">
                         <label for="category">Category</label>
@@ -279,8 +266,7 @@ include "connect.php";
                         <input type="number" id="quantity" name="quantity"  value="<?php echo  $quantity; ?>">&nbsp&nbsp&nbsp
                         <label for="unit">Unit:</label>
                         <select id="unit" name="unit" >
-                        <option ><?php echo $unit; ?></option>
-                          <option value="">-- Select Unit --</option>
+                          <option value=""><?php echo  $unit; ?></option>
                           <option value="kg">KG</option>
                           <option value="ton">TON</option>
                           <option value="mt">MT</option>
@@ -662,14 +648,13 @@ include "connect.php";
                     <div class="form-check mx-sm-2">
                       <label class="form-check-label">
                         <input type="checkbox" class="form-check-input" checked>I agree terms and conditions </label>
-                    </div>    
-                                    
+                    </div>                      
                       
                     <div class="form-group">
                       <label>Auction File upload</label>
                       <input type="file" name="img[]" class="file-upload-default" multiple>
                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File" value="<?php echo  $filename ?>">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File" value="<?php echo  $row['img']; ?>">
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                         </span>
@@ -679,7 +664,7 @@ include "connect.php";
                       <label>Auction File upload</label>
                       <input type="file" name="file[]" class="file-upload-default" multiple>
                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File" value="<?php echo  $docname; ?>">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File" value="<?php echo  $row['file']; ?>">
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                         </span>
