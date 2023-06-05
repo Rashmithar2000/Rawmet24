@@ -160,13 +160,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     if (mysqli_query($conn, $sql)) {
+       echo $quantity;
         // echo $filename;
         // die;
         ?>
-        <script>
+        <!-- <script>
             alert("Auction Updated Successfully!");
             window.location.replace("./auctions.php");
-        </script>
+        </script> -->
         <?php
     } else {
         echo "Error: " . mysqli_error($conn);
