@@ -147,8 +147,20 @@ a:hover{
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="pages/forms/viewAuc.php">
+                <span class="menu-title">Update Auctions</span>
+                <i class="mdi mdi-chart-areaspline menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="pages/forms/tenders.php">
                 <span class="menu-title">Tenders</span>
+                <i class="mdi mdi-animation menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pages/forms/viewTend.php">
+                <span class="menu-title">Update Tenders</span>
                 <i class="mdi mdi-animation menu-icon"></i>
               </a>
             </li>

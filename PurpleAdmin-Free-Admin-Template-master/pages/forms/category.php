@@ -2,8 +2,8 @@
 
 include "connect.php";
 
-if ($connection->connect_error) {
-    die('Connection failed: ' . $connection->connect_error);
+if ($conn->connect_error) {
+    die('Connection failed: ' . $conn->connect_error);
 }
 
 
@@ -14,19 +14,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query = "INSERT INTO category (categoryName, subCategory) VALUES ('$categoryName', '$subCategory')";
     
-    if ($connection->query($query) === TRUE) {
+    if ($conn->query($query) === TRUE) {
         header("Location: categories.php"); 
         alert("Successfully added");
         
     } else {
-        if ($connection->errno == 1062) {
+        if ($conn->errno == 1062) {
             echo "Error: Duplicate entry. Category already exists.";
         } else {
-            echo "Error: " . $query . "<br>" . $connection->error;
+            echo "Error: " . $query . "<br>" . $conn->error;
         }
     }
 }
 
 
-$connection->close();
+$conn->close();
 ?>

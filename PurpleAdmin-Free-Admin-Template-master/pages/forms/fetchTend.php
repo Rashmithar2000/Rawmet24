@@ -160,13 +160,19 @@ include "connect.php";
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Tenders Details</h4>
-                  <form action="tender.php" method="POST" class="forms-sample" enctype="multipart/form-data">
-                
+                  <form action="updateTend.php" method="POST" class="forms-sample" enctype="multipart/form-data">
+                <?php 
+                $id= $_GET['id'];
+                $sql="select * from tenders where id=$id";
+                $result = mysqli_query($conn , $sql);
+               $row =mysqli_fetch_assoc($result);
+                ?>
                     <div class="form-group">
                       <label for="category">Category</label>
-                      <select name="category" class="form-control form-control-lg" required>
-                          <option>Consultancy Tenders</option>
-                          <option>Procurement Tenders</option>
+                      <select name="category" class="form-control form-control-lg">
+                      <option ><?php echo  $row['category']; ?></option>
+                        <option>Consultancy Tenders</option>
+                          <option >Procurement Tenders</option>
                           <option>Manufacturing Tenders</option>
                           <option>Disposal Tenders</option>
                           <option>Business Tenders</option>
@@ -175,16 +181,17 @@ include "connect.php";
                     </div>
                     <div class="form-group">
                       <label for="infoId">Information Number</label>
-                      <input type="text" class="form-control" name="infoId" placeholder="Information Number" required>
+                      <input type="text" class="form-control" name="infoId" placeholder="Information Number" required value="<?php echo  $row['infoId']; ?>" >
                     </div>
                     
                     <div class="form-group">
                       <label for="ownership">Ownership</label>
-                      <input type="text" class="form-control" name="ownership" placeholder="Ownership" required>
+                      <input type="text" class="form-control" name="ownership" placeholder="Ownership" required value="<?php echo  $row['ownership']; ?>">
                     </div>
                     <div class="form-group">
                       <label for="tenderLocation">Tender Location</label>
-                      <select name="tenderLocation" class="form-control form-control-lg" required>
+                      <select name="tenderLocation" class="form-control form-control-lg">
+                        <option ><?php echo  $row['tenderLocation']; ?></option>
                         <option>Andhra Pradesh</option>
                         <option>Arunachal Pradesh</option>
                         <option>Assam</option>
@@ -225,28 +232,29 @@ include "connect.php";
                     <div class="form-group">
                       <label for="sector">Sector</label>
                       <select name="sector" class="form-control form-control-lg" required>
-                          <option>Public</option>
+                      <option ><?php echo  $row['sector']; ?></option> 
+                      <option>Public</option>
                           <option>Private</option>
                         </select>
                     </div>
                     <div class="form-group">
                       <label for="tenderNumber">Tender Number</label>
-                      <input type="text" class="form-control" name="tenderNumber" placeholder="Tender Number" required>
+                      <input type="text" class="form-control" name="tenderNumber" placeholder="Tender Number" required value="<?php echo  $row['tenderNumber']; ?>">
                     </div>
                     
                     <div class="form-group">
                       <label for="tenderDesc">Tender Description</label>
-                      <textarea class="form-control" placeholder="Tender Description" name="tenderDesc" rows="6" required></textarea>
+                      <textarea class="form-control" placeholder="Tender Description" name="tenderDesc" rows="6" required value=""><?php echo  $row['tenderDesc']; ?></textarea>
                     </div>
                     <div class="form-group">
                       <label for="material">Material</label>
-                      <input type="text" class="form-control" name="material" placeholder="Material" required>
+                      <input type="text" class="form-control" name="material" placeholder="Material" required value="<?php echo  $row['material']; ?>">
                     </div>
                     <div class="form-group">
                       <label for="quantity">Quantity</label>
-                        <input type="number" id="quantity" name="quantity" required>&nbsp&nbsp&nbsp
+                        <input type="number" id="quantity" name="quantity" required value="<?php echo  $row['quantity']; ?>">&nbsp&nbsp&nbsp
                         <label for="unit">Unit:</label>
-                        <select id="unit" name="unit" required>
+                        <select id="unit" name="unit" required selected value="<?php echo  $row['unit']; ?>">
                           <option value="">-- Select Unit --</option>
                           <option value="kg">KG</option>
                           <option value="ton">TON</option>
@@ -257,65 +265,66 @@ include "connect.php";
           
                     <div class="form-group">
                       <label for="publishingDatetime">Publishing Date and Time</label>
-                      <input type="datetime-local" class="form-control" name="publishingDatetime" placeholder="Publishing Date and Time" required>
+                      <input type="datetime-local" class="form-control" name="publishingDatetime" placeholder="Publishing Date and Time" required value="<?php echo  $row['publishingDatetime']; ?>">
                     </div>
                     <div class="form-group">
                       <label for="startDatetime">Tender Start Time</label>
-                      <input type="datetime-local" class="form-control" name="startDatetime" placeholder="Start Time dd-mm-yy --:--" required>
+                      <input type="datetime-local" class="form-control" name="startDatetime" placeholder="Start Time dd-mm-yy --:--" required value="<?php echo  $row['startDatetime']; ?>">
                     </div>
                     <div class="form-group">
                       <label for="endDatetime">Tender End Time</label>
-                      <input type="datetime-local" class="form-control" name="endDatetime" placeholder="End Time -mm-yy --:--" required>
+                      <input type="datetime-local" class="form-control" name="endDatetime" placeholder="End Time -mm-yy --:--" required value="<?php echo  $row['endDatetime']; ?>">
                     </div>
                     <div class="form-group">
                       <label for="emdType">EMD Type</label>
-                      <select name="emdType" class="form-control form-control-lg" required>
-                          <option>Online Payment/ Net Banking</option>
+                      <select name="emdType" class="form-control form-control-lg">
+                      <option ><?php echo  $row['emdType']; ?></option>    
+                      <option>Online Payment/ Net Banking</option>
                           <option>DD</option>
                           <option>Cash</option>
                         </select>
                     </div>
                     <div class="form-group">
                       <label for="emdAmt">EMD Amount</label>
-                      <input type="number" class="form-control" name="emdAmt" placeholder="EMD Amount(value only)" required>
+                      <input type="number" class="form-control" name="emdAmt" placeholder="EMD Amount(value only)" required value="<?php echo  $row['emdAmt']; ?>">
                     </div>
                     <div class="form-group">
                       <label for="tenderValue">Tender Value</label>
-                      <input type="text" class="form-control" name="tenderValue" placeholder="Tender Value" required>
+                      <input type="text" class="form-control" name="tenderValue" placeholder="Tender Value" required value="<?php echo  $row['tenderValue']; ?>">
                     </div>
                    <br>
                    <p class="card-description">Express of Interest</p>
              
                     <div class="form-group">
                       <label for="companyName">Company Name</label>
-                      <input type="text" class="form-control" name="companyName" placeholder="Company Name" required>
+                      <input type="text" class="form-control" name="companyName" placeholder="Company Name" required value="<?php echo  $row['companyName']; ?>">
                     </div>
                            <div class="form-group">
                       <label for="location">Location</label>
-                      <input type="text" class="form-control" name="location" placeholder="Location" required>
+                      <input type="text" class="form-control" name="location" placeholder="Location" required value="<?php echo  $row['location']; ?>">
                     </div>
                
                     <div class="form-group">
                       <label for="street">Street</label>
-                      <input type="text" class="form-control" name="street" placeholder="Street" required>
+                      <input type="text" class="form-control" name="street" placeholder="Street" required value="<?php echo  $row['street']; ?>">
                     </div>
           
                     <div class="form-group">
                       <label for="city">City</label>
-                      <input type="text" class="form-control" name="city" placeholder="City" required>
+                      <input type="text" class="form-control" name="city" placeholder="City" required value="<?php echo  $row['city']; ?>">
                     </div>
                     <div class="form-group">
                       <label for="telephone">Telephone</label>
-                      <input type="text" class="form-control" name="telephone" placeholder="Telephone" required>
+                      <input type="text" class="form-control" name="telephone" placeholder="Telephone" required value="<?php echo  $row['telephone']; ?>">
                     </div>
                     <div class="form-group">
                       <label for="email">Email</label>
-                      <input type="email" class="form-control" name="email" placeholder="Email" required>
+                      <input type="email" class="form-control" name="email" placeholder="Email" required value="<?php echo  $row['email']; ?>">
                     </div>
                     
                     <div class="form-group">
                       <label for="contactPerson">Contact Person</label>
-                      <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" required>
+                      <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" required value="<?php echo  $row['contactPerson']; ?>">
                     </div>
                 
                       <button type="button" class="btn btn-gradient-primary" data-toggle="modal" data-target="#myModal">
@@ -632,7 +641,7 @@ include "connect.php";
                       <label>Tender Image upload</label>
                       <input type="file" name="img[]" class="file-upload-default" multiple>
                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info"  placeholder="Upload File">
+                        <input type="text" class="form-control file-upload-info"  placeholder="Upload Image" value="<?php echo  $row['img']; ?>" >
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                         </span>
@@ -642,14 +651,15 @@ include "connect.php";
                       <label>Tender File upload</label>
                       <input type="file" name="file[]" class="file-upload-default" multiple>
                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info"  placeholder="Upload File">
+                        <input type="text" class="form-control file-upload-info"  placeholder="Upload File" value="<?php echo  $row['file']; ?>">
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                         </span>
                       </div>
                     </div>
-
-                      <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">                             
+                    <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
+                    
                     
                     </form>
                   </div>
