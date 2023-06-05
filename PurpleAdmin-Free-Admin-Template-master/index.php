@@ -147,7 +147,7 @@ a:hover{
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/viewAuc.php">
+              <a class="nav-link" href="pages/forms/editAuclist.php">
                 <span class="menu-title">Update Auctions</span>
                 <i class="mdi mdi-chart-areaspline menu-icon"></i>
               </a>
@@ -159,7 +159,7 @@ a:hover{
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/viewTend.php">
+              <a class="nav-link" href="pages/forms/editTendlist.php">
                 <span class="menu-title">Update Tenders</span>
                 <i class="mdi mdi-animation menu-icon"></i>
               </a>
@@ -171,7 +171,7 @@ a:hover{
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/viewDeal.php">
+              <a class="nav-link" href="pages/forms/editDeallist.php">
                 <span class="menu-title">Update Deals</span>
                 <i class="mdi mdi-drawing-box menu-icon"></i>
               </a>
@@ -179,6 +179,13 @@ a:hover{
             <li class="nav-item">
               <a class="nav-link" href="pages/forms/exclusivedeals.php">
                 <span class="menu-title">Exclusive Deals</span>
+                <i class="mdi mdi-diamond menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="pages/forms/editExcllist.php">
+                <span class="menu-title">Update Exclusive Deals</span>
                 <i class="mdi mdi-diamond menu-icon"></i>
               </a>
             </li>

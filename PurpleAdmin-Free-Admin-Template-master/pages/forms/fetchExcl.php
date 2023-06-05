@@ -10,7 +10,7 @@ include "connect.php";
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!--  meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Deals Page</title>
@@ -55,6 +55,10 @@ include "connect.php";
             <span class="mdi mdi-menu"></span>
           </button>
           <ul class="navbar-nav navbar-nav-right">
+               
+           
+           
+            
             <li class="nav-item d-none d-lg-block full-screen-link">
               <a class="nav-link">
                 <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
@@ -159,12 +163,18 @@ include "connect.php";
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Deals Details</h4>
-                    <form action="deal.php" method="post" class="forms-sample" enctype="multipart/form-data">
-                  
+                    <h4 class="card-title">Exclusive Deals Details</h4>
+                    <form action="updateExcl.php" method="POST" class="forms-sample" enctype="multipart/form-data">
+                    <?php 
+                        $id= $_GET['id'];
+                        $sql="select * from exclusive_deals where id=$id";
+                        $result = mysqli_query($conn , $sql);
+                        $row =mysqli_fetch_assoc($result);
+                ?>
                       <div class="form-group">
                         <label for="category">Category</label>
-                        <select name="category" class="form-control form-control-lg" required>
+                        <select name="category" class="form-control form-control-lg" >
+                        <option ><?php echo  $row['category']; ?></option>
                             <option>Consultancy Tenders</option>
                             <option>Procurement Tenders</option>
                             <option>Manufacturing Tenders</option>
@@ -175,22 +185,22 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="infoId">Information Number</label>
-                        <input type="text" class="form-control" name="infoId" placeholder="Information Number" required>
+                        <input type="text" class="form-control" name="infoId" placeholder="Information Number" value="<?php echo  $row['infoId']; ?>">
                       </div>
                       
                       <div class="form-group">
                         <label for="ir">IR Executive</label>
-                        <input type="text" class="form-control" name="ir" placeholder="IR Executive" required>
+                        <input type="text" class="form-control" name="ir" placeholder="IR Executive" value="<?php echo  $row['ir']; ?>" >
                       </div>
                       <div class="form-group">
                         <label for="fe">FE Executive</label>
-                        <input type="text" class="form-control" name="fe" placeholder="FE Executive" required>
+                        <input type="text" class="form-control" name="fe" placeholder="FE Executive" value="<?php echo  $row['fe']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="quantity">Quantity</label>
-                        <input type="number" id="quantity" name="quantity" required>&nbsp&nbsp&nbsp
+                        <input type="number" id="quantity" name="quantity" >&nbsp&nbsp&nbsp
                         <label for="unit">Unit:</label>
-                        <select id="unit" name="unit" required>
+                        <select id="unit" name="unit" >
                           <option value="">-- Select Unit --</option>
                           <option value="kg">KG</option>
                           <option value="ton">TON</option>
@@ -201,20 +211,21 @@ include "connect.php";
           
                       <div class="form-group">
                         <label for="dealValue">Deal Value</label>
-                        <input type="number" class="form-control" name="dealValue" placeholder="Deal Value" required>
+                        <input type="number" class="form-control" name="dealValue" placeholder="Deal Value" value="<?php echo  $row['dealValue']; ?>">
                       </div>
                      
                       <div class="form-group">
                         <label for="dealDatetime">Deal Date and Time</label>
-                        <input type="datetime-local" class="form-control" name="dealDatetime" placeholder="Deal Date and Time" required>
+                        <input type="datetime-local" class="form-control" name="dealDatetime" placeholder="Deal Date and Time" value="<?php echo  $row['dealDatetime']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="docCreatedby">Lead Document Created by</label>
-                        <input type="text" class="form-control" name="docCreatedby" placeholder="Document Created by" required>
+                        <input type="text" class="form-control" name="docCreatedby" placeholder="Document Created by" value="<?php echo  $row['docCreatedby']; ?>" >
                       </div>
                       <div class="form-group">
                         <label for="location">Deal Location</label>
-                        <select name="location" class="form-control form-control-lg" required>
+                        <select name="location" class="form-control form-control-lg" >
+                        <option ><?php echo  $row['location']; ?></option>
                           <option>Andhra Pradesh</option>
                           <option>Arunachal Pradesh</option>
                           <option>Assam</option>
@@ -256,34 +267,35 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="industrialArea">Industrial Area </label>
-                        <input type="text" class="form-control" name="industrialArea" placeholder="Industrial Area" required>
+                        <input type="text" class="form-control" name="industrialArea" placeholder="Industrial Area" value="<?php echo  $row['docCreatedby']; ?>">
                       </div>
                      <br>
                      <p class="card-description">Client Details</p>
                   
                       <div class="form-group">
                         <label for="companyName">Company Name</label>
-                        <input type="text" class="form-control" name="companyName" placeholder="Company Name" required>
+                        <input type="text" class="form-control" name="companyName" placeholder="Company Name" value="<?php echo  $row['companyName']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="contactPerson">Contact Person</label>
-                        <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" required>
+                        <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" value="<?php echo  $row['contactPerson']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="email">Email Id</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        <input type="email" class="form-control" name="email" placeholder="Email" value="<?php echo  $row['email']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="text" class="form-control" name="address" placeholder="Address" required>
+                        <input type="text" class="form-control" name="address" placeholder="Address" value="<?php echo  $row['address']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="city">City</label>
-                        <input type="text" class="form-control" name="city" placeholder="City" required>
+                        <input type="text" class="form-control" name="city" placeholder="City" value="<?php echo  $row['city']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="state">State</label>
-                        <select name="state" class="form-control form-control-lg" required>
+                        <select name="state" class="form-control form-control-lg" >
+                        <option ><?php echo  $row['state']; ?></option>
                           <option>Andhra Pradesh</option>
                           <option>Arunachal Pradesh</option>
                           <option>Assam</option>
@@ -324,19 +336,20 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="contactNumber">Contact Number</label>
-                        <input type="number" class="form-control" name="contactNumber" placeholder="Contact Number" maxlength="10" required>
+                        <input type="number" class="form-control" name="contactNumber" placeholder="Contact Number" maxlength="10" value="<?php echo  $row['contactNumber']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="whatsappNumber">Whatsapp Number</label>
-                        <input type="number" class="form-control" name="whatsappNumber" placeholder="Whatsapp Number" maxlength="10" required> 
+                        <input type="number" class="form-control" name="whatsappNumber" placeholder="Whatsapp Number" maxlength="10" value="<?php echo  $row['whatsappNumber']; ?>"> 
                       </div>
                       <div class="form-group">
                         <label for="gstin">GSTIN</label>
-                        <input type="text" class="form-control" name="gstin" placeholder="GSTIN"  maxlength="15" required>
+                        <input type="text" class="form-control" name="gstin" placeholder="GSTIN"  maxlength="15" value="<?php echo  $row['gstin']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="orderType">Order Type</label>
-                        <select name="orderType" class="form-control form-control-lg" required>
+                        <select name="orderType" class="form-control form-control-lg" >
+                        <option ><?php echo  $row['orderType']; ?></option>
                             <option>Procurement</option>
                             <option>Service</option>
                   
@@ -345,28 +358,28 @@ include "connect.php";
                       <p class="card-description">Requirement Description</p>
                       <div class="form-group">
                         <label for="material">Material</label>
-                        <input type="text" class="form-control" name="material" placeholder="Material" required>
+                        <input type="text" class="form-control" name="material" placeholder="Material" value="<?php echo  $row['material']; ?>">
                       </div>
                     
                       <div class="form-group">
                         <label for="specification">Specification</label>
-                        <textarea class="form-control" placeholder="Specification" name="specification" rows="6" required></textarea>
+                        <textarea class="form-control" placeholder="Specification" name="specification" rows="6" value=""><?php echo  $row['specification']; ?></textarea>
                       </div>
                      
                       <div class="form-group">
                         <label for="dor">Date of Requirement</label>
-                        <input type="datetime-local" class="form-control" name="dor" placeholder="Start Time dd-mm-yy --:--" required>
+                        <input type="datetime-local" class="form-control" name="dor" placeholder="Start Time dd-mm-yy --:--" value="<?php echo  $row['dor']; ?>" >
                       </div>
                       <div class="form-group">
                         <label for="expQuotation">Expected Quotation</label>
-                        <input type="number" class="form-control" name="expQuotation" placeholder="Expected Quotation" required>
+                        <input type="number" class="form-control" name="expQuotation" placeholder="Expected Quotation" value="<?php echo  $row['expQuotation']; ?>">
                       </div>
                   
                       <div class="form-group">
                         <label>Deal Image upload</label>
                         <input type="file" name="img[]" class="file-upload-default" multiple>
                         <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" placeholder="Upload File">
+                          <input type="text" class="form-control file-upload-info" placeholder="Upload Image" value="<?php echo  $row['img']; ?>">
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
@@ -376,7 +389,7 @@ include "connect.php";
                         <label>Deal File upload</label>
                         <input type="file" name="file[]" class="file-upload-default" multiple>
                         <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" placeholder="Upload File">
+                          <input type="text" class="form-control file-upload-info" placeholder="Upload File" value="<?php echo  $row['filenames']; ?>">
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
@@ -452,7 +465,7 @@ include "connect.php";
                               account, you may be prevented from accessing the Services, your account
                               details or any files or other content which is contained in your account.<br> 3.4 You acknowledge and agree that while Rawmet24 may not currently
                               have set a fixed upper limit on the number of services you may request of us.<br><br> 4. Use of the Services by you
-                              <br>4.1 In order to access certain Services, you may be required to provide
+                              <br>4.1 In order to access certain Services, you may be  to provide
                               information about yourself (such as identification or contact details) as part
                               of the registration process for the Service, or as part of your continued use of
                               the Services. You agree that any registration information you give to
@@ -525,7 +538,7 @@ include "connect.php";
                               <br>(A) you have breached any provision of the Terms (or have acted in manner
                               which clearly shows that you do not intend to, or are unable to comply with
                               the provisions of the Terms); or
-                             <br> (B) Rawmet24 is required to do so by law (for example, where the provision
+                             <br> (B) Rawmet24 is  to do so by law (for example, where the provision
                               of the Services to you is, or becomes, unlawful); or
                               <br>(C) the partner with whom Rawmet24 offered the Services to you has
                               terminated its relationship with Rawmet24 or ceased to offer the Services to
@@ -540,7 +553,7 @@ include "connect.php";
                               Subscription Fees:
                              <br> 10.1. We offer a subscription-based service for suppliers of raw materials
                               and scrap buyers to access information through our web product "RawMet24 For Business." <br>10.2. Subscription fees are non-refundable unless otherwise stated in this
-                              refund policy or required by applicable law.
+                              refund policy or  by applicable law.
                              <br> 10.3 Refund Eligibility:
                               Refunds may be considered under the following circumstances:
                              <br> 10.3.1. If the refund request is placed within 24 hours from the time of
@@ -694,9 +707,9 @@ include "connect.php";
                         <input type="checkbox" class="form-check-input" checked>I agree terms and conditions </label>
                     </div>                      
                       
-                      
-                     
-                      <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">           
+                      <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
+
                     
                     </form>
                   </div>
@@ -704,8 +717,7 @@ include "connect.php";
               </div>
               
             </div>
-          </div>
-        </div>
+          </div></div>
 
 
           <!-- content-wrapper ends -->
