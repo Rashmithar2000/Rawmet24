@@ -171,6 +171,12 @@ a:hover{
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="pages/forms/viewDeal.php">
+                <span class="menu-title">Update Deals</span>
+                <i class="mdi mdi-drawing-box menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="pages/forms/exclusivedeals.php">
                 <span class="menu-title">Exclusive Deals</span>
                 <i class="mdi mdi-diamond menu-icon"></i>
