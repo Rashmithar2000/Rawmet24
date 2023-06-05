@@ -6,6 +6,40 @@ if (!isset($_SESSION['name'])){
 
 }
 include "connect.php";
+
+
+// Check if form is submitted
+if (isset($_POST['update'])) {
+    // Retrieve form data
+    $id = $_POST['id'];
+    $categoryName = $_POST['categoryName'];
+    $subCategory = $_POST['subCategory'];
+
+    // Update query
+    $sql = "UPDATE category SET categoryName='$categoryName', subCategory='$subCategory' WHERE id='$id'";
+
+    // Execute the query
+    if ($conn->query($sql) === TRUE) {
+
+    
+      ?>  <script>
+        alert("Category Updated!");
+        window.location.replace("./category_list.php");
+    </script>
+        <?php
+    } else {
+        echo "Error updating category: " . $conn->error;
+    }
+}
+
+// Retrieve category details from the database
+$id = $_GET['id'];
+$sql = "SELECT * FROM category WHERE id='$id'";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+
+// Display the category update form
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +81,7 @@ include "connect.php";
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
-            </button>
+          </button>
           <div class="search-field d-none d-md-block">
             <form class="d-flex align-items-center h-100" action="#">
               <div class="input-group">
@@ -72,7 +106,7 @@ include "connect.php";
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                 <a class="dropdown-item" href="elements.php">
                   <i class="mdi mdi-login me-2 text-primary"></i>Register now </a>
-                  <a class="dropdown-item" href="../../signout.php">
+                   <a class="dropdown-item" href="../../signout.php">
                     <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
               </div>
             </li>
@@ -119,7 +153,7 @@ include "connect.php";
                     <div class="preview-icon bg-info">
                       <i class="mdi mdi-link-variant"></i>
                     </div>
-                    </div>
+                  </div>
                   <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                     <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
                     <p class="text-gray ellipsis mb-0"> New admin wow! </p>
@@ -144,7 +178,7 @@ include "connect.php";
             <span class="mdi mdi-menu"></span>
           </button>
         </div>
-        </nav>
+      </nav>
       
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
@@ -172,7 +206,7 @@ include "connect.php";
               </a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="auctions.php">
+              <a class="nav-link" href="auctions.php">
                 <span class="menu-title">Auctions</span>
                 <i class="mdi mdi-chart-areaspline menu-icon"></i>
               </a>
@@ -199,7 +233,7 @@ include "connect.php";
               <a class="nav-link" href="informations.php">
                 <span class="menu-title">Information</span>
                 <i class="mdi mdi-note menu-icon"></i>
-                </a>
+              </a>
             </li>
             <li class="nav-item sidebar-actions">
               <span class="nav-link">
@@ -213,40 +247,48 @@ include "connect.php";
           </ul>
         </nav>
 
-        <div class="main-panel">
-          <div class="content-wrapper">
+        <!DOCTYPE html>
+<html>
+<head>
+    <title>Update Category</title>
+</head>
+<body>
+    <div class="main-panel">
+        <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title">Add Categories</h3>
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-         
-                </ol>
-              </nav>
+                <h3 class="page-title">Update Category</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <!-- Add breadcrumb here if needed -->
+                    </ol>
+                </nav>
             </div>
             <div class="row">
-              <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Categories</h4>
-                    <p class="card-description">  </p>
-                    <form action="category.php" method="post" class="forms-sample">
-                      <div class="form-group">
-                        <label for="categoryName">Category Name</label>
-                        <input type="text" class="form-control" name="categoryName" placeholder="Name" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="subCategory">Sub Category</label>
-                        <input type="text" class="form-control" name="subCategory" placeholder="Sub category" >
-                      </div>
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Categories</h4>
+                            <p class="card-description"></p>
+                            <form action="" method="post" class="forms-sample">
+                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                <div class="form-group">
+                                    <label for="categoryName">Category Name</label>
+                                    <input type="text" class="form-control" name="categoryName" placeholder="Name" value="<?php echo $row['categoryName']; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subCategory">Sub Category</label>
+                                    <input type="text" class="form-control" name="subCategory" placeholder="Sub category" value="<?php echo $row['subCategory']; ?>">
+                                </div>
 
-                      <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                      <button type="reset"class="btn btn-gradient-primary me-2">Cancel</button>
-                    </form>
-                  </div>
+                                <button type="submit" name="update" class="btn btn-gradient-primary me-2">Update</button>
+                                <a href="category_list.php" class="btn btn-gradient-primary me-2">Cancel</a>
+                            </form>
+                        </div>
                 </div>
-              </div></div>
+              
         <!-- partial -->
- <!-- content-wrapper ends -->
+          
+          <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
           <footer class="footer">
             <div class="container-fluid d-flex justify-content-between">
@@ -271,8 +313,8 @@ include "connect.php";
     <script src="../../assets/js/hoverable-collapse.js"></script>
     <script src="../../assets/js/misc.js"></script>
     <!-- endinject -->
-  <!-- Custom js for this page -->
-  <script src="../../assets/js/file-upload.js"></script>
+    <!-- Custom js for this page -->
+    <script src="../../assets/js/file-upload.js"></script>
     <!-- End custom js for this page -->
-  </body>
+  </body>
 </html>

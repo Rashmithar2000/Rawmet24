@@ -6,6 +6,85 @@ if (!isset($_SESSION['name'])){
 
 }
 include "connect.php";
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve the updated values from the form
+    $id = $_POST['id'];
+    $category = $_POST['category'];
+    $infoId = $_POST['infoId'];
+    $ir = $_POST['ir'];
+    $fe = $_POST['fe'];
+    $quantity = $_POST['quantity'];
+   
+    $dealValue = $_POST['dealValue'];
+    $dealDatetime = $_POST['dealDatetime'];
+    $docCreatedby = $_POST['docCreatedby'];
+    $location = $_POST['location'];
+    $industrialArea = $_POST['industrialArea'];
+    $companyName = $_POST['companyName'];
+    $contactPerson = $_POST['contactPerson'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    $city = $_POST['city'];
+    $state = $_POST['state'];
+    $contactNumber = $_POST['contactNumber'];
+    $whatsappNumber = $_POST['whatsappNumber'];
+    $gstin = $_POST['gstin'];
+    $orderType = $_POST['orderType'];
+    $material = $_POST['material'];
+    $specification = $_POST['specification'];
+    $dor = $_POST['dor'];
+    $expQuotation = $_POST['expQuotation'];
+
+    // Perform the update query
+    $sql = "UPDATE your_table SET
+            category = '$category',
+            infoId = '$infoId',
+            ir = '$ir',
+            fe = '$fe',
+            quantity = '$quantity',
+           
+            dealValue = '$dealValue',
+            dealDatetime = '$dealDatetime',
+            docCreatedby = '$docCreatedby',
+            location = '$location',
+            industrialArea = '$industrialArea',
+            companyName = '$companyName',
+            contactPerson = '$contactPerson',
+            email = '$email',
+            address = '$address',
+            city = '$city',
+            state = '$state',
+            contactNumber = '$contactNumber',
+            whatsappNumber = '$whatsappNumber',
+            gstin = '$gstin',
+            orderType = '$orderType',
+            material = '$material',
+            specification = '$specification',
+            dor = '$dor',
+            expQuotation = '$expQuotation'
+            WHERE id = $id";
+
+    if (mysqli_query($conn, $sql)) {
+        // Update successful
+        echo "Record updated successfully.";
+    } else {
+        // Error occurred during update
+        echo "Error updating record: " . mysqli_error($conn);
+    }
+
+    // Close the database connection
+    mysqli_close($conn);
+} else {
+    // Invalid request
+    echo "Invalid request.";
+}
+$id = $_GET['id'];
+$sql = "SELECT * FROM deals WHERE id='$id'";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,6 +234,177 @@ include "connect.php";
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
+
+
+          <div class="col-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Deals Details</h4>
+      <form action="" method="post" class="forms-sample" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select name="category" class="form-control form-control-lg" required>
+            <option>Consultancy Tenders</option>
+            <option>Procurement Tenders</option>
+            <option>Manufacturing Tenders</option>
+            <option>Disposal Tenders</option>
+            <option>Business Tenders</option>
+            <option>Public Tenders</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="infoId">Information Number</label>
+          <input type="text" class="form-control" name="infoId" placeholder="Information Number" required value="<?php echo $infoId; ?>">
+        </div>
+
+        <div class="form-group">
+          <label for="ir">IR Executive</label>
+          <input type="text" class="form-control" name="ir" placeholder="IR Executive" required value="<?php echo $ir; ?>">
+        </div>
+        <div class="form-group">
+          <label for="fe">FE Executive</label>
+          <input type="text" class="form-control" name="fe" placeholder="FE Executive" required value="<?php echo $fe; ?>">
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" required value="">&nbsp&nbsp&nbsp
+          <label for="unit">Unit:</label>
+          <select id="unit" name="unit" required>
+            <option value="">-- Select Unit --</option>
+            <option value="kg">KG</option>
+            <option value="ton">TON</option>
+            <option value="mt">MT</option>
+            <option value="nos">Nos</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="dealValue">Deal Value</label>
+          <input type="number" class="form-control" name="dealValue" placeholder="Deal Value" required value="<?php echo $dealValue; ?>">
+        </div>
+
+        <div class="form-group">
+          <label for="dealDatetime">Deal Date and Time</label>
+          <input type="datetime-local" class="form-control" name="dealDatetime" placeholder="Deal Date and Time" required value="<?php echo $dealDatetime; ?>">
+        </div>
+        <div class="form-group">
+          <label for="docCreatedby">Lead Document Created by</label>
+          <input type="text" class="form-control" name="docCreatedby" placeholder="Document Created by" required value="<?php echo $docCreatedby; ?>">
+        </div>
+        <div class="form-group">
+          <label for="location">Deal Location</label>
+          <select name="location" class="form-control form-control-lg" required>
+           
+            <option <?php if($location == "Andhra Pradesh") echo "selected"; ?>>Andhra Pradesh</option>
+            <option <?php if($location == "Arunachal Pradesh") echo "selected"; ?>>Arunachal Pradesh</option>
+            <option <?php if($location == "Assam") echo "selected"; ?>>Assam</option>
+            <option <?php if($location == "Bihar") echo "selected"; ?>>Bihar</option>
+            <option <?php if($location == "Chhattisgarh") echo "selected"; ?>>Chhattisgarh</option>
+            <option <?php if($location == "Gujarat") echo "selected"; ?>>Gujarat</option>
+            <option <?php if($location == "Haryana") echo "selected"; ?>>Haryana</option>
+            <option <?php if($location == "Himachal Pradesh") echo "selected"; ?>>Himachal Pradesh</option>
+            <option <?php if($location == "Jammu and Kashmir") echo "selected"; ?>>Jammu and Kashmir</option>
+            <option <?php if($location == "Goa") echo "selected"; ?>>Goa</option>
+            <option <?php if($location == "Jharkhand") echo "selected"; ?>>Jharkhand</option>
+            <option <?php if($location == "Karnataka") echo "selected"; ?>>Karnataka</option>
+            <option <?php if($location == "Kerala") echo "selected"; ?>>Kerala</option>
+            <option <?php if($location == "Madhya Pradesh") echo "selected"; ?>>Madhya Pradesh</option>
+            <option <?php if($location == "Maharashtra") echo "selected"; ?>>Maharashtra</option>
+            <option <?php if($location == "Manipur") echo "selected"; ?>>Manipur</option>
+            <option <?php if($location == "Meghalaya") echo "selected"; ?>>Meghalaya</option>
+            <option <?php if($location == "Mizoram") echo "selected"; ?>>Mizoram</option>
+            <option <?php if($location == "Nagaland") echo "selected"; ?>>Nagaland</option>
+            <option <?php if($location == "Odisha") echo "selected"; ?>>Odisha</option>
+            <option <?php if($location == "Punjab") echo "selected"; ?>>Punjab</option>
+            <option <?php if($location == "Rajasthan") echo "selected"; ?>>Rajasthan</option>
+            <option <?php if($location == "Sikkim") echo "selected"; ?>>Sikkim</option>
+            <option <?php if($location == "Tamil Nadu") echo "selected"; ?>>Tamil Nadu</option>
+            <option <?php if($location == "Telangana") echo "selected"; ?>>Telangana</option>
+            <option <?php if($location == "Tripura") echo "selected"; ?>>Tripura</option>
+            <option <?php if($location == "Uttarakhand") echo "selected"; ?>>Uttarakhand</option>
+            <option <?php if($location == "Uttar Pradesh") echo "selected"; ?>>Uttar Pradesh</option>
+            <option <?php if($location == "West Bengal") echo "selected"; ?>>West Bengal</option>
+            <option <?php if($location == "Andaman and Nicobar Islands") echo "selected"; ?>>Andaman and Nicobar
+            Islands</option>
+            <option <?php if($location == "Chandigarh") echo "selected"; ?>>Chandigarh</option>
+            <option <?php if($location == "Dadra and Nagar Haveli and Daman and Diu") echo "selected"; ?>>Dadra and Nagar Haveli and Daman and Diu</option>
+            <option <?php if($location == "Lakshadweep") echo "selected"; ?>>Lakshadweep</option>
+            <option <?php if($location == "Delhi") echo "selected"; ?>>Delhi</option>
+            <option <?php if($location == "Puducherry") echo "selected"; ?>>Puducherry</option>
+          </select>
+        </div>
+        <div class="form-group">
+                        <label for="contactNumber">Contact Number</label>
+                        <input type="number" class="form-control" name="contactNumber" placeholder="Contact Number" maxlength="10" required value="<?php echo $contactNumber; ?>">
+                      </div>
+                      <div class="form-group">
+                        <label for="whatsappNumber">Whatsapp Number</label>
+                        <input type="number" class="form-control" name="whatsappNumber" placeholder="Whatsapp Number" maxlength="10" required value="<?php echo $whatsappNumber; ?>"> 
+                      </div>
+                      <div class="form-group">
+                        <label for="gstin">GSTIN</label>
+                        <input type="text" class="form-control" name="gstin" placeholder="GSTIN"  maxlength="15" required value="<?php echo $gstin; ?>">
+                      </div>
+                      <div class="form-group">
+                        <label for="orderType">Order Type</label>
+                        <select name="orderType" class="form-control form-control-lg" required value="<?php echo $orderType; ?>">
+                            <option>Procurement</option>
+                            <option>Service</option>
+                  
+                          </select>
+                      </div>
+                      <p class="card-description">Requirement Description</p>
+                      <div class="form-group">
+                        <label for="material">Material</label>
+                        <input type="text" class="form-control" name="material" placeholder="Material" required value="<?php echo $material; ?>">
+                      </div>
+                    
+                      <div class="form-group">
+                        <label for="specification">Specification</label>
+                        <textarea class="form-control" placeholder="Specification" name="specification" rows="6" required value="<?php echo $specification; ?>"></textarea>
+                      </div>
+                     
+                      <div class="form-group">
+                        <label for="dor">Date of Requirement</label>
+                        <input type="datetime-local" class="form-control" name="dor" placeholder="Start Time dd-mm-yy --:--" required value="<?php echo $dor; ?>">
+                      </div>
+                      <div class="form-group">
+                        <label for="expQuotation">Expected Quotation</label>
+                        <input type="number" class="form-control" name="expQuotation" placeholder="Expected Quotation" required value="<?php echo $expQuotation; ?>">
+                      </div>
+                  
+                      <div class="form-group">
+                        <label>Deal Image upload</label>
+                        <input type="file" name="img[]" class="file-upload-default" multiple>
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" placeholder="Upload File">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                          </span>
+                        </div>
+                      </div>
+       
+
+        <div class="form-group">
+          <label for="file">Upload File</label>
+          <input type="file" name="file" class="file-upload-default" accept=".pdf, .doc, .docx">
+          <div class="input-group col-xs-12">
+            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Document">
+            <span class="input-group-append">
+              <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+            </span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <button class="btn btn-light">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
           
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
