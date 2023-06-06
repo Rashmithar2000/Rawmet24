@@ -10,7 +10,7 @@ include "connect.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Exclusive Deals</title>
+    <title>Deals</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,7 +31,7 @@ include "connect.php";
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
 <!-- <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css"> -->
 
-<script nonce="10103964-004b-4a99-b2c8-e02088e28228">(function(w,d){!function(bg,bh,bi,bj){bg[bi]=bg[bi]||{};bg[bi].executed=[];bg.zaraz={deferred:[],listeners:[]};bg.zaraz.q=[];bg.zaraz._f=function(bk){return function(){var bl=Array.prototype.slice.call(arguments);bg.zaraz.q.push({m:bk,a:bl})}};for(const bm of["track","set","debug"])bg.zaraz[bm]=bg.zaraz._f(bm);bg.zaraz.init=()=>{var=bh.getElementsByTagName(bj)[0],bo=bh.createElement(bj),bp=bh.getElementsByTagName("title")[0];bp&&(bg[bi].t=bh.getElementsByTagName("title")[0].text);bg[bi].x=Math.random();bg[bi].w=bg.screen.width;bg[bi].h=bg.screen.height;bg[bi].j=bg.innerHeight;bg[bi].e=bg.innerWidth;bg[bi].l=bg.location.href;bg[bi].r=bh.referrer;bg[bi].k=bg.screen.colorDepth;bg[bi].n=bh.characterSet;bg[bi].o=(new Date).getTimezoneOffset();if(bg.dataLayer)for(const bt of Object.entries(Object.entries(dataLayer).reduce(((bu,bv)=>({...bu[1],...bv[1]})))))zaraz.set(bt[0],bt[1],{scope:"page"});bg[bi].q=[];for(;bg.zaraz.q.length;){const bw=bg.zaraz.q.shift();bg[bi].q.push(bw)}bo.defer=!0;for(const bx of[localStorage,sessionStorage])Object.keys(bx||{}).filter((bz=>bz.startsWith("_zaraz_"))).forEach((by=>{try{bg[bi]["z_"+by.slice(7)]=JSON.parse(bx.getItem(by))}catch{bg[bi]["z_"+by.slice(7)]=bx.getItem(by)}}));bo.referrerPolicy="origin";bo.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(bg[bi])));bn.parentNode.insertBefore(bo,bn)};["complete","interactive"].includes(bh.readyState)?zaraz.init():bg.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document);</script></head>
+<script nonce="10103964-004b-4a99-b2c8-e02088e28228">(function(w,d){!function(bg,bh,bi,bj){bg[bi]=bg[bi]||{};bg[bi].executed=[];bg.zaraz={deferred:[],listeners:[]};bg.zaraz.q=[];bg.zaraz._f=function(bk){return function(){var bl=Array.prototype.slice.call(arguments);bg.zaraz.q.push({m:bk,a:bl})}};for(const bm of["track","set","debug"])bg.zaraz[bm]=bg.zaraz._f(bm);bg.zaraz.init=()=>{var bn=bh.getElementsByTagName(bj)[0],bo=bh.createElement(bj),bp=bh.getElementsByTagName("title")[0];bp&&(bg[bi].t=bh.getElementsByTagName("title")[0].text);bg[bi].x=Math.random();bg[bi].w=bg.screen.width;bg[bi].h=bg.screen.height;bg[bi].j=bg.innerHeight;bg[bi].e=bg.innerWidth;bg[bi].l=bg.location.href;bg[bi].r=bh.referrer;bg[bi].k=bg.screen.colorDepth;bg[bi].n=bh.characterSet;bg[bi].o=(new Date).getTimezoneOffset();if(bg.dataLayer)for(const bt of Object.entries(Object.entries(dataLayer).reduce(((bu,bv)=>({...bu[1],...bv[1]})))))zaraz.set(bt[0],bt[1],{scope:"page"});bg[bi].q=[];for(;bg.zaraz.q.length;){const bw=bg.zaraz.q.shift();bg[bi].q.push(bw)}bo.defer=!0;for(const bx of[localStorage,sessionStorage])Object.keys(bx||{}).filter((bz=>bz.startsWith("_zaraz_"))).forEach((by=>{try{bg[bi]["z_"+by.slice(7)]=JSON.parse(bx.getItem(by))}catch{bg[bi]["z_"+by.slice(7)]=bx.getItem(by)}}));bo.referrerPolicy="origin";bo.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(bg[bi])));bn.parentNode.insertBefore(bo,bn)};["complete","interactive"].includes(bh.readyState)?zaraz.init():bg.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document);</script></head>
 </head>
 <body>
   <style>
@@ -49,7 +49,7 @@ include "connect.php";
     </style>
   
 <div class="strip">
-  <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: 08042332722</a> 
+  <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: +91 9945454505</a> 
   <div class="container-fluid px-md-5">
   <div id="typedtext" class="ml-5"  style="color: white;">
 </div>
@@ -95,6 +95,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
     display: none;
   }
 }
+.countdown-btn {
+  padding: 5px;
+  border-color: #0c0c0c;
+  border-radius: 20px;
+  color: #333131;
+  background-color: #ffffff;
+}
 .card {
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -136,7 +143,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
           Hi! <?php echo $_SESSION['buyer_name'];?>&nbsp&nbsp
               <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
 
-<?php
+
+</div><?php
 } ?>
 </section>
 
@@ -148,11 +156,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="collapse navbar-collapse" id="ftco-nav">
 <ul class="navbar-nav m-auto">
 <li class="nav-item "><a href="home.php" class="nav-link">Home</a></li>
-<li class="nav-item"><a href="tender.php" class="nav-link">Tenders</a></li>
+<li class="nav-item "><a href="tender.php" class="nav-link">Tenders</a></li>
 
-<li class="nav-item "><a href="auction.php" class="nav-link">Auctions</a></li>
-<li class="nav-item "><a href="deals.php" class="nav-link">Deals</a></li>
-<li class="nav-item active"><a href="#" class="nav-link">Exclusive Deals</a></li>
+<li class="nav-item  "><a href="auction.php" class="nav-link">Auctions</a></li>
+<li class="nav-item  "><a href="deals.php" class="nav-link">Deals</a></li>
+<li class="nav-item active"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
 <li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
 <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
@@ -164,10 +172,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 <section class="home">
-  <br>
-
-
-  <div class="container">
+<br><br>
+<div class="container">
 
 <div class="row ">
   <div class="col-12 col-md-10 col-lg-8">         
@@ -185,7 +191,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
           <select name="sort" id="tender" style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;"
             placeholder="Search ">
             
-            <option value="excludeals">Exclusive Deals</option>
+            <option value="deals">Exclusive Deals</option>
 
           </select>
 
@@ -198,22 +204,21 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </div>
 </div></div>
  <center>
- <h2 style="color: #7e828b;">EXCLUSIVE DEALS</h2> </center>
- <div class="container">
+ <h2 style="color: #7e828b;">Exclusive DEALS</h2> </center>
+    <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <form action="exclusivedeals.php?l=" method="GET">
+                <form action="exclusive_search.php?l=" method="GET">
                     <div class="card shadow mt-3">
                         <div class="card-header">
                             <h5>Filter&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <button type="submit" class="btn btn-primary btn-sm float-end">Search</button>
+                                <button type="submit" class="btn btn-primary btn-sm float-end" >Search</button>
                             </h5>
                         </div>
                         <div class="card-body">
                             <h6>Location</h6>
                             <hr>
                             <?php
-                           
 
                             $brand_query = "SELECT * FROM location";
                             $brand_query_run = mysqli_query($con, $brand_query);
@@ -293,31 +298,31 @@ body {font-family: Arial, Helvetica, sans-serif;}
                             //print_r($branchecked);die;
                             //echo $branchecked; die;
                             foreach ($branchecked as $rowbrand) {
-                                 $sql = "SELECT * FROM exclusive_deals WHERE location='".$rowbrand."'";
+                                 $sql = "SELECT * FROM exclusive_deals WHERE aucLocation='".$rowbrand."'";
 
                                 $result = mysqli_query($con, $sql);
                                 if (mysqli_num_rows($result) > 0) {
                                     foreach ($result as $row):
                                         ?>
-                                               <div class="col-md-12 grid-margin stretch-card">
+                                       <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> | Bid Before : <?php echo $row['dealDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?></h5>
-    <p style="color:#3b8beb;"><?php echo $row['specification'];?></p>
+                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button class="countdown-btn"  style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 60px;">4 Days to go</button></h6>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">
+                        MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?>
+                        </h5>
+    <p><?php echo $row['specification'];?></p>
    
 
-    <a href="excluedeal_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Exclusive Deal</button></a></h6>
+    <a href="deal_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Deal</button></a></h6>
                       </div>
                     </div>
                   </div>
-                  
-                  
                                         <?php
                                     endforeach;
-                                }else{
+                                } else{
                                   echo "No result is found";
-                                 }
+                                }
 
                             }
                         }else if (isset($_GET['materials'])) {
@@ -332,66 +337,76 @@ body {font-family: Arial, Helvetica, sans-serif;}
                               if (mysqli_num_rows($result) > 0) {
                                   foreach ($result as $row):
                                       ?>
-                                    <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> | Bid Before : <?php echo $row['dealDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?></h5>
-    <p style="color:#3b8beb;"><?php echo $row['specification'];?></p>
-   
+                                     <div class="col-md-12 grid-margin stretch-card">
+                  <div class="card">
+                      <div class="card-body">
+                                            <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button class="countdown-btn" style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 60px;">4 Days to go</button></h6>
+                      <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">
+                      MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?>
+                      </h5>
+  <p><?php echo $row['specification'];?></p>
+ 
 
-    <a href="excluedeal_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Exclusive Deal</button></a></h6>
-                      </div>
+  <a href="excluedeal_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Deal</button></a></h6>
                     </div>
                   </div>
-                  
+                </div>
                 
                                       <?php
                                   endforeach;
-                              }else{
-                                echo "No result is found";
-                               }
+                              }else {
+                                echo "No Items Found";
+                            }
 
                           }
                       } 
                         else {
-                            $sql = "SELECT * FROM exclusive_deals";
-                            $result = mysqli_query($con, $sql);
-                            if (mysqli_num_rows($result) > 0) {
-                                foreach ($result as $row):
-                                    ?>
-                      <div class="col-md-12 grid-margin stretch-card">
+                          if(isset($_GET['search'])){
+                            $a = $_GET['search'];
+                           
+                            $sql = "select * from exclusive_deals WHERE material LIKE '$a%' OR 	specification LIKE '$a%' ";
+                               $result = mysqli_query($con, $sql);
+                               //print_r($result);die;
+                               if (mysqli_num_rows($result) > 0) {
+                                 while ($row = mysqli_fetch_assoc($result)) {
+                                   //print_r($row);die;
+                                   ?>
+                                    <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> | Bid Before : <?php echo $row['dealDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?></h5>
-    <p style="color:#3b8beb;"><?php echo $row['specification'];?></p>
+                                              <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?>| Biz value : <?php echo $row['expQuotation'];?> Bn | Bid Before : <?php echo $row['dealDatetime'];?> <button class="countdown-btn" style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 60px;">4 Days to go</button></h6>
+                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">
+                        MATERIAL:&nbsp<?php echo $row['material'];?><br><br>QUANTITY:&nbsp<?php echo $row['quantity'];?>
+                        </h5>
+    <p><?php echo $row['specification'];?></p>
    
 
-    <a href="excluedeal_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Exclusive Deal</button></a></h6>
+    <a href="deal_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Deal</button></a></h6>
                       </div>
                     </div>
                   </div>
-                  
-                                <?php
-                                endforeach;
-                            } else {
-                                echo "No Items Found";
-                            }
-                        }
+                                   <?php
+                                 }
+                               }else{
+                                echo "No result is found";
+                               }
+                     
+                     
+                             }}
                         ?>
                 </div>
             </div>
         </div>
     </div>
     </div>
-    </div>
-
-<br>
-<center style="color: #3b8beb;"> 
+    <br><br>
+    <center style="color: #3b8beb;"> 
 
 
-  
+    <!-- Remove the container if you want to extend the Footer to full width. -->
+   
+    <br><br>
+
 
 <!-- Footer -->
 
@@ -406,13 +421,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <img src="image/rawmetlogo.jpeg" width="60px" height="50px" style="border-radius: 5px;">
     </div>
     <div class="icon" style="font-size: 35px; padding-right: 0px;word-spacing: 10px;">
-      <a href="https://www.facebook.com/profile.php?id=100089553145382" class="text-white me-4">
+      <a href="" class="text-white me-4">
         <i class="fa-brands fa-square-facebook"></i>
       </a>
-      <a href="https://www.linkedin.com/company/shopemet/" class="text-white me-4">
+      <a href="" class="text-white me-4">
         <i class="fa-brands fa-linkedin"></i>
       </a>
-      <a href="https://www.instagram.com/shopemet/" class="text-white me-4">
+      <a href="" class="text-white me-4">
         <i class="fa-brands fa-instagram"></i>
       </a>
 
@@ -430,11 +445,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <!-- Grid column -->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
-          <h6 class="text-uppercase fw-bold" style="color: #fff;">Rawmet24</h6>
+          <h6 class="text-uppercase fw-bold" style="color: #fff;">Company name</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
-            Our concept is to provide the complete information solution that enables each trader to 
-            diversify their trading profile in order to maximize their returns.
+            SHOPEMET is a world class general Refined metal trading company that has served as a foundation for growth
+            of basic material industry in India
           </p>
         </div>
         <!-- Grid column -->
@@ -446,28 +461,27 @@ body {font-family: Arial, Helvetica, sans-serif;}
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
           <p>
             <a href="aboutus.php" class="text-white">About Us</a>
-      
+          
           </p>
        
           <p>
+          </p>
+          <p>
             <a href="policy.php" class="text-white">Privacy Policy</a>
           </p>
-         
           <p>
             <a href="terms_of_service.php" class="text-white">Terms of Service</a>
-          
           </p>
+
         </div>
    
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Contact</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
-          <p><i class="fa fa-envelope" aria-hidden="true"></i> info@Rawmet24.com
-          </p>
-          <p><i class="fa fa-envelope" aria-hidden="true"></i>support@Rawmet24.com
-          </p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i> shopemet@gmail.com</p>
           <p><i class="fa fa-phone" aria-hidden="true"></i> +91 8766443234</p>
+          <p><i class="fa fa-phone" aria-hidden="true"></i> +91 1234567819</p>
         </div>
         <!-- Grid column -->
       </div>
@@ -480,7 +494,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
 
     © 2023
-    <a class="text-white" href="https://mdbootstrap.com/">info@Rawmet24.com</a>
+    <a class="text-white" href="https://mdbootstrap.com/">shopemet.com</a>
   </div>
   <!-- Copyright -->
 </footer>
@@ -497,7 +511,7 @@ function myFunction() {
     //alert("tenders");
     window.location.replace('auction_search.php?search='+idval);
     return false;
-  }else if (val=="excludeals") {
+  }else if (val=="deals") {
     //alert("tenders");
     window.location.replace('exclusive_search.php?search='+idval);
     return false;
@@ -505,6 +519,7 @@ function myFunction() {
 }
 </script>
 
+// <script src="js/toggle.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -515,5 +530,7 @@ function myFunction() {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+
+</body>
+
 </html>
