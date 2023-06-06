@@ -149,7 +149,7 @@ a:hover{
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/forms/auctions.php">Auction detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/forms/auctions.php">Add Auction</a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/forms/editAuclist.php">Edit Auctions</a></li>
                 </ul>
               </div>
@@ -162,7 +162,7 @@ a:hover{
               </a>
               <div class="collapse" id="ui-basic1">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/forms/tenders.php">Tender detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/forms/tenders.php">Add Tender</a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/forms/editTendlist.php">Edit Tender</a></li>
                 </ul>
               </div>
@@ -175,9 +175,9 @@ a:hover{
               </a>
               <div class="collapse" id="ui-basic2">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/forms/deals.php">Deal detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/forms/deals.php">Add Deal</a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/forms/editDeallist.php">Edit Deal</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/forms/exclusivedeals.php">Exclusive Deal detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/forms/exclusivedeals.php">Add Exclusive Deal</a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/forms/editExcllist.php">Edit Exclusive Deal</a></li>
                
                 </ul>
@@ -191,7 +191,7 @@ a:hover{
               </a>
               <div class="collapse" id="ui-basic3">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/forms/informations.php">Info detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/forms/informations.php">Add Info</a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/forms/editinfolist.php">Edit Info</a></li>
                 </ul>
               </div>
@@ -281,7 +281,7 @@ a:hover{
           <!-- partial:partials/_footer.html -->
           <footer class="footer">
             <div class="container-fluid d-flex justify-content-between">
-              <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © rawmet24.com 2021</span>
+              <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © rawmet24.com 2023</span>
               <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> <a href="https://www.rawmet24.com/" target="_blank"></a>  rawmet24.com</span>
             </div>
           </footer>
