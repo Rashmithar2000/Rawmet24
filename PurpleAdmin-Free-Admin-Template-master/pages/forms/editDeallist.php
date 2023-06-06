@@ -117,35 +117,60 @@ include "connect.php";
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="auctions.php">
+             <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Auctions</span>
+                <i class="menu-arrow"></i>
                 <i class="mdi mdi-chart-areaspline menu-icon"></i>
               </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="auctions.php">Auction detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editAuclist.php">Edit Auctions</a></li>
+                </ul>
+              </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="tenders.php">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Tenders</span>
+                <i class="menu-arrow"></i>
                 <i class="mdi mdi-animation menu-icon"></i>
               </a>
+              <div class="collapse" id="ui-basic1">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="tenders.php">Tender detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editTendlist.php">Edit Tender</a></li>
+                </ul>
+              </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="deals.php">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Deals</span>
-                <i class="mdi mdi-drawing-box menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="exclusivedeals.php">
-                <span class="menu-title">Exclusive Deals</span>
+                <i class="menu-arrow"></i>
                 <i class="mdi mdi-diamond menu-icon"></i>
               </a>
+              <div class="collapse" id="ui-basic2">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="deals.php">Deal detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editDeallist.php">Edit Deal</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="exclusivedeals.php">Exclusive Deal detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editExcllist.php">Edit Exclusive Deal</a></li>
+               
+                </ul>
+              </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="informations.php">
-                <span class="menu-title">Information</span>
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Informations</span>
+                <i class="menu-arrow"></i>
                 <i class="mdi mdi-note menu-icon"></i>
               </a>
+              <div class="collapse" id="ui-basic3">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="informations.php">Info detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editinfolist.php">Edit Info</a></li>
+                </ul>
+              </div>
             </li>
             <li class="nav-item sidebar-actions">
               <span class="nav-link">
