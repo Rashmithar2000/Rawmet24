@@ -208,86 +208,57 @@ include "connect.php";
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="pages/forms/elements.html">
-                  <span class="menu-title">Auctions</span>
-                  <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="pages/forms/elements.html">
-                  <span class="menu-title">Tenders</span>
-                  <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="pages/forms/elements.html">
-                  <span class="menu-title">Deals</span>
-                  <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="pages/forms/elements.html">
-                  <span class="menu-title">Exclusive Deals</span>
-                  <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="pages/forms/elements.html">
-                  <span class="menu-title">Procure</span>
-                  <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                </a>
-              </li>
-              <br><br>
-              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                  <span class="menu-title">Basic UI Elements</span>
-                  <i class="menu-arrow"></i>
-                  <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-                </a>
-                <div class="collapse" id="ui-basic">
-                  <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                  </ul>
-                </div>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../pages/icons/mdi.html">
-                <span class="menu-title">Icons</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../pages/forms/basic_elements.html">
-                <span class="menu-title">Forms</span>
-                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../pages/charts/chartjs.html">
-                <span class="menu-title">Charts</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../pages/tables/basic-table.html">
-                <span class="menu-title">Tables</span>
-                <i class="mdi mdi-table-large menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-                <span class="menu-title">Sample Pages</span>
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Auctions</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-medical-bag menu-icon"></i>
+                <i class="mdi mdi-chart-areaspline menu-icon"></i>
               </a>
-              <div class="collapse" id="general-pages">
+              <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/samples/blank-page.html"> Blank Page </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login.html"> Login </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register.html"> Register </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/samples/error-404.html"> 404 </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/samples/error-500.html"> 500 </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="auctions.php">Auction detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editAuclist.php">Edit Auctions</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Tenders</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-animation menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic1">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="tenders.php">Tender detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editTendlist.php">Edit Tender</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Deals</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-diamond menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic2">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="deals.php">Deal detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editDeallist.php">Edit Deal</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="exclusivedeals.php">Exclusive Deal detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editExcllist.php">Edit Exclusive Deal</a></li>
+               
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Informations</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-note menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic3">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="informations.php">Info detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editinfolist.php">Edit Info</a></li>
                 </ul>
               </div>
             </li>
