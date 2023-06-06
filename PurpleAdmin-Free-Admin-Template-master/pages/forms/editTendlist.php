@@ -232,7 +232,7 @@ $conn->close();
                 </form>
                 <form action="deleteTend.php?g=<?php echo $row['id'];?>" method="POST">
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" ><a href="deleteTend.php? id='.$id.'"><i class="fa fa-solid fa-trash"></i></a> </button>
+                <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" ><a href="deleteAuc.php? id='.$id.'"><i class="fa fa-solid fa-trash"></i></a> </button>
                 </form></td>
               </td>
       </tr>
