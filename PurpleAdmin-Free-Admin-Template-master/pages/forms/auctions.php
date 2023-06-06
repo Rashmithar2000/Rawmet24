@@ -247,8 +247,27 @@ include "connect.php";
                       </div>
 
                       <div class="form-group">
-                        <label for="material">Material</label>
-                        <input type="text" class="form-control" name="material" placeholder="Material">
+                        <label for="material">Material</label> &nbsp;
+                        <select name="" id="" style="inline-size:100%">
+                          <option >....Select One.... </option>
+                          <hr>
+                          <?php
+                          $sql = "SELECT DISTINCT metal FROM metal";
+                          $result= mysqli_query($conn,$sql);
+                          if ($result) {
+
+                            while ($row = mysqli_fetch_assoc($result)) {
+        
+                              ?>
+                              <option value="<?php echo $row['metal']; ?>"><?php echo $row['metal']; ?></option>
+                            <?php }
+                          }
+                          ?>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="matDics">Material Discription</label>
+                        <input type="text" class="form-control" name="matDics" placeholder="Material Discription" required>
                       </div>
                       <div class="form-group">
                         <label for="quantity">Quantity</label>
