@@ -236,7 +236,12 @@ $conn->close();
                 <td><form action="fetchExcl.php?g=<?php echo $row['id'];?>" method="GET">
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                 <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" style="width:auto;margin-bottom:22px"><a href="fetchExcl.php?id='.$id.'"><i class="fa fa-solid fa-pen"></i></a> </button>
-                </form></td>
+                </form>
+                <form action="deleteExcl.php?g=<?php echo $row['id'];?>" method="POST">
+                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" ><a href="deleteExcl.php? id='.$id.'"><i class="fa fa-solid fa-trash"></i></a> </button>
+                </form>
+              </td>
       </tr>
     <?php } ?>
   </tbody>
