@@ -100,7 +100,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     border-radius: 5px;
     margin-bottom: 20px;
   }
-  
+  .sandy {
    
 
   }
@@ -170,38 +170,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 <section class="home">
-<br><br>
-<div class="container">
-
-<div class="row ">
-  <div class="col-12 col-md-10 col-lg-8">         
-
-      <div class="card card-sm">
-        <div class="card-body row no-gutters align-items-center" style="background-color: #eae9e9;">
-          <div class="col-auto">
-            <i class="fa fa-search" style="font-size: 30px; margin-right: 8px;"></i>
-          </div>
-          <!--end of col-->
-          <div class="col">
-            <input class="form-control form-control-lg form-control-borderless" type="search" id="meterial"
-              placeholder="Search for Tenders" style="padding:10px 0px 10px 6px; margin-right: 100px;">
-          </div>
-          <select name="sort" id="tender" style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;"
-            placeholder="Search ">
-            
-            <option value="tenders">Tenders</option>
-            
-
-          </select>
-
-          <div class="col-auto">
-            <button class="btn btn-primary" onclick="myFunction()" type="submit">Search</button>
-          </div>
-        </div>
-      
-  </div>
-</div>
-</div></div>
+<br>
  <center>
  <h2 style="color: #7e828b;">TENDERS</h2> </center>
     <div class="container">
@@ -301,13 +270,20 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                 $result = mysqli_query($con, $sql);
                                 if (mysqli_num_rows($result) > 0) {
                                     foreach ($result as $row):
+                                      $endDatetime = new DateTime($row['endDatetime']);
+                                    $currentDate = new DateTime();
+                                    $interval = $currentDate->diff($endDatetime);
+                                    $daysToGo = $interval->format('%a');
+                            
+                                    $status = ($currentDate > $endDatetime) ? " ago" : " to go";
+                                    $daysText = ($status == " ago") ? "Days" : "Days";
                                         ?>
                         <div class="col-md-12 grid-margin stretch-card">
                       <div class="sandy">
                     <div class="card">
                     <div class="card-body">
                     <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>
-                    | Approximate Value : <?php echo $row['tenderValue'];?> | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                    | Approximate Value : <?php echo $row['tenderValue'];?> | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button></h6>
                         <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
                         <p><?php echo $row['tenderDesc'];?></p>
                         <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
@@ -332,12 +308,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
                               $result = mysqli_query($con, $sql);
                               if (mysqli_num_rows($result) > 0) {
                                   foreach ($result as $row):
+                                    $endDatetime = new DateTime($row['endDatetime']);
+                                    $currentDate = new DateTime();
+                                    $interval = $currentDate->diff($endDatetime);
+                                    $daysToGo = $interval->format('%a');
+                            
+                                    $status = ($currentDate > $endDatetime) ? " ago" : " to go";
+                                    $daysText = ($status == " ago") ? "Days" : "Days";
                                       ?>
                                      <div class="col-md-12 grid-margin stretch-card">
                   <div class="card">
                   <div class="card-body">
                   <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>
-                  | Approximate Value : <?php echo $row['tenderValue'];?> | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                  | Approximate Value : <?php echo $row['tenderValue'];?> | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button></h6>
                       <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
                   
                       <p><?php echo $row['tenderDesc'];?></p>
@@ -359,13 +342,21 @@ body {font-family: Arial, Helvetica, sans-serif;}
                             $result = mysqli_query($con, $sql);
                             if (mysqli_num_rows($result) > 0) {
                                 foreach ($result as $row):
+                                  $endDatetime = new DateTime($row['endDatetime']);
+                                  $currentDate = new DateTime();
+                                  $interval = $currentDate->diff($endDatetime);
+                                  $daysToGo = $interval->format('%a');
+                          
+                                  $status = ($currentDate > $endDatetime) ? " ago" : " to go";
+                                  $daysText = ($status == " ago") ? "Days" : "Days";
+
                                     ?>
                                     <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                                               <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>| Biz value : <?php echo $row['tenderValue'];?> | Bid Before : 
                                                 <?php echo $row['endDatetime'];?>
-                                                 <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                                                 <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button></h6>
                         <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">QUANTITY:&nbsp<?php echo $row['quantity'];?><br> <br>
                         MATERIAL :&nbsp<?php echo $row['material'];?>&nbsp 
                         </h5>
@@ -486,28 +477,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
   </div>
   <!-- Copyright -->
 </footer>
-<script>
-function myFunction() {
-  var val = document.getElementById("tender").value;
-  var idval =document.getElementById("meterial").value;
-  //alert(idval);return false;
-  if (val=="tenders") {
-    //alert("tenders");
-    window.location.replace('tender_search.php?search='+idval);
-    return false;
-  } else  if (val=="auction") {
-    //alert("tenders");
-    window.location.replace('auction_search.php?search='+idval);
-    return false;
-  }else if (val=="deals") {
-    //alert("tenders");
-    window.location.replace('deals_search.php?search='+idval);
-    return false;
-  }
-}
-</script>
+
  <script src="js/toggle.js"></script>
- 
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
