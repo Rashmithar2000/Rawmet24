@@ -201,8 +201,7 @@ $conn->close();
         <td><?php echo $row['location']; ?></td>
         <td><?php echo $row['quantity']; ?></td>      
         <td><?php echo $row['material']; ?></td>
-        <!-- <td> </td> -->
-                <td><form action="fetchTend.php?g=<?php echo $row['id'];?>" method="GET">
+ <td><form action="fetchTend.php?g=<?php echo $row['id'];?>" method="GET">
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                 <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" style="width:auto;margin-bottom:22px"><a href="fetchTend.php?id='.$id.'"><i class="fa fa-solid fa-pen"></i></a> </button>
                 </form></td>
