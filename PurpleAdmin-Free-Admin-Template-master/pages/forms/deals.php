@@ -112,11 +112,11 @@ include "connect.php";
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Auctions</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-chart-areaspline menu-icon"></i>
+                <i class="mdi mdi-chart-areaspline  menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic">
+             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="auctions.php">Auction detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="auctions.php">Add Auction </a></li>
                   <li class="nav-item"> <a class="nav-link" href="editAuclist.php">Edit Auctions</a></li>
                 </ul>
               </div>
@@ -129,7 +129,7 @@ include "connect.php";
               </a>
               <div class="collapse" id="ui-basic1">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="tenders.php">Tender detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="tenders.php">Add Tender</a></li>
                   <li class="nav-item"> <a class="nav-link" href="editTendlist.php">Edit Tender</a></li>
                 </ul>
               </div>
@@ -142,9 +142,9 @@ include "connect.php";
               </a>
               <div class="collapse" id="ui-basic2">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="deals.php">Deal detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="deals.php">Add Deal</a></li>
                   <li class="nav-item"> <a class="nav-link" href="editDeallist.php">Edit Deal</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="exclusivedeals.php">Exclusive Deal detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="exclusivedeals.php">Add Exclusive Deal</a></li>
                   <li class="nav-item"> <a class="nav-link" href="editExcllist.php">Edit Exclusive Deal</a></li>
                
                 </ul>
@@ -158,7 +158,7 @@ include "connect.php";
               </a>
               <div class="collapse" id="ui-basic3">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="informations.php">Info detail</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="informations.php">Add Info</a></li>
                   <li class="nav-item"> <a class="nav-link" href="editinfolist.php">Edit Info</a></li>
                 </ul>
               </div>
@@ -737,7 +737,7 @@ include "connect.php";
           <!-- partial:../../partials/_footer.html -->
           <footer class="footer">
             <div class="container-fluid d-flex justify-content-between">
-              <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © rawmet24.com 2021</span>
+              <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © rawmet24.com 2023</span>
               <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> <a href="https://www.rawmet24.com/" target="_blank"></a>  rawmet24.com</span>
             </div>
           </footer>
