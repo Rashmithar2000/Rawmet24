@@ -100,6 +100,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
     border-radius: 5px;
     margin-bottom: 20px;
   }
+  .sandy {
+   
+
+  }
 </style>
 <section class="ftco-section" style="padding-top: 5px;">
   
@@ -267,19 +271,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                 if (mysqli_num_rows($result) > 0) {
                                     foreach ($result as $row):
                                         ?>
-                                       <div class="col-md-12 grid-margin stretch-card">
+                        <div class="col-md-12 grid-margin stretch-card">
+                      <div class="sandy">
                     <div class="card">
                     <div class="card-body">
                     <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>
                     | Approximate Value : <?php echo $row['tenderValue'];?> | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
                         <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
-                    
                         <p><?php echo $row['tenderDesc'];?></p>
-
-    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
+                        <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
                       </div>
                     </div>
-                  </div>
+                  </div></div>
                                         <?php
                                     endforeach;
                                 }else {

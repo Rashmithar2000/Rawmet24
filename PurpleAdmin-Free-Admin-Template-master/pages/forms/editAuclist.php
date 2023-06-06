@@ -42,7 +42,13 @@ include "connect.php";
       color: #ffffff;
     }
     
-    
+    @media (max-width: 767px) {
+  .card-title {
+    font-size: 16px;
+  }
+
+  /* Adjust other styles as needed */
+}
       </style>
   <body>
 
@@ -154,23 +160,30 @@ include "connect.php";
             </li>
           </ul>
         </nav>
+  
         <!-- partial -->
-        <div class="main-panel">
+        <div class="col-lg-10 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Auctions</h4><br>
+                    <table class="table table-hover table-responsive">
+    
           
-          <table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Sector</th>
-      <th>Ownership</th>
-      <th>Start Time</th>
-      <th>End Time</th>
-      <th>Auc Value</th>
-      <th>Location</th>
-      <th>Quantity</th>
-      <th>Material</th>
-      <th>Action</th>
-    </tr>
-  </thead>
+          
+                    <thead>
+  <tr>
+    <th class="col-2">Sector</th>
+    <th class="col-2">Ownership</th>
+    <th class="col-3">Start Time</th>
+    <th class="col-3">End Time</th>
+    <th class="col-1">Auc Value</th>
+    <th class="col-1">Location</th>
+    <th class="col-1">Quantity</th>
+    <th class="col-1">Material</th>
+    <th class="col-6">Action</th>
+  </tr>
+</thead>
+
   <tbody>
   <?php
 include_once "connect.php";
@@ -212,10 +225,10 @@ $conn->close();
     <?php } ?>
   </tbody>
 </table>
-
-         
-          </div>
-        </div>
+</div></div></div>
+        </div></div>
+        
+        
 
 
           <!-- content-wrapper ends -->
