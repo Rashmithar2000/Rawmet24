@@ -272,7 +272,7 @@ include "connect.php";
                       </div>
 
                       <div class="form-group">
-                        <label for="material">Material</label> &nbsp;
+                        <label for="material">Material</label> 
                         <select name="" id="" style="inline-size:100%">
                           <option >....Select One.... </option>
                           <hr>
