@@ -165,7 +165,41 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </section>
 
 <section class="home">
-<br>
+<br><br>
+<div class="container">
+
+<div class="row ">
+  <div class="col-12 col-md-10 col-lg-8">         
+
+      <div class="card card-sm">
+        <div class="card-body row no-gutters align-items-center" style="background-color: #eae9e9;">
+          <div class="col-auto">
+            <i class="fa fa-search" style="font-size: 30px; margin-right: 8px;"></i>
+          </div>
+          <!--end of col-->
+          <div class="col">
+            <input class="form-control form-control-lg form-control-borderless" type="search" id="meterial"
+              placeholder="Search for Auctions" style="padding:10px 0px 10px 6px; margin-right: 100px;">
+          </div>
+          <select name="sort" id="tender" style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;"
+            placeholder="Search ">
+            
+            
+            <option value="auction">Auctions</option>
+            
+
+          </select>
+
+          <div class="col-auto">
+            <button class="btn btn-primary" onclick="myFunction()" type="submit">Search</button>
+          </div>
+        </div>
+      
+  </div>
+</div>
+</div>
+</div>
+
  <center>
  <h2 style="color: #7e828b;">AUCTIONS</h2> </center>
     <div class="container">
@@ -452,9 +486,28 @@ body {font-family: Arial, Helvetica, sans-serif;}
   </div>
   <!-- Copyright -->
 </footer>
+</div>
 
-
-
+<script>
+function myFunction() {
+  var val = document.getElementById("tender").value;
+  var idval =document.getElementById("meterial").value;
+  //alert(idval);return false;
+  if (val=="tenders") {
+    //alert("tenders");
+    window.location.replace('tender_search.php?search='+idval);
+    return false;
+  } else  if (val=="auction") {
+    //alert("tenders");
+    window.location.replace('auction_search.php?search='+idval);
+    return false;
+  }else if (val=="deals") {
+    //alert("tenders");
+    window.location.replace('deals_search.php?search='+idval);
+    return false;
+  }
+}
+</script>
 
 <script src="js/toggle.js"></script>
 <script src="js/jquery.min.js"></script>
