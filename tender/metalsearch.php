@@ -34,6 +34,9 @@ include "connect.php";
   <link rel="stylesheet" type="text/css"
     href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
   <!-- <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css"> -->
+<!-- Add these links in the head section of your HTML document -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
   <link rel="stylesheet" href="metalprice.css">
   <script
@@ -484,7 +487,14 @@ include "connect.php";
 
 
   </div>
-
+  <script>
+    $(document).ready(function() {
+      $('#keywords').DataTable();
+    });
+  </script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
