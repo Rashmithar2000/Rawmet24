@@ -467,113 +467,7 @@ include "connect.php";
           </div>
       </section>
 
-
-      <!-- <div class="container" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333231; background-color: #ffffff;">
-  <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Auctions</h2>
-  <div class="card-body">
-    <article class="scroller">
-      <?php
-      $sql = "select * from auction";
-      $result = mysqli_query($con, $sql);
-
-            if ($result) {
-              while ($row = mysqli_fetch_assoc($result)) {
-                
-
-                ?>
-                <section>
-                <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 750px;">4 Days to go</button>
-                          <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?>  </h5>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> Approximate Business : ₹<?php echo $row['aucValue']; ?></h5>
-                        Bid Before :<?php echo $row['endDatetime'];?>
-                 
-    <p style="color:#3b8beb;">&nbsp<?php echo $row['aucDescription'];?></p>
-
-                  <a href="auction_page.php?g=<?php echo $row['id'];?>"><button
-                      style="padding:4px; border-radius: 6px; font-size: 100%;" class="btn btn-primary"
-                      type="submit">View Auction</button></h6></a>
-                </section>
-                <hr>
-
-                <?php
-              }
-            }
-            ?>
-          </article>
-        </div>
-      </div> -->
-      <br>
-      <!-- <div class="container"
-        style="padding:3% ;border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
-        <h2 class="GFG" style="color:#3b8beb; font-family: 'Montserrat', sans-serif;">Tenders</h2>
-        <div class="card-body">
-          <article class="scroller">
-            <?php
-            $sql = "select * from tenders";
-            $result = mysqli_query($con, $sql);
-            //print_r($result);die;
-            if ($result) {
-              while ($row = mysqli_fetch_assoc($result)) {
-                //print_r($row);die;
-                ?>
-                <section>
-                <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 750px;">4 Days to go</button>
-                 <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?>  </h5>
-                <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">Approximate Business: ₹<?php echo $row['tenderValue']; ?> </h5>
-                        Bid Before :<?php echo $row['startDatetime'];?>
-                  
-    <p style="color:#3b8beb;"> &nbsp<?php echo $row['tenderDesc'];?></p>
-    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button
-                      style="padding:4px; border-radius: 6px; font-size: 100%;" class="btn btn-primary"
-                      type="submit">View Tender</button></h6></a>
-                <hr>
-                <?php
-              }
-            }
-            ?>
-
-          </article>
-        </div>
-      </div> -->
-      <!-- <br><br><br>
-      <div class="container"
-        style="padding:3% ;border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
-        <h2 class="GFG" style="color:#3b8beb; font-family: 'Montserrat', sans-serif;">Deals</h2>
-        <div class="card-body">
-          <article class="scroller">
-            <?php
-            $sql = "select * from deals";
-            $result = mysqli_query($con, $sql);
-            //print_r($result);die;
-            if ($result) {
-              while ($row = mysqli_fetch_assoc($result)) {
-                //print_r($row);die;
-                ?>
-                <section>
-              
-                 
-                 <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['location'];?><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 750px;">4 Days to go</button>
-                 <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL:&nbsp<?php echo $row['material'];?>  </h5>
-                <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">Approximate Business: ₹<?php echo $row['expQuotation']; ?></h5>
-                        Bid Before :<?php echo $row['dealDatetime'];?>
-                  
-    <p style="color:#3b8beb;"> &nbsp<?php echo $row['specification'];?></p>
-
-                  <a href="deal_page.php?g=<?php echo $row['id'];?>"><button
-                      style="padding:4px; border-radius: 6px;font-size: 100%;" class="btn btn-primary"
-                      type="submit">View Deal</button></h6></a>
-                </section>
-                <hr>
-
-                <?php
-              }
-            }
-            ?>
-            
-
-          </article>
-        </div>
-      </div> -->
+      
       <br><br>
     </div>
   </section>
@@ -586,14 +480,22 @@ include "connect.php";
       $result = mysqli_query($con, $sql);
       if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
-          ?>
-          <section>
-            <div class="auction-header">
-              <h6 style="color: #3b8beb;">
-                <i class='bx bxs-map'></i><?php echo $row['location']; ?>
-              </h6>
-              <button class="countdown-btn">4 Days to go</button>
-            </div>
+            $endDatetime = new DateTime($row['endDatetime']);
+            $currentDate = new DateTime();
+            $interval = $currentDate->diff($endDatetime);
+            $daysToGo = $interval->format('%a');
+    
+            $status = ($currentDate > $endDatetime) ? " ago" : " to go";
+            $daysText = ($status == " ago") ? "Days" : "Days";
+    
+            ?>
+            <section>
+                <div class="auction-header">
+                    <h6 style="color: #3b8beb;">
+                        <i class='bx bxs-map'></i><?php echo $row['location']; ?>
+                    </h6>
+                    <button class="countdown-btn"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
+                </div>
             <h5 class="auction-info">
               MATERIAL: <?php echo $row['material']; ?>
             </h5>
@@ -626,14 +528,22 @@ include "connect.php";
 
       if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
-          ?>
-          <section>
-            <div class="tender-header">
-              <h6 style="color: #3b8beb;">
-                <i class='bx bxs-map'></i><?php echo $row['location']; ?>
-              </h6>
-              <button class="countdown-btn">4 Days to go</button>
-            </div>
+            $endDatetime = new DateTime($row['endDatetime']);
+            $currentDate = new DateTime();
+            $interval = $currentDate->diff($endDatetime);
+            $daysToGo = $interval->format('%a');
+    
+            $status = ($currentDate > $endDatetime) ? " ago" : " to go";
+            $daysText = ($status == " ago") ? "Days" : "Days";
+    
+            ?>
+            <section>
+                <div class="auction-header">
+                    <h6 style="color: #3b8beb;">
+                        <i class='bx bxs-map'></i><?php echo $row['location']; ?>
+                    </h6>
+                    <button class="countdown-btn"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
+                </div>
             <h5 class="tender-info">
               MATERIAL: <?php echo $row['material']; ?>
             </h5>
@@ -666,14 +576,22 @@ include "connect.php";
 
       if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
-          ?>
-          <section>
-            <div class="deal-header">
-              <h6 style="color: #3b8beb;">
-                <i class='bx bxs-map'></i><?php echo $row['location']; ?>
-              </h6>
-              <button class="countdown-btn">4 Days to go</button>
-            </div>
+            $endDatetime = new DateTime($row['dealDatetime']);
+            $currentDate = new DateTime();
+            $interval = $currentDate->diff($endDatetime);
+            $daysToGo = $interval->format('%a');
+    
+            $status = ($currentDate > $endDatetime) ? " ago" : " to go";
+            $daysText = ($status == " ago") ? "Days" : "Days";
+    
+            ?>
+            <section>
+                <div class="auction-header">
+                    <h6 style="color: #3b8beb;">
+                        <i class='bx bxs-map'></i><?php echo $row['location']; ?>
+                    </h6>
+                    <button class="countdown-btn"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
+                </div>
             <h5 class="deal-info">
               MATERIAL: <?php echo $row['material']; ?>
             </h5>
