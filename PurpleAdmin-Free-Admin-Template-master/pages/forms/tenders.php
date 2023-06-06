@@ -264,9 +264,40 @@ include "connect.php";
                       <textarea class="form-control" placeholder="Tender Description" name="tenderDesc" rows="6" required></textarea>
                     </div>
                     <div class="form-group">
-                      <label for="material">Material</label>
-                      <input type="text" class="form-control" name="material" placeholder="Material" required>
-                    </div>
+                        <label for="material">Material</label> 
+                        <select name="" id="" style="inline-size:100%">
+                          <option >....Select One.... </option>
+                          <hr>
+                          <?php
+                          $sql = "SELECT DISTINCT metal FROM metal";
+                          $result= mysqli_query($conn,$sql);
+                          if ($result) {
+
+                            while ($ra = mysqli_fetch_assoc($result)) {
+        
+                              ?>
+                              <option value="<?php echo $ra['metal']; ?>"><?php echo $ra['metal']; ?></option>
+                            <?php }
+                          }
+                          ?>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="matDics">Material Discription</label>
+                        <?php
+                          $sql = "SELECT * FROM metal";
+                          $result= mysqli_query($conn,$sql);
+                          if ($result) {
+
+                            $r = mysqli_fetch_assoc($result);
+        
+                              ?>
+                              <textarea value="<?php echo $r['scrap_metal']; ?>"><?php echo $r['scrap_metal']; ?></textarea>
+                            <?php 
+                          }
+                          ?>
+                        <!-- <input type="text" class="form-control" name="matDics" placeholder="Material Discription" required> -->
+                      </div>
                     <div class="form-group">
                       <label for="quantity">Quantity</label>
                         <input type="number" id="quantity" name="quantity" required>&nbsp&nbsp&nbsp

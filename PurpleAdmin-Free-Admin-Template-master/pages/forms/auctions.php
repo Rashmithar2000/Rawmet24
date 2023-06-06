@@ -292,8 +292,21 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="matDics">Material Discription</label>
-                        <input type="text" class="form-control" name="matDics" placeholder="Material Discription" required>
+                        <?php
+                          $sql = "SELECT * FROM metal";
+                          $result= mysqli_query($conn,$sql);
+                          if ($result) {
+
+                            $row = mysqli_fetch_assoc($result);
+        
+                              ?>
+                              <textarea value="<?php echo $row['scrap_metal']; ?>"><?php echo $row['scrap_metal']; ?></textarea>
+                            <?php 
+                          }
+                          ?>
+                        <!-- <input type="text" class="form-control" name="matDics" placeholder="Material Discription" required> -->
                       </div>
+                     
                       <div class="form-group">
                         <label for="quantity">Quantity</label>
                         <input type="number" id="quantity" name="quantity" required>&nbsp&nbsp&nbsp

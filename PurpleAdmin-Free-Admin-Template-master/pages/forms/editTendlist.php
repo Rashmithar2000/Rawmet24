@@ -29,6 +29,8 @@ include "connect.php";
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
+    
+  
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
@@ -182,22 +184,22 @@ include "connect.php";
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Tenders</h4><br>
-                    <table class="table table-hover table-responsive">
+                    <table id="keywords" class="table table-hover table-responsive">
   <thead>
     <tr>
-      <th class="col-2">Sector</th>
-      <th class="col-2">Tender Start Time</th>
-      <th class="col-2">Tender End Time</th>
-      <th class="col-2">Tender Value</th>
-      <th class="col-2">Location</th>
-      <th class="col-2">Quantity</th>
-      <th class="col-2">Material</th>
-      <th class="col-2">Action</th>
+      <th class="col-2" onclick="sortTable(0)"><span>Sector</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Tender Start Time</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Tender End Time</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Tender Value</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Location</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Quantity</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Material</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Action</span></th>
     </tr>
   </thead>
   <tbody>
   <?php
-include_once "connect.php";
+
 
 // Retrieve data from the database
 $sql = "SELECT * FROM tenders";
@@ -245,7 +247,62 @@ $conn->close();
         </div>
         </div>
         </div></div>
-        
+        <!-- <script>
+      function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("keywords");
+        switching = true;
+        //Set the sorting direction to ascending:
+        dir = "asc";
+        /*Make a loop that will continue until
+        no switching has been done:*/
+        while (switching) {
+          //start by saying: no switching is done:
+          switching = false;
+          rows = table.rows;
+          /*Loop through all table rows (except the
+          first, which contains table headers):*/
+          for (i = 1; i < (rows.length - 1); i++) {
+            //start by saying there should be no switching:
+            shouldSwitch = false;
+            /*Get the two elements you want to compare,
+            one from current row and one from the next:*/
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            /*check if the two rows should switch place,
+            based on the direction, asc or desc:*/
+            if (dir == "asc") {
+              if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                //if so, mark as a switch and break the loop:
+                shouldSwitch = true;
+                break;
+              }
+            } else if (dir == "desc") {
+              if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                //if so, mark as a switch and break the loop:
+                shouldSwitch = true;
+                break;
+              }
+            }
+          }
+          if (shouldSwitch) {
+            /*If a switch has been marked, make the switch
+            and mark that a switch has been done:*/
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            //Each time a switch is done, increase this count by 1:
+            switchcount++;
+          } else {
+            /*If no switching has been done AND the direction is "asc",
+            set the direction to "desc" and run the while loop again.*/
+            if (switchcount == 0 && dir == "asc") {
+              dir = "desc";
+              switching = true;
+            }
+          }
+        }
+      }
+    </script> -->
 
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
@@ -263,6 +320,8 @@ $conn->close();
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+    
+    <script src="sort.js"></script>
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
