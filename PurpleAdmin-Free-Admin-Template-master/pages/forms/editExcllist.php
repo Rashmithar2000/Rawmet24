@@ -41,7 +41,11 @@ include "connect.php";
     a:hover{
       color: #ffffff;
     }
-    
+    @media (max-width: 767px) {
+  .card-title {
+    font-size: 16px;
+  }
+    }
     
       </style>
   <body>
@@ -155,19 +159,21 @@ include "connect.php";
           </ul>
         </nav>
         <!-- partial -->
-        <div class="main-panel">
-          
-          <table class="table table-hover">
+        <div class="col-lg-10 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Exclusive Deals</h4><br>
+                    <table class="table table-hover table-responsive">
   <thead>
     <tr>
-      <th>IR Executive</th>
-      <th>Exclusive Deal Date</th>
-      <th>Deal Document by</th>
-      <th>Location</th>
-      <th>Exclusive Deal Value</th>
-      <th>Quantity</th>
-      <th>Material</th>
-      <th>Action</th>
+      <th class="col-2">IR Executive</th>
+      <th class="col-2">Exclusive Deal Date</th>
+      <th class="col-2">Deal Document by</th>
+      <th class="col-2">Location</th>
+      <th class="col-2">Exclusive Deal Value</th>
+      <th class="col-2">Quantity</th>
+      <th class="col-2">Material</th>
+      <th class="col-2">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -214,7 +220,9 @@ $conn->close();
          
           </div>
         </div>
-
+        </div>
+        </div> </div>
+        
 
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
