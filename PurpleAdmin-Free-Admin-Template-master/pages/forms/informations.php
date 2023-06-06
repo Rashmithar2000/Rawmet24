@@ -107,13 +107,19 @@ include "connect.php";
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
-            <li class="nav-item">
+           <li class="nav-item">
               <a class="nav-link" href="../../index.php">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
-             <div class="collapse" id="ui-basic">
+              <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Auctions</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-chart-areaspline menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="auctions.php">Add Auction </a></li>
                   <li class="nav-item"> <a class="nav-link" href="editAuclist.php">Edit Auctions</a></li>
