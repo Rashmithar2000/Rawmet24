@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -13,10 +14,14 @@ include "connect.php";
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Information Page</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
@@ -27,18 +32,20 @@ include "connect.php";
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
   </head>
+  <style>
+    a{
+      color: #ffffff;
+      text-decoration: none;
+    }
+    a:hover{
+      color: #ffffff;
+    }
+    
+    
+      </style>
   <body>
-    <style>
-      a{
-        color: #ffffff;
-        text-decoration: none;
-      }
-      a:hover{
-        color: #ffffff;
-      }
-      
-      
-        </style>
+
+
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -47,18 +54,17 @@ include "connect.php";
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
-            </button>
-          <div class="search-field d-none d-md-block">
-            <form class="d-flex align-items-center h-100" action="#">
-              <div class="input-group">
-                <div class="input-group-prepend bg-transparent">
-                  <i class="input-group-text border-0 mdi mdi-magnify"></i>
-                </div>
-                <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
-              </div>
-            </form>
-          </div>
+          </button>
           <ul class="navbar-nav navbar-nav-right">
+               
+           
+           
+            
+            <li class="nav-item d-none d-lg-block full-screen-link">
+              <a class="nav-link">
+                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+              </a>
+            </li>
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
@@ -72,80 +78,16 @@ include "connect.php";
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                 <a class="dropdown-item" href="elements.php">
                   <i class="mdi mdi-login me-2 text-primary"></i>Register now </a>
-                  <a class="dropdown-item" href="../../signout.php">
+                   <a class="dropdown-item" href="../../signout.php">
                     <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
               </div>
-            </li>
-            <li class="nav-item d-none d-lg-block full-screen-link">
-              <a class="nav-link">
-                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
-              </a>
-            </li>
-           
-            <li class="nav-item dropdown">
-              <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
-                <i class="mdi mdi-bell-outline"></i>
-                <span class="count-symbol bg-danger"></span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                <h6 class="p-3 mb-0">Notifications</h6>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-success">
-                      <i class="mdi mdi-calendar"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
-                    <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-warning">
-                      <i class="mdi mdi-settings"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
-                    <p class="text-gray ellipsis mb-0"> Update dashboard </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-info">
-                      <i class="mdi mdi-link-variant"></i>
-                    </div>
-                    </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
-                    <p class="text-gray ellipsis mb-0"> New admin wow! </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <h6 class="p-3 mb-0 text-center">See all notifications</h6>
-              </div>
-            </li>
-            <li class="nav-item nav-logout d-none d-lg-block">
-              <a class="nav-link" href="#">
-                <i class=""></i>
-              </a>
-            </li>
-            <li class="nav-item nav-settings d-none d-lg-block">
-              <a class="nav-link" href="#">
-                <i class=""></i>
-              </a>
             </li>
           </ul>
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
           </button>
         </div>
-        </nav>
-      
+      </nav>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
@@ -236,58 +178,81 @@ include "connect.php";
               </a>
               <div class="collapse" id="ui-basic4">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="categories.php">Add Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="informations.php">Add Category</a></li>
                   <li class="nav-item"> <a class="nav-link" href="editInfolist.php">Edit Category</a></li>
                 </ul>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-title">Subscriber List</span>
+              <a class="nav-link" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Subscriber list</span>
                
-             
-                <i class="menu-arrow"></i>
                 <i class="mdi mdi-human-male-female menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic5">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="editSublist.php">Edit Subscriber</a></li>
+              
+            </li>
           </ul>
         </nav>
+        <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-            <div class="page-header">
-              <h3 class="page-title">Add Categories</h3>
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-         
-                </ol>
-              </nav>
-            </div>
-            <div class="row">
-              <div class="col-md-6 grid-margin stretch-card">
+          
+            <div class="col-12 grid-margin stretch-card">
                 <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Categories</h4>
-                    <p class="card-description">  </p>
-                    <form action="category.php" method="post" class="forms-sample">
-                      <div class="form-group">
-                        <label for="categoryName">Category Name</label>
-                        <input type="text" class="form-control" name="categoryName" placeholder="Name" required>
+                  <div class="card-body">
+                    <h4 class="card-title">Subscribers Details</h4>
+                    <form action="updateSub.php" method="POST" class="forms-sample" enctype="multipart/form-data">
+                <?php 
+                $id= $_GET['id'];
+                $sql="select * from buyer_dashboard where id=$id";
+                $result = mysqli_query($conn , $sql);
+               $row =mysqli_fetch_assoc($result);
+            
+                ?>
+                   <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" value="<?php echo  $row['name']; ?>" placeholder="Name" >
                       </div>
+                      
                       <div class="form-group">
-                        <label for="subCategory">Sub Category</label>
-                        <input type="text" class="form-control" name="subCategory" placeholder="Sub category" >
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" value="<?php echo  $row['email']; ?>" placeholder="Email" >
                       </div>
+                      
+                     
+                      <div class="form-group">
+                        <label for="subscription">Subscription </label>
+                        <input type="number" class="form-control" name="subscription" value="<?php echo  $row['subscription']; ?>" placeholder="Subscription" >
+                      </div>
+                     
+                      <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="text" class="form-control" name="amount" value="<?php echo  $row['amount']; ?>" placeholder="Amount paid" >
+                      </div>
+                                    
+                      <div class="form-group">
+                        <label for="dateTime">Valid from </label>
+                        <input type="datetime-local" class="form-control" name="fromDate" value="<?php echo  $row['fromDate']; ?>" placeholder="Valid from" >
+                      </div>
+                                       
+                      <div class="form-group">
+                        <label for="dateTime">Valid till</label>
+                        <input type="datetime-local" class="form-control" name="toDate" value="<?php echo  $row['toDate']; ?>" placeholder="Valid till" >
+                      </div>
+                    
 
-                      <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                      <button type="reset"class="btn btn-gradient-primary me-2">Cancel</button>
+                      <input type="hidden" name="id" value="<?php echo $id; ?>">                             
+                     <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
+    
                     </form>
                   </div>
                 </div>
-              </div></div>
-        <!-- partial -->
- <!-- content-wrapper ends -->
+              </div>
+              
+            </div>
+          </div></div></div>
+
+          <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
           <footer class="footer">
             <div class="container-fluid d-flex justify-content-between">
@@ -312,8 +277,8 @@ include "connect.php";
     <script src="../../assets/js/hoverable-collapse.js"></script>
     <script src="../../assets/js/misc.js"></script>
     <!-- endinject -->
-  <!-- Custom js for this page -->
-  <script src="../../assets/js/file-upload.js"></script>
+    <!-- Custom js for this page -->
+    <script src="../../assets/js/file-upload.js"></script>
     <!-- End custom js for this page -->
-  </body>
+  </body>
 </html>

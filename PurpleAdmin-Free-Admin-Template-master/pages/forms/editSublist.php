@@ -6,40 +6,6 @@ if (!isset($_SESSION['name'])){
 
 }
 include "connect.php";
-
-
-// Check if form is submitted
-if (isset($_POST['update'])) {
-    // Retrieve form data
-    $id = $_POST['id'];
-    $categoryName = $_POST['categoryName'];
-    $subCategory = $_POST['subCategory'];
-
-    // Update query
-    $sql = "UPDATE category SET categoryName='$categoryName', subCategory='$subCategory' WHERE id='$id'";
-
-    // Execute the query
-    if ($conn->query($sql) === TRUE) {
-
-    
-      ?>  <script>
-        alert("Category Updated!");
-        window.location.replace("./category_list.php");
-    </script>
-        <?php
-    } else {
-        echo "Error updating category: " . $conn->error;
-    }
-}
-
-// Retrieve category details from the database
-$id = $_GET['id'];
-$sql = "SELECT * FROM category WHERE id='$id'";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-
-// Display the category update form
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,10 +13,16 @@ $row = $result->fetch_assoc();
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Update Subscriber Information</title>
     <!-- plugins:css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
@@ -61,18 +33,24 @@ $row = $result->fetch_assoc();
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
   </head>
+  <style>
+    a{
+      color: #ffffff;
+      text-decoration: none;
+    }
+    a:hover{
+      color: #ffffff;
+    }
+    @media (max-width: 767px) {
+  .card-title {
+    font-size: 16px;
+  }
+    }
+    
+      </style>
   <body>
-    <style>
-      a{
-        color: #ffffff;
-        text-decoration: none;
-      }
-      a:hover{
-        color: #ffffff;
-      }
-      
-      
-        </style>
+
+
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -82,17 +60,12 @@ $row = $result->fetch_assoc();
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
           </button>
-          <div class="search-field d-none d-md-block">
-            <form class="d-flex align-items-center h-100" action="#">
-              <div class="input-group">
-                <div class="input-group-prepend bg-transparent">
-                  <i class="input-group-text border-0 mdi mdi-magnify"></i>
-                </div>
-                <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
-              </div>
-            </form>
-          </div>
           <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item d-none d-lg-block full-screen-link">
+              <a class="nav-link">
+                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+              </a>
+            </li>
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
@@ -110,76 +83,12 @@ $row = $result->fetch_assoc();
                     <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
               </div>
             </li>
-            <li class="nav-item d-none d-lg-block full-screen-link">
-              <a class="nav-link">
-                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
-              </a>
-            </li>
-           
-            <li class="nav-item dropdown">
-              <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
-                <i class="mdi mdi-bell-outline"></i>
-                <span class="count-symbol bg-danger"></span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                <h6 class="p-3 mb-0">Notifications</h6>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-success">
-                      <i class="mdi mdi-calendar"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
-                    <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-warning">
-                      <i class="mdi mdi-settings"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
-                    <p class="text-gray ellipsis mb-0"> Update dashboard </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-info">
-                      <i class="mdi mdi-link-variant"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
-                    <p class="text-gray ellipsis mb-0"> New admin wow! </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <h6 class="p-3 mb-0 text-center">See all notifications</h6>
-              </div>
-            </li>
-            <li class="nav-item nav-logout d-none d-lg-block">
-              <a class="nav-link" href="#">
-                <i class=""></i>
-              </a>
-            </li>
-            <li class="nav-item nav-settings d-none d-lg-block">
-              <a class="nav-link" href="#">
-                <i class=""></i>
-              </a>
-            </li>
           </ul>
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
           </button>
         </div>
       </nav>
-      
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
@@ -205,9 +114,17 @@ $row = $result->fetch_assoc();
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
+            
+            
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Auctions</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-chart-areaspline menu-icon"></i>
+              </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="auctions.php">Add Auction </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="auctions.php">Add Auction</a></li>
                   <li class="nav-item"> <a class="nav-link" href="editAuclist.php">Edit Auctions</a></li>
                 </ul>
               </div>
@@ -250,63 +167,117 @@ $row = $result->fetch_assoc();
               <div class="collapse" id="ui-basic3">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="informations.php">Add Info</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="editinfolist.php">Edit Info</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editInfolist.php">Edit Info</a></li>
                 </ul>
               </div>
             </li>
-            <li class="nav-item sidebar-actions">
-              <span class="nav-link">
-                <div class="border-bottom">
-                 <h6 class="font-weight-normal mb-3">Categories</h6>
-                </div>
-                <button class="btn btn-block btn-lg btn-gradient-primary mt-4"><a href="categories.php">+ Add a Category</a></button>
-                
-              </span>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Categories</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-archive menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic4">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="informations.php">Add Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editInfolist.php">Edit Category</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">Subscriber List</span>
+               
+             
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-human-male-female menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic5">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="pages/forms/editSublist.php">Edit Subscriber</a></li>
+                </ul>
+              </div>
             </li>
           </ul>
         </nav>
 
-        <!DOCTYPE html>
-<html>
-<head>
-    <title>Update Category</title>
-</head>
-<body>
-    <div class="main-panel">
-        <div class="content-wrapper">
-            <div class="page-header">
-                <h3 class="page-title">Update Category</h3>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <!-- Add breadcrumb here if needed -->
-                    </ol>
-                </nav>
-            </div>
-            <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Categories</h4>
-                            <p class="card-description"></p>
-                            <form action="" method="post" class="forms-sample">
-                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                <div class="form-group">
-                                    <label for="categoryName">Category Name</label>
-                                    <input type="text" class="form-control" name="categoryName" placeholder="Name" value="<?php echo $row['categoryName']; ?>" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="subCategory">Sub Category</label>
-                                    <input type="text" class="form-control" name="subCategory" placeholder="Sub category" value="<?php echo $row['subCategory']; ?>">
-                                </div>
+        <div class="col-lg-10 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Subscribers Detail</h4><br>
+                    <table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th class="col-2">Name</th>
+      <th class="col-2">Email</th>
+      <th class="col-2">Subscription</th>
+      <th class="col-2">Amount</th>
+      <th class="col-2">Valid from</th>
+      <th class="col-2">Validity till</th>
+      <th class="col-2">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php
+include_once "connect.php";
 
-                                <button type="submit" name="update" class="btn btn-gradient-primary me-2">Update</button>
-                                <a href="category_list.php" class="btn btn-gradient-primary me-2">Cancel</a>
-                            </form>
-                        </div>
-                </div>
-              
-        <!-- partial -->
-          
+$sql = "SELECT * FROM buyer_dashboard";
+$result = $conn->query($sql);
+
+$data = array();
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $id = $row['id'];
+        $data[] = $row;
+    }
+} else {
+    echo "No data found.";
+}
+
+$conn->close();
+?>
+
+    <?php foreach ($data as $row) { ?>
+      <tr>
+     
+        <td><?php echo $row['name']; ?></td>
+        <td><?php echo $row['email']; ?></td>
+        <td><?php echo $row['subscription']; ?></td>
+        <td><?php echo $row['amount']; ?></td>
+        <td><?php echo $row['toDate']; ?></td>
+        <td><?php echo $row['fromDate']; ?></td> 
+  
+       
+<td style="padding: 0px;">
+  <div style="display: flex; gap: 5px;">
+    <form action="fetchSub.php?g=<?php echo $row['id'];?>" method="GET">
+      <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+      <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" style="width:auto;margin-bottom:22px">
+        <a href="fetchSub.php?id=<?php echo $row['id']; ?>"><i class="fa fa-solid fa-pen"></i></a>
+      </button>
+    </form>
+    <form action="deleteSub.php?g=<?php echo $row['id'];?>" method="POST">
+      <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+      <button class="btn btn-block btn-sm btn-gradient-danger mt-4 mx-auto" type="submit">
+        <a href="deleteSub.php?id=<?php echo $row['id']; ?>"><i class="fa fa-solid fa-trash"></i></a>
+      </button>
+    </form>
+  </div>
+</td>
+
+
+      </tr>
+    <?php } ?>
+  </tbody>
+</table>
+
+         
+          </div>
+        </div>
+        </div>
+        </div> </div>
+        
+
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
           <footer class="footer">

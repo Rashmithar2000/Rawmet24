@@ -314,30 +314,29 @@ if (!isset($_SESSION['name'])){
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">Informations</span>
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Categories</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-note menu-icon"></i>
+                <i class="mdi mdi-archive menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic3">
+              <div class="collapse" id="ui-basic4">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="informations.php">Add Info</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="editinfolist.php">Edit Info</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="categories.php">Add Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editCatlist.php">Edit Category</a></li>
                 </ul>
               </div>
             </li>
-            <li class="nav-item sidebar-actions">
-              <span class="nav-link">
-                <div class="border-bottom">
-                <h6 class="font-weight-normal mb-3">Categories</h6>
-                </div>
-                <button class="btn btn-block btn-lg btn-gradient-primary mt-4"><a href="categories.php">+ Add a Category</a></button>
-                <div class="mt-4">
-                
-                 
-                </div>
-              </span>
-            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">Subscriber List</span>
+               
+             
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-human-male-female menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic5">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="editSublist.php">Edit Subscriber</a></li>
           </ul>
         </nav>
         <!-- partial -->
