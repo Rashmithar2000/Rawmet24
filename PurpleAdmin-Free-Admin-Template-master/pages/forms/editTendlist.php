@@ -232,14 +232,15 @@ $conn->close();
         <td><?php echo $row['location']; ?></td>
         <td><?php echo $row['quantity']; ?></td>      
         <td><?php echo $row['material']; ?></td>
- <td><form action="fetchTend.php?g=<?php echo $row['id'];?>" method="GET">
+ <td style="padding: 0px;"> <div style="display: flex; gap: 5px;"><form action="fetchTend.php?g=<?php echo $row['id'];?>" method="GET">
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                 <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" style="width:auto;margin-bottom:22px"><a href="fetchTend.php?id='.$id.'"><i class="fa fa-solid fa-pen"></i></a> </button>
                 </form>
                 <form action="deleteTend.php?g=<?php echo $row['id'];?>" method="POST">
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" ><a href="deleteAuc.php? id='.$id.'"><i class="fa fa-solid fa-trash"></i></a> </button>
-                </form></td>
+                <button class="btn btn-block btn-sm btn-gradient-danger mt-4 mx-auto" type="submit" ><a href="deleteAuc.php? id='.$id.'"><i class="fa fa-solid fa-trash"></i></a> </button>
+                </form>
+    </div></td>
               </td>
       </tr>
     <?php } ?>

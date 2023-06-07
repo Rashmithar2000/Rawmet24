@@ -197,6 +197,7 @@ include "connect.php";
       <th class="col-2">Organized By</th>
       <th class="col-2">Organized Address</th>
       <th class="col-2">Venue</th>
+      <th class="col-2">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -230,16 +231,24 @@ $conn->close();
         <td><?php echo $row['organizedBy']; ?></td>
         <td><?php echo $row['organizedAdd']; ?></td>      
         <td><?php echo $row['venue']; ?></td>
+<td style="padding: 0px;">
+  <div style="display: flex; gap: 5px;">
+    <form action="fetchInfo.php?g=<?php echo $row['id'];?>" method="GET">
+      <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+      <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" style="width:auto;margin-bottom:22px">
+        <a href="fetchInfo.php?id=<?php echo $row['id']; ?>"><i class="fa fa-solid fa-pen"></i></a>
+      </button>
+    </form>
+    <form action="deleteInfo.php?g=<?php echo $row['id'];?>" method="POST">
+      <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+      <button class="btn btn-block btn-sm btn-gradient-danger mt-4 mx-auto" type="submit">
+        <a href="deleteInfo.php?id=<?php echo $row['id']; ?>"><i class="fa fa-solid fa-trash"></i></a>
+      </button>
+    </form>
+  </div>
+</td>
 
-                <td><form action="fetchInfo.php?g=<?php echo $row['id'];?>" method="GET">
-                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" style="width:auto;margin-bottom:22px"><a href="fetchInfo.php?id='.$id.'"><i class="fa fa-solid fa-pen"></i></a> </button>
-                </form>
-                <form action="deleteInfo.php?g=<?php echo $row['id'];?>" method="POST">
-                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" ><a href="deleteInfo.php? id='.$id.'"><i class="fa fa-solid fa-trash"></i></a> </button>
-                </form>
-              </td>
+
       </tr>
     <?php } ?>
   </tbody>

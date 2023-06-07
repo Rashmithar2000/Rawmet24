@@ -82,8 +82,6 @@ a:hover{
                     <p class="text-gray ellipsis mb-0"> Update dashboard </p>
                   </div>
                 </a>
-              
-          
             </li>
            
             
@@ -277,6 +275,7 @@ a:hover{
             </div>
 
           </div>
+  
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <footer class="footer">
