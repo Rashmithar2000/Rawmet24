@@ -300,8 +300,43 @@ include "connect.php";
                       </div>
 
                       <div class="form-group">
-                        <label for="material">Material</label>
-                        <input type="text" class="form-control" name="material" placeholder="Material" value="<?php echo  $row['material']; ?>">
+                        <label for="material">Material</label> 
+                        <select name="" id="" style="inline-size:100%">
+                          <option >....Select One.... </option>
+                          <hr>
+                          <?php
+                          $sql = "SELECT DISTINCT metal FROM metal";
+                          $result= mysqli_query($conn,$sql);
+                          if ($result) {
+
+                            while ($ra = mysqli_fetch_assoc($result)) {
+        
+                              ?>
+                              <option value="<?php echo $ra['metal']; ?>"><?php echo $ra['metal']; ?></option>
+                            <?php }
+                          }
+                          ?>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="matDics">Material Discription</label>
+                        <select name="category" id="id_category" class='dependent-selects__category'
+                  style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;" placeholder="Search ">
+                  <option value="">select one</option>
+                  <?php $sql = "select * from metal";
+                  $result = mysqli_query($conn, $sql);
+                  if ($result) {
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      //print_r($row);
+                      //die;
+                      ?>
+                      <option value="<?php echo $row['scrap_metal']; ?>"><?php echo $row['scrap_metal']; ?></option>
+                    <?php }
+                  }
+                  ?>
+                </select>
+                        
                       </div>
                       <div class="form-group">
                         <label for="quantity">Quantity</label>

@@ -202,26 +202,24 @@ include "connect.php";
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Auctions</h4><br>
-                    <table class="table table-hover table-responsive">
-    
-          
-                    <thead>
-  <tr>
-    <th class="col-2">Sector</th>
-    <th class="col-2">Ownership</th>
-    <th class="col-3">Start Time</th>
-    <th class="col-3">End Time</th>
-    <th class="col-1">Auc Value</th>
-    <th class="col-1">Location</th>
-    <th class="col-1">Quantity</th>
-    <th class="col-1">Material</th>
-    <th class="col-6">Action</th>
-  </tr>
+                    <table id="keywords" class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th class="col-2" onclick="sortTable(0)"><span>Sector</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Ownership</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Start Time</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>End Time</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Auc Value</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Location</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Quantity</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Material</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Action</span></th>
+    </tr>
 </thead>
 
   <tbody>
   <?php
-include_once "connect.php";
+
 
 // Retrieve data from the database
 $sql = "SELECT * FROM auction";
@@ -291,6 +289,9 @@ $conn->close();
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+
+    <script src="sort.js"></script>
+    
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->

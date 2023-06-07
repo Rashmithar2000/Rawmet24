@@ -199,17 +199,17 @@ include "connect.php";
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Exclusive Deals</h4><br>
-                    <table class="table table-hover table-responsive">
+                    <table id="keywords" class="table table-hover table-responsive">
   <thead>
     <tr>
-      <th class="col-2">IR Executive</th>
-      <th class="col-2">Exclusive Deal Date</th>
-      <th class="col-2">Deal Document by</th>
-      <th class="col-2">Location</th>
-      <th class="col-2">Exclusive Deal Value</th>
-      <th class="col-2">Quantity</th>
-      <th class="col-2">Material</th>
-      <th class="col-2">Action</th>
+      <th class="col-2" onclick="sortTable(0)">IR Executive</th>
+      <th class="col-2" onclick="sortTable(0)">Exclusive Deal Date</th>
+      <th class="col-2" onclick="sortTable(0)">Deal Document by</th>
+      <th class="col-2" onclick="sortTable(0)">Location</th>
+      <th class="col-2" onclick="sortTable(0)">Exclusive Deal Value</th>
+      <th class="col-2" onclick="sortTable(0)">Quantity</th>
+      <th class="col-2" onclick="sortTable(0)">Material</th>
+      <th class="col-2" onclick="sortTable(0)">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -281,6 +281,8 @@ $conn->close();
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+    <script src="sort.js"></script>
+    
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->

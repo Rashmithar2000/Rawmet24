@@ -484,27 +484,7 @@ include "connect.php";
   <!-- Copyright -->
 </footer>
 
-  <script>
-    $(document).on("click", "#search", function (e) {
-      e.preventDefault();
 
-      var std = $("#select_std").val();
-      var res = $("#select_res").val();
-
-      if (std !== "" && res !== "") {
-        $('#record_table').DataTable().destroy();
-        fetch(std, res);
-      } else if (std !== "" && res == "") {
-        $('#record_table').DataTable().destroy();
-        fetch(std, '');
-      } else if (std == "" && res !== "") {
-        $('#record_table').DataTable().destroy();
-        fetch('', res);
-      } else {
-        $('#record_table').DataTable().destroy();
-        fetch();
-      }
-    });</script>
 
   </div>
   <script>
