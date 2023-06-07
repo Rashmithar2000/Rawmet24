@@ -116,15 +116,17 @@ include "connect.php";
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
+            
+            
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Auctions</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-chart-areaspline  menu-icon"></i>
+                <i class="mdi mdi-chart-areaspline menu-icon"></i>
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="auctions.php">Add Auction </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="auctions.php">Add Auction</a></li>
                   <li class="nav-item"> <a class="nav-link" href="editAuclist.php">Edit Auctions</a></li>
                 </ul>
               </div>
@@ -167,21 +169,30 @@ include "connect.php";
               <div class="collapse" id="ui-basic3">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="informations.php">Add Info</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="editinfolist.php">Edit Info</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editInfolist.php">Edit Info</a></li>
                 </ul>
               </div>
             </li>
-            <li class="nav-item sidebar-actions">
-              <span class="nav-link">
-                <div class="border-bottom">
-                <h6 class="font-weight-normal mb-3">Categories</h6>
-                </div>
-                <button class="btn btn-block btn-lg btn-gradient-primary mt-4"><a href="categories.php">+ Add a Category</a></button>
-                <div class="mt-4">
-                
-                 
-                </div>
-              </span>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Categories</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-archive menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic4">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="informations.php">Add Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editInfolist.php">Edit Category</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Subscriber list</span>
+               
+                <i class="mdi mdi-human-male-female menu-icon"></i>
+              </a>
+              
             </li>
           </ul>
         </nav>
@@ -234,14 +245,15 @@ $conn->close();
         <td><?php echo $row['location']; ?></td>
         <td><?php echo $row['quantity']; ?></td>      
         <td><?php echo $row['material']; ?></td>
- <td><form action="fetchTend.php?g=<?php echo $row['id'];?>" method="GET">
+ <td style="padding: 0px;"> <div style="display: flex; gap: 5px;"><form action="fetchTend.php?g=<?php echo $row['id'];?>" method="GET">
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                 <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" style="width:auto;margin-bottom:22px"><a href="fetchTend.php?id='.$id.'"><i class="fa fa-solid fa-pen"></i></a> </button>
                 </form>
                 <form action="deleteTend.php?g=<?php echo $row['id'];?>" method="POST">
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" ><a href="deleteAuc.php? id='.$id.'"><i class="fa fa-solid fa-trash"></i></a> </button>
-                </form></td>
+                <button class="btn btn-block btn-sm btn-gradient-danger mt-4 mx-auto" type="submit" ><a href="deleteAuc.php? id='.$id.'"><i class="fa fa-solid fa-trash"></i></a> </button>
+                </form>
+    </div></td>
               </td>
       </tr>
     <?php } ?>

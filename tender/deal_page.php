@@ -617,7 +617,8 @@ h4,
              </h5>
 
               </div>     
-         <center> <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
+         <center> <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button><br></a>
+         <h5 style="color:#fff;">Subscribe to view all content</h5></center>
     </div>
     </div>
     </div>
@@ -638,7 +639,8 @@ h4,
                      
              </h5>
   
-      <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
+      <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a><br>
+      <h5 style="color:#fff;">Subscribe to view all content</h5></center>
 </div>
   </div>
 </div>

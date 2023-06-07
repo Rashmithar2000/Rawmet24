@@ -82,8 +82,6 @@ a:hover{
                     <p class="text-gray ellipsis mb-0"> Update dashboard </p>
                   </div>
                 </a>
-              
-          
             </li>
            
             
@@ -196,16 +194,27 @@ a:hover{
                 </ul>
               </div>
             </li>
-            
-           
-            <li class="nav-item sidebar-actions">
-              <span class="nav-link">
-                <div class="border-bottom">
-                  <h6 class="font-weight-normal mb-3">Categories</h6>
-                </div>
-                <button class="btn btn-block btn-lg btn-gradient-primary mt-4"><a href="pages/forms/categories.php">+ Add a Category</a></button>
-              </span>
-             </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Categories</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-archive menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic4">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="pages/forms/informations.php">Add Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/forms/editInfolist.php">Edit Category</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Subscriber list</span>
+               
+                <i class="mdi mdi-human-male-female menu-icon"></i>
+              </a>
+              
+            </li>
           </ul>
         </nav>
         <!-- partial -->
@@ -277,6 +286,7 @@ a:hover{
             </div>
 
           </div>
+  
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <footer class="footer">

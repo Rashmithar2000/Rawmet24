@@ -39,14 +39,16 @@ include "connect.php";
 
   <script
     nonce="10103964-004b-4a99-b2c8-e02088e28228">(function (w, d) { !function (bg, bh, bi, bj) { bg[bi] = bg[bi] || {}; bg[bi].executed = []; bg.zaraz = { deferred: [], listeners: [] }; bg.zaraz.q = []; bg.zaraz._f = function (bk) { return function () { var bl = Array.prototype.slice.call(arguments); bg.zaraz.q.push({ m: bk, a: bl }) } }; for (const bm of ["track", "set", "debug"]) bg.zaraz[bm] = bg.zaraz._f(bm); bg.zaraz.init = () => { var bn = bh.getElementsByTagName(bj)[0], bo = bh.createElement(bj), bp = bh.getElementsByTagName("title")[0]; bp && (bg[bi].t = bh.getElementsByTagName("title")[0].text); bg[bi].x = Math.random(); bg[bi].w = bg.screen.width; bg[bi].h = bg.screen.height; bg[bi].j = bg.innerHeight; bg[bi].e = bg.innerWidth; bg[bi].l = bg.location.href; bg[bi].r = bh.referrer; bg[bi].k = bg.screen.colorDepth; bg[bi].n = bh.characterSet; bg[bi].o = (new Date).getTimezoneOffset(); if (bg.dataLayer) for (const bt of Object.entries(Object.entries(dataLayer).reduce(((bu, bv) => ({ ...bu[1], ...bv[1] }))))) zaraz.set(bt[0], bt[1], { scope: "page" }); bg[bi].q = []; for (; bg.zaraz.q.length;) { const bw = bg.zaraz.q.shift(); bg[bi].q.push(bw) } bo.defer = !0; for (const bx of [localStorage, sessionStorage]) Object.keys(bx || {}).filter((bz => bz.startsWith("_zaraz_"))).forEach((by => { try { bg[bi]["z_" + by.slice(7)] = JSON.parse(bx.getItem(by)) } catch { bg[bi]["z_" + by.slice(7)] = bx.getItem(by) } })); bo.referrerPolicy = "origin"; bo.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(bg[bi]))); bn.parentNode.insertBefore(bo, bn) };["complete", "interactive"].includes(bh.readyState) ? zaraz.init() : bg.addEventListener("DOMContentLoaded", zaraz.init) }(w, d, "zarazData", "script"); })(window, document);</script>
-</head>
+>
 </head>
 
 <body>
   <style>
     .scroller {
       height: 300px !important;
+      width: auto;
       overflow-y: scroll !important;
+      overflow-x: hidden !important;
       scroll-snap-type: y mandatory !important;
     }
 
@@ -125,6 +127,50 @@ include "connect.php";
   justify-content: space-between;
   align-items: center;
 }
+.bor {
+    border: 1px solid #858282;
+    border-radius: 5px;
+    margin-bottom: 18px;
+    padding:7px;
+    overflow-y: hidden;
+  }
+  h5{
+    font-size: 17px;
+    font-family: 'Montserrat', sans-serif;
+    color:#595a5e;
+    font-weight: bold;
+ 
+  }
+  h4{
+    font-size: 13px
+  }
+  h3{
+    font-size: 17px;
+    
+  }
+  .vl {
+  border-left: 1px solid rgb(184, 176, 176);
+  height: 230px;
+}
+
+.vl2 {
+  border-right: 1px solid rgb(185, 179, 179);
+  height: 230px;
+}
+  .tft {
+  color: white;
+  font-size: 20px;
+  text-shadow: -1px 1px 0 #004085,
+                1px 1px 0 #004085,
+               1px -1px 0 #004085,
+              -1px -1px 0 #004085;
+  }
+  .bor:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.bor:nth-child(odd) {
+    background-color: white;
+} 
   </style>
 
 <section class="ftco-section" style="padding-top: 5px;">
@@ -471,9 +517,9 @@ include "connect.php";
       <br><br>
     </div>
   </section>
-  <div class="container" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
+  <div class="container" style="padding: 2%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
   <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Auction</h2>
-  <div class="card-body">
+  <div class="card-body ">
     <article class="scroller">
   <?php
       $sql = "select * from auction";
@@ -490,31 +536,35 @@ include "connect.php";
     
             ?>
             <section>
-                <div class="auction-header">
-                    <h6 style="color: #3b8beb;">
-                        <i class='bx bxs-map'></i><?php echo $row['location']; ?>
-                    </h6>
-                    <button class="countdown-btn"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-                </div>
-            <h5 class="auction-info">
-              MATERIAL: <?php echo $row['material']; ?>
-            </h5>
-            <h5 class="auction-info">
-              Approximate Business: ₹<?php echo $row['aucValue']; ?>
-            </h5>
-            <p class="auction-description">
-              <?php echo $row['aucDescription']; ?>
-            </p>
-            <a href="auction_page.php?g=<?php echo $row['id']; ?>" class="btn btn-primary">View Auction</a>
-          </section>
-          <hr>
+            <br>
+    <div class="row bor">
+    <div class="col-sm-12 col-md-3 vl2">
+    
+                <h6 style="margin-top:20px;">RTD: 3478568</h6>
+                <hr>
+                <h5>Category: Ferrous </h5> 
+
+                <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
+                <center><a href="auction_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
+
+                
+               </div>
+     <div class="col-sm-12 col-md-6">
+               <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
+               <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['aucDescription']; ?></p>
+        </div> 
+
+    <div class="col-sm-12 col-md-3">
+            <div class="vl">
+            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['endDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['aucValue']; ?></h3></div></center>
+               </section>      
           <?php
         }
       }
       ?>
-    </article>
-  </div>
-</div>
+      </article>
+    </div></div></div>
 
 <br>
 
@@ -538,33 +588,40 @@ include "connect.php";
     
             ?>
             <section>
-                <div class="auction-header">
-                    <h6 style="color: #3b8beb;">
-                        <i class='bx bxs-map'></i><?php echo $row['location']; ?>
-                    </h6>
-                    <button class="countdown-btn"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-                </div>
-            <h5 class="tender-info">
-              MATERIAL: <?php echo $row['material']; ?>
-            </h5>
-            <h5 class="tender-info">
-              Approximate Business: ₹<?php echo $row['tenderValue']; ?>
-            </h5>
-            <p class="tender-description">
-              <?php echo $row['tenderDesc']; ?>
-            </p>
-            <a href="tend_page.php?g=<?php echo $row['id']; ?>" class="btn btn-primary">View Tender</a>
-          </section>
-          <hr>
+                   <br>
+    <div class="row bor">
+    
+    <div class="col-sm-12 col-md-3 vl2">
+    
+           
+            
+                <h6 style="margin-top:20px;">RTD: 3478568</h6>
+                <hr>
+                <h5>Category: Ferrous </h5> 
+
+                <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
+               <center> <a href="tend_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
+
+                
+               </div>
+     <div class="col-sm-12 col-md-6">
+               <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
+               <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['tenderDesc']; ?></p>
+        </div> 
+
+    <div class="col-sm-12 col-md-3">
+            <div class="vl">
+            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131;margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['endDatetime']; ?></h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['tenderValue']; ?></h3></div>
+               </section>      
           <?php
         }
       }
       ?>
-    </article>
-  </div>
-</div>
+      </article>
+    </div></div></div>
 
-<br><br><br>
+<br>
 
 <div class="container" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
   <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Deals</h2>
@@ -585,45 +642,50 @@ include "connect.php";
             $daysText = ($status == " ago") ? "Days" : "Days";
     
             ?>
-            <section>
-                <div class="auction-header">
-                    <h6 style="color: #3b8beb;">
-                        <i class='bx bxs-map'></i><?php echo $row['location']; ?>
-                    </h6>
-                    <button class="countdown-btn"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-                </div>
-            <h5 class="deal-info">
-              MATERIAL: <?php echo $row['material']; ?>
-            </h5>
-            <h5 class="deal-info">
-              Approximate Business: ₹<?php echo $row['expQuotation']; ?>
-            </h5>
-            <p class="deal-description">
-              <?php echo $row['specification']; ?>
-            </p>
-            <a href="deal_page.php?g=<?php echo $row['id']; ?>" class="btn btn-primary">View Deal</a>
-          </section>
-          <hr>
+        <section>
+                   <br>
+    <div class="row bor">
+    
+    <div class="col-sm-12 col-md-3 vl2">
+    
+            
+            
+                <h6 style="margin-top:20px;">RTD: 3478568</h6>
+                <hr>
+                <h5>Category: Ferrous </h5> 
+
+                <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
+                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
+
+                
+               </div>
+     <div class="col-sm-12 col-md-6">
+               <h5 style="margin-top:20px;" >Material : <?php echo $row['material']; ?> </h5> 
+               <p style="color:#444f68; "><h6>Description:</h6> <?php echo $row['specification']; ?></p>
+        </div> 
+
+    <div class="col-sm-12 col-md-3">
+            <div class="vl">
+            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?></h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div>
+               </section>      
           <?php
         }
       }
       ?>
-    </article>
-  </div>
-</div>
+      </article>
+    </div></div></div>
 
+<br>
+
+
+
+
+        
 </div>
 </div>
 </div>
 </div><br><br><br> 
-
-
-  <!-- Remove the container if you want to extend the Footer to full width. -->
-  
-
-
-  <!-- Footer -->
-  
 
 <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
   <!-- Section: Social media -->
