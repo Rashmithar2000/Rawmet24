@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conn->query($sql) === true) {
       ?> <script>
     alert("Auction Added!");
-    window.location.replace("./auctions.php");
+    window.location.replace("./editAuclist.php");
 </script>
 <?php
     //header("Location: /PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");
