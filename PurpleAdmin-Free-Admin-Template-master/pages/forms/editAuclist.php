@@ -206,9 +206,10 @@ include "connect.php";
   <thead>
     <tr>
       <th class="col-2" onclick="sortTable(0)"><span>Sector</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Tender Start Time</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Tender End Time</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Tender Value</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Ownership</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Start Time</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>End Time</span></th>
+      <th class="col-2" onclick="sortTable(0)"><span>Auc Value</span></th>
       <th class="col-2" onclick="sortTable(0)"><span>Location</span></th>
       <th class="col-2" onclick="sortTable(0)"><span>Quantity</span></th>
       <th class="col-2" onclick="sortTable(0)"><span>Material</span></th>

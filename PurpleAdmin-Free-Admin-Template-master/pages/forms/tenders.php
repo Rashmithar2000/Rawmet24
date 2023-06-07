@@ -298,19 +298,23 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="matDics">Material Discription</label>
-                        <?php
-                          $sql = "SELECT * FROM metal";
-                          $result= mysqli_query($conn,$sql);
-                          if ($result) {
+                        <select name="category" id="id_category" class='dependent-selects__category'
+                  style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;" placeholder="Search ">
+                  <option value="">select one</option>
+                  <?php $sql = "select * from metal";
+                  $result = mysqli_query($conn, $sql);
+                  if ($result) {
 
-                            $r = mysqli_fetch_assoc($result);
-        
-                              ?>
-                              <textarea value="<?php echo $r['scrap_metal']; ?>"><?php echo $r['scrap_metal']; ?></textarea>
-                            <?php 
-                          }
-                          ?>
-                        <!-- <input type="text" class="form-control" name="matDics" placeholder="Material Discription" required> -->
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      //print_r($row);
+                      //die;
+                      ?>
+                      <option value="<?php echo $row['scrap_metal']; ?>"><?php echo $row['scrap_metal']; ?></option>
+                    <?php }
+                  }
+                  ?>
+                </select>
+                        
                       </div>
                     <div class="form-group">
                       <label for="quantity">Quantity</label>
