@@ -1,6 +1,6 @@
 <?php 
  
- $conn= new mysqli('localhost','root','newpassword','registration_db');
+ $conn= new mysqli('localhost','root','','registration_db');
 
  if(!$conn)
  {

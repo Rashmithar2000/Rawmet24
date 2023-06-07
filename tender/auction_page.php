@@ -677,9 +677,11 @@ include "connect.php";
               <h6 style="color:#fff;"><i class='bx bxs-calendar-alt'></i> Expires on <?php echo $row['endDatetime']; ?> &nbsp &nbsp
                 &nbsp </h6>
                 </div>    
-          <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
+          <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a><br>
+          <h5 style="color:#fff;">Subscribe to view all content</h5></center>
   </div>
-                      </div></div><?php  ?></div></div>
+          
+                      </div><?php  ?></div></div>
 
 <!-- ==============================================================blue box mobile===================================================================== -->
 
@@ -702,7 +704,9 @@ include "connect.php";
                 </div> 
   
       <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
+      <button class="btn btn-primary" style="color:#fff;">Subscribe to view all content</button>
 </div><?php }}  ?>
+
   </div>
 </div></div>
 
