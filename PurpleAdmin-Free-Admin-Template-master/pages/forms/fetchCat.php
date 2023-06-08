@@ -211,12 +211,12 @@ include "connect.php";
                 ?>
                    <div class="form-group">
                         <label for="categoryName">Category Name</label>
-                        <input type="text" class="form-control" name="categoryName" value="<?php echo  $row['categoryName']; ?>" placeholder="Category Name" >
+                        <input type="text" class="form-control" name="categoryName" required value="<?php echo  $row['categoryName']; ?>" placeholder="Category Name" >
                       </div>
                       
                       <div class="form-group">
                         <label for="subCategory">Sub Category Name</label>
-                        <input type="text" class="form-control" name="subCategory" value="<?php echo  $row['subCategory']; ?>" placeholder="Sub Category Name" >
+                        <input type="text" class="form-control" name="subCategory" required value="<?php echo  $row['subCategory']; ?>" placeholder="Sub Category Name" >
                       </div>
                       
                    

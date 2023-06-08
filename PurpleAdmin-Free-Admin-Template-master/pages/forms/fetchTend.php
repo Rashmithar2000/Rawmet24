@@ -209,18 +209,18 @@ include "connect.php";
                $quantity = isset($valueParts[0]) ? $valueParts[0] : '';
                $unit = isset($valueParts[1]) ? $valueParts[1] : '';
                 ?>
-                    <div class="form-group">
-                      <label for="category">Category</label>
-                      <select name="category" class="form-control form-control-lg">
-                      <option ><?php echo  $row['category']; ?></option>
-                        <option>Consultancy Tenders</option>
-                          <option >Procurement Tenders</option>
-                          <option>Manufacturing Tenders</option>
-                          <option>Disposal Tenders</option>
-                          <option>Business Tenders</option>
-                          <option>Public Tenders</option>
-                        </select>
-                    </div>
+                      <div class="form-group">
+                        <label for="category">Category</label>
+                        <select name="category" class="form-control form-control-lg" required>
+                          <option value="<?php echo  $row['category']; ?>"><?php echo  $row['category']; ?></option>
+                            <option>Consultancy Tenders</option>
+                            <option>Procurement Tenders</option>
+                            <option>Manufacturing Tenders</option>
+                            <option>Disposal Tenders</option>
+                            <option>Business Tenders</option>
+                            <option>Public Tenders</option>
+                          </select>
+                      </div>
                     <div class="form-group">
                       <label for="infoId">Information Number</label>
                       <input type="text" class="form-control" name="infoId" placeholder="Information Number" required value="<?php echo  $row['infoId']; ?>" >
@@ -232,7 +232,7 @@ include "connect.php";
                     </div>
                     <div class="form-group">
                       <label for="tenderLocation">Tender Location</label>
-                      <select name="tenderLocation" class="form-control form-control-lg">
+                      <select name="tenderLocation" class="form-control form-control-lg" required>
                         <option ><?php echo  $row['tenderLocation']; ?></option>
                         <option>Andhra Pradesh</option>
                         <option>Arunachal Pradesh</option>
@@ -290,14 +290,17 @@ include "connect.php";
                     </div>
                     <div class="form-group">
                         <label for="material">Material</label> 
-                        <select name="" id="" style="inline-size:100%">
-                          <option >....Select One.... </option>
+                        <select name="material" id="" style="inline-size:100%" required>
+                    
                           <hr>
                           <?php
                           $sql = "SELECT DISTINCT metal FROM metal";
                           $result= mysqli_query($conn,$sql);
                           if ($result) {
-
+        ?>
+        <option value="<?php echo $row['material']; ?>"><?php echo $row['material']; ?></option>
+      <?php
+                
                             while ($ra = mysqli_fetch_assoc($result)) {
         
                               ?>
@@ -308,14 +311,17 @@ include "connect.php";
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="matDics">Material Discription</label>
-                        <select name="category" id="id_category" class='dependent-selects__category'
+                        <label for="matDesc">Material Description</label>
+         
+                        <select name="matDesc" id="id_category" class='dependent-selects__category'
                   style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;" placeholder="Search ">
-                  <option value="">select one</option>
-                  <?php $sql = "select * from metal";
+          
+                  <?php $sql = "SELECT * from metal";
                   $result = mysqli_query($conn, $sql);
                   if ($result) {
-
+                    ?>
+                    <option value="<?php echo $row['matDesc']; ?>"><?php echo $row['matDesc']; ?></option>
+                  <?php
                     while ($r = mysqli_fetch_assoc($result)) {
                       //print_r($row);
                       //die;
@@ -332,7 +338,7 @@ include "connect.php";
                         <input type="number" id="quantity" name="quantity" required value="<?php echo  $quantity; ?>">&nbsp&nbsp&nbsp
                         <label for="unit">Unit:</label>
                         <select id="unit" name="unit" required selected>
-                          <option value=""><?php echo  $unit; ?></option>
+                        <option value="<?php echo  $unit; ?>"><?php echo  $unit; ?></option>
                           <option value="kg">KG</option>
                           <option value="ton">TON</option>
                           <option value="mt">MT</option>
@@ -354,7 +360,7 @@ include "connect.php";
                     </div>
                     <div class="form-group">
                       <label for="emdType">EMD Type</label>
-                      <select name="emdType" class="form-control form-control-lg">
+                      <select name="emdType" class="form-control form-control-lg" required>
                       <option ><?php echo  $row['emdType']; ?></option>    
                       <option>Online Payment/ Net Banking</option>
                           <option>DD</option>

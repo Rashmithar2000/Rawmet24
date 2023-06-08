@@ -212,8 +212,8 @@ include "connect.php";
                 ?>
                       <div class="form-group">
                         <label for="category">Category</label>
-                        <select name="category" class="form-control form-control-lg" >
-                        <option ><?php echo  $row['category']; ?></option>
+                        <select name="category" class="form-control form-control-lg" required>
+                          <option value="<?php echo  $row['category']; ?>"><?php echo  $row['category']; ?></option>
                             <option>Consultancy Tenders</option>
                             <option>Procurement Tenders</option>
                             <option>Manufacturing Tenders</option>
@@ -224,23 +224,23 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="infoId">Information Number</label>
-                        <input type="text" class="form-control" name="infoId" placeholder="Information Number" value="<?php echo  $row['infoId']; ?>">
+                        <input type="text" class="form-control" name="infoId" placeholder="Information Number" required value="<?php echo  $row['infoId']; ?>">
                       </div>
                       
                       <div class="form-group">
                         <label for="ir">IR Executive</label>
-                        <input type="text" class="form-control" name="ir" placeholder="IR Executive" value="<?php echo  $row['ir']; ?>" >
+                        <input type="text" class="form-control" name="ir" placeholder="IR Executive" required value="<?php echo  $row['ir']; ?>" >
                       </div>
                       <div class="form-group">
                         <label for="fe">FE Executive</label>
-                        <input type="text" class="form-control" name="fe" placeholder="FE Executive" value="<?php echo  $row['fe']; ?>">
+                        <input type="text" class="form-control" name="fe" placeholder="FE Executive" required value="<?php echo  $row['fe']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="quantity">Quantity</label>
-                        <input type="number" id="quantity" name="quantity" value="<?php echo  $quantity ?>">&nbsp&nbsp&nbsp
+                        <input type="number" id="quantity" name="quantity" required value="<?php echo  $quantity ?>">&nbsp&nbsp&nbsp
                         <label for="unit">Unit:</label>
                         <select id="unit" name="unit" >
-                          <option value=""><?php echo  $unit ?></option>
+                        <option value="<?php echo  $unit; ?>"><?php echo  $unit; ?></option>
                           <option value="kg">KG</option>
                           <option value="ton">TON</option>
                           <option value="mt">MT</option>
@@ -250,20 +250,20 @@ include "connect.php";
           
                       <div class="form-group">
                         <label for="dealValue">Deal Value</label>
-                        <input type="number" class="form-control" name="dealValue" placeholder="Deal Value" value="<?php echo  $row['dealValue']; ?>">
+                        <input type="number" class="form-control" name="dealValue" placeholder="Deal Value" required value="<?php echo  $row['dealValue']; ?>">
                       </div>
                      
                       <div class="form-group">
                         <label for="dealDatetime">Deal Date and Time</label>
-                        <input type="datetime-local" class="form-control" name="dealDatetime" placeholder="Deal Date and Time" value="<?php echo  $row['dealDatetime']; ?>">
+                        <input type="datetime-local" class="form-control" name="dealDatetime" placeholder="Deal Date and Time" required value="<?php echo  $row['dealDatetime']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="docCreatedby">Lead Document Created by</label>
-                        <input type="text" class="form-control" name="docCreatedby" placeholder="Document Created by" value="<?php echo  $row['docCreatedby']; ?>" >
+                        <input type="text" class="form-control" name="docCreatedby" placeholder="Document Created by" required value="<?php echo  $row['docCreatedby']; ?>" >
                       </div>
                       <div class="form-group">
                         <label for="location">Deal Location</label>
-                        <select name="location" class="form-control form-control-lg" >
+                        <select name="location" class="form-control form-control-lg" required>
                         <option ><?php echo  $row['location']; ?></option>
                           <option>Andhra Pradesh</option>
                           <option>Arunachal Pradesh</option>
@@ -306,34 +306,34 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="industrialArea">Industrial Area </label>
-                        <input type="text" class="form-control" name="industrialArea" placeholder="Industrial Area" value="<?php echo  $row['docCreatedby']; ?>">
+                        <input type="text" class="form-control" name="industrialArea" placeholder="Industrial Area" required value="<?php echo  $row['docCreatedby']; ?>">
                       </div>
                      <br>
                      <p class="card-description">Client Details</p>
                   
                       <div class="form-group">
                         <label for="companyName">Company Name</label>
-                        <input type="text" class="form-control" name="companyName" placeholder="Company Name" value="<?php echo  $row['companyName']; ?>">
+                        <input type="text" class="form-control" name="companyName" placeholder="Company Name" required value="<?php echo  $row['companyName']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="contactPerson">Contact Person</label>
-                        <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" value="<?php echo  $row['contactPerson']; ?>">
+                        <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" required value="<?php echo  $row['contactPerson']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="email">Email Id</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email" value="<?php echo  $row['email']; ?>">
+                        <input type="email" class="form-control" name="email" placeholder="Email" required value="<?php echo  $row['email']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="text" class="form-control" name="address" placeholder="Address" value="<?php echo  $row['address']; ?>">
+                        <input type="text" class="form-control" name="address" placeholder="Address" required value="<?php echo  $row['address']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="city">City</label>
-                        <input type="text" class="form-control" name="city" placeholder="City" value="<?php echo  $row['city']; ?>">
+                        <input type="text" class="form-control" name="city" placeholder="City" required value="<?php echo  $row['city']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="state">State</label>
-                        <select name="state" class="form-control form-control-lg" >
+                        <select name="state" class="form-control form-control-lg" required>
                         <option ><?php echo  $row['state']; ?></option>
                           <option>Andhra Pradesh</option>
                           <option>Arunachal Pradesh</option>
@@ -375,19 +375,19 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="contactNumber">Contact Number</label>
-                        <input type="number" class="form-control" name="contactNumber" placeholder="Contact Number" maxlength="10" value="<?php echo  $row['contactNumber']; ?>">
+                        <input type="number" class="form-control" name="contactNumber" placeholder="Contact Number" maxlength="10" required value="<?php echo  $row['contactNumber']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="whatsappNumber">Whatsapp Number</label>
-                        <input type="number" class="form-control" name="whatsappNumber" placeholder="Whatsapp Number" maxlength="10" value="<?php echo  $row['whatsappNumber']; ?>"> 
+                        <input type="number" class="form-control" name="whatsappNumber" placeholder="Whatsapp Number" maxlength="10" required value="<?php echo  $row['whatsappNumber']; ?>"> 
                       </div>
                       <div class="form-group">
                         <label for="gstin">GSTIN</label>
-                        <input type="text" class="form-control" name="gstin" placeholder="GSTIN"  maxlength="15" value="<?php echo  $row['gstin']; ?>">
+                        <input type="text" class="form-control" name="gstin" placeholder="GSTIN"  maxlength="15" required value="<?php echo  $row['gstin']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="orderType">Order Type</label>
-                        <select name="orderType" class="form-control form-control-lg" >
+                        <select name="orderType" class="form-control form-control-lg" required>
                         <option ><?php echo  $row['orderType']; ?></option>
                             <option>Procurement</option>
                             <option>Service</option>
@@ -397,14 +397,17 @@ include "connect.php";
                       <p class="card-description">Requirement Description</p>
                       <div class="form-group">
                         <label for="material">Material</label> 
-                        <select name="" id="" style="inline-size:100%">
-                          <option >....Select One.... </option>
+                        <select name="material" id="" style="inline-size:100%" required>
+                    
                           <hr>
                           <?php
                           $sql = "SELECT DISTINCT metal FROM metal";
                           $result= mysqli_query($conn,$sql);
                           if ($result) {
-
+        ?>
+        <option value="<?php echo $row['material']; ?>"><?php echo $row['material']; ?></option>
+      <?php
+                
                             while ($ra = mysqli_fetch_assoc($result)) {
         
                               ?>
@@ -415,14 +418,17 @@ include "connect.php";
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="matDics">Material Discription</label>
-                        <select name="category" id="id_category" class='dependent-selects__category'
-                  style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;" placeholder="Search ">
-                  <option value="">select one</option>
-                  <?php $sql = "select * from metal";
+                        <label for="matDesc">Material Description</label>
+         
+                        <select name="matDesc" id="id_category" class='dependent-selects__category'
+                  style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;" placeholder="Search " required>
+          
+                  <?php $sql = "SELECT * from metal";
                   $result = mysqli_query($conn, $sql);
                   if ($result) {
-
+                    ?>
+                    <option value="<?php echo $row['matDesc']; ?>"><?php echo $row['matDesc']; ?></option>
+                  <?php
                     while ($r = mysqli_fetch_assoc($result)) {
                       //print_r($row);
                       //die;
@@ -436,16 +442,16 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="specification">Specification</label>
-                        <textarea class="form-control" placeholder="Specification" name="specification" rows="6" value=""><?php echo  $row['specification']; ?></textarea>
+                        <textarea class="form-control" placeholder="Specification" name="specification" rows="6" required value=""><?php echo  $row['specification']; ?></textarea>
                       </div>
                      
                       <div class="form-group">
                         <label for="dor">Date of Requirement</label>
-                        <input type="datetime-local" class="form-control" name="dor" placeholder="Start Time dd-mm-yy --:--" value="<?php echo  $row['dor']; ?>" >
+                        <input type="datetime-local" class="form-control" name="dor" placeholder="Start Time dd-mm-yy --:--" required value="<?php echo  $row['dor']; ?>" >
                       </div>
                       <div class="form-group">
                         <label for="expQuotation">Expected Quotation</label>
-                        <input type="number" class="form-control" name="expQuotation" placeholder="Expected Quotation" value="<?php echo  $row['expQuotation']; ?>">
+                        <input type="number" class="form-control" name="expQuotation" placeholder="Expected Quotation" required value="<?php echo  $row['expQuotation']; ?>">
                       </div>
                   
                       <div class="form-group">

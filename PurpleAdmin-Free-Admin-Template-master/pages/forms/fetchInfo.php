@@ -211,41 +211,41 @@ include "connect.php";
                 ?>
                    <div class="form-group">
                         <label for="infoId">INFORMATION NUMBER</label>
-                        <input type="text" class="form-control" name="infoId" value="<?php echo  $row['infoId']; ?>" placeholder="INFORMATION NUMBER" >
+                        <input type="text" class="form-control" name="infoId" required value="<?php echo  $row['infoId']; ?>" placeholder="INFORMATION NUMBER" >
                       </div>
                       
                       <div class="form-group">
                         <label for="showName">TRADE SHOW</label>
-                        <input type="text" class="form-control" name="showName" value="<?php echo  $row['showName']; ?>" placeholder="TRADE SHOW" >
+                        <input type="text" class="form-control" name="showName" required value="<?php echo  $row['showName']; ?>" placeholder="TRADE SHOW" >
                       </div>
                       
                      
                       <div class="form-group">
                         <label for="dateTime">DATE and TIME </label>
-                        <input type="datetime-local" class="form-control" name="dateTime" value="<?php echo  $row['dateTime']; ?>" placeholder="Show Date and Time" >
+                        <input type="datetime-local" class="form-control" name="dateTime" required value="<?php echo  $row['dateTime']; ?>" placeholder="Show Date and Time" >
                       </div>
                      
                       <div class="form-group">
                         <label for="profile">EXHIBITOR PRODUCT PROFILE</label>
-                        <input type="text area" class="form-control" name="profile" value="<?php echo  $row['profile']; ?>" placeholder="EXHIBITOR PRODUCT" >
+                        <input type="text area" class="form-control" name="profile" required value="<?php echo  $row['profile']; ?>" placeholder="EXHIBITOR PRODUCT" >
                       </div>
                      <br>
                      <div class="form-group">
                       <label for="organizedBy">ORGANIZED BY</label>
-                      <input type="text" class="form-control" name="organizedBy" value="<?php echo  $row['organizedBy']; ?>" placeholder="ORGANIZED BY" >
+                      <input type="text" class="form-control" name="organizedBy" required value="<?php echo  $row['organizedBy']; ?>" placeholder="ORGANIZED BY" >
                     </div>
                     <div class="form-group">
                       <label for="organizedAdd">ORGANIZED ADDRESS</label>
-                      <input type="text" class="form-control" name="organizedAdd" value="<?php echo  $row['organizedAdd']; ?>" placeholder="ORGANIZED ADDRESS" >
+                      <input type="text" class="form-control" name="organizedAdd" required value="<?php echo  $row['organizedAdd']; ?>" placeholder="ORGANIZED ADDRESS" >
                     </div>
                   
                       <div class="form-group">
                         <label for="venue">VENUE</label>
-                        <input type="text" class="form-control" name="venue" value="<?php echo  $row['venue']; ?>"  placeholder="VENUE" >
+                        <input type="text" class="form-control" name="venue" required value="<?php echo  $row['venue']; ?>"  placeholder="VENUE" >
                       </div>
                       <div class="form-group">
                         <label for="map">GOOGLE MAPS</label>
-                        <input type="text" class="form-control" name="map" value="<?php echo  $row['map']; ?>" placeholder="GOOGLE MAPS">
+                        <input type="text" class="form-control" name="map" required value="<?php echo  $row['map']; ?>" placeholder="GOOGLE MAPS">
                       </div>
 
                       <input type="hidden" name="id" value="<?php echo $id; ?>">                             

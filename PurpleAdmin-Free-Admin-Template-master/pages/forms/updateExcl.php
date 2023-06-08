@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $gstin = isset($_POST['gstin']) ? mysqli_real_escape_string($conn, $_POST['gstin']) : '';
     $orderType = isset($_POST['orderType']) ? mysqli_real_escape_string($conn, $_POST['orderType']) : '';
     $material = isset($_POST['material']) ? mysqli_real_escape_string($conn, $_POST['material']) : '';
+    $matDesc = isset($_POST['matDesc']) ? mysqli_real_escape_string($conn, $_POST['matDesc']) : '';
     $specification = isset($_POST['specification']) ? mysqli_real_escape_string($conn, $_POST['specification']) : '';
     $dor = isset($_POST['dor']) ? mysqli_real_escape_string($conn, $_POST['dor']) : '';
     $expQuotation = isset($_POST['expQuotation']) ? mysqli_real_escape_string($conn, $_POST['expQuotation']) : '';
@@ -118,16 +119,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         gstin = '$gstin',
         orderType = '$orderType',
         material = '$material',
+        matDesc = '$matDesc',
         specification = '$specification',
         dor = '$dor',
         expQuotation = '$expQuotation'
         WHERE id = '$id'";
 
     if (mysqli_query($conn, $sql)) {
+
         ?>
         <script>
             alert("Exclusive Deal Updated Successfully!");
-            window.location.replace("./exclusivedeals.php");
+            window.location.replace("./editExcllist.php");
         </script>
         <?php
     } else {

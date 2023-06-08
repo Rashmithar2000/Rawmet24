@@ -47,11 +47,7 @@ include "connect.php";
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
           </button>
-          <ul class="navbar-nav navbar-nav-right">
-               
-           
-           
-            
+          <ul class="navbar-nav navbar-nav-right">        
             <li class="nav-item d-none d-lg-block full-screen-link">
               <a class="nav-link">
                 <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
@@ -290,7 +286,7 @@ include "connect.php";
 
                       <div class="form-group">
                         <label for="material">Material</label> 
-                        <select name="material" id="" style="inline-size:100%">
+                        <select name="material" style="inline-size:100%" required>
                           <option >....Select One.... </option>
                           <hr>
                           <?php
@@ -308,9 +304,9 @@ include "connect.php";
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="matDics">Material Description</label>
-                        <select name="category" id="id_category" class='dependent-selects__category'
-                  style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;" placeholder="Search ">
+                        <label for="matDesc">Material Description</label>
+                        <select name="matDesc" class='dependent-selects__category'
+                  style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;" placeholder="Search " required>
                   <option value="">select one</option>
                   <?php $sql = "select * from metal";
                   $result = mysqli_query($conn, $sql);
