@@ -121,6 +121,11 @@ include "connect.php";
   margin-right:20px;
 
 }
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
 .tender-header,
 .deal-header {
   display: flex;
@@ -133,6 +138,8 @@ include "connect.php";
     margin-bottom: 18px;
     padding:7px;
     overflow-y: hidden;
+    margin-left: 1%;
+    margin-right: 1%;
   }
   h5{
     font-size: 17px;
@@ -637,28 +644,21 @@ include "connect.php";
   <div class="card-body">
     <article class="scroller">
       <?php
-      $sql = "select * from deals";
-      $result = mysqli_query($con, $sql);
-
-      if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $endDatetime = new DateTime($row['dealDatetime']);
-            $currentDate = new DateTime();
-            $interval = $currentDate->diff($endDatetime);
-            $daysToGo = $interval->format('%a');
-    
-            $status = ($currentDate > $endDatetime) ? " ago" : " to go";
-            $daysText = ($status == " ago") ? "Days" : "Days";
-    
-            ?>
-        <section>
-                   <br>
-    <div class="row bor">
-    
+      $sql = "SELECT * FROM deals";
+                            $result = mysqli_query($con, $sql);
+                            if (mysqli_num_rows($result) > 0) {
+                                foreach ($result as $row):
+                                  $endDatetime = new DateTime($row['dealDatetime']);
+                                  $currentDate = new DateTime();
+                                  $interval = $currentDate->diff($endDatetime);
+                                  $daysToGo = $interval->format('%a');
+                          
+                                  $status = ($currentDate > $endDatetime) ? " ago" : " to go";
+                                  $daysText = ($status == " ago") ? "Days" : "Days";
+                                    ?>
+                      <div class="row bor">
     <div class="col-sm-12 col-md-3 vl2">
     
-            
-            
                 <h6 style="margin-top:20px;">RTD: 3478568</h6>
                 <hr>
                 <h5>Category: Ferrous </h5> 
@@ -669,18 +669,21 @@ include "connect.php";
                 
                </div>
      <div class="col-sm-12 col-md-6">
-               <h5 style="margin-top:20px;" >Material : <?php echo $row['material']; ?> </h5> 
-               <p style="color:#444f68; "><h6>Description:</h6> <?php echo $row['specification']; ?></p>
+               <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
+               <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['specification']; ?></p>
         </div> 
 
     <div class="col-sm-12 col-md-3">
             <div class="vl">
             <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?></h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div>
-               </section>      
-          <?php
-        }
-      }
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+                         
+          
+      </div>
+      </div></div>
+                                <?php
+                                endforeach;
+                            }
       ?>
       </article>
     </div></div></div>
@@ -867,6 +870,10 @@ include "connect.php";
 function myFunction() {
   var val = document.getElementById("tender").value;
   var idval =document.getElementById("meterial").value;
+  if(idval==""){
+    alert("enter values in search");
+return false;
+  }
   //alert(idval);return false;
   if (val=="tenders") {
     //alert("tenders");

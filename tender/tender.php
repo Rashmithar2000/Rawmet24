@@ -100,6 +100,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
     border-radius: 5px;
     margin-bottom: 20px;
   }
+  .abc{
+    text-align: center;
+  }
+  
   .bor {
     border: 1px solid #858282;
     border-radius: 5px;
@@ -281,7 +285,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                     <?php
                                 }
                             } else {
-                                echo "No locations Found";
+                              echo "<div class='abc'>";
+                              echo "No locations Found";
+                              echo "</div>";
                             }
                             ?>
 
@@ -314,7 +320,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                     <?php
                                 }
                             } else {
-                                echo "No materials Found";
+                              echo "<div class='abc'>";
+                              echo "No materials Found";
+                              echo "</div>";
                             }
                             ?>
 
@@ -328,7 +336,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
             <div class="col-md-9 mt-3">
                 
-                    <div class="card-body row">
+                    <div class="card card-body row ">
                         <?php
                         if (isset($_GET['locations'])) {
                             $branchecked = [];
@@ -379,7 +387,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                         <?php
                                     endforeach;
                                 }else {
-                                  echo "No Items Found";
+                                  echo "<div class='abc'>";
+                                  echo "No result is found";
+                                  echo "</div>";
                               }
 
                             }
@@ -419,7 +429,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                       <?php
                                   endforeach;
                               }else {
-                                echo "No Items Found";
+                                echo "<div class='abc'>";
+                                  echo "No result is found";
+                                  echo "</div>";
                             }
 
                           }
@@ -468,14 +480,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                 <?php
                                 endforeach;
                             } else {
-                                echo "No Items Found";
+                              echo "<div class='abc'>";
+                              echo "No result is found";
+                              echo "</div>";
                             }
                         } 
                         ?>
                   <div></section> 
         </div>
     </div></div></div></div>
-    </div>
+    </div> 
     <br><br>
     <center style="color: #3b8beb;">  
 
@@ -577,6 +591,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 function myFunction() {
   var val = document.getElementById("tender").value;
   var idval =document.getElementById("meterial").value;
+  if(idval==""){
+    alert("enter values in search");
+return false;
+  }
   //alert(idval);return false;
   if (val=="tenders") {
     //alert("tenders");

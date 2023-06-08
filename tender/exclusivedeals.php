@@ -108,6 +108,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
     overflow-y: hidden;
     background-color:#fff;
   }
+  .abc{
+    text-align: center;
+  }
   h5{
     font-size: 17px;
     font-family: 'Montserrat', sans-serif;
@@ -276,7 +279,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                     <?php
                                 }
                             } else {
-                                echo "No locations Found";
+                              echo "<div class='abc'>";
+                              echo "No result is found";
+                              echo "</div>";
                             }
                             ?>
 
@@ -309,7 +314,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                     <?php
                                 }
                             } else {
-                                echo "No materials Found";
+                              echo "<div class='abc'>";
+                              echo "No result is found";
+                              echo "</div>";
                             }
                             ?>
 
@@ -325,7 +332,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
             <div class="col-md-9 mt-3">
              
-                    <div class="card-body row">
+                    <div class="card card-body row">
                         <?php
                         if (isset($_GET['locations'])) {
                             $branchecked = [];
@@ -378,7 +385,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                         <?php
                                     endforeach;
                                 }else{
+                                  echo "<div class='abc'>";
                                   echo "No result is found";
+                                  echo "</div>";
                                  }
 
                             }
@@ -418,7 +427,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                       <?php
                                   endforeach;
                               }else{
-                                echo "No result is found";
+                                echo "<div class='abc'>";
+                                  echo "No result is found";
+                                  echo "</div>";
                                }
 
                           }
@@ -464,7 +475,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                 <?php
                                 endforeach;
                             } else {
-                                echo "No Items Found";
+                              echo "<div class='abc'>";
+                              echo "No result is found";
+                              echo "</div>";
                             }
                         }
                         ?>
@@ -574,6 +587,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 function myFunction() {
   var val = document.getElementById("tender").value;
   var idval =document.getElementById("meterial").value;
+  if(idval==""){
+    alert("enter values in search");
+return false;
+  }
   //alert(idval);return false;
   if (val=="tenders") {
     //alert("tenders");
