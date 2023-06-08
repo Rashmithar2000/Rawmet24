@@ -316,11 +316,11 @@ include "connect.php";
                   $result = mysqli_query($conn, $sql);
                   if ($result) {
 
-                    while ($row = mysqli_fetch_assoc($result)) {
+                    while ($r = mysqli_fetch_assoc($result)) {
                       //print_r($row);
                       //die;
                       ?>
-                      <option value="<?php echo $row['scrap_metal']; ?>"><?php echo $row['scrap_metal']; ?></option>
+                      <option value="<?php echo $r['scrap_metal']; ?>"><?php echo $r['scrap_metal']; ?></option>
                     <?php }
                   }
                   ?>
