@@ -203,7 +203,7 @@ a:hover{
               <div class="collapse" id="ui-basic4">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="pages/forms/categories.php">Add Category</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/forms/categories.php">Edit Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/forms/editCatlist.php">Edit Category</a></li>
                 </ul>
               </div>
             </li>
