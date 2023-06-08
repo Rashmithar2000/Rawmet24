@@ -304,7 +304,7 @@ include "connect.php";
             
             
             </span></h2>
-            <h4>Tenders</h4>
+            <h5>Tenders</h5>
             <i class="fa fa-users "></i>
           </div>
           <div class="col-md-4">
@@ -315,7 +315,7 @@ include "connect.php";
                 //echo "+";
                 //die;
             ?></span></h2>
-            <h4>Auctions</h4>
+            <h5>Auctions</h5>
             <i class="fa fa-desktop"></i>
           </div>
           <div class="col-md-4">
@@ -326,7 +326,7 @@ include "connect.php";
                 //echo "+";
                 //die;
             ?></span></h2>
-            <h4>Deals</h4>
+            <h5>Deals</h5>
             <i class="fa fa-user"></i>
           </div>
         </div>
@@ -517,7 +517,7 @@ include "connect.php";
       <br><br>
     </div>
   </section>
-  <div class="container" style="padding: 2%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
+  <!-- <div class="container" style="padding: 2%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
   <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Auction</h2>
   <div class="card-body ">
     <article class="scroller">
@@ -545,7 +545,7 @@ include "connect.php";
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="auction_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
+                <center><a href="auction_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Auction</button></h6></a></center>
 
                 
                </div>
@@ -600,7 +600,7 @@ include "connect.php";
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-               <center> <a href="tend_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
+               <center> <a href="tend_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Tender</button></h6></a></center>
 
                 
                </div>
@@ -621,7 +621,7 @@ include "connect.php";
       </article>
     </div></div></div>
 
-<br>
+<br> -->
 
 <div class="container" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
   <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Deals</h2>
