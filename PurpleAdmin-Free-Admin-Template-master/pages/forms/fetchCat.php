@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -13,11 +14,9 @@ include "connect.php";
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Update Subscriber Information</title>
+    <title>Information Page</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
@@ -41,11 +40,7 @@ include "connect.php";
     a:hover{
       color: #ffffff;
     }
-    @media (max-width: 767px) {
-  .card-title {
-    font-size: 16px;
-  }
-    }
+    
     
       </style>
   <body>
@@ -61,6 +56,10 @@ include "connect.php";
             <span class="mdi mdi-menu"></span>
           </button>
           <ul class="navbar-nav navbar-nav-right">
+               
+           
+           
+            
             <li class="nav-item d-none d-lg-block full-screen-link">
               <a class="nav-link">
                 <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
@@ -185,98 +184,53 @@ include "connect.php";
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-title">Subscriber List</span>
+              <a class="nav-link" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Subscriber list</span>
                
-             
-                <i class="menu-arrow"></i>
                 <i class="mdi mdi-human-male-female menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic5">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/forms/editSublist.php">Edit Subscriber</a></li>
-                </ul>
-              </div>
+              
             </li>
           </ul>
         </nav>
-
-        <div class="col-lg-10 grid-margin stretch-card">
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+          
+            <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Subscribers Detail</h4><br>
-                    <table class="table table-hover table-responsive">
-  <thead>
-    <tr>
-      <th class="col-2">Name</th>
-      <th class="col-2">Email</th>
-      <th class="col-2">Subscription</th>
-      <th class="col-2">Amount</th>
-      <th class="col-2">Valid from</th>
-      <th class="col-2">Validity till</th>
-      <th class="col-2">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-  <?php
-include_once "connect.php";
+                    <h4 class="card-title">Categories Details</h4>
+                    <form action="updateCat.php" method="POST" class="forms-sample" enctype="multipart/form-data">
+                <?php 
+                $id= $_GET['id'];
+                $sql="select * from category where id=$id";
+                $result = mysqli_query($conn , $sql);
+               $row =mysqli_fetch_assoc($result);
+            
+                ?>
+                   <div class="form-group">
+                        <label for="categoryName">Category Name</label>
+                        <input type="text" class="form-control" name="categoryName" value="<?php echo  $row['categoryName']; ?>" placeholder="Category Name" >
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="subCategory">Sub Category Name</label>
+                        <input type="text" class="form-control" name="subCategory" value="<?php echo  $row['subCategory']; ?>" placeholder="Sub Category Name" >
+                      </div>
+                      
+                   
 
-$sql = "SELECT * FROM buyer_dashboard";
-$result = $conn->query($sql);
-
-$data = array();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $id = $row['id'];
-        $data[] = $row;
-    }
-} else {
-    echo "No data found.";
-}
-
-$conn->close();
-?>
-
-    <?php foreach ($data as $row) { ?>
-      <tr>
-     
-        <td><?php echo $row['name']; ?></td>
-        <td><?php echo $row['email']; ?></td>
-        <td><?php echo $row['subscription']; ?></td>
-        <td><?php echo $row['amount']; ?></td>
-        <td><?php echo $row['toDate']; ?></td>
-        <td><?php echo $row['fromDate']; ?></td> 
-  
-       
-<td style="padding: 0px;">
-  <div style="display: flex; gap: 5px;">
-    <form action="fetchSub.php?g=<?php echo $row['id'];?>" method="GET">
-      <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-      <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" style="width:auto;margin-bottom:22px">
-        <a href="fetchSub.php?id=<?php echo $row['id']; ?>"><i class="fa fa-solid fa-pen"></i></a>
-      </button>
-    </form>
-    <form action="deleteSub.php?g=<?php echo $row['id'];?>" method="POST">
-      <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-      <button class="btn btn-block btn-sm btn-gradient-danger mt-4 mx-auto" type="submit">
-        <a href="deleteSub.php?id=<?php echo $row['id']; ?>"><i class="fa fa-solid fa-trash"></i></a>
-      </button>
-    </form>
-  </div>
-</td>
-
-
-      </tr>
-    <?php } ?>
-  </tbody>
-</table>
-
-         
-          </div>
-        </div>
-        </div>
-        </div> </div>
-        
+                      <input type="hidden" name="id" value="<?php echo $id; ?>">                             
+                    <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
+    
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div></div></div>
 
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->

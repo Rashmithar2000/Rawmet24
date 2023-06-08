@@ -213,8 +213,6 @@ a:hover{
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title">Subscriber List</span>
-               
-             
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-human-male-female menu-icon"></i>
               </a>

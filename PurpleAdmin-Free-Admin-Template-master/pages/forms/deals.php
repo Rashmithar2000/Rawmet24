@@ -178,7 +178,6 @@ include "connect.php";
                 </ul>
               </div>
             </li>
-            </li>
           
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic">

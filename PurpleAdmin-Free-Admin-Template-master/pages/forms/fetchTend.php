@@ -177,8 +177,8 @@ include "connect.php";
               </a>
               <div class="collapse" id="ui-basic4">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="informations.php">Add Category</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="editInfolist.php">Edit Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="categories.php">Add Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editCatlist.php">Edit Category</a></li>
                 </ul>
               </div>
             </li>
