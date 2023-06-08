@@ -472,7 +472,7 @@ include "connect.php";
                        
 
                   </tbody>
-                </table></div></div>
+                </table></div></div></div></div>
                 <div style="margin-left: 40px;">
               <table class="table table-bordered">
               <thead>

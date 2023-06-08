@@ -566,7 +566,7 @@ h4,
   </tbody>
 </table>
 </div>
-
+</div></div></div>
 
       <table class="table table-bordered">
   <thead>
