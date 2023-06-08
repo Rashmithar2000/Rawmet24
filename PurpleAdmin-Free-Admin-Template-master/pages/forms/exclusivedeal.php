@@ -1,8 +1,8 @@
 <?php
 include_once "connect.php";
-// Check if the form is submitted
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve the form data
+ 
     $category = isset($_POST['category']) ? $_POST['category'] : '';
     $infoId = isset($_POST['infoId']) ? $_POST['infoId'] : '';
     $ir = isset($_POST['ir']) ? $_POST['ir'] : '';
@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $gstin = isset($_POST['gstin']) ? $_POST['gstin'] : '';
     $orderType = isset($_POST['orderType']) ? $_POST['orderType'] : ''; 
     $material = isset($_POST['material']) ? $_POST['material'] : '';
+    $matDesc = isset($_POST['matDesc']) ? $_POST['matDesc'] : '';
     $specification = isset($_POST['specification']) ? $_POST['specification'] : '';
     $dor = isset($_POST['dor']) ? $_POST['dor'] : '';
     $expQuotation = isset($_POST['expQuotation']) ? $_POST['expQuotation'] : '';
@@ -89,9 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  
  
  
- 
- 
- 
      //=======================================================doc upload ====================
  print_r($fname2);
  print_r($dname2);
@@ -105,10 +103,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $sql = "INSERT INTO exclusive_deals ( category, infoId, ir, fe,quantity, dealValue ,dealDatetime, docCreatedby, location, 
     industrialArea,companyName, contactPerson, email, address, city, state, contactNumber, 
-    whatsappNumber,gstin, orderType, material,specification, dor, expQuotation, img , filenames) 
+    whatsappNumber,gstin, orderType, material,matDesc,specification, dor, expQuotation, img , filenames) 
   VALUES ('$category', '$infoId', '$ir',  '$fe', '$value','$dealValue', '$dealDatetime',' $docCreatedby',  '$location', '$industrialArea',
    '$companyName',   '$contactPerson', '$email','$address', '$city',  '$state', '$contactNumber', '$whatsappNumber',
-    '$gstin', '$orderType', '$material', '$specification','$dor', '$expQuotation','$fname2','$dname2');";
+    '$gstin', '$orderType', '$material','$matDesc', '$specification','$dor', '$expQuotation','$fname2','$dname2');";
 
     if ($conn->query($sql) === true) {
 

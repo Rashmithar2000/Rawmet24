@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tenderNumber = isset($_POST['tenderNumber']) ? mysqli_real_escape_string($conn, $_POST['tenderNumber']) : '';
     $tenderDesc = isset($_POST['tenderDesc']) ? mysqli_real_escape_string($conn, $_POST['tenderDesc']) : '';
     $material = isset($_POST['material']) ? mysqli_real_escape_string($conn, $_POST['material']) : '';
+    $matDesc = isset($_POST['matDesc']) ? mysqli_real_escape_string($conn, $_POST['matDesc']) : '';
     $quantity = isset($_POST['quantity']) ? mysqli_real_escape_string($conn, $_POST['quantity']) : '';
     $unit = isset($_POST['unit']) ? mysqli_real_escape_string($conn, $_POST['unit']) : '';
     $value = (isset($_POST['quantity']) ? mysqli_real_escape_string($conn, $_POST['quantity']) : '') . ' ' . (isset($_POST['unit']) ? mysqli_real_escape_string($conn, $_POST['unit']) : '');
@@ -103,6 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         tenderNumber = '$tenderNumber',
         tenderDesc = '$tenderDesc',
         material = '$material',
+        matDesc= '$matDesc',
         quantity = '$value',
         publishingDatetime = '$publishingDatetime',
         startDatetime = '$startDatetime',
@@ -126,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ?>
         <script>
             alert("Tender Updated Successfully!");
-            window.location.replace("./tenders.php");
+            window.location.replace("./editTendlist.php");
         </script>
         <?php
     } else {

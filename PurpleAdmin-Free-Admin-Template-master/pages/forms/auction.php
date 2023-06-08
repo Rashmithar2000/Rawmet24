@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $aucValue = isset($_POST['aucValue']) ? $_POST['aucValue'] : '';
     $aucSource = isset($_POST['aucSource']) ? $_POST['aucSource'] : '';
     $material = isset($_POST['material']) ? $_POST['material'] : '';
+    $matDesc = isset($_POST['matDesc']) ? $_POST['matDesc'] : '';
     $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : '';
     $unit = isset($_POST['unit']) ? $_POST['unit'] : '';
     $ePublishingDateTime = isset($_POST['ePublishingDateTime']) ? $_POST['ePublishingDateTime'] : '';
@@ -108,11 +109,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Insert the form data into the database
     $sql = "INSERT INTO auction (category, infoId, ownership, aucLocation, sector, aucNumber,
-     aucDescription, aucValue ,aucSource, material,quantity, ePublishingDateTime, startDatetime, endDatetime, 
+     aucDescription, aucValue ,aucSource, material, matDesc,quantity, ePublishingDateTime, startDatetime, endDatetime, 
      insStartdatetime, insEnddatetime, emdType, emdAmt, companyName, location, street, city, 
      telephone, email, contactPerson, img, file) 
     VALUES ('$category', '$infoId', '$ownership', '$aucLocation', '$sector', '$aucNumber', 
-    '$aucDescription', '$aucValue', '$aucSource', '$material', '$value','$ePublishingDateTime', '$startDatetime', '
+    '$aucDescription', '$aucValue', '$aucSource', '$material', '$matDesc','$value','$ePublishingDateTime', '$startDatetime', '
     $endDatetime', '$insStartdatetime', '$insEnddatetime', '$emdType', '$emdAmt', '$companyName',
      '$location', '$street', '$city', '$telephone', '$email', '$contactPerson' , '$fname2', '$dname2')";
 

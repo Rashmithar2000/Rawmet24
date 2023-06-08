@@ -1,162 +1,3 @@
-
-<?php
-include_once "connect.php";
-// Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve the form data
-    $category = isset($_POST['category']) ? $_POST['category'] : '';
-    $infoId = isset($_POST['infoId']) ? $_POST['infoId'] : '';
-    $ir = isset($_POST['ir']) ? $_POST['ir'] : '';
-    $fe = isset($_POST['fe']) ? $_POST['fe'] : '';
-    $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : '';
-    $unit = isset($_POST['unit']) ? $_POST['unit'] : '';
-    $dealValue= isset($_POST['dealValue']) ? $_POST['dealValue'] : '';
-    $dealDatetime = isset($_POST['dealDatetime']) ? $_POST['dealDatetime'] : '';
-    $docCreatedby = isset($_POST['docCreatedby']) ? $_POST['docCreatedby'] : '';
-    $location = isset($_POST['location']) ? $_POST['location'] : '';
-    $industrialArea = isset($_POST['industrialArea']) ? $_POST['industrialArea'] : '';
-    $companyName = isset($_POST['companyName']) ? $_POST['companyName'] : '';
-    $contactPerson = isset($_POST['contactPerson']) ? $_POST['contactPerson'] : '';
-    $email = isset($_POST['email']) ? $_POST['email'] : '';
-    $address = isset($_POST['address']) ? $_POST['address'] : '';
-    $city = isset($_POST['city']) ? $_POST['city'] : '';   
-    $state = isset($_POST['state']) ? $_POST['state'] : '';
-    $contactNumber = isset($_POST['contactNumber']) ? $_POST['contactNumber'] : '';
-    $whatsappNumber = isset($_POST['whatsappNumber']) ? $_POST['whatsappNumber'] : '';   
-    $gstin = isset($_POST['gstin']) ? $_POST['gstin'] : '';
-    $orderType = isset($_POST['orderType']) ? $_POST['orderType'] : ''; 
-    $material = isset($_POST['material']) ? $_POST['material'] : '';
-    $specification = isset($_POST['specification']) ? $_POST['specification'] : '';
-    $dor = isset($_POST['dor']) ? $_POST['dor'] : '';
-    $expQuotation = isset($_POST['expQuotation']) ? $_POST['expQuotation'] : '';
-     //=======================================================upload ====================
-
-     $fname=$_FILES["img"]["name"];
-     //print_r($fname);die;
-     $fname2="";
-     $ctr=0;
-     foreach($fname as $fn){
-         $targetDir = "uploads/"; // Directory to store uploaded images
-         $targetFile = $targetDir . basename($_FILES["img"]["name"][$ctr]);
-         $uploadOk = 1;
-         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-        
- 
-         // Allow only certain file formats
-         if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif") {
-             echo "Error: Only JPG, JPEG, PNG, and GIF files are allowed.";
-             $uploadOk = 0;
-         }
-         if ($uploadOk == 1) {
-             move_uploaded_file($_FILES["img"]["tmp_name"][$ctr], $targetFile);  
-             $fname2 = serialize($fname);    
-         }
- 
-         $ctr++;
-     }
- 
- 
-    //  print_r($fname2);
-    //  die;
- 
- 
-     //=========================================================================================
- 
- 
- 
-     $dname=$_FILES["file"]["name"];
-     //print_r($fname);die;
-     $dname2="";
-     $ctr=0;
-     foreach($dname as $fn){
-         $targetDir = "uploads/"; // Directory to store uploaded images
-         $targetFile = $targetDir . basename($_FILES["file"]["name"][$ctr]);
-         $uploadOk = 1;
-         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-        
- 
-         // Allow only certain file formats
-         if ($imageFileType != "pdf" ) {
-             echo "Error: Only pdf files are allowed.";
-             $uploadOk = 0;
-         }
-         if ($uploadOk == 1) {
-             move_uploaded_file($_FILES["file"]["tmp_name"][$ctr], $targetFile);  
-             $dname2 = serialize($dname);    
-         }
- 
-         $ctr++;
-     }
- 
- 
- 
- 
- 
- 
-     //=======================================================doc upload ====================
- print_r($fname2);
- print_r($dname2);
- 
-    $servername = 'localhost';
-    $username = 'root';
-    $password = 'newpassword';
-    $database = 'registration_db';
-
-    $conn = new mysqli($servername, $username, $password, $database);
-    if ($conn->connect_error) {
-        die('Connection failed: ' . $conn->connect_error);
-    }
-    
-    $value = $quantity . ' ' . $unit;
-
-    $sql = "INSERT INTO exclusive_deals ( category, infoId, ir, fe,quantity, dealValue ,dealDatetime, docCreatedby, location, 
-    industrialArea,companyName, contactPerson, email, address, city, state, contactNumber, 
-    whatsappNumber,gstin, orderType, material,specification, dor, expQuotation, img , filenames) 
-  VALUES ('$category', '$infoId', '$ir',  '$fe', '$value','$dealValue', '$dealDatetime',' $docCreatedby',  '$location', '$industrialArea',
-   '$companyName',   '$contactPerson', '$email','$address', '$city',  '$state', '$contactNumber', '$whatsappNumber',
-    '$gstin', '$orderType', '$material', '$specification','$dor', '$expQuotation','$fname2','$dname2');";
-
-    if ($conn->query($sql) === true) {
-
-        ?> <script>
-        alert("Exclusive Deal Added!");
-        window.location.replace("./editExcllist.php");
-    </script>
-    <?php
-        //header("Location: /PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");
-        //echo "Hi";
-    
-    
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
-    $conn->close();
-}
-
-// Retrieve the stored data from the database
-
-if ($conn->connect_error) {
-    die('Connection failed: ' . $conn->connect_error);
-}
-
-// Retrieve data from the database
-$sql = "SELECT * FROM exclusive_deals";
-$result = $conn->query($sql);
-
-$data = array();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $data[] = $row;
-    }
-} else {
-    echo "No data found.";
-}
-
-$conn->close();
-?>
-
-
 <?php
 
 session_start();
@@ -164,7 +5,7 @@ if (!isset($_SESSION['name'])){
   header("Location: /Rawmet24/PurpleAdmin-Free-Admin-Template-master/pages/samples/login.html");
 
 }
-
+include "connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -214,10 +55,6 @@ if (!isset($_SESSION['name'])){
             <span class="mdi mdi-menu"></span>
           </button>
           <ul class="navbar-nav navbar-nav-right">
-               
-           
-           
-            
             <li class="nav-item d-none d-lg-block full-screen-link">
               <a class="nav-link">
                 <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
@@ -271,15 +108,17 @@ if (!isset($_SESSION['name'])){
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
+            
+            
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Auctions</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-chart-areaspline  menu-icon"></i>
+                <i class="mdi mdi-chart-areaspline menu-icon"></i>
               </a>
-             <div class="collapse" id="ui-basic">
+              <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="auctions.php">Add Auction </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="auctions.php">Add Auction</a></li>
                   <li class="nav-item"> <a class="nav-link" href="editAuclist.php">Edit Auctions</a></li>
                 </ul>
               </div>
@@ -314,6 +153,19 @@ if (!isset($_SESSION['name'])){
               </div>
             </li>
             <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Informations</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-note menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic3">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="informations.php">Add Info</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editInfolist.php">Edit Info</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Categories</span>
                 <i class="menu-arrow"></i>
@@ -326,6 +178,7 @@ if (!isset($_SESSION['name'])){
                 </ul>
               </div>
             </li>
+          
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title">Subscriber List</span>
@@ -531,10 +384,44 @@ if (!isset($_SESSION['name'])){
                       </div>
                       <p class="card-description">Requirement Description</p>
                       <div class="form-group">
-                        <label for="material">Material</label>
-                        <input type="text" class="form-control" name="material" placeholder="Material" required>
+                        <label for="material">Material</label> 
+                        <select name="" id="" style="inline-size:100%">
+                          <option >....Select One.... </option>
+                          <hr>
+                          <?php
+                          $sql = "SELECT DISTINCT metal FROM metal";
+                          $result= mysqli_query($conn,$sql);
+                          if ($result) {
+
+                            while ($ra = mysqli_fetch_assoc($result)) {
+        
+                              ?>
+                              <option value="<?php echo $ra['metal']; ?>"><?php echo $ra['metal']; ?></option>
+                            <?php }
+                          }
+                          ?>
+                        </select>
                       </div>
-                    
+                      <div class="form-group">
+                        <label for="matDics">Material Description</label>
+                        <select name="category" id="id_category" class='dependent-selects__category'
+                  style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;" placeholder="Search ">
+                  <option value="">select one</option>
+                  <?php $sql = "select * from metal";
+                  $result = mysqli_query($conn, $sql);
+                  if ($result) {
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      //print_r($row);
+                      //die;
+                      ?>
+                      <option value="<?php echo $row['scrap_metal']; ?>"><?php echo $row['scrap_metal']; ?></option>
+                    <?php }
+                  }
+                  ?>
+                </select>
+                        
+                      </div>
                       <div class="form-group">
                         <label for="specification">Specification</label>
                         <textarea class="form-control" placeholder="Specification" name="specification" rows="6" required></textarea>
@@ -550,7 +437,7 @@ if (!isset($_SESSION['name'])){
                       </div>
                   
                       <div class="form-group">
-                        <label>Exclusive Deal Image upload</label>
+                        <label>Deal Image upload</label>
                         <input type="file" name="img[]" class="file-upload-default" multiple>
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" placeholder="Upload File">
@@ -560,7 +447,7 @@ if (!isset($_SESSION['name'])){
                         </div>
                       </div>
                       <div class="form-group">
-                        <label>Exclusive Deal File upload</label>
+                        <label>Deal File upload</label>
                         <input type="file" name="file[]" class="file-upload-default" multiple>
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" placeholder="Upload File">
@@ -891,7 +778,8 @@ if (!isset($_SESSION['name'])){
               </div>
               
             </div>
-          </div></div>
+          </div>
+        </div>
 
 
           <!-- content-wrapper ends -->

@@ -205,8 +205,8 @@ include "connect.php";
                 ?>
                       <div class="form-group">
                         <label for="category">Category</label>
-                        <select name="category" class="form-control form-control-lg" >
-                          <option ><?php echo  $row['category']; ?></option>
+                        <select name="category" class="form-control form-control-lg" required>
+                          <option value="<?php echo  $row['category']; ?>"><?php echo  $row['category']; ?></option>
                             <option>Consultancy Tenders</option>
                             <option>Procurement Tenders</option>
                             <option>Manufacturing Tenders</option>
@@ -217,16 +217,16 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="infoId">Information Number</label>
-                        <input type="text" class="form-control" name="infoId"  placeholder="Information Number"  value="<?php echo  $row['infoId']; ?>">
+                        <input type="text" class="form-control" name="infoId"  placeholder="Information Number" required value="<?php echo  $row['infoId']; ?>">
                       </div>
                       
                       <div class="form-group">
                         <label for="ownership">Ownership</label>
-                        <input type="text" class="form-control" name="ownership" placeholder="Ownership"  value="<?php echo  $row['ownership']; ?>">
+                        <input type="text" class="form-control" name="ownership" placeholder="Ownership" required value="<?php echo  $row['ownership']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="aucLocation">Auction Location</label>
-                        <select name="aucLocation" class="form-control form-control-lg" >
+                        <select name="aucLocation" class="form-control form-control-lg" required >
                         <option ><?php echo  $row['aucLocation']; ?></option>
                           <option>Andhra Pradesh</option>
                           <option>Arunachal Pradesh</option>
@@ -267,7 +267,7 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="sector">Sector</label>
-                        <select name="sector" class="form-control form-control-lg"  value="<?php echo  $row['sector']; ?>">
+                        <select name="sector" class="form-control form-control-lg"  required value="<?php echo  $row['sector']; ?>">
                         <option ><?php echo  $row['sector']; ?></option>    
                         <option>Public</option>
                             <option>Private</option>
@@ -275,34 +275,37 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="aucNumber">Auction Number</label>
-                        <input type="text" class="form-control" name="aucNumber" placeholder="Auction Number"  value="<?php echo  $row['aucNumber']; ?>">
+                        <input type="text" class="form-control" name="aucNumber" placeholder="Auction Number" required  value="<?php echo  $row['aucNumber']; ?>">
                       </div>
                       
                       <div class="form-group">
                         <label for="aucDescription">Auction Description</label>
-                        <textarea class="form-control" placeholder="Auction Description" name="aucDescription" rows="6" value=""><?php echo  $row['aucDescription']; ?></textarea>
+                        <textarea class="form-control" placeholder="Auction Description" name="aucDescription" rows="6" required value=""><?php echo  $row['aucDescription']; ?></textarea>
                       </div>
 
                       <div class="form-group">
                         <label for="aucValue">Auction Value</label>
-                        <input type="text" class="form-control" name="aucValue" placeholder="Auction Value"  value="<?php echo  $row['aucValue']; ?>">
+                        <input type="text" class="form-control" name="aucValue" placeholder="Auction Value" required value="<?php echo  $row['aucValue']; ?>">
                       </div>
                       
                       <div class="form-group">
                         <label for="aucSource">Auction Source Website</label>
-                        <input type="text" class="form-control" name="aucSource" placeholder="Auction Source Website"  value="<?php echo  $row['aucSource']; ?>">
+                        <input type="text" class="form-control" name="aucSource" placeholder="Auction Source Website" required  value="<?php echo  $row['aucSource']; ?>">
                       </div>
-
+            
                       <div class="form-group">
                         <label for="material">Material</label> 
-                        <select name="" id="" style="inline-size:100%">
-                          <option >....Select One.... </option>
+                        <select name="material" id="" style="inline-size:100%" required>
+                    
                           <hr>
                           <?php
                           $sql = "SELECT DISTINCT metal FROM metal";
                           $result= mysqli_query($conn,$sql);
                           if ($result) {
-
+        ?>
+        <option value="<?php echo $row['material']; ?>"><?php echo $row['material']; ?></option>
+      <?php
+                
                             while ($ra = mysqli_fetch_assoc($result)) {
         
                               ?>
@@ -313,14 +316,17 @@ include "connect.php";
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="matDics">Material Discription</label>
-                        <select name="category" id="id_category" class='dependent-selects__category'
-                  style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;" placeholder="Search ">
-                  <option value="">select one</option>
-                  <?php $sql = "select * from metal";
+                        <label for="matDesc">Material Description</label>
+         
+                        <select name="matDesc" id="id_category" class='dependent-selects__category'
+                  style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;" placeholder="Search " required>
+          
+                  <?php $sql = "SELECT * from metal";
                   $result = mysqli_query($conn, $sql);
                   if ($result) {
-
+                    ?>
+                    <option value="<?php echo $row['matDesc']; ?>"><?php echo $row['matDesc']; ?></option>
+                  <?php
                     while ($r = mysqli_fetch_assoc($result)) {
                       //print_r($row);
                       //die;
@@ -334,10 +340,10 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="quantity">Quantity</label>
-                        <input type="number" id="quantity" name="quantity"  value="<?php echo  $quantity; ?>">&nbsp&nbsp&nbsp
+                        <input type="number" id="quantity" name="quantity" required value="<?php echo  $quantity; ?>">&nbsp&nbsp&nbsp
                         <label for="unit">Unit:</label>
                         <select id="unit" name="unit" >
-                          <option value=""><?php echo  $unit; ?></option>
+                          <option value="<?php echo  $unit; ?>"><?php echo  $unit; ?></option>
                           <option value="kg">KG</option>
                           <option value="ton">TON</option>
                           <option value="mt">MT</option>
@@ -347,27 +353,27 @@ include "connect.php";
             
                       <div class="form-group">
                         <label for="ePublishingDateTime">ePublishing Date and Time</label>
-                        <input type="datetime-local" class="form-control" name="ePublishingDateTime" placeholder="ePublishing Date and Time"  value="<?php echo  $row['ePublishingDateTime']; ?>">
+                        <input type="datetime-local" class="form-control" name="ePublishingDateTime" placeholder="ePublishing Date and Time" required value="<?php echo  $row['ePublishingDateTime']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="startDatetime">Auction Start Time</label>
-                        <input type="datetime-local" class="form-control" name="startDatetime" placeholder="Start Time dd-mm-yy --:--"  value="<?php echo  $row['startDatetime']; ?>">
+                        <input type="datetime-local" class="form-control" name="startDatetime" placeholder="Start Time dd-mm-yy --:--" required value="<?php echo  $row['startDatetime']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="endDatetime">Auction End Time</label>
-                        <input type="datetime-local" class="form-control" name="endDatetime" placeholder="End Time -mm-yy --:--"  value="<?php echo  $row['endDatetime']; ?>">
+                        <input type="datetime-local" class="form-control" name="endDatetime" placeholder="End Time -mm-yy --:--"  required value="<?php echo  $row['endDatetime']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="insStartdatetime">Inspection Start Time</label>
-                        <input type="datetime-local" class="form-control" name="insStartdatetime" placeholder="Inspection Start Time dd-mm-yy --:--"  value="<?php echo  $row['insStartdatetime']; ?>">
+                        <input type="datetime-local" class="form-control" name="insStartdatetime" placeholder="Inspection Start Time dd-mm-yy --:--" required value="<?php echo  $row['insStartdatetime']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="insEnddatetime">Inspection End Time</label>
-                        <input type="datetime-local" class="form-control" name="insEnddatetime" placeholder="Inspection End Time -mm-yy --:--"  value="<?php echo  $row['insEnddatetime']; ?>">
+                        <input type="datetime-local" class="form-control" name="insEnddatetime" placeholder="Inspection End Time -mm-yy --:--" required value="<?php echo  $row['insEnddatetime']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="emdType">EMD Type</label>
-                        <select name="emdType" class="form-control form-control-lg" >
+                        <select name="emdType" class="form-control form-control-lg" required >
                             <option>Online Payment/ Net Banking</option>
                             <option>DD</option>
                             <option>Cash</option>
@@ -375,41 +381,41 @@ include "connect.php";
                       </div>
                       <div class="form-group">
                         <label for="emdAmt">EMD Amount</label>
-                        <input type="number" class="form-control" name="emdAmt" placeholder="EMD Amount(value only)"  value="<?php echo  $row['emdAmt']; ?>">
+                        <input type="number" class="form-control" name="emdAmt" placeholder="EMD Amount(value only)" required value="<?php echo  $row['emdAmt']; ?>">
                       </div>
                      <br>
                      <p class="card-description">Express of Interest</p>
                
                       <div class="form-group">
                         <label for="companyName">Company Name</label>
-                        <input type="text" class="form-control" name="companyName" placeholder="Company Name"  value="<?php echo  $row['companyName']; ?>">
+                        <input type="text" class="form-control" name="companyName" placeholder="Company Name" required value="<?php echo  $row['companyName']; ?>">
                       </div>
                              <div class="form-group">
                         <label for="location">Location</label>
-                        <input type="text" class="form-control" name="location" placeholder="Location"  value="<?php echo  $row['location']; ?>">
+                        <input type="text" class="form-control" name="location" placeholder="Location" required value="<?php echo  $row['location']; ?>">
                       </div>
                  
                       <div class="form-group">
                         <label for="street">Street</label>
-                        <input type="text" class="form-control" name="street" placeholder="Street"  value="<?php echo  $row['street']; ?>">
+                        <input type="text" class="form-control" name="street" placeholder="Street" required value="<?php echo  $row['street']; ?>">
                       </div>
 
                       <div class="form-group">
                         <label for="city">City</label>
-                        <input type="text" class="form-control" name="city" placeholder="City"  value="<?php echo  $row['city']; ?>">
+                        <input type="text" class="form-control" name="city" placeholder="City" required value="<?php echo  $row['city']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="telephone">Telephone</label>
-                        <input type="text" class="form-control" name="telephone" placeholder="Telephone"  value="<?php echo  $row['telephone']; ?>">
+                        <input type="text" class="form-control" name="telephone" placeholder="Telephone" required value="<?php echo  $row['telephone']; ?>">
                       </div>
                       <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email"  value="<?php echo  $row['email']; ?>">
+                        <input type="email" class="form-control" name="email" placeholder="Email" required value="<?php echo  $row['email']; ?>">
                       </div>
                       
                       <div class="form-group">
                         <label for="contactPerson">Contact Person</label>
-                        <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person"  value="<?php echo  $row['contactPerson']; ?>">
+                        <input type="text" class="form-control" name="contactPerson" placeholder="Contact Person" required  value="<?php echo  $row['contactPerson']; ?>">
                       </div>
                 
                                            
@@ -435,8 +441,7 @@ include "connect.php";
                       </div>
                     </div>
                     <input type="hidden" name="id" value="<?php echo $id; ?>">           
-                      <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
-                    
+                      <button type="submit" class="btn btn-gradient-primary me-2">Update</button>                  
                     </form>
                   </div>
                 </div>
