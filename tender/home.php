@@ -292,7 +292,10 @@ include "connect.php";
     <center style="color: #3b8beb;">
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
+        <div class="col-md-4">
+          <div class="card">
+          <div class="card-body">
+          
             <h2><span class="counter">
             <?php 
                 $sql = "select * from tenders";
@@ -306,8 +309,11 @@ include "connect.php";
             </span></h2>
             <h5>Tenders</h5>
             <i class="fa fa-users "></i>
-          </div>
+          </div></div></div>
           <div class="col-md-4">
+          <div class="card">
+          <div class="card-body">
+          
             <h2><span class="counter"><?php 
                 $sql = "select * from auction";
                 $result = mysqli_query($con, $sql);
@@ -317,8 +323,10 @@ include "connect.php";
             ?></span></h2>
             <h5>Auctions</h5>
             <i class="fa fa-desktop"></i>
-          </div>
+          </div></div></div>
           <div class="col-md-4">
+          <div class="card">
+          <div class="card-body">
             <h2><span class="counter"><?php 
                 $sql = "select * from deals";
                 $result = mysqli_query($con, $sql);
@@ -326,14 +334,15 @@ include "connect.php";
                 //echo "+";
                 //die;
             ?></span></h2>
+            
             <h5>Deals</h5>
             <i class="fa fa-user"></i>
           </div>
         </div>
-      </div>
+      </div></div></div>
     </center><br><br>
     <center>
-      <h3 style="color: #3b8beb;">TOP CATEGORIES</h3>
+      <h2 style="color: #3b8beb;">TOP CATEGORIES</h2>
     </center><br>
     <div class="grey-bg container-fluid">
 
