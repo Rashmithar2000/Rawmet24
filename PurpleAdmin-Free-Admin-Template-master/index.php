@@ -36,7 +36,10 @@ a:hover{
   color: #ffffff;
 }
 
+.card {
 
+  overflow: hidden;
+}
   </style>
   <body>
 
