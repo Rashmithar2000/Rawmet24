@@ -189,13 +189,12 @@ include "connect.php";
                 <span class="menu-title">Subscriber list</span>
                
                 <i class="mdi mdi-human-male-female menu-icon"></i>
-              </a>
-              
+              </a>           
             </li>
           </ul>
         </nav>
 
-        <div class="col-lg-10 grid-margin stretch-card">
+        <div class="col-lg-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Category</h4><br>
@@ -204,13 +203,12 @@ include "connect.php";
     <tr>
       <th class="col-2">Category Name</th>
       <th class="col-2">Sub Category Name</th>
-     
+      <th class="col-2">Action</th>
     </tr>
   </thead>
   <tbody>
   <?php
 include_once "connect.php";
-
 
 $sql = "SELECT * FROM category";
 $result = $conn->query($sql);

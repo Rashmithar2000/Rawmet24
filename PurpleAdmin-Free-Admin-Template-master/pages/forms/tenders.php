@@ -302,7 +302,7 @@ include "connect.php";
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="matDics">Material Discription</label>
+                        <label for="matDics">Material Description</label>
                         <select name="category" id="id_category" class='dependent-selects__category'
                   style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;" placeholder="Search ">
                   <option value="">select one</option>
