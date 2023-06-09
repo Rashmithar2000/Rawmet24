@@ -676,7 +676,7 @@ include "connect.php";
                       <div class="row bor">
     <div class="col-sm-12 col-md-3 vl2">
     
-                <h6 style="margin-top:20px;">RTD: 3478568</h6>
+                <h6 style="margin-top:20px;">RLD: 181204</h6>
                 <hr>
                 <h5>Category: Ferrous </h5> 
 

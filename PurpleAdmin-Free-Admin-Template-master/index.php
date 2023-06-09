@@ -291,6 +291,56 @@ a:hover{
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-danger card-img-holder text-white">
+                  <div class="card-body" style="background-color: purple;">
+                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">Auctions <i class="mdi mdi-chart-line mdi-24px float-sm-end"></i>
+                    </h4>
+                    <h2 class="mb-5"><?php 
+                $sql = "select * from auction";
+                $result = mysqli_query($conn, $sql);
+                echo ($result->num_rows-1)."+";
+                //echo "+";
+                //die;
+            ?></h2>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-info card-img-holder text-white">
+                  <div class="card-body" style="background-color: orange;">
+                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">Tenders <i class="mdi mdi-animation mdi-24px float-sm-end"></i>
+                    </h4>
+                    <h2 class="mb-5"> <?php 
+                $sql = "select * from tenders";
+                $result = mysqli_query($conn, $sql);
+                echo ($result->num_rows-1)."+";
+                //echo "+";
+                //die;
+            ?></h2>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-success card-img-holder text-white">
+                  <div class="card-body" style="background-color: pink;">
+                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">Deals<i class="mdi mdi-drawing-box mdi-24px float-sm-end"></i>
+                    </h4>
+                    <h2 class="mb-5"><?php 
+                $sql = "select * from deals";
+                $result = mysqli_query($conn, $sql);
+                echo ($result->num_rows-1)."+";
+                //echo "+";
+                //die;
+            ?></h2>
+                  </div>
+                </div>
+              </div>
+            </div>
 
           </div>
   
