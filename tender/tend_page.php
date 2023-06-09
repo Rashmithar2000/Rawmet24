@@ -259,6 +259,13 @@ include "connect.php";
       width: 100%;
       height: auto;
     }
+
+    .table-container {
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    max-width: 100%; /* Limit the width to the container's width */
+  }
+
+
     @media (max-width: 767px) {
     .desktop-view {
       display: none;
@@ -524,8 +531,8 @@ include "connect.php";
                           </a></h3>
               <h5><i class='bx bx-map'></i> <?php echo $row['tenderLocation']; ?></h5>
               <hr>
-              <div >
-                <table class="table table-bordered">
+              <div class="table-container">
+                <table class="table table-bordered table-container">
                   <thead>
                     <tr>
 
@@ -679,7 +686,7 @@ include "connect.php";
                 &nbsp </h6>
                 </div>    
           <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a><br>
-          <h5 style="color:#fff;">Subscribe to view all content</h5></center>
+          <a href="price.html" style="color:#fff; margin-right:22px;  font-weight:bold; font-size: 18px;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i>Subscribe to view all content</a></center>
   </div>
                       </div></div></div></div>
 
@@ -706,7 +713,7 @@ include "connect.php";
                 </div> 
                 
       <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a><br>
-      <h5 style="color:#fff;">Subscribe to view all content</h5></center>
+      <a href="price.html" style="color:#fff; margin-right:22px;  font-weight:bold; font-size: 18px;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i>Subscribe to view all content</a></center>
 </div><?php } } ?>
   </div>
 </div>

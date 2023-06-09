@@ -330,7 +330,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
             </div>
 
 
-            <div class="col-md-9 mt-3">
+            <div class="col-md-9 mt-3 desktop-view">
                 
                     <div class="card card-body row">
                         <?php
@@ -349,7 +349,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                                       <div class="row bor">
     <div class="col-sm-12 col-md-3 vl2">
     
-                <h6 style="margin-top:20px;">RTD: 3478568</h6>
+                <h6 style="margin-top:20px;">RTD: 182004</h6>
                 <hr>
                 <h5>Category: Ferrous </h5> 
 
@@ -432,7 +432,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="row bor">
   <div class="col-sm-12 col-md-3 vl2">
   
-              <h6 style="margin-top:20px;">RTD: 3478568</h6>
+              <h6 style="margin-top:20px;">RTD: 182004</h6>
               <hr>
               <h5>Category: Ferrous </h5> 
 
@@ -470,16 +470,164 @@ body {font-family: Arial, Helvetica, sans-serif;}
         </div>
     </div></div></div></div>
     </div>
-    <br><br>
+   
     <center style="color: #3b8beb;"> 
 
 
     <!-- Remove the container if you want to extend the Footer to full width. -->
    
-    <br><br>
+    
 
 
-<!-- Footer -->
+<!--===================================================mobile-view======================================================= -->
+<div class="col-md-9 mt-3 mobile-view">
+                
+                    <div class="card card-body row">
+                        <?php
+                        if (isset($_GET['locations'])) {
+                            $branchecked = [];
+                            $branchecked[0] = $_GET['locations'];
+                            //print_r($branchecked);die;
+                            //echo $branchecked; die;
+                            foreach ($branchecked as $rowbrand) {
+                                 $sql = "SELECT * FROM tenders WHERE tenderLocation='".$rowbrand."'";
+
+                                $result = mysqli_query($con, $sql);
+                                if (mysqli_num_rows($result) > 0) {
+                                    foreach ($result as $row):
+                                        ?>
+                                      <div class="row bor">
+    <div class="col-sm-12 col-md-3 ">
+    
+                <h6 style="margin-top:20px;">RTD: 182004</h6>
+                <hr>
+                <h5>Category: Ferrous </h5> 
+
+                <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
+                <center><a href="tend_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Tender</button></h6></a></center>
+
+                <hr>
+               </div>
+     <div class="col-sm-12 col-md-6">
+               <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
+               <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['tenderDesc']; ?></p>
+        </div> 
+
+    <div class="col-sm-12 col-md-3"><hr>
+            <div class="">
+            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;">4 days to go</button>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['endDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['tenderValue']; ?></h3></div></center>
+               
+
+
+                  </div> </div> 
+                  </div>
+                                        <?php
+                                    endforeach;
+                                } else{
+                                  echo "<div class='abc'>";
+                                  echo "No result is found";
+                                  echo "</div>";
+                                }
+
+                            }
+                        } else if (isset($_GET['materials'])) {
+                          $branchecked = [];
+                          $branchecked[0] = $_GET['materials'];
+                          //print_r($branchecked);die;
+                          //echo $branchecked; die;
+                          foreach ($branchecked as $rowbrand) {
+                               $sql = "SELECT * FROM tenders WHERE material='".$rowbrand."'";
+
+                              $result = mysqli_query($con, $sql);
+                              if (mysqli_num_rows($result) > 0) {
+                                  foreach ($result as $row):
+                                      ?>
+                                     <div class="col-md-12 grid-margin stretch-card">
+                  <div class="card">
+                  <div class="card-body">
+                  <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>
+                  | Approximate Value : <?php echo $row['tenderValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
+                      <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
+                  
+                      <p><?php echo $row['tenderDesc'];?></p>
+
+  <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
+                    </div>
+                  </div>
+                </div>
+                                      <?php
+                                  endforeach;
+                              }else {
+                                echo "<div class='abc'>";
+                                  echo "No result is found";
+                                  echo "</div>";
+                            }
+
+                          }
+                      }
+                        else {
+                          if(isset($_GET['search'])){
+                            $a = $_GET['search'];
+                           
+                            $sql = "select * from tenders WHERE material LIKE '$a%' OR tenderDesc LIKE '$a%' ";
+                               $result = mysqli_query($con, $sql);
+                               //print_r($result);die;
+                               if (mysqli_num_rows($result) > 0) {
+                                 while ($row = mysqli_fetch_assoc($result)) {
+                                   //print_r($row);die;
+                                   ?>
+                                   <section>                  
+  
+  <div class="row bor">
+  <div class="col-sm-12 col-md-3 ">
+  
+              <h6 style="margin-top:20px;">RTD: 182004</h6>
+              <hr>
+              <h5>Category: Ferrous </h5> 
+
+              <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
+              <center><a href="tend_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Tender</button></h6></a></center>
+
+              <hr>
+             </div>
+   <div class="col-sm-12 col-md-6">
+             <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
+             <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['tenderDesc']; ?></p>
+      </div> 
+
+  <div class="col-sm-12 col-md-3"><hr>
+          <div class="">
+          <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;">4 days to go</button>
+                <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['endDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['tenderValue']; ?></h3></div></center>
+                       
+        
+    </div>
+    </div></div>
+                  </div>
+                                   <?php
+                                 }
+                               }else{
+                                echo "<div class='abc'>";
+                                  echo "No result is found";
+                                  echo "</div>";
+                               }
+                     
+                     
+                             }}
+                        ?>
+                 <div></section> 
+        </div>
+    </div></div></div></div>
+    </div>
+
+
+
+
+
+
+
+
 
 
 <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">

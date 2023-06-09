@@ -139,10 +139,25 @@ include "connect.php";
     padding:7px;
     overflow-y: hidden;
     margin-left: 1%;
-    margin-right: 1%;
+    margin-right: 2%;
+  }
+  h1{
+    font-size: 28px;
+
+  }
+  
+  
+  h2{
+    font-size: 23px;
+    font-family: 'Montserrat', sans-serif;
+    color:#595a5e;
+    font-weight: bold;
+  }
+  h6{
+    font-size: 15px;
   }
   h5{
-    font-size: 17px;
+    font-size: 16px;
     font-family: 'Montserrat', sans-serif;
     color:#595a5e;
     font-weight: bold;
@@ -152,8 +167,10 @@ include "connect.php";
     font-size: 13px
   }
   h3{
-    font-size: 17px;
-    
+    font-size: 16px;
+    padding:10px;
+    color:#595a5e;
+    font-family: Arial, Helvetica, sans-serif;
   }
   .vl {
   border-left: 1px solid rgb(184, 176, 176);
@@ -303,7 +320,7 @@ include "connect.php";
           <div class="card">
           <div class="card-body">
           
-            <h2><span class="counter">
+            <h1><span class="counter">
             <?php 
                 $sql = "select * from tenders";
                 $result = mysqli_query($con, $sql);
@@ -313,7 +330,7 @@ include "connect.php";
             ?>
             
             
-            </span></h2>
+            </span></h1>
             <h5>Tenders</h5>
             <i class="fa fa-users "></i>
           </div></div></div>
@@ -321,26 +338,26 @@ include "connect.php";
           <div class="card">
           <div class="card-body">
           
-            <h2><span class="counter"><?php 
+            <h1><span class="counter"><?php 
                 $sql = "select * from auction";
                 $result = mysqli_query($con, $sql);
                 echo ($result->num_rows-1)."+";
                 //echo "+";
                 //die;
-            ?></span></h2>
+            ?></span></h1>
             <h5>Auctions</h5>
             <i class="fa fa-desktop"></i>
           </div></div></div>
           <div class="col-md-4">
           <div class="card">
           <div class="card-body">
-            <h2><span class="counter"><?php 
+            <h1><span class="counter"><?php 
                 $sql = "select * from deals";
                 $result = mysqli_query($con, $sql);
                 echo ($result->num_rows-1)."+";
                 //echo "+";
                 //die;
-            ?></span></h2>
+            ?></span></h1>
             
             <h5>Deals</h5>
             <i class="fa fa-user"></i>
@@ -640,7 +657,7 @@ include "connect.php";
 <br> -->
 
 <div class="container desktop-view" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
-  <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Deals</h2>
+  <h1 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif; margin-left:30px;">Deals</h1>
   <div class="card-body">
     <article class="scroller">
       <?php
@@ -659,28 +676,28 @@ include "connect.php";
                       <div class="row bor">
     <div class="col-sm-12 col-md-3 vl2">
     
-                <h6 style="margin-top:20px;">RTD: 3478568</h6>
+                <h6 style="margin-top:20px;">RLD: 181204</h6>
                 <hr>
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
+                <a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:30px;" class="btn btn-primary" type="submit">View Deal</button></h6></a>
 
                 
                </div>
      <div class="col-sm-12 col-md-6">
-               <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
-               <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['specification']; ?></p>
+               <h2 style="margin-top:20px;"> <?php echo $row['material']; ?> </h2> 
+               <h6 style="color:#444f68; padding: 4px;">Description:<br><br> <?php echo $row['specification']; ?></h6>
         </div> 
 
-    <div class="col-sm-12 col-md-3">
-            <div class="vl">
+    <div class="col-sm-12 col-md-3 vl">
+            
             <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 34kgs<br>Deal Value: ₹<?php echo $row['dealValue']; ?></h3></div></center>
                          
           
       </div>
-      </div></div>
+      </div>
                                 <?php
                                 endforeach;
                             }
@@ -734,7 +751,7 @@ include "connect.php";
     
             
             
-                <h6 style="margin-top:20px;">RTD: 3478568</h6>
+                <h6 style="margin-top:20px;">RLD: 181204</h6>
                 <hr>
                 <h5>Category: Ferrous </h5> 
 
@@ -770,7 +787,7 @@ include "connect.php";
 </div>
 </div>
 </div>
-</div><br><br><br> 
+</div>
 
 
 

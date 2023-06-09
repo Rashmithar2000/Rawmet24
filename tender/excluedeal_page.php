@@ -253,6 +253,11 @@ h4,
     display:none;
   }
 }
+.table-container {
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    max-width: 100%; /* Limit the width to the container's width */
+  }
+
 
 @media (min-width: 768px) {
   .mobile-view {
@@ -493,8 +498,8 @@ h4,
                           </a></h3>
     <h5><i class='bx bx-map'></i> <?php echo $row['location']; ?></h5><br>
     <hr>
-    <div >
-      <table class="table table-bordered">
+    <div class="table-container">
+      <table class="table table-bordered table-container">
   <thead>
     <tr>
 
@@ -618,7 +623,7 @@ h4,
 
               </div>     
          <center> <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a>
-         <h5 style="color:#fff;">Subscribe to view all content</h5></center>
+         <a href="price.html" style="color:#fff; margin-right:22px;  font-weight:bold; font-size: 18px;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i>Subscribe to view all content</a></center>
     </div>
     </div>
     </div>
@@ -640,7 +645,7 @@ h4,
              </h5>
   
       <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a>
-      <h5 style="color:#fff;">Subscribe to view all content</h5></center>
+      <a href="price.html" style="color:#fff; margin-right:22px;  font-weight:bold; font-size: 18px;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i>Subscribe to view all content</a></center>
 </div>
   </div>
 </div>
