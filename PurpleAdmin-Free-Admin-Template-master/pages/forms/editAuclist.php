@@ -204,16 +204,16 @@ include "connect.php";
                     <h4 class="card-title">Auctions</h4><br>
                     <table id="keywords" class="table table-hover table-responsive">
   <thead>
-    <tr>
+    <tr role="row">
       <th class="col-2" onclick="sortTable(0)"><span>Sector</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Ownership</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Start Time</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>End Time</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Auc Value</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Location</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Quantity</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Material</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Action</span></th>
+      <th class="col-2" onclick="sortTable(1)"><span>Ownership</span></th>
+      <th class="col-2" onclick="sortTable(2)"><span>Start Time</span></th>
+      <th class="col-2" onclick="sortTable(3)"><span>End Time</span></th>
+      <th class="col-2" onclick="sortTable(4)"><span>Auc Value</span></th>
+      <th class="col-2" onclick="sortTable(5)"><span>Location</span></th>
+      <th class="col-2" onclick="sortTable(6)"><span>Quantity</span></th>
+      <th class="col-2" onclick="sortTable(7)"><span>Material</span></th>
+      <th class="col-2" onclick="sortTable(8)"><span>Action</span></th>
     </tr>
 </thead>
 

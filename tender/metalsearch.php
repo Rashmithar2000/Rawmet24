@@ -239,10 +239,10 @@ include "connect.php";
             <thead>
               <tr>
                 <th onclick="sortTable(0)"><span>ID</span></th>
-                <th onclick="sortTable(0)"><span>Metal</span></th>
-                <th onclick="sortTable(0)"><span>Scrap Metal</span></th>
-                <th onclick="sortTable(0)"><span>Price</span></th>
-                <th onclick="sortTable(0)"><span>TimeStamp</span></th>
+                <th onclick="sortTable(1)"><span>Metal</span></th>
+                <th onclick="sortTable(2)"><span>Scrap Metal</span></th>
+                <th onclick="sortTable(3)"><span>Price</span></th>
+                <th onclick="sortTable(4)"><span>TimeStamp</span></th>
               </tr>
             </thead>
             <tbody>

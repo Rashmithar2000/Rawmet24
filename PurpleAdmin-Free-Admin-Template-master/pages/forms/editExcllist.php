@@ -203,13 +203,13 @@ include "connect.php";
   <thead>
     <tr>
       <th class="col-2" onclick="sortTable(0)">IR Executive</th>
-      <th class="col-2" onclick="sortTable(0)">Exclusive Deal Date</th>
-      <th class="col-2" onclick="sortTable(0)">Deal Document by</th>
-      <th class="col-2" onclick="sortTable(0)">Location</th>
-      <th class="col-2" onclick="sortTable(0)">Exclusive Deal Value</th>
-      <th class="col-2" onclick="sortTable(0)">Quantity</th>
-      <th class="col-2" onclick="sortTable(0)">Material</th>
-      <th class="col-2" onclick="sortTable(0)">Action</th>
+      <th class="col-2" onclick="sortTable(1)">Exclusive Deal Date</th>
+      <th class="col-2" onclick="sortTable(2)">Deal Document by</th>
+      <th class="col-2" onclick="sortTable(3)">Location</th>
+      <th class="col-2" onclick="sortTable(4)">Exclusive Deal Value</th>
+      <th class="col-2" onclick="sortTable(5)">Quantity</th>
+      <th class="col-2" onclick="sortTable(6)">Material</th>
+      <th class="col-2" onclick="sortTable(7)">Action</th>
     </tr>
   </thead>
   <tbody>
