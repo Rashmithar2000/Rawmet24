@@ -408,6 +408,12 @@ include "connect.php";
                           </td>
                         </tr>
                         <tr>
+                     <td >Inspection Date </td>
+                                <td>
+                                <?php echo $row['insStartdatetime']; ?>
+                          </td>
+                      </tr>
+                        <tr>
 
                             <td >Auction Value </td>
                                 <td>
@@ -485,13 +491,15 @@ include "connect.php";
               <table class="table table-bordered">
               <thead>
                 <tr>
-                   <th class="text-center">List of Materials</th>
+                <th class="text-center">Material</th>
+                <th class="text-center">Quantity</th>
                 </tr>
                 </thead>
                 <tbody>
                   <tr>
      
-                   <td> <b><?php echo $row['material'];?>:&nbsp<?php echo $row['quantity'];?></b></td>
+                   <td> <b><?php echo $row['material'];?></b></td>
+                   <td> <b><?php echo $row['quantity'];?></b></td>
 
                    </tr>
                   </table>
@@ -549,7 +557,6 @@ include "connect.php";
                             <?php echo $row['infoId']; ?>
                           </td>
                         </tr>
-                      
                         <tr>
 
                           <td>Important Dates </td>
@@ -560,8 +567,13 @@ include "connect.php";
                           </td>
                         </tr>
                         <tr>
-
-                            <td >Auction Value </td>
+                     <td >Inspection Date </td>
+                                <td>
+                                <?php echo $row['insStartdatetime']; ?>
+                          </td>
+                      </tr>
+                        <tr>
+                     <td >Auction Value </td>
                                 <td>
                                 <b> ₹&nbsp<?php echo $row['aucValue']; ?>
                           </td></b>
@@ -638,18 +650,18 @@ include "connect.php";
               <table class="table table-bordered">
               <thead>
                 <tr>
-                   <th class="text-center">List of Materials</th>
+                <th class="text-center">Material</th>
+                   <th class="text-center">Quantity</th>
                 </tr>
                 </thead>
                 <tbody>
                   <tr>
      
-                   <td> <b><?php echo $row['material'];?>:&nbsp<?php echo $row['quantity'];?></b></td>
-
-
-     </tr>
+                   <td> <b><?php echo $row['material'];?></b></td>
+                   <td> <b><?php echo $row['quantity'];?></b></td>
+                  </tr>
    
-</table>
+                 </table>
 
 
       <div class="space">
@@ -748,6 +760,7 @@ include "connect.php";
           </div>
           <?php  $ctshalom++; } }?>
         </div>
+        <a href="price.html"> <h4 style="margin-left:870px;">Access all Images ></h4></a>
       </div>
     </div>
   </div>
@@ -766,6 +779,8 @@ include "connect.php";
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
+                    
+
           <img src="../PurpleAdmin-Free-Admin-Template-master/pages/forms/uploads/<?php echo $shalom; ?>" class="img-fluid" alt="Zoomed Image">
         </div>
       </div>
@@ -800,7 +815,9 @@ include "connect.php";
           </div>
           <?php  $ctshalom++; } }?>
          
-        </div>
+        </div><br>
+        <a href="price.html"> <h4 >Access all Images ></h4></a>
+
       </div>
     </div>
   </div>

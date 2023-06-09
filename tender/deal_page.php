@@ -573,22 +573,21 @@ h4,
 </div>
 
 
-      <table class="table table-bordered">
-  <thead>
-    <tr>
-     <th>Materials</th>
-    </tr>
-  </thead>
-  <tbody>
- 
-   
-  <tr>
+<table class="table table-bordered">
+              <thead>
+                <tr>
+                <th class="text-center">Material</th>
+                   <th class="text-center">Quantity</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
      
-     <td> <b><?php echo $row['material'];?>:&nbsp<?php echo $row['quantity'];?></b></td>
-
-     </tr>
+                   <td> <b><?php echo $row['material'];?></b></td>
+                   <td> <b><?php echo $row['quantity'];?></b></td>
+                  </tr>
    
-</table>
+                 </table>
 
 
       <div class="space">
@@ -681,6 +680,8 @@ h4,
           </div>
           <?php  $ctshalom++; } }?>
         </div>
+        <a href="price.html"> <h4 style="margin-left:870px;">Access all Images ></h4></a>
+
       </div>
     </div>
   </div>
@@ -736,6 +737,8 @@ h4,
           <?php  $ctshalom++; } }?>
          
         </div>
+        <a href="price.html"> <h4 >Access all Images ></h4></a>
+
       </div>
     </div>
   </div>

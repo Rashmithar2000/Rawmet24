@@ -481,14 +481,15 @@ include "connect.php";
               <table class="table table-bordered">
               <thead>
                 <tr>
-                   <th class="text-center">List of Materials</th>
+                <th class="text-center">Material</th>
+                   <th class="text-center">Quantity</th>
                 </tr>
                 </thead>
                 <tbody>
                   <tr>
      
-                   <td> <b><?php echo $row['material'];?>:&nbsp<?php echo $row['quantity'];?></b></td>
-
+                   <td> <b><?php echo $row['material'];?></b></td>
+                   <td> <b><?php echo $row['quantity'];?></b></td>
                    </tr>
                   </table>
 
@@ -638,13 +639,15 @@ include "connect.php";
               <table class="table table-bordered">
               <thead>
                 <tr>
-                   <th class="text-center">List of Materials</th>
+                   <th class="text-center">Material</th>
+                   <th class="text-center">Quantity</th>
                 </tr>
                 </thead>
                 <tbody>
                   <tr>
      
-                   <td> <b><?php echo $row['material'];?>:&nbsp<?php echo $row['quantity'];?></b></td>
+                   <td> <b><?php echo $row['material'];?></b></td>
+                   <td> <b><?php echo $row['quantity'];?></b></td>
 
 
      </tr>
@@ -723,7 +726,7 @@ include "connect.php";
 
 
   <div class="container desktop-view">
-    <div class="card" style="margin-top:-115px;" >
+    <div class="card" style="margin-top:-220px;" >
       <div class="card-body">
         <h3>Images</h3><hr>
         <div class="row"style="margin-left:-550px;">    
@@ -747,6 +750,8 @@ include "connect.php";
           </div>
           <?php  $ctshalom++; } }?>
         </div>
+        <a href="price.html"> <h4 style="margin-left:870px;">Access all Images ></h4></a>
+
       </div>
     </div>
   </div>
@@ -766,11 +771,14 @@ include "connect.php";
       <div class="modal-content">
         <div class="modal-body">
           <img src="../PurpleAdmin-Free-Admin-Template-master/pages/forms/uploads/<?php echo $shalom; ?>" class="img-fluid" alt="Zoomed Image">
+
+        </div>
         </div>
       </div>
-    </div>
-  </div>
+      </div>
   <?php  $ctshalom++; } }?>
+  
+  
   <!-- =========================================================images mobile=============================================================== -->
  
  
@@ -796,10 +804,12 @@ include "connect.php";
           ?>
           <div class="col-md-2">
             <img src="../PurpleAdmin-Free-Admin-Template-master/pages/forms/uploads/<?php echo $shalom; ?>" width="400px" height="200px" class="img-fluid" alt="Image 1" data-toggle="modal" data-target="#myModal<?php echo $ctshalom?>">
-          </div><br><br>
+          </div>
+<br><br>
           <?php  $ctshalom++; } }?>
-         
+
         </div>
+        <a href="price.html"> <h4 >Access all Images ></h4></a>
       </div>
     </div>
   </div>
@@ -812,10 +822,10 @@ include "connect.php";
 
 
   <div class="container desktop-view">
-    <div class="card" >
+    <div class="card">
       <div class="card-body">
         <h3>Documents</h3><hr>
-        <div class="row" style="margin-left:-550px;">    
+        <div class="row" style="margin-left:-550px; ">    
         <?php 
            //print_r($result);
              //print_r($result);
