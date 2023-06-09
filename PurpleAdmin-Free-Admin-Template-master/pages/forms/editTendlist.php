@@ -187,12 +187,16 @@ include "connect.php";
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">Subscriber list</span>
-               
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">Subscriber List</span>
+                <i class="menu-arrow"></i>
                 <i class="mdi mdi-human-male-female menu-icon"></i>
               </a>
-              
+              <div class="collapse" id="ui-basic5">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="editSublist.php">Edit Subscriber</a></li>
+                </ul>
+              </div>
             </li>
           </ul>
         </nav>
