@@ -809,7 +809,7 @@ include "connect.php";
           <?php  $ctshalom++; } }?>
 
         </div>
-        <a href="price.html"> <h4 >Access all Images ></h4></a>
+        <a href="price.html"> <h4>Access all Images ></h4></a>
       </div>
     </div>
   </div>
