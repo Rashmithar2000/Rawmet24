@@ -205,16 +205,16 @@ include "connect.php";
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Subscribers Detail</h4><br>
-                    <table class="table table-hover table-responsive">
+                    <table id="keywords" class="table table-hover table-responsive">
   <thead>
     <tr>
-      <th class="col-2">Name</th>
-      <th class="col-2">Email</th>
-      <th class="col-2">Subscription</th>
-      <th class="col-2">Amount</th>
-      <th class="col-2">Valid from</th>
-      <th class="col-2">Validity till</th>
-      <th class="col-2">Action</th>
+      <th class="col-2" onclick="sortTable(0)">Name</th>
+      <th class="col-2" onclick="sortTable(1)">Email</th>
+      <th class="col-2" onclick="sortTable(2)">Subscription</th>
+      <th class="col-2" onclick="sortTable(3)">Amount</th>
+      <th class="col-2" onclick="sortTable(4)">Valid from</th>
+      <th class="col-2" onclick="sortTable(5)">Validity till</th>
+      <th class="col-2" onclick="sortTable(6)">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -294,6 +294,7 @@ $conn->close();
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+    <script src="sort.js"></script>
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->

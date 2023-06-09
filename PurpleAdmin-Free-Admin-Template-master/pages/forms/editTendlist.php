@@ -205,13 +205,13 @@ include "connect.php";
   <thead>
     <tr>
       <th class="col-2" onclick="sortTable(0)"><span>Sector</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Tender Start Time</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Tender End Time</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Tender Value</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Location</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Quantity</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Material</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Action</span></th>
+      <th class="col-2" onclick="sortTable(1)"><span>Tender Start Time</span></th>
+      <th class="col-2" onclick="sortTable(2)"><span>Tender End Time</span></th>
+      <th class="col-2" onclick="sortTable(3)"><span>Tender Value</span></th>
+      <th class="col-2" onclick="sortTable(4)"><span>Location</span></th>
+      <th class="col-2" onclick="sortTable(5)"><span>Quantity</span></th>
+      <th class="col-2" onclick="sortTable(6)"><span>Material</span></th>
+      <th class="col-2" onclick="sortTable(7)"><span>Action</span></th>
     </tr>
   </thead>
   <tbody>
