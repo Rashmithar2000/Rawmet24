@@ -204,16 +204,16 @@ include "connect.php";
                     <h4 class="card-title">Auctions</h4><br>
                     <table id="keywords" class="table table-hover table-responsive">
   <thead>
-    <tr>
-      <th class="col-2" onclick="sortTable(0)"><span>Sector</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Ownership</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Start Time</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>End Time</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Auc Value</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Location</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Quantity</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Material</span></th>
-      <th class="col-2" onclick="sortTable(0)"><span>Action</span></th>
+    <tr role="row">
+      <th class="sorting col-2" onclick="sortTable(0)"><span>Sector</span></th>
+      <th class="sorting col-2" onclick="sortTable(0)"><span>Ownership</span></th>
+      <th class="sorting col-2"aria-label="DATE &amp; TIME: activate to sort column ascending" onclick="sortTable(0)"><span>Start Time</span></th>
+      <th class="sorting col-2" ><span>End Time</span></th>
+      <th class="sorting col-2" onclick="sortTable(0)"><span>Auc Value</span></th>
+      <th class="sorting col-2" onclick="sortTable(0)"><span>Location</span></th>
+      <th class="sorting col-2" onclick="sortTable(0)"><span>Quantity</span></th>
+      <th class="sorting col-2" onclick="sortTable(0)"><span>Material</span></th>
+      <th class="sorting col-2" onclick="sortTable(0)"><span>Action</span></th>
     </tr>
 </thead>
 
