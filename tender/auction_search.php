@@ -424,7 +424,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                           if(isset($_GET['search'])){
                             $a = $_GET['search'];
                            
-                            $sql = "select * from auction WHERE material LIKE '$a%' OR aucDescription LIKE '$a%' ";
+                            $sql = "select * from auction WHERE material LIKE '$a%' OR aucLocation LIKE '$a%' ";
                                $result = mysqli_query($con, $sql);
                                //print_r($result);die;
                                if (mysqli_num_rows($result) > 0) {
@@ -576,7 +576,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                           if(isset($_GET['search'])){
                             $a = $_GET['search'];
                            
-                            $sql = "select * from auction WHERE material LIKE '$a%' OR aucDescription LIKE '$a%' ";
+                            $sql = "select * from auction WHERE material LIKE '$a%' OR aucLocation LIKE '$a%' ";
                                $result = mysqli_query($con, $sql);
                                //print_r($result);die;
                                if (mysqli_num_rows($result) > 0) {
