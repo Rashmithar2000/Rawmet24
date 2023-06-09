@@ -244,7 +244,7 @@ a:hover{
             <div class="row">
               <div class="col-md-4 stretch-card grid-margin">
                 <div class="card bg-gradient-danger card-img-holder text-white">
-                  <div class="card-body" style="background-color: #3b8beb;">
+                  <div class="card-body" style="background-color: blue;">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Auctions <i class="mdi mdi-chart-line mdi-24px float-sm-end"></i>
                     </h4>
@@ -294,12 +294,12 @@ a:hover{
             <div class="row">
               <div class="col-md-4 stretch-card grid-margin">
                 <div class="card bg-gradient-danger card-img-holder text-white">
-                  <div class="card-body" style="background-color: purple;">
+                  <div class="card-body" style="background-color: blue;">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Auctions <i class="mdi mdi-chart-line mdi-24px float-sm-end"></i>
+                    <h4 class="font-weight-normal mb-3">Exclusive Deals <i class="mdi mdi-buffer mdi-24px float-sm-end"></i>
                     </h4>
                     <h2 class="mb-5"><?php 
-                $sql = "select * from auction";
+                $sql = "select * from exclusive_deals";
                 $result = mysqli_query($conn, $sql);
                 echo ($result->num_rows-1)."+";
                 //echo "+";
@@ -310,12 +310,12 @@ a:hover{
               </div>
               <div class="col-md-4 stretch-card grid-margin">
                 <div class="card bg-gradient-info card-img-holder text-white">
-                  <div class="card-body" style="background-color: orange;">
+                  <div class="card-body" style="background-color: red;">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Tenders <i class="mdi mdi-animation mdi-24px float-sm-end"></i>
+                    <h4 class="font-weight-normal mb-3">Subscribers <i class="mdi mdi-account-multiple mdi-24px float-sm-end"></i>
                     </h4>
                     <h2 class="mb-5"> <?php 
-                $sql = "select * from tenders";
+                $sql = "select * from buyer_dashboard where subscription=1;";
                 $result = mysqli_query($conn, $sql);
                 echo ($result->num_rows-1)."+";
                 //echo "+";
@@ -326,12 +326,13 @@ a:hover{
               </div>
               <div class="col-md-4 stretch-card grid-margin">
                 <div class="card bg-gradient-success card-img-holder text-white">
-                  <div class="card-body" style="background-color: pink;">
+                  <div class="card-body" style="background-color: green;">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Deals<i class="mdi mdi-drawing-box mdi-24px float-sm-end"></i>
+                    <h4 class="font-weight-normal mb-3">Monthly Subscribers<i class="mdi mdi-account-plus mdi-24px float-sm-end"></i>
                     </h4>
                     <h2 class="mb-5"><?php 
-                $sql = "select * from deals";
+                $sql = "select * from buyer_dashboard WHERE MONTH(fromDate) = MONTH(CURRENT_DATE)
+                AND YEAR(fromDate) = YEAR(CURRENT_DATE);";
                 $result = mysqli_query($conn, $sql);
                 echo ($result->num_rows-1)."+";
                 //echo "+";
