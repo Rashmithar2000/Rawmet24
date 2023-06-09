@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 08, 2023 at 03:39 PM
+-- Generation Time: Jun 09, 2023 at 03:03 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -115,7 +115,8 @@ INSERT INTO `buyer_dashboard` (`id`, `name`, `email`, `password`, `subscription`
 (5, 'Rashmitha R', 'rashpriya2211@gmail.com', 'UmFzaG1pdGhh', '1', 9999, '2023-06-07 12:48:00', '2023-09-07 09:17:17'),
 (7, 'Shalom', 'shalom123@gmail.com', 'U2hhbG9t', '1', 9999, '2023-06-07 09:22:40', '2023-09-07 09:22:44'),
 (8, 'Surya', 'surya@gmail.com', 'U3VyeWE=', '1', 4999, '2023-06-07 09:25:04', '2023-08-07 09:25:08'),
-(10, 'Sagar', 'sagar123@gmail.com', 'U2FnYXI=', '0', 0, NULL, NULL);
+(10, 'Sagar', 'sagar123@gmail.com', 'U2FnYXI=', '0', 0, NULL, NULL),
+(11, 'Admin', 'admin@gmail.com', 'QWRtaW4=', '1', 9999999, '2023-06-09 04:46:00', '2030-12-31 04:46:00');
 
 -- --------------------------------------------------------
 
@@ -334,30 +335,30 @@ CREATE TABLE `metal` (
 --
 
 INSERT INTO `metal` (`id`, `metal`, `scrap_metal`, `price`, `timestamp`) VALUES
-(1, 'Copper', 'Z Rod', 9831, '2023-05-26 09:57:56.457255'),
+(1, 'Copper', 'Z Rod', 9831, '2023-06-09 18:23:00.000000'),
 (2, 'Copper', 'Armature Scrap', 10831, '2023-05-26 09:57:56.457255'),
 (3, 'Copper', 'Cable Scrap', 2460, '2023-05-26 09:57:56.457255'),
 (4, 'Copper', 'Casting NG Rod', 2360, '2023-05-26 09:57:56.457255'),
 (5, 'Copper', 'Armature Scrap Plant', 2550, '2023-05-26 09:57:56.457255'),
-(6, 'Copper', 'Supper D', 0, '0000-00-00 00:00:00.000000'),
-(7, 'Copper', 'CC Rod', 0, '0000-00-00 00:00:00.000000'),
-(8, 'Aluminium', 'Rod', 8888, '0000-00-00 00:00:00.000000'),
-(9, 'Aluminium', 'Ingot', 8888, '0000-00-00 00:00:00.000000'),
-(10, 'Aluminium', 'Wire Scrap', 8888, '0000-00-00 00:00:00.000000'),
-(11, 'Aluminium', 'Sheet Cutting', 8888, '0000-00-00 00:00:00.000000'),
-(12, 'Aluminium', 'Utensil Scrap', 8888, '0000-00-00 00:00:00.000000'),
-(13, 'Aluminium', 'Accessories Scrap', 8888, '0000-00-00 00:00:00.000000'),
-(14, 'Aluminium', 'Section', 8888, '0000-00-00 00:00:00.000000'),
-(15, 'Aluminium', 'TT', 8888, '0000-00-00 00:00:00.000000'),
-(16, 'Aluminium', 'Beer Can Scrap', 8888, '0000-00-00 00:00:00.000000'),
-(17, 'Brass', 'Honey', 9831, '0000-00-00 00:00:00.000000'),
-(18, 'Brass', 'Accessories Scrap', 9831, '0000-00-00 00:00:00.000000'),
-(19, 'Brass', 'Sheet Cutting', 9831, '0000-00-00 00:00:00.000000'),
-(20, 'Raditor', '', 3800, '0000-00-00 00:00:00.000000'),
-(21, 'Battery', 'Black Base', 3800, '0000-00-00 00:00:00.000000'),
+(6, 'Copper', 'Supper D', 8000, '2023-06-09 18:06:24.000000'),
+(7, 'Copper', 'CC Rod', 7000, '2023-06-09 18:23:00.000000'),
+(8, 'Aluminium', 'Rod', 8888, '2023-06-16 18:24:00.000000'),
+(9, 'Aluminium', 'Ingot', 8888, '2023-06-09 18:24:00.000000'),
+(10, 'Aluminium', 'Wire Scrap', 8888, '2023-06-09 18:26:00.000000'),
+(11, 'Aluminium', 'Sheet Cutting', 8888, '2023-06-09 18:26:00.000000'),
+(12, 'Aluminium', 'Utensil Scrap', 8888, '2023-06-09 18:27:00.000000'),
+(13, 'Aluminium', 'Accessories Scrap', 8888, '2023-06-09 18:26:00.000000'),
+(14, 'Aluminium', 'Section', 8888, '2023-06-09 18:27:00.000000'),
+(15, 'Aluminium', 'TT', 8888, '2023-06-09 18:27:00.000000'),
+(16, 'Aluminium', 'Beer Can Scrap', 8888, '2023-06-09 18:26:00.000000'),
+(17, 'Brass', 'Honey', 9831, '2023-06-09 18:27:00.000000'),
+(18, 'Brass', 'Accessories Scrap', 9831, '2023-06-09 18:27:00.000000'),
+(19, 'Brass', 'Sheet Cutting', 9831, '2023-06-09 18:25:00.000000'),
+(20, 'Raditor', 'Raditor', 3800, '2023-06-09 18:28:00.000000'),
+(21, 'Battery', 'Black Base', 3800, '2023-06-09 18:26:00.000000'),
 (22, 'Battery', 'White Base', 3800, '0000-00-00 00:00:00.000000'),
-(23, 'Lead', '', 3800, '0000-00-00 00:00:00.000000'),
-(24, 'Nickel', '', 3800, '0000-00-00 00:00:00.000000'),
+(23, 'Lead', 'Lead', 3800, '2023-06-09 18:28:00.000000'),
+(24, 'Nickel', 'Nickel', 3800, '2023-06-09 18:28:00.000000'),
 (25, 'Tin', '', 3800, '0000-00-00 00:00:00.000000'),
 (27, 'Zinc', 'Dross', 6700, '0000-00-00 00:00:00.000000'),
 (28, 'Zinc', 'Hindustan', 6700, '0000-00-00 00:00:00.000000'),
@@ -366,7 +367,7 @@ INSERT INTO `metal` (`id`, `metal`, `scrap_metal`, `price`, `timestamp`) VALUES
 (31, 'Iron Scrap', 'Alang', 6000, '2023-06-28 18:35:44.000000'),
 (32, 'Iron Scrap', 'Mandi melting Scrap', 6000, '2023-06-28 18:35:44.000000'),
 (33, 'Iron Scrap', 'Mandi CRC Scrap', 6000, '2023-06-28 18:35:44.000000'),
-(34, 'Iron Scrap', 'Ahemdabad', 6000, '2023-06-28 18:35:44.000000'),
+(34, 'Iron Scrap', 'Ahemdabad', 6000, '2023-06-09 18:29:00.000000'),
 (35, 'Iron Scrap', 'Bhavnagar', 6000, '2023-06-28 18:35:44.000000'),
 (36, 'Iron Scrap', 'Bhiwadi', 6000, '2023-06-28 18:35:44.000000'),
 (37, 'Iron Scrap', 'Bhiwadi Melting', 6000, '2023-06-28 18:35:44.000000'),
@@ -413,7 +414,7 @@ INSERT INTO `metal` (`id`, `metal`, `scrap_metal`, `price`, `timestamp`) VALUES
 (78, 'MS Billet', 'Raigarh', 5000, '2023-06-20 18:35:44.000000'),
 (79, 'MS Billet', 'Raipur', 5000, '2023-06-20 18:35:44.000000'),
 (80, 'MS Billet', 'Rourkela', 5000, '2023-06-20 18:35:44.000000'),
-(81, 'Stainless Steel', 'Delhi SS (Mix Scrap)', 4500, '2023-06-26 18:53:29.000000'),
+(81, 'Stainless Steel', 'Delhi SS (Mix Scrap)', 4500, '2023-06-09 18:26:00.000000'),
 (82, 'Stainless Steel', 'Delhi SS (Mix Scrap)', 4500, '2023-06-26 18:53:29.000000'),
 (83, 'Stainless Steel', 'Delhi SS (202 Scrap)', 4500, '2023-06-26 18:53:29.000000'),
 (84, 'Stainless Steel', 'Delhi SS (304 Scrap)', 4500, '2023-06-26 18:53:29.000000'),
@@ -454,7 +455,7 @@ INSERT INTO `metal` (`id`, `metal`, `scrap_metal`, `price`, `timestamp`) VALUES
 (132, 'Wire Rod', 'Raipur 18 Swg G.I Wire', 9999, '0000-00-00 00:00:00.000000'),
 (133, 'Wire Rod', 'Raipur 20 Swg G.I Wire', 9999, '0000-00-00 00:00:00.000000'),
 (134, 'Wire Rod', 'Raipur 5.5 mm Wire', 9999, '0000-00-00 00:00:00.000000'),
-(136, 'TMT', 'Mandi Gobindgarh', 0, '0000-00-00 00:00:00.000000'),
+(136, 'TMT', 'Mandi Gobindgarh', 1000, '2023-06-09 18:24:00.000000'),
 (137, 'Structural & Pipe', 'Gobindgarh Angle', 7777, '0000-00-00 00:00:00.000000'),
 (138, 'Structural & Pipe', 'Gobindgarh Channel', 7777, '0000-00-00 00:00:00.000000'),
 (139, 'Structural & Pipe', 'Gobindgarh Girder', 7777, '0000-00-00 00:00:00.000000'),
@@ -462,6 +463,33 @@ INSERT INTO `metal` (`id`, `metal`, `scrap_metal`, `price`, `timestamp`) VALUES
 (141, 'Structural & Pipe', 'Gobindgarh Round', 7777, '0000-00-00 00:00:00.000000'),
 (142, 'Structural & Pipe', 'Gobindgarh T-Iron', 7777, '0000-00-00 00:00:00.000000'),
 (143, 'Structural & Pipe', 'Gobindgarh Z-Section', 7777, '0000-00-00 00:00:00.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notification`
+--
+
+CREATE TABLE `notification` (
+  `id` int(255) NOT NULL,
+  `session_name` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `exclusiveDeal_id` varchar(255) NOT NULL,
+  `status` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `sender` varchar(50) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -612,6 +640,18 @@ ALTER TABLE `metal`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `signup`
 --
 ALTER TABLE `signup`
@@ -649,7 +689,7 @@ ALTER TABLE `auction`
 -- AUTO_INCREMENT for table `buyer_dashboard`
 --
 ALTER TABLE `buyer_dashboard`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -680,6 +720,18 @@ ALTER TABLE `info_table`
 --
 ALTER TABLE `metal`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `signup`
