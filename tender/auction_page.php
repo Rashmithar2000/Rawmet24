@@ -259,6 +259,14 @@ include "connect.php";
       width: 100%;
       height: auto;
     }
+
+
+    .table-container {
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    max-width: 100%; /* Limit the width to the container's width */
+  }
+
+  
     @media (max-width: 767px) {
     .desktop-view {
       display: none;
@@ -375,7 +383,7 @@ include "connect.php";
               <h5><i class='bx bx-map'></i> <?php echo $row['aucLocation']; ?></h5>
               <hr>
               <div style="margin-left: 40px;">
-                <table class="table table-bordered">
+                <table class="table table-bordered ">
                   <thead>
                     <tr>
 
@@ -507,7 +515,7 @@ include "connect.php";
 
 
 
-<div class="container mobile-view" style="margin-top:-130px" ><br><br>
+<div class="container mobile-view" style="margin-top:-130px; " ><br><br>
  <div class="card">
  <div class="card-body">
 
@@ -526,8 +534,8 @@ include "connect.php";
                           }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a></h3>
               <h5><i class='bx bx-map'></i> <?php echo $row['aucLocation']; ?></h5>
               <hr>
-              <div >
-                <table class="table table-bordered">
+              <div class="table-container">
+                <table class="table table-bordered table-container ">
                   <thead>
                     <tr>
 
@@ -678,7 +686,7 @@ include "connect.php";
                 &nbsp </h6>
                 </div>    
           <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a><br>
-          <h5 style="color:#fff;">Subscribe to view all content</h5></center>
+          <a href="price.html" style="color:#fff; margin-right:22px;  font-weight:bold; font-size: 18px;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i>Subscribe to view all content</a></center>
   </div>
           
                       </div><?php  ?></div></div>
@@ -704,8 +712,8 @@ include "connect.php";
                 </div> 
   
       <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
-      <button class="btn btn-primary" style="color:#fff;">Subscribe to view all content</button>
-</div><?php }}  ?>
+      <a href="price.html" style="color:#fff; margin-left:12px;  font-weight:bold; font-size: 18px;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i>Subscribe to view all content</a></center>
+    </div><?php }}  ?>
 
   </div>
 </div></div>

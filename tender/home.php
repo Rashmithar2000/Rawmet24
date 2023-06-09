@@ -734,7 +734,7 @@ include "connect.php";
     
             
             
-                <h6 style="margin-top:20px;">RTD: 3478568</h6>
+                <h6 style="margin-top:20px;">RLD: 181204</h6>
                 <hr>
                 <h5>Category: Ferrous </h5> 
 
