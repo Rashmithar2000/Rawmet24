@@ -334,7 +334,7 @@ h4,
 
 <div class="container-fluid" style="background-color: #3b8beb; padding: 30px;"><br>
 
-<a href="price.html"><button class="btn btn-primary" style="border-color: #fff;" >View All Exclusive Deals</button><br><br><br><br></a>
+<a href="price.html"><button class="btn btn-primary" style="border-color: #fff;" >View All Deals</button><br><br><br><br></a>
 </div>
 
     <div class="container desktop-view" class="col-lg-6 col-md-12" style="margin-top: -130px;"><br><br>
@@ -343,16 +343,16 @@ h4,
  <div class="clearfix some-new-selector">
   <div class="pull-left">
   <div class="pull-right span9" style="color: #9e9797; padding:10px">
-    <h6>Home /Exclusive Deal search /Exclusive Deal Detail</h6>
+    <h6>Home / Deal search / Deal Detail</h6>
     <br>
     <?php
-        if(isset($_SESSION['sub'])){
-        $subscription=$_SESSION['sub'];
-        //print_r($subscription);
-        //die;
-        }else{
-          $subscription=false;
-       }
+    if(isset($_SESSION['sub'])){
+      $subscription=$_SESSION['sub'];
+      //print_r($subscription);
+      //die;
+    }else{
+      $subscription=false;
+    }
                     $id = $_GET['g'];
                     $sql = "select * from exclusive_deals where id=$id";
                     $result = mysqli_query($con, $sql);
@@ -360,7 +360,7 @@ h4,
                       while ($row = mysqli_fetch_assoc($result)) {
 
                         ?>
-    <h3 style="color: #595a62;">COMPANY NAME: &nbsp<?php if($subscription){
+    <h3 style="color: #595a62;">COMPANY NAME:  &nbsp<?php if($subscription){
                               echo $row['companyName'];
                           }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?></a></h3>
     <h5><i class='bx bx-map'></i> <?php echo $row['location']; ?></h5><br>
@@ -438,24 +438,23 @@ h4,
   </tbody>
 </table>
 </div>
-
+</div></div></div>
 <div style="margin-left: 40px;">
-      <table class="table table-bordered">
-  <thead>
-    <tr>
-     <th>Materials</th>
-    </tr>
-  </thead>
-  <tbody>
- 
-   
-  <tr>
+<table class="table table-bordered">
+              <thead>
+                <tr>
+                <th class="text-center">Material</th>
+                   <th class="text-center">Quantity</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
      
-     <td> <b><?php echo $row['material'];?>:&nbsp<?php echo $row['quantity'];?></b></td>
-
-     </tr>
+                   <td> <b><?php echo $row['material'];?></b></td>
+                   <td> <b><?php echo $row['quantity'];?></b></td>
+                  </tr>
    
-</table>
+                 </table>
 
 
       <div class="space">
@@ -482,7 +481,7 @@ h4,
  <div class="card">
  <div class="card-body">
 
-    <h6>Home / Exclusive Deal search / Exclusive Deal Detail</h6>
+    <h6>Home / Deal search / Deal Detail</h6>
     <br>
     <?php
                     $id = $_GET['g'];
@@ -492,7 +491,7 @@ h4,
                       while ($row = mysqli_fetch_assoc($result)) {
 
                         ?>
-    <h3 style="color: #595a62;">COMPANY NAME: <?php if($subscription){
+    <h3 style="color: #595a62;">COMPANY NAME: &nbsp<?php if($subscription){
                               echo $row['companyName'];
                           }else{?><a href="price.html"><?php  echo "XXXXXX" ;} ?>
                           </a></h3>
@@ -571,24 +570,23 @@ h4,
   </tbody>
 </table>
 </div>
-</div></div></div>
 
-      <table class="table table-bordered">
-  <thead>
-    <tr>
-     <th>Materials</th>
-    </tr>
-  </thead>
-  <tbody>
- 
-   
-  <tr>
+
+<table class="table table-bordered">
+              <thead>
+                <tr>
+                <th class="text-center">Material</th>
+                   <th class="text-center">Quantity</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
      
-     <td> <b><?php echo $row['material'];?>:&nbsp<?php echo $row['quantity'];?></b></td>
-
-     </tr>
+                   <td> <b><?php echo $row['material'];?></b></td>
+                   <td> <b><?php echo $row['quantity'];?></b></td>
+                  </tr>
    
-</table>
+                 </table>
 
 
       <div class="space">
@@ -599,6 +597,7 @@ h4,
 
 </div>
 </div>
+
 
 <!-- ==============================================================blue box desktop=============================================== -->
 
@@ -681,6 +680,7 @@ h4,
           </div>
           <?php  $ctshalom++; } }?>
         </div>
+        <a href="price.html"> <h4 style="margin-left:870px;">Access all Images ></h4></a>
       </div>
     </div>
   </div>
@@ -736,6 +736,8 @@ h4,
           <?php  $ctshalom++; } }?>
          
         </div>
+        <a href="price.html"> <h4 >Access all Images ></h4></a>
+
       </div>
     </div>
   </div>

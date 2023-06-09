@@ -674,16 +674,13 @@ include "connect.php";
                                   $daysText = ($status == " ago") ? "Days" : "Days";
                                     ?>
                       <div class="row bor">
-    <div class="col-sm-12 col-md-3 vl2">
-    
+     <div class="col-sm-12 col-md-3 vl2">
                 <h6 style="margin-top:20px;">RLD: 181204</h6>
                 <hr>
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:30px;" class="btn btn-primary" type="submit">View Deal</button></h6></a>
-
-                
+                <a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding: 5px; border-radius:6px;font-size: 100%; margin-top:30px;" class="btn btn-primary" type="submit">View Deal</button></h6></a>
                </div>
      <div class="col-sm-12 col-md-6">
                <h2 style="margin-top:20px;"> <?php echo $row['material']; ?> </h2> 
@@ -698,9 +695,9 @@ include "connect.php";
           
       </div>
       </div>
-                                <?php
-                                endforeach;
-                            }
+             <?php
+              endforeach;
+           }
       ?>
       </article>
     </div></div></div>
@@ -724,10 +721,10 @@ include "connect.php";
 
 
 
-<div class="container mobile-view" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
+ <div class="container mobile-view" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
   <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Deals</h2>
-  <div class="card-body">
-    <article class="scroller">
+    <div class="card-body">
+     <article class="scroller">
       <?php
       $sql = "select * from deals";
       $result = mysqli_query($con, $sql);
@@ -742,16 +739,13 @@ include "connect.php";
             $status = ($currentDate > $endDatetime) ? " ago" : " to go";
             $daysText = ($status == " ago") ? "Days" : "Days";
     
-            ?>
+        ?>
         <section>
                    <br>
-    <div class="row bor">
+     <div class="row bor">
     
-    <div class="col-sm-12 col-md-3 ">
-    
-            
-            
-                <h6 style="margin-top:20px;">RLD: 181204</h6>
+     <div class="col-sm-12 col-md-3 ">
+             <h6 style="margin-top:20px;">RLD: 181204</h6>
                 <hr>
                 <h5>Category: Ferrous </h5> 
 
@@ -766,7 +760,7 @@ include "connect.php";
                <p style="color:#444f68; "><h6>Description:</h6> <?php echo $row['specification']; ?></p>
         </div> 
 
-    <div class="col-sm-12 col-md-3"><hr>
+     <div class="col-sm-12 col-md-3"><hr>
             <div class="">
             <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
                   <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?></h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div>
