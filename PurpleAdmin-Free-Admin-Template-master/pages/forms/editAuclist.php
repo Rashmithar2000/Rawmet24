@@ -220,8 +220,6 @@ include "connect.php";
   <tbody>
   <?php
 
-
-// Retrieve data from the database
 $sql = "SELECT * FROM auction";
 $result = $conn->query($sql);
 
