@@ -661,6 +661,7 @@ include "connect.php";
   <div class="card-body">
     <article class="scroller">
       <?php
+      
       $sql = "SELECT * FROM deals";
                             $result = mysqli_query($con, $sql);
                             if (mysqli_num_rows($result) > 0) {
@@ -671,7 +672,7 @@ include "connect.php";
                                   $daysToGo = $interval->format('%a');
                           
                                   $status = ($currentDate > $endDatetime) ? " ago" : " to go";
-                                  $daysText = ($status == " ago") ? "Days" : "Days";
+                                  $daysText = ($status >= " ago") ? "Days" : "Days";
                                     ?>
                       <div class="row bor">
      <div class="col-sm-12 col-md-3 vl2">
