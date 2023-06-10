@@ -621,7 +621,7 @@ h4,
              </h5>
 
               </div>     
-         <center> <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a>
+         <center> <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a><br>
          <a href="price.html" style="color:#fff; margin-right:22px;  font-weight:bold; font-size: 18px;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i>Subscribe to view all content</a></center>
     </div>
     </div>
@@ -643,7 +643,7 @@ h4,
                      
              </h5>
   
-      <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a>
+      <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a><br>
       <a href="price.html" style="color:#fff; margin-right:22px;  font-weight:bold; font-size: 18px;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i>Subscribe to view all content</a></center>
 </div>
   </div>

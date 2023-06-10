@@ -714,10 +714,10 @@ include "connect.php";
                     </div>                      
                       
                     <div class="form-group">
-                      <label>Auction File upload</label>
+                      <label>Auction Image upload</label>
                       <input type="file" name="img[]" class="file-upload-default" multiple>
                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File">
+                        <input type="text" class="form-control file-upload-info"  placeholder="Upload File">
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                         </span>
@@ -727,16 +727,13 @@ include "connect.php";
                       <label>Auction File upload</label>
                       <input type="file" name="file[]" class="file-upload-default" multiple>
                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File">
+                        <input type="text" class="form-control file-upload-info"  placeholder="Upload File">
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                         </span>
                       </div>
                     </div>
-
-                             
                       <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                    
                     </form>
                   </div>
                 </div>
