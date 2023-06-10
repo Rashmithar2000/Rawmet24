@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         email = '$email',
         contactPerson = '$contactPerson',
         img = '$fname2',
-        file = '$dname2',
+        file = '$dname2'
         WHERE id = '$id'";
 
     if (mysqli_query($conn, $sql)) {

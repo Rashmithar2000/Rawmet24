@@ -143,9 +143,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         matDesc = '$matDesc',
         specification = '$specification',
         dor = '$dor',
-        expQuotation = '$expQuotation'
+        expQuotation = '$expQuotation',
         img = '$fname2',
-        filenames = '$dname2',
+        filenames = '$dname2'
         WHERE id = '$id'";
 
     if (mysqli_query($conn, $sql)) {
