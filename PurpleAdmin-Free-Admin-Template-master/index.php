@@ -73,6 +73,7 @@ a:hover{
                     <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p>
                   </div>
                 </a>
+               
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
@@ -85,7 +86,8 @@ a:hover{
                     <p class="text-gray ellipsis mb-0"> Update dashboard </p>
                   </div>
                 </a>
-            </li>
+           
+              </li>
            
             
             <li class="nav-item d-none d-lg-block full-screen-link">
