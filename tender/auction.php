@@ -441,19 +441,31 @@ if ($countResult) {
                                     $status = ($currentDate > $endDatetime) ? " ago" : " to go";
                                     $daysText = ($status == " ago") ? "Days" : "Days";
                                       ?>
-                                     <div class="col-md-12 grid-margin stretch-card">
-                  <div class="card">
-                      <div class="card-body">
-                                            <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?>| Auction Value : <?php echo $row['aucValue'];?> | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button></h6>
-                      <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL :&nbsp <?php echo $row['material'];?> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
-                  
-                      <p><?php echo $row['aucDescription'];?></p>
- 
+                                     <div class="row bor">
+    <div class="col-sm-12 col-md-3 vl2">
+    
+                <h6 style="margin-top:20px;">RAD: 180104</h6>
+                <hr>
+                <h5>Category: Ferrous </h5> 
 
-  <a href="auction_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Auction</button></a></h6>
-                    </div>
-                  </div>
-                </div></div> </div></div></div>
+                <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
+                <center><a href="auction_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Auction</button></h6></a></center>
+
+                
+               </div>
+     <div class="col-sm-12 col-md-6">
+               <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
+               <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['aucDescription']; ?></p>
+        </div> 
+
+    <div class="col-sm-12 col-md-3">
+            <div class="vl">
+            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['endDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['aucValue']; ?></h3></div></center>
+                         
+          
+      </div>
+      </div></div>
                                       <?php
                                   endforeach;
                               }else{
@@ -612,19 +624,31 @@ if ($countResult) {
                                 $status = ($currentDate > $endDatetime) ? " ago" : " to go";
                                 $daysText = ($status == " ago") ? "Days" : "Days";
                                   ?>
-                                 <div class="col-md-12 grid-margin stretch-card">
-              <div class="card">
-                  <div class="card-body">
-                                        <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['aucLocation'];?>| Auction Value : <?php echo $row['aucValue'];?> | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button></h6>
-                  <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;">MATERIAL :&nbsp <?php echo $row['material'];?> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
-              
-                  <p><?php echo $row['aucDescription'];?></p>
+                                <div class="row bor">
+<div class="col-sm-12 col-md-3 ">
 
+            <h6 style="margin-top:20px;">RAD: 180104</h6>
+            <hr>
+            <h5>Category: Ferrous </h5> 
 
-<a href="auction_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View Auction</button></a></h6>
-                </div>
-              </div>
-            </div></div> </div></div></div>
+            <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
+            <center><a href="auction_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Auction</button></h6></a></center>
+            <hr>
+            
+           </div>
+ <div class="col-sm-12 col-md-6">
+           <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
+           <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['aucDescription']; ?></p>
+    </div> 
+
+<div class="col-sm-12 col-md-3"><hr>
+        <div class="">
+        <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
+              <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['endDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['aucValue']; ?></h3></div></center>
+                     
+      
+  </div>
+  </div></div>
                                   <?php
                               endforeach;
                           }else{

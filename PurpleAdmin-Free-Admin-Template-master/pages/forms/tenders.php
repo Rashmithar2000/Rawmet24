@@ -717,6 +717,7 @@ include "connect.php";
                         </span>
                       </div>
                     </div>
+
                     <div class="form-group">
                       <label>Tender File upload</label>
                       <input type="file" name="file[]" class="file-upload-default" multiple>
@@ -729,7 +730,7 @@ include "connect.php";
                     </div>
 
                       <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                    
+          
                     </form>
                   </div>
                 </div>
