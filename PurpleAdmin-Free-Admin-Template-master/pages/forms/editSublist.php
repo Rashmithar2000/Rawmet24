@@ -194,7 +194,7 @@ include "connect.php";
               </a>
               <div class="collapse" id="ui-basic5">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/forms/editSublist.php">Edit Subscriber</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editSublist.php">Edit Subscriber</a></li>
                 </ul>
               </div>
             </li>

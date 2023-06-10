@@ -13,7 +13,7 @@ include "connect.php";
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Update Auction</title>
+    <title>Update Information</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -41,14 +41,12 @@ include "connect.php";
     a:hover{
       color: #ffffff;
     }
-    
     @media (max-width: 767px) {
   .card-title {
     font-size: 16px;
   }
-
-  /* Adjust other styles as needed */
-}
+    }
+    
       </style>
   <body>
 
@@ -200,31 +198,27 @@ include "connect.php";
             </li>
           </ul>
         </nav>
-  
-        <!-- partial -->
+
         <div class="col-lg-10 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Auctions</h4><br>
+                    <h4 class="card-title">Metal</h4><br>
                     <table id="keywords" class="table table-hover table-responsive">
   <thead>
-    <tr role="row">
-      <th class="col-2" onclick="sortTable(0)"><span>Sector</span></th>
-      <th class="col-2" onclick="sortTable(1)"><span>Ownership</span></th>
-      <th class="col-2" onclick="sortTable(2)"><span>Start Time</span></th>
-      <th class="col-2" onclick="sortTable(3)"><span>End Time</span></th>
-      <th class="col-2" onclick="sortTable(4)"><span>Auc Value</span></th>
-      <th class="col-2" onclick="sortTable(5)"><span>Location</span></th>
-      <th class="col-2" onclick="sortTable(6)"><span>Quantity</span></th>
-      <th class="col-2" onclick="sortTable(7)"><span>Material</span></th>
-      <th class="col-2" onclick="sortTable(8)"><span>Action</span></th>
+    <tr>
+      <th class="col-2" onclick="sortTable(0)">Metal</th>
+      <th class="col-2" onclick="sortTable(1)">Scrap Metal</th>
+      <th class="col-2" onclick="sortTable(2)">Metal</th>
+      <th class="col-2" onclick="sortTable(3)">Timestamp</th>
+      <th class="col-2" onclick="sortTable(4)">Action</th>
     </tr>
-</thead>
-
+  </thead>
   <tbody>
   <?php
+include_once "connect.php";
 
-$sql = "SELECT * FROM auction";
+
+$sql = "SELECT * FROM metal";
 $result = $conn->query($sql);
 
 $data = array();
@@ -241,39 +235,42 @@ $conn->close();
 ?>
 
     <?php foreach ($data as $row) { ?>
-      <tr>
-     
-        <td><?php echo $row['sector']; ?></td>
-        <td><?php echo $row['ownership']; ?></td>
-        <td><?php echo $row['startDatetime']; ?></td>
-        <td><?php echo $row['endDatetime']; ?></td>
-        <td><?php echo $row['aucValue']; ?></td>
-        <td><?php echo $row['location']; ?></td>
-        <td><?php echo $row['quantity']; ?></td>      
-        <td><?php echo $row['material']; ?></td>
-      
-                <td style="padding: 0px;"> <div style="display: flex; gap: 5px;">
-                  <form action="fetchAuc.php?g=<?php echo $row['id'];?>" method="GET">
-                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" style="width:auto;margin-bottom:22px" ><a href="fetchAuc.php? id='.$id.'"><i class="fa fa-solid fa-pen"></i></a> </button>
-                </form>
-                <form action="deleteAuc.php?g=<?php echo $row['id'];?>" method="POST">
-                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                <button class="btn btn-block btn-sm btn-gradient-danger mt-4 mx-auto" type="submit" ><a href="deleteAuc.php? id='.$id.'"><i class="fa fa-solid fa-trash"></i></a> </button>
-                </form></div>
-              </td>
+      <tr>     
+       
+        <td><?php echo $row['metal']; ?></td>
+        <td><?php echo $row['scrap_metal']; ?></td>
+        <td><?php echo $row['price']; ?></td>
+        <td><?php echo $row['timestamp']; ?></td>
+        
+<td style="padding: 0px;">
+  <div style="display: flex; gap: 5px;">
+    <form action="fetchMet.php?g=<?php echo $row['id'];?>" method="GET">
+      <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+      <button class="btn btn-block btn-sm btn-gradient-primary mt-4 mx-auto" type="submit" style="width:auto;margin-bottom:22px">
+        <a href="fetchMet.php?id=<?php echo $row['id']; ?>"><i class="fa fa-solid fa-pen"></i></a>
+      </button>
+    </form>
+    <form action="deleteMet.php?g=<?php echo $row['id'];?>" method="POST">
+      <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+      <button class="btn btn-block btn-sm btn-gradient-danger mt-4 mx-auto" type="submit">
+        <a href="deleteMet.php?id=<?php echo $row['id']; ?>"><i class="fa fa-solid fa-trash"></i></a>
+      </button>
+    </form>
+  </div>
+</td>
+
+
       </tr>
     <?php } ?>
   </tbody>
 </table>
-</div></div></div>
-</div>
-              
-              </div>
-            </div></div>
-        
-        
 
+         
+          </div>
+        </div>
+        </div>
+        </div> </div>
+        
 
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
@@ -291,9 +288,7 @@ $conn->close();
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-
     <script src="sort.js"></script>
-    
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->

@@ -432,7 +432,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                           if(isset($_GET['search'])){
                             $a = $_GET['search'];
                            
-                            $sql = "select * from tenders WHERE material LIKE '$a%' OR tenderDesc LIKE '$a%' ";
+                            $sql = "select * from tenders WHERE material LIKE '$a%' OR tenderLocation LIKE '$a%' ";
                                $result = mysqli_query($con, $sql);
                                //print_r($result);die;
                                if (mysqli_num_rows($result) > 0) {
@@ -594,7 +594,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                           if(isset($_GET['search'])){
                             $a = $_GET['search'];
                            
-                            $sql = "select * from tenders WHERE material LIKE '$a%' OR tenderDesc LIKE '$a%' ";
+                            $sql = "select * from tenders WHERE material LIKE '$a%' OR tenderLocation LIKE '$a%' ";
                                $result = mysqli_query($con, $sql);
                                //print_r($result);die;
                                if (mysqli_num_rows($result) > 0) {
