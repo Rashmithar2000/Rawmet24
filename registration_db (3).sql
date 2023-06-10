@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 09, 2023 at 03:03 PM
+-- Generation Time: Jun 10, 2023 at 12:14 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -204,6 +204,7 @@ CREATE TABLE `exclusive_deals` (
   `fe` varchar(255) DEFAULT NULL,
   `quantity` varchar(255) NOT NULL,
   `dealValue` varchar(255) NOT NULL,
+  `status` int(255) NOT NULL DEFAULT 0,
   `dealDatetime` datetime DEFAULT NULL,
   `docCreatedby` varchar(255) DEFAULT NULL,
   `location` varchar(255) DEFAULT NULL,
@@ -231,11 +232,11 @@ CREATE TABLE `exclusive_deals` (
 -- Dumping data for table `exclusive_deals`
 --
 
-INSERT INTO `exclusive_deals` (`id`, `category`, `infoId`, `ir`, `fe`, `quantity`, `dealValue`, `dealDatetime`, `docCreatedby`, `location`, `industrialArea`, `companyName`, `contactPerson`, `email`, `address`, `city`, `state`, `contactNumber`, `whatsappNumber`, `gstin`, `orderType`, `material`, `matDesc`, `specification`, `dor`, `expQuotation`, `img`, `filenames`) VALUES
-(16, 'Procurement Teders', 'RED', 'Chaitra', 'Shariff', '55 mt', '7500000', '2023-06-03 17:38:00', ' Sagar', 'Uttarakhand', ' Sagar', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '87928792299684', 'Service', 'Aluminium', 'HONEY', 'Exclusive Aluminum Deal', '2023-06-03 17:39:00', 500000, 'a:1:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";}', 'a:1:{i:0;s:22:\"Terms & Conditions.pdf\";}'),
-(17, 'Procurement Tenders', '1A1', '2323a', '12dda', '120 kg', '32243', '2023-06-08 18:18:00', ' Rasha', 'Mizoram', ' Rasha', 'SNPL', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '6841238792299', 'Service', 'Glass', 'HONEY', 'Exclusive Aluminum Deal', '2023-06-10 18:19:00', 999, 'a:1:{i:0;s:46:\"background-with-metallic-grid-line-texture.jpg\";}', 'a:1:{i:0;s:12:\"About US.pdf\";}'),
-(18, 'Honey', 'RAD123', 'Shalom', 'Shalom', '120 mt', '99999', '2023-06-09 18:24:00', ' Sagar', 'Nagaland', ' Sagar', 'SNPL', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '87922996841231', 'Service', 'Glass', 'HONEY', 'Exclusive Aluminum Deal', '2023-06-10 18:25:00', 9999, 'a:1:{i:0;s:46:\"background-with-metallic-grid-line-texture.jpg\";}', 'a:1:{i:0;s:12:\"About US.pdf\";}'),
-(19, 'Accessories Scrap', '1A1a', 'Shariff', 'Shalom', '120 ton', '32342', '2023-06-08 18:46:00', ' Sagar', 'Nagaland', ' Sagar', 'SNPLaa', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '87922996841231', 'Service', 'Brass', 'Beer Can Scrap', 'Aluminium Scrap ', '2023-06-10 18:46:00', 9999, 'a:1:{i:0;s:46:\"background-with-metallic-grid-line-texture.jpg\";}', 'a:1:{i:0;s:22:\"Terms & Conditions.pdf\";}');
+INSERT INTO `exclusive_deals` (`id`, `category`, `infoId`, `ir`, `fe`, `quantity`, `dealValue`, `status`, `dealDatetime`, `docCreatedby`, `location`, `industrialArea`, `companyName`, `contactPerson`, `email`, `address`, `city`, `state`, `contactNumber`, `whatsappNumber`, `gstin`, `orderType`, `material`, `matDesc`, `specification`, `dor`, `expQuotation`, `img`, `filenames`) VALUES
+(16, 'Procurement Teders', 'RED', 'Chaitra', 'Shariff', '55 mt', '7500000', 1, '2023-06-03 17:38:00', ' Sagar', 'Uttarakhand', ' Sagar', 'Shopemet', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '87928792299684', 'Service', 'Aluminium', 'HONEY', 'Exclusive Aluminum Deal', '2023-06-03 17:39:00', 500000, 'a:1:{i:0;s:59:\"metal-preparations-are-ready-following-stage-processing.jpg\";}', 'a:1:{i:0;s:22:\"Terms & Conditions.pdf\";}'),
+(17, 'Procurement Tenders', '1A1', '2323a', '12dda', '120 kg', '32243', 1, '2023-06-08 18:18:00', ' Rasha', 'Mizoram', ' Rasha', 'SNPL', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '6841238792299', 'Service', 'Glass', 'HONEY', 'Exclusive Aluminum Deal', '2023-06-10 18:19:00', 999, 'a:1:{i:0;s:46:\"background-with-metallic-grid-line-texture.jpg\";}', 'a:1:{i:0;s:12:\"About US.pdf\";}'),
+(18, 'Honey', 'RAD123', 'Shalom', 'Shalom', '120 mt', '99999', 0, '2023-06-09 18:24:00', ' Sagar', 'Nagaland', ' Sagar', 'SNPL', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '87922996841231', 'Service', 'Glass', 'HONEY', 'Exclusive Aluminum Deal', '2023-06-10 18:25:00', 9999, 'a:1:{i:0;s:46:\"background-with-metallic-grid-line-texture.jpg\";}', 'a:1:{i:0;s:12:\"About US.pdf\";}'),
+(19, 'Accessories Scrap', '1A1a', 'Shariff', 'Shalom', '120 ton', '32342', 1, '2023-06-08 18:46:00', ' Sagar', 'Nagaland', ' Sagar', 'SNPLaa', 'Rashmitha Soumya Sindu R', 'rashpriya2211@gmail.com', 'No 135/73, Vinayaka Layout,', 'Bangalore Rural', 'Karnataka', '8792299684', '8792299684', '87922996841231', 'Service', 'Brass', 'Beer Can Scrap', 'Aluminium Scrap ', '2023-06-10 18:46:00', 9999, 'a:1:{i:0;s:46:\"background-with-metallic-grid-line-texture.jpg\";}', 'a:1:{i:0;s:22:\"Terms & Conditions.pdf\";}');
 
 -- --------------------------------------------------------
 
@@ -472,24 +473,20 @@ INSERT INTO `metal` (`id`, `metal`, `scrap_metal`, `price`, `timestamp`) VALUES
 
 CREATE TABLE `notification` (
   `id` int(255) NOT NULL,
-  `session_name` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `exclusiveDeal_id` varchar(255) NOT NULL,
-  `status` int(255) NOT NULL
+  `status` int(255) NOT NULL,
+  `timestamp` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `notifications`
+-- Dumping data for table `notification`
 --
 
-CREATE TABLE `notifications` (
-  `id` int(11) NOT NULL,
-  `message` varchar(255) NOT NULL,
-  `sender` varchar(50) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `notification` (`id`, `name`, `exclusiveDeal_id`, `status`, `timestamp`) VALUES
+(7, 'Admin', '16', 1, '2023-06-10 08:41:42'),
+(8, 'buyer', '17', 1, '2023-06-10 08:43:07'),
+(9, 'buyer', '19', 1, '2023-06-10 09:12:29');
 
 -- --------------------------------------------------------
 
@@ -646,12 +643,6 @@ ALTER TABLE `notification`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `notifications`
---
-ALTER TABLE `notifications`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `signup`
 --
 ALTER TABLE `signup`
@@ -725,13 +716,7 @@ ALTER TABLE `metal`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `notifications`
---
-ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `signup`
