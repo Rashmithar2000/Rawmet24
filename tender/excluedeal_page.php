@@ -10,7 +10,7 @@ include "connect.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Deal Page</title>
+    <title>Exclusive Deal Page</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -296,9 +296,34 @@ h4,
          </form>
        
        
-         <?php }else{ ?>
-          <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;">
-          Hi! <?php echo $_SESSION['buyer_name'];?>&nbsp&nbsp
+         <?php }else{
+
+// Retrieve the buyer's name
+$name = $_SESSION['buyer_name'];
+
+// Query to get the count of exclusive deal IDs for the particular buyer
+$countSql = "SELECT COUNT(DISTINCT exclusiveDeal_id) AS notificationCount FROM notification WHERE name = '$name'";
+$countResult = mysqli_query($con, $countSql);
+
+if ($countResult) {
+    $r= mysqli_fetch_assoc($countResult);
+    $notificationCount = $r['notificationCount'];
+} else {
+    $notificationCount = 0;
+}
+
+?>
+
+          
+          <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;"> 
+          <span style="position: relative;">
+    <i class="fa-solid fa-bell" style="color:black;"></i>
+    <?php if ($notificationCount > 0) { ?>
+        <sup style="top: -10px; background-color: red; color: white; border-radius: 30%; padding: 2px 4px;"><?php echo $notificationCount; ?></sup>
+    <?php } ?>
+</span>
+          
+         &nbsp&nbsp Hi! <?php echo $_SESSION['buyer_name'];?>&nbsp&nbsp
               <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
 
 
