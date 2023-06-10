@@ -439,8 +439,6 @@ h4,
 </table>
 </div>
 </div></div></div>
-
-
 <div style="margin-left: 40px;">
 <table class="table table-bordered">
               <thead>
@@ -623,9 +621,24 @@ h4,
              </h5>
 
               </div>     
-         <center> <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a>
-         <a href="price.html" style="color:#fff; margin-right:22px;  font-weight:bold; font-size: 18px;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i>Subscribe to view all content</a></center>
-    </div>
+       
+         <center> <a href="price.html"><button class="btn btn-light" style="color :#3b8beb;">Open Website</button></a> <br>
+         <br>
+                
+    <form action="check.php?g=<?php echo $row['id'];?>" method="POST">
+    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+    <?php if($subscription){
+              if ($row['status'] == 0) {
+                    echo '<button type="submit" class="btn btn-light" style="color: #3b8beb;">BLOCK</button>';
+              } else {
+                    echo '<button type="button" class="btn btn-light" style="color: #3b8beb;" disabled>BLOCKED</button>';
+              }
+          }else{?><a href="price.html" style="background-color:white;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i><?php  echo "Subscribe to view all contents" ;} ?>
+                          </a></center>
+    </form>
+    
+    
+         </div>
     </div>
     </div>
 
@@ -645,8 +658,20 @@ h4,
                      
              </h5>
   
-      <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a>
-      <a href="price.html" style="color:#fff; margin-right:22px;  font-weight:bold; font-size: 18px;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i>Subscribe to view all content</a></center>
+             <center> <a href="price.html"><button class="btn btn-light" style="color :#3b8beb;">Open Website</button></a> <br>
+    
+             <form action="check.php?g=<?php echo $row['id'];?>" method="POST">
+    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+    <?php if($subscription){
+              if ($row['status'] == 0) {
+                    echo '<button type="submit" class="btn btn-light" style="color: #3b8beb;">BLOCK</button>';
+              } else {
+                    echo '<button type="button" class="btn btn-light" style="color: #3b8beb;" disabled>BLOCKED</button>';
+              }
+          }else{?><a href="price.html" style="background-color:white;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i><?php  echo "Subscribe to view all contents" ;} ?>
+                          </a></center>
+    </form>
+    
 </div>
   </div>
 </div>
@@ -794,10 +819,6 @@ h4,
 
 
 
-
-
-
-
   </div></div>
     
   <!-- =============================================================document mobile================================================== -->
@@ -839,11 +860,6 @@ h4,
     </div>
    </div>
 </div></div></div></div>
-
-
-
-
-    
 
 
     <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
