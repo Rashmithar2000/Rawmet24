@@ -36,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $quantity = isset($valueParts[0]) ? $valueParts[0] : '';
         $unit = isset($valueParts[1]) ? $valueParts[1] : '';
     }
-
     $image = isset($_POST['image']) ? $_POST['image'] : '';
     $existingfile = isset($_POST['existingfile']) ? $_POST['existingfile'] : '';
 
@@ -115,6 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $fname2= serialize($newfname2);
    $dname2= serialize($newdname2);
 
+
     $sql = "UPDATE tenders SET 
         category = '$category',
         infoId = '$infoId',
@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         email = '$email',
         contactPerson = '$contactPerson',
         img = '$fname2',
-        file = '$dname2'
+        file = '$dname2',
         WHERE id = '$id'";
 
     if (mysqli_query($conn, $sql)) {

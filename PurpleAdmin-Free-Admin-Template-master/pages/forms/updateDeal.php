@@ -40,13 +40,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $unit = isset($valueParts[1]) ? $valueParts[1] : '';
     }
 
+    $image = isset($_POST['image']) ? $_POST['image'] : '';
+    $existingfile = isset($_POST['existingfile']) ? $_POST['existingfile'] : '';
+
+    //print_r($existingfile); die;
     // ... File upload code ...
 
     //=======================================================upload ====================
-
+ 
    $fname=$_FILES["img"]["name"];
+   //print_r($fname); die;
+   $fname2=array();
+   if($fname[0]!=''){
+
    //print_r($fname);die;
-   $fname2="";
+   //$fname2="";
    $ctr=0;
    foreach($fname as $fn){
        $targetDir = "uploads/"; // Directory to store uploaded images
@@ -62,39 +70,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
        }
        if ($uploadOk == 1) {
            move_uploaded_file($_FILES["img"]["tmp_name"][$ctr], $targetFile);  
-           $fname2 = serialize($fname);    
+           $fname2 = $fname;    
        }
 
        $ctr++;
    }
-
+   }
+//print_r($fname2); die;
 
    //=========================================================================================
-   $dname=$_FILES["file"]["name"];
-   //print_r($fname);die;
-   $dname2="";
-   $ctr=0;
+   $dname=$_FILES["filename2"]["name"];
+   
+   $dname2=array();
+    if($dname[0]!=''){
+ 
+    //print_r($fname);die;
+    //$fname2="";
+    $ctr=0;
    foreach($dname as $fn){
        $targetDir = "uploads/"; // Directory to store uploaded images
-       $targetFile = $targetDir . basename($_FILES["file"]["name"][$ctr]);
+       $targetFile = $targetDir . basename($_FILES["filename2"]["name"][$ctr]);
        $uploadOk = 1;
        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
       
 
-       // Allow only certain file formats
        if ($imageFileType != "pdf" ) {
            echo "Error: Only pdf files are allowed.";
            $uploadOk = 0;
        }
        if ($uploadOk == 1) {
-           move_uploaded_file($_FILES["file"]["tmp_name"][$ctr], $targetFile);  
-           $dname2 = serialize($dname);    
+           move_uploaded_file($_FILES["filename2"]["tmp_name"][$ctr], $targetFile);  
+           $dname2 = $dname;    
        }
 
        $ctr++;
    }
+}
+
 
    $value = $quantity . ' ' . $unit;
+   if(!empty($fname2) || !empty($image)){
+    $newfname2 = array_merge($fname2, $image);
+   }
+   if(!empty($dname2) || !empty($existingfile)){
+    $newdname2 = array_merge($dname2, $existingfile);
+   }
+   $fname2= serialize($newfname2);
+   $dname2= serialize($newdname2);
+
+
+
 
     // Build the query
     $sql = "UPDATE deals SET
@@ -123,6 +148,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         specification = '$specification',
         dor = '$dor',
         expQuotation = '$expQuotation'
+        img = '$fname2',
+        filenames = '$dname2'
         WHERE id = '$id'";
 
     if (mysqli_query($conn, $sql)) {

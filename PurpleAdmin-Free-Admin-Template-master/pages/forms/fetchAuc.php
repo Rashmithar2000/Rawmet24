@@ -428,23 +428,53 @@ include "connect.php";
                       <label>Auction File upload</label>
                       <input type="file" name="img[]" class="file-upload-default" multiple>
                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File" value="<?php echo  $row['img']; ?>">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File" value="">
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                         </span>
                       </div>
                     </div>
+                    <?php 
+                     $a = unserialize($row['img']);
+                    if($a){
+
+                    foreach($a as $shalom){
+                     
+                    
+                    
+                    ?>
+                    <input type="checkbox" name="image[]" value="<?php echo $shalom; ?>" checked>&nbsp<img src="<?php echo "uploads/".$shalom."";?>" width="55px;" >&nbsp&nbsp&nbsp
+                    
+                    <br><br>
+                    <br>
+                    <?php  }} ?>
+
+
                     <div class="form-group">
                       <label>Auction File upload</label>
-                      <input type="file" name="file[]" class="file-upload-default" multiple>
+                      <input type="file" name="filename2[]" class="file-upload-default" multiple>
                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File" value="<?php echo  $row['file']; ?>">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File" value="">
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                         </span>
                       </div>
                     </div>
-                    <input type="hidden" name="id" value="<?php echo $id; ?>">           
+                    <?php 
+                     $a = unserialize($row['file']);
+                    if($a){
+                    
+
+                    foreach($a as $sindu){
+                
+                    
+                    ?>
+                    <input type="checkbox" name="existingfile[]" value="<?php echo $sindu; ?>" checked>&nbsp;<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" width="30px;"><?php echo $sindu; ?></h4>&nbsp&nbsp&nbsp
+                    
+                    <br><br>
+                    <br>
+                    <?php  }} ?>
+                    <input type="hidden" name="id" value="<?php echo $sindu; ?>">           
                       <button type="submit" class="btn btn-gradient-primary me-2">Update</button>                  
                     </form>
                   </div>
