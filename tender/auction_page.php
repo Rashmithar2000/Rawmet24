@@ -721,8 +721,16 @@ if ($countResult) {
               <h6 style="color:#fff;"><i class='bx bxs-calendar-alt'></i> Expires on <?php echo $row['endDatetime']; ?> &nbsp &nbsp
                 &nbsp </h6>
                 </div>    
-          <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a><br>
-          <a href="price.html" style="color:#fff; margin-right:22px;  font-weight:bold; font-size: 18px;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i>Subscribe to view all content</a></center>
+                <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a><br>
+          <?php if($subscription){
+              
+                    echo '';
+              
+          }else{?><a href="price.html" style="background-color:white;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i><?php  echo "Subscribe to view all contents" ;} ?>
+                          </a>
+        
+        
+        </center>
   </div>
           
                       </div><?php  ?></div></div>
@@ -747,8 +755,16 @@ if ($countResult) {
                 &nbsp </h6>
                 </div> 
   
-      <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a></center>
-      <a href="price.html" style="color:#fff; margin-left:12px;  font-weight:bold; font-size: 18px;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i>Subscribe to view all content</a></center>
+                <center>  <a href="price.html"><button class="btn btn-light" style="color :#3b8beb">Open Website</button></a><br>
+          <?php if($subscription){
+              
+                    echo '';
+              
+          }else{?><a href="price.html" style="background-color:white;"><i class='bx bxs-bell-ring bx-xsm' style="padding:18px; "></i><?php  echo "Subscribe to view all contents" ;} ?>
+                          </a>
+        
+        
+        </center><br>
     </div><?php }}  ?>
 
   </div>
