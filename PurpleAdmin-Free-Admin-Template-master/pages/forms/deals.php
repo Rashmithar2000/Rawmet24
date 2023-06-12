@@ -232,10 +232,47 @@ include "connect.php";
                         <label for="unit">Unit:</label>
                         <select id="unit" name="unit" required>
                           <option value="">-- Select Unit --</option>
-                          <option value="kg">KG</option>
-                          <option value="ton">TON</option>
-                          <option value="mt">MT</option>
-                          <option value="nos">Nos</option>
+                          <option value="nos">BAG</option>
+                          <option value="nos">BKL</option>
+                          <option value="nos">BTL</option>
+                          <option value="nos">CBM</option>
+                          <option value="nos">GGK</option>
+                          <option value="nos">GYD</option>
+                          <option value="nos">KME</option>
+                          <option value="nos">MTR</option>
+                          <option value="nos">OTH</option>
+                          <option value="nos">PRS</option>
+                          <option value="nos">SET</option>
+                          <option value="nos">BAL</option>
+                          <option value="nos">BOU</option>
+                          <option value="nos">BUN</option>
+                          <option value="nos">CCM</option>
+                          <option value="nos">DOZ</option>
+                          <option value="nos">GMS</option>
+                          <option value="nos">KGS</option>
+                          <option value="nos">LTR</option>
+                          <option value="nos">MTS</option>
+                          <option value="nos">PAC</option>
+                          <option value="nos">QTL</option>
+                          <option value="nos">BDL</option>
+                          <option value="nos">BOX</option>
+                          <option value="nos">CAN</option>
+                          <option value="nos">CMS</option>
+                          <option value="nos">DRM</option>
+                          <option value="nos">GRS</option>
+                          <option value="nos">KLR</option>
+                          <option value="nos">MLT</option>
+                          <option value="nos">NOS</option>
+                          <option value="nos">PCS</option>
+                          <option value="nos">ROL</option>
+                          <option value="nos">SQM</option>
+                          <option value="nos">TUB</option>
+                          <option value="nos">TGM</option>
+                          <option value="nos">TON</option>
+                          <option value="nos">TBS</option>
+                          <option value="nos">THD</option>
+                          <option value="nos">SQY</option>
+
                         </select>
                       </div>
           
