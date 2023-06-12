@@ -859,7 +859,7 @@ if ($countResult) {
                        <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
                        <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; ">
                           <h4>Bid Before: <?php echo $row['dealDatetime']; ?></h4>
-                          <h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3>
+                          <h3>Quantity: <?php echo $row['quantity']; ?><br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3>
                        </div>
                  </div>
            </section>
