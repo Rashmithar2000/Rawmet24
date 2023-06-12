@@ -483,11 +483,11 @@ include "connect.php";
                 
                                            
                       
-                    <div class="form-group">
-                      <label>Auction File upload</label>
+                      <div class="form-group">
+                      <label>Auction Image upload</label>
                       <input type="file" name="img[]" class="file-upload-default" multiple>
                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File" value="">
+                        <input type="text" class="form-control file-upload-info"  placeholder="Upload Image" value="" >
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                         </span>
@@ -507,13 +507,13 @@ include "connect.php";
                     <br><br>
                     <br>
                     <?php  }} ?>
-
+                    
 
                     <div class="form-group">
                       <label>Auction File upload</label>
                       <input type="file" name="filename2[]" class="file-upload-default" multiple>
                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File" value="">
+                        <input type="text" class="form-control file-upload-info"  placeholder="Upload File" value="">
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                         </span>
@@ -533,8 +533,10 @@ include "connect.php";
                     <br><br>
                     <br>
                     <?php  }} ?>
-                    <input type="hidden" name="id" value="<?php echo $sindu; ?>">           
-                      <button type="submit" class="btn btn-gradient-primary me-2">Update</button>                  
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">                             
+                    <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
+                    
+                    
                     </form>
                   </div>
                 </div>

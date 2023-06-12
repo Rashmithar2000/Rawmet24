@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $quantity = isset($valueParts[0]) ? $valueParts[0] : '';
         $unit = isset($valueParts[1]) ? $valueParts[1] : '';
     }
-
     $image = isset($_POST['image']) ? $_POST['image'] : '';
     $existingfile = isset($_POST['existingfile']) ? $_POST['existingfile'] : '';
 
