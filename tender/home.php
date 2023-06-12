@@ -767,7 +767,7 @@ if ($countResult) {
     <div class="col-sm-12 col-md-3 vl">
             
             <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 34kgs<br>Deal Value: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity:  <?php echo $row['quantity']; ?> <br>Deal Value: ₹<?php echo $row['dealValue']; ?></h3></div></center>
                          
           
       </div>
