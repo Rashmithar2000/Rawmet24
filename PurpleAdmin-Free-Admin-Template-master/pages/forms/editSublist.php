@@ -195,6 +195,20 @@ include "connect.php";
               <div class="collapse" id="ui-basic5">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="editSublist.php">Edit Subscriber</a></li>
+                  
+                </ul>
+                
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic6" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">Metal Price List</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-archive menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic6">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="editMetlist.php">Edit Metal Price</a></li>
                 </ul>
               </div>
             </li>
