@@ -377,6 +377,9 @@ if ($countResult) {
                           
                                   $status = ($currentDate > $endDatetime) ? " ago" : " to go";
                                   $daysText = ($status == " ago") ? "Days" : "Days";
+               if ($daysToGo == 0 || $status == " ago") {
+                                    continue; // Skip the iteration and move to the next item
+                                  }                       
                                         ?>
                                    <div class="row bor">
     <div class="col-sm-12 col-md-3 vl2">
@@ -434,6 +437,9 @@ if ($countResult) {
                           
                                   $status = ($currentDate > $endDatetime) ? " ago" : " to go";
                                   $daysText = ($status == " ago") ? "Days" : "Days";
+               if ($daysToGo == 0 || $status == " ago") {
+                                    continue; // Skip the iteration and move to the next item
+                                  }                       
                                       ?>
                                    <div class="row bor">
     <div class="col-sm-12 col-md-3 vl2">
@@ -484,6 +490,9 @@ if ($countResult) {
                           
                                   $status = ($currentDate > $endDatetime) ? " ago" : " to go";
                                   $daysText = ($status == " ago") ? "Days" : "Days";
+               if ($daysToGo == 0 || $status == " ago") {
+                                    continue; // Skip the iteration and move to the next item
+                                  }                       
                                     ?>
                       <div class="row bor">
     <div class="col-sm-12 col-md-3 vl2">
@@ -555,6 +564,9 @@ if ($countResult) {
                    
                            $status = ($currentDate > $endDatetime) ? " ago" : " to go";
                            $daysText = ($status == " ago") ? "Days" : "Days";
+               if ($daysToGo == 0 || $status == " ago") {
+                                    continue; // Skip the iteration and move to the next item
+                                  }                       
                                  ?>
                             <div class="row bor">
 <div class="col-sm-12 col-md-3 ">
@@ -612,6 +624,9 @@ if ($countResult) {
                    
                            $status = ($currentDate > $endDatetime) ? " ago" : " to go";
                            $daysText = ($status == " ago") ? "Days" : "Days";
+               if ($daysToGo == 0 || $status == " ago") {
+                                    continue; // Skip the iteration and move to the next item
+                                  }                       
                                ?>
                              <div class="row bor">
 <div class="col-sm-12 col-md-3 ">
@@ -661,6 +676,9 @@ if ($countResult) {
                    
                            $status = ($currentDate > $endDatetime) ? " ago" : " to go";
                            $daysText = ($status == " ago") ? "Days" : "Days";
+               if ($daysToGo == 0 || $status == " ago") {
+                                    continue; // Skip the iteration and move to the next item
+                                  }                       
                              ?>
                <div class="row bor">
 <div class="col-sm-12 col-md-3 ">
