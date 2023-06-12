@@ -296,8 +296,16 @@ include "connect.php";
                         <label for="aucSource">Auction Source Website</label>
                         <input type="text" class="form-control" name="aucSource" placeholder="Auction Source Website" required  value="<?php echo  $row['aucSource']; ?>">
                       </div>
-            
                       <div class="form-group">
+                        <label for="material">Material</label>
+                        <input type="text" class="form-control" name="material" placeholder="Auction Source Website" required  value="<?php echo  $row['material']; ?>">
+                      </div>
+                      <div class="form-group">
+                        <label for="matDesc">Material Description</label>
+                        <input type="text" class="form-control" name="matDesc" placeholder="Auction Source Website" required  value="<?php echo  $row['matDesc']; ?>">
+                      </div>
+            
+                      <!-- <div class="form-group">
                         <label for="material">Material</label> 
                         <select name="material" id="" style="inline-size:100%" required>
                     
@@ -342,6 +350,7 @@ include "connect.php";
                 </select>
                         
                       </div>
+                       -->
                       <div class="form-group">
                         <label for="quantity">Quantity</label>
                         <input type="number" id="quantity" name="quantity" required value="<?php echo  $quantity; ?>">&nbsp&nbsp&nbsp

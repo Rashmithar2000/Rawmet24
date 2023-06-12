@@ -283,8 +283,16 @@ include "connect.php";
                         <label for="aucSource">Auction Source Website</label>
                         <input type="text" class="form-control" name="aucSource" placeholder="Auction Source Website" required>
                       </div>
-
                       <div class="form-group">
+                        <label for="material">Material</label>
+                        <input type="text" class="form-control" name="material" placeholder="Material" required>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="matDesc">Material Description</label>
+                        <input type="text" class="form-control" name="matDesc" placeholder="Material Description" required>
+                      </div>
+                      <!-- <div class="form-group">
                         <label for="material">Material</label> 
                         <select name="material" style="inline-size:100%" required>
                           <option >....Select One.... </option>
@@ -320,9 +328,9 @@ include "connect.php";
                     <?php }
                   }
                   ?>
-                </select>
+                </select> -->
                         
-                      </div>
+                      <!-- </div> -->
                      
                       <div class="form-group">
                         <label for="quantity">Quantity</label>

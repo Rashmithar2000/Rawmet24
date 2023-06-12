@@ -384,6 +384,15 @@ include "connect.php";
                       </div>
                       <p class="card-description">Requirement Description</p>
                       <div class="form-group">
+                    <label for="material">Material</label>
+                      <input type="text" class="form-control" name="material" placeholder="Material" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="matDics">Material Description</label>
+                      <input type="text" class="form-control" name="matDesc" placeholder="Material Description" required>
+                    </div>
+                 
+                      <!-- <div class="form-group">
                         <label for="material">Material</label> 
                         <select name="" id="" style="inline-size:100%">
                           <option >....Select One.... </option>
@@ -422,6 +431,7 @@ include "connect.php";
                 </select>
                         
                       </div>
+                       -->
                       <div class="form-group">
                         <label for="specification">Specification</label>
                         <textarea class="form-control" placeholder="Specification" name="specification" rows="6" required></textarea>

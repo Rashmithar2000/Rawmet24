@@ -283,6 +283,16 @@ include "connect.php";
                       <textarea class="form-control" placeholder="Tender Description" name="tenderDesc" rows="6" required></textarea>
                     </div>
                     <div class="form-group">
+                    <label for="material">Material</label>
+                      <input type="text" class="form-control" name="material" placeholder="Material" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="matDics">Material Description</label>
+                      <input type="text" class="form-control" name="matDesc" placeholder="Material Description" required>
+                    </div>
+                 
+                   
+                    <!-- <div class="form-group">
                         <label for="material">Material</label> 
                         <select name="" id="" style="inline-size:100%">
                           <option >....Select One.... </option>
@@ -321,7 +331,8 @@ include "connect.php";
                 </select>
                         
                       </div>
-                    <div class="form-group">
+                     -->
+                      <div class="form-group">
                       <label for="quantity">Quantity</label>
                         <input type="number" id="quantity" name="quantity" required>&nbsp&nbsp&nbsp
                         <label for="unit">Unit:</label>

@@ -293,6 +293,17 @@ include "connect.php";
                       <textarea class="form-control" placeholder="Tender Description" name="tenderDesc" rows="6" required value=""><?php echo  $row['tenderDesc']; ?></textarea>
                     </div>
                     <div class="form-group">
+                    <label for="material">Material</label>
+                      <input type="text" class="form-control" name="material" placeholder="Material" required value="<?php echo $row['material']; ?>">
+                      
+                    </div>
+                    <div class="form-group">
+                      <label for="matDics">Material Description</label>
+                      <input type="text" class="form-control" name="matDesc" placeholder="Material Description" required value="<?php echo $row['matDesc']; ?>">
+                    </div>
+                 
+
+                    <!-- <div class="form-group">
                         <label for="material">Material</label> 
                         <select name="material" id="" style="inline-size:100%" required>
                     
@@ -337,7 +348,8 @@ include "connect.php";
                 </select>
                         
                       </div>
-                    <div class="form-group">
+                     -->
+                      <div class="form-group">
                       <label for="quantity">Quantity</label>
                         <input type="number" id="quantity" name="quantity" required value="<?php echo  $quantity; ?>">&nbsp&nbsp&nbsp
                         <label for="unit">Unit:</label>

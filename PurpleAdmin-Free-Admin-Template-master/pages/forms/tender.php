@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tenderNumber = isset($_POST['tenderNumber']) ? $_POST['tenderNumber'] : '';
     $tenderDesc = isset($_POST['tenderDesc']) ? $_POST['tenderDesc'] : '';
     $material = isset($_POST['material']) ? $_POST['material'] : '';
+    $matDesc = isset($_POST['matDesc']) ? $_POST['matDesc'] : '';
     $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : '';
     $unit = isset($_POST['unit']) ? $_POST['unit'] : '';
     $publishingDatetime = isset($_POST['publishingDatetime']) ? $_POST['publishingDatetime'] : '';
@@ -89,11 +90,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $value = $quantity . ' ' . $unit;
 
     $sql = "INSERT INTO tenders (category, infoId, ownership, tenderLocation, sector, tenderNumber,
-     tenderDesc, material, quantity,publishingDatetime, startDatetime, endDatetime, 
+     tenderDesc, material,matDesc, quantity,publishingDatetime, startDatetime, endDatetime, 
      emdType, emdAmt, tenderValue,companyName, location, street, city, 
      telephone, email, contactPerson, img,file) 
     VALUES ('$category', '$infoId', '$ownership', '$tenderLocation', '$sector', '$tenderNumber', 
-    '$tenderDesc', '$material','$value', '$publishingDatetime', '$startDatetime', '
+    '$tenderDesc', '$material','$matDesc','$value', '$publishingDatetime', '$startDatetime', '
     $endDatetime', '$emdType', '$emdAmt','$tenderValue', '$companyName',
      '$location', '$street', '$city', '$telephone', '$email', '$contactPerson','$fname2','$dname2')";
 

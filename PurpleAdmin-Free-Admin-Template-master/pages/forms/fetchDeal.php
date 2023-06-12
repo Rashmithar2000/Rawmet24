@@ -400,6 +400,15 @@ include "connect.php";
                       </div>
                       <p class="card-description">Requirement Description</p>
                       <div class="form-group">
+                    <label for="material">Material</label>
+                      <input type="text" class="form-control" name="material" placeholder="Material" required value="<?php echo $row['material']; ?>">
+                      
+                    </div>
+                    <div class="form-group">
+                      <label for="matDics">Material Description</label>
+                      <input type="text" class="form-control" name="matDesc" placeholder="Material Description" required value="<?php echo $row['matDesc']; ?>">
+                    </div>
+                      <!-- <div class="form-group">
                         <label for="material">Material</label> 
                         <select name="material" id="" style="inline-size:100%" required>
                     
@@ -444,6 +453,7 @@ include "connect.php";
                 </select>
                         
                       </div>
+                       -->
                       <div class="form-group">
                         <label for="specification">Specification</label>
                         <textarea class="form-control" placeholder="Specification" name="specification" rows="6" required value=""><?php echo  $row['specification']; ?></textarea>
