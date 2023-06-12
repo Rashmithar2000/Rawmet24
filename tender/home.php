@@ -195,6 +195,10 @@ include "connect.php";
 .bor:nth-child(odd) {
     background-color: white;
 } 
+.last-day {
+  background-color: red;
+  color: white;
+}
   </style>
 
 <section class="ftco-section" style="padding-top: 5px;">
@@ -589,7 +593,15 @@ if ($countResult) {
             $daysToGo = $interval->format('%a');
     
             $status = ($currentDate > $endDatetime) ? " ago" : " to go";
-            $daysText = ($status == " ago") ? "Days" : "Days";
+             $daysText = ($status >= " ago") ? "Days" : "Days";
+                                  if ($daysToGo == 0) {
+                                    $daysToGo ='Last Day';
+                                    $status='';
+                                    $daysText=''; // Replace 0 with 'Last Day'
+                                  } 
+                                  if ($status == " ago") {
+                                    continue; // Skip the iteration and move to the next item
+                                  }
     
             ?>
             <section>
@@ -641,7 +653,15 @@ if ($countResult) {
             $daysToGo = $interval->format('%a');
     
             $status = ($currentDate > $endDatetime) ? " ago" : " to go";
-            $daysText = ($status == " ago") ? "Days" : "Days";
+             $daysText = ($status >= " ago") ? "Days" : "Days";
+                                  if ($daysToGo == 0) {
+                                    $daysToGo ='Last Day';
+                                    $status='';
+                                    $daysText=''; // Replace 0 with 'Last Day'
+                                  } 
+                                  if ($status == " ago") {
+                                    continue; // Skip the iteration and move to the next item
+                                  }
     
             ?>
             <section>
@@ -697,7 +717,12 @@ if ($countResult) {
                           
                                   $status = ($currentDate > $endDatetime) ? " ago" : " to go";
                                   $daysText = ($status >= " ago") ? "Days" : "Days";
-                                  if ($daysToGo == 0 || $status == " ago") {
+                                  if ($daysToGo == 0) {
+                                    $daysToGo ='Last Day';
+                                    $status='';
+                                    $daysText=''; // Replace 0 with 'Last Day'
+                                  } 
+                                  if ($status == " ago") {
                                     continue; // Skip the iteration and move to the next item
                                   }
                                   ?>
@@ -728,6 +753,7 @@ if ($countResult) {
               endforeach;
            } 
       ?>
+      
       </article>
     </div></div></div>
 
@@ -766,7 +792,15 @@ if ($countResult) {
         $daysToGo = $interval->format('%a');
 
         $status = ($currentDate > $endDatetime) ? " ago" : " to go";
-        $daysText = ($status == " ago") ? "Days" : "Days";
+         $daysText = ($status >= " ago") ? "Days" : "Days";
+                                  if ($daysToGo == 0) {
+                                    $daysToGo ='Last Day';
+                                    $status='';
+                                    $daysText=''; // Replace 0 with 'Last Day'
+                                  } 
+                                  if ($status == " ago") {
+                                    continue; // Skip the iteration and move to the next item
+                                  }
 
         if ($daysToGo == 0 || $status == " ago") {
           continue; // Skip the iteration and move to the next item
