@@ -464,7 +464,7 @@ if ($countResult) {
                           if(isset($_GET['search'])){
                             $a = $_GET['search'];
                            
-                            $sql = "select * from exclusive_deals WHERE material LIKE '$a%' OR 	location LIKE '$a%' ";
+                            $sql = "select * from exclusive_deals WHERE material LIKE '$a%' OR 	location LIKE '$a%' OR matDesc LIKE '$a%' ";
                                $result = mysqli_query($con, $sql);
                                //print_r($result);die;
                                if (mysqli_num_rows($result) > 0) {
@@ -626,7 +626,7 @@ if ($countResult) {
                           if(isset($_GET['search'])){
                             $a = $_GET['search'];
                            
-                            $sql = "select * from exclusive_deals WHERE material LIKE '$a%' OR 	location LIKE '$a%' ";
+                            $sql = "select * from exclusive_deals WHERE material LIKE '$a%' OR 	location LIKE '$a%' OR matDesc LIKE '$a%' ";
                                $result = mysqli_query($con, $sql);
                                //print_r($result);die;
                                if (mysqli_num_rows($result) > 0) {

@@ -454,7 +454,7 @@ if ($countResult) {
                           if(isset($_GET['search'])){
                             $a = $_GET['search'];
                            
-                            $sql = "select * from tenders WHERE material LIKE '$a%' OR tenderLocation LIKE '$a%' ";
+                            $sql = "select * from tenders WHERE material LIKE '$a%' OR tenderLocation LIKE '$a%' OR matDesc LIKE '$a%'";
                                $result = mysqli_query($con, $sql);
                                //print_r($result);die;
                                if (mysqli_num_rows($result) > 0) {
@@ -616,7 +616,7 @@ if ($countResult) {
                           if(isset($_GET['search'])){
                             $a = $_GET['search'];
                            
-                            $sql = "select * from tenders WHERE material LIKE '$a%' OR tenderLocation LIKE '$a%' ";
+                            $sql = "select * from tenders WHERE material LIKE '$a%' OR tenderLocation LIKE '$a%' OR matDesc LIKE '$a%'";
                                $result = mysqli_query($con, $sql);
                                //print_r($result);die;
                                if (mysqli_num_rows($result) > 0) {
