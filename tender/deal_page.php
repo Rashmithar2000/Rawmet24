@@ -680,7 +680,7 @@ if ($countResult) {
 
 
     <div class="container desktop-view">
-    <div class="card" style="margin-top:-115px;" >
+    <div class="card" style="margin-top:-165px;" >
       <div class="card-body">
         <h3>Images</h3><hr>
         <div class="row"style="margin-left:-550px;">    
