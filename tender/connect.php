@@ -1,6 +1,6 @@
 <?php 
  
- $con= new mysqli('localhost','root','','registration_db');
+ $con= new mysqli('localhost','root','newpassword','registration_db');
 
  if(!$con)
  {
