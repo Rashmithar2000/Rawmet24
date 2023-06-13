@@ -342,7 +342,7 @@ if ($countResult) {
                     $ro = mysqli_fetch_assoc($result);
                       
                         ?>
-              <a href="profile.php?g=<?php echo $ro['id'];?>"><i class='ii bx bxs-user-circle bx-md '></i></a> 
+              <!--<a href="profile.php?g=<?php echo $ro['id'];?>"><i class='ii bx bxs-user-circle bx-md '></i></a> -->
  
 <?php } ?>
           </p></div>
@@ -742,7 +742,7 @@ if ($countResult) {
 
 
 
-<div class="container" style="padding: 5px 20px 40px 20px; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff; background-image: linear-gradient(to right,#000E6F, #24C6DC);"><img class="imgg" src="image/crown.png" width="80px;">
+<div class="container " style="padding: 5px 20px 40px 20px; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff; background-image: linear-gradient(to right,#000E6F, #24C6DC);"><img class="imgg" src="image/crown.png" width="80px;">
   <h1 class="GFG" style="color: #fff; font-family: 'Montserrat', sans-serif; margin-left:30px;">Deals</h1>
   <div class="card-body">
     <article class="scroller">
@@ -767,6 +767,7 @@ if ($countResult) {
       $sql = "SELECT * FROM deals";
                             $result = mysqli_query($con, $sql);
                             if (mysqli_num_rows($result) > 0) {
+                              $radNumber = 181204; 
                                 foreach ($result as $row):
                                   $endDatetime = new DateTime($row['dealDatetime']);
                                   $currentDate = new DateTime();
@@ -786,11 +787,11 @@ if ($countResult) {
                                   ?>
   <tbody>
     <tr >
-      <th scope="row">181204</th>
+      <th scope="row"><?php echo $radNumber++; ?></th>
       <td><?php echo $row['location']; ?></td>
       <td><?php echo $row['material']; ?></td>
       <td><?php echo $row['quantity']; ?></td>
-      <td>2023-06-14</td>
+      <td><?php echo date('Y-m-d', strtotime($row['dealDatetime'])); ?></td>
       <td>₹<?php echo $row['dealValue']; ?></td>
       <td><a href="deal_page.php?g=<?php echo $row['id']; ?>">
                        <button style="padding:5px; border-radius: 6px;font-size: 100%; " class="btn btn-primary" type="submit">View Deal</button>
@@ -809,70 +810,67 @@ if ($countResult) {
 
 <br><br>
 
-<div class="container " style="padding: 2%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
+<div class="container" style="padding: 2%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
   <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Auction</h2>
-  <div class="card-body ">
-  <article class="scroller">
-      
-                                    
+  <div class="card-body">
+    <article class="scroller">
       <table class="table table-bordered table-responsive" style="background-color:#fff;">
-<thead style="background-color:#3b8beb; color:#fff;">
-<tr>
-<th scope="col">RAD</th>
-<th scope="col">Location</th>
-<th scope="col">Material</th>
-<th scope="col">Quantity</th>
-<th scope="col">Bid Before</th>
-<th scope="col">Auction Value</th>
-<th scope="col">Action</th>
+        <thead style="background-color:#3b8beb; color:#fff;">
+          <tr>
+            <th scope="col">RAD</th>
+            <th scope="col">Location</th>
+            <th scope="col">Material</th>
+            <th scope="col">Quantity</th>
+            <th class="w-25">Bid Before</th>
+            <th class="w-25">Auction Value</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <?php
+          $sql = "SELECT * FROM auction";
+          $result = mysqli_query($con, $sql);
+          if ($result) {
+            $radNumber = 180104; // Starting RAD number
+            while ($row = mysqli_fetch_assoc($result)) {
+              $endDatetime = new DateTime($row['endDatetime']);
+              $currentDate = new DateTime();
+              $interval = $currentDate->diff($endDatetime);
+              $daysToGo = $interval->format('%a');
+              $status = ($currentDate > $endDatetime) ? " ago" : " to go";
+              $daysText = ($status >= " ago") ? "Days" : "Days";
+              if ($daysToGo == 0) {
+                $daysToGo = 'Last Day';
+                $status = '';
+                $daysText = ''; // Replace 0 with 'Last Day'
+              }
+              if ($status == " ago") {
+                continue; // Skip the iteration and move to the next item
+              }
+        ?>
+        <tbody>
+          <tr>
+            <th scope="row"><?php echo $radNumber++; ?></th>
+            <td><?php echo $row['location']; ?></td>
+            <td><?php echo $row['material']; ?></td>
+            <td><?php echo $row['quantity']; ?></td>
+            <td><?php echo date('Y-m-d', strtotime($row['endDatetime'])); ?></td>
+            <td>₹<?php echo $row['aucValue']; ?></td>
+            <td>
+              <a href="auction_page.php?g=<?php echo $row['id']; ?>">
+                <button style="padding:5px; border-radius: 6px; font-size: 100%;" class="btn btn-primary" type="submit">View Auction</button>
+              </a>
+            </td>
+          </tr>
+        <?php
+            }
+          } 
+        ?>
+        </tbody>
+      </table>
+    </article>
+  </div>
+</div>
 
-
-</tr>
-</thead>
-<?php
-      $sql = "select * from auction";
-      $result = mysqli_query($con, $sql);
-      if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $endDatetime = new DateTime($row['endDatetime']);
-            $currentDate = new DateTime();
-            $interval = $currentDate->diff($endDatetime);
-            $daysToGo = $interval->format('%a');
-    
-            $status = ($currentDate > $endDatetime) ? " ago" : " to go";
-             $daysText = ($status >= " ago") ? "Days" : "Days";
-                                  if ($daysToGo == 0) {
-                                    $daysToGo ='Last Day';
-                                    $status='';
-                                    $daysText=''; // Replace 0 with 'Last Day'
-                                  } 
-                                  if ($status == " ago") {
-                                    continue; // Skip the iteration and move to the next item
-                                  }
-    
-            ?>
-<tbody>
-<tr >
-<th scope="row">180104</th>
-<td><?php echo $row['location']; ?></td>
-<td><?php echo $row['material']; ?></td>
-<td><?php echo $row['quantity']; ?></td>
-<td><?php echo $row['endDatetime']; ?></td>
-<td> ₹<?php echo $row['aucValue']; ?></td>
-<td><a href="auction_page.php?g=<?php echo $row['id']; ?>">
-<button style="padding:5px; border-radius: 6px;font-size: 100%; " class="btn btn-primary" type="submit">View Auction</button>
-</a></td>
-</tr>
-<?php
-        }
-           } 
-      ?>
-</tbody>
-</table>
-
-
-</article>
-</div></div></div>
 
 
 <br><br>
@@ -945,13 +943,13 @@ if ($countResult) {
       <table class="table table-bordered table-responsive" style="background-color:#fff;">
 <thead style="background-color:#3b8beb; color:#fff;">
 <tr>
-<th scope="col">RAD</th>
-<th scope="col">Location</th>
-<th scope="col">Material</th>
-<th scope="col">Quantity</th>
-<th scope="col">Bid Before</th>
-<th scope="col">Auction Value</th>
-<th scope="col">Action</th>
+<th scope="col">RTD</th>
+            <th scope="col">Location</th>
+            <th scope="col">Material</th>
+            <th scope="col">Quantity</th>
+            <th class="w-25">Bid Before</th>
+            <th class="w-25">Tender Value</th>
+            <th scope="col">Action</th>
 
 
 </tr>
@@ -961,6 +959,7 @@ if ($countResult) {
       $result = mysqli_query($con, $sql);
 
       if ($result) {
+        $radNumber = 182004;
         while ($row = mysqli_fetch_assoc($result)) {
             $endDatetime = new DateTime($row['endDatetime']);
             $currentDate = new DateTime();
@@ -981,11 +980,11 @@ if ($countResult) {
             ?>
 <tbody>
 <tr >
-<th scope="row">181204</th>
+<th scope="row"><?php echo $radNumber++; ?></th>
 <td><?php echo $row['location']; ?></td>
 <td><?php echo $row['material']; ?></td>
 <td><?php echo $row['quantity']; ?></td>
-<td><?php echo $row['endDatetime']; ?></td>
+<td><?php echo date('Y-m-d', strtotime($row['endDatetime'])); ?></td>
 <td> ₹<?php echo $row['tenderValue']; ?></td>
 <td><a href="tend_page.php?g=<?php echo $row['id']; ?>">
 <button style="padding:5px; border-radius: 6px;font-size: 100%; " class="btn btn-primary" type="submit">View Tender</button>

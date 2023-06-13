@@ -734,7 +734,7 @@ if ($countResult) {
 
     <div class="row">
     <div class="card"
-    style="background-color: #3b8beb; margin-left:550px; margin-top:-980px; margin-bottom:700px; padding:10px; ">
+    style="background-color: #3b8beb; margin-left:550px; margin-top:-1035px; margin-bottom:700px; padding:10px; ">
     <div class="card-body">
     <h4 style="color:#fff;">Auction VALUE: ₹<?php echo $row['aucValue']; ?></h4><hr>
     <h4 style="color:#fff;">QUANTITY: <?php echo $row['quantity']; ?></h4><hr>
@@ -805,7 +805,7 @@ if ($countResult) {
 
 
   <div class="container desktop-view">
-    <div class="card" style="margin-top:-215px;" >
+    <div class="card" style="margin-top:-105px;" >
       <div class="card-body">
         <h3>Images</h3><hr>
         <div class="row"style="margin-left:-350px;">    
