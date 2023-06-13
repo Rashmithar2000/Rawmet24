@@ -38,3 +38,8 @@
     color:#3b8beb;
   }
   
+  .dropdown-item:hover{
+    background-color:#3b8beb;
+    color:#fff;
+  
+  }
