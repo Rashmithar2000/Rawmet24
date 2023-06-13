@@ -77,7 +77,7 @@ include "connect.php";
       float: right;
       margin-right: 15px;
       padding-left: 10px;
-      color: white;
+     
       text-decoration: none;
       font-size: 15px;
     }
@@ -197,9 +197,7 @@ include "connect.php";
   background-color: red;
   color: white;
 }
-i{
-  margin-bottom:-20px;
-}
+
 .imgg{
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
@@ -232,21 +230,20 @@ i{
   </style>
 
   <div class="strip desktop-view">
-    <a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
-  <a href="tel:9606800462">9606800462</a> 
-  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
-    <div class="container-fluid px-md-5">
-      <div id="typedtext" class="ml-5" style="color: white;">
-      </div>
+    <a style="color:#fff; margin-right"  href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <a style="color:#fff;" href="tel:9606800462">9606800462</a> 
+  <a style="color:#fff;" href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
+    
+   
      </div>
-    </div>
+  
 
 <!-- ============================================mobile-view===============================================-->
 <div class="containerr strip mobile-view">
   <marquee direction="left" height="5%" style="white-space: nowrap;">
-    <a href="https://wa.me/9945454505"><i class="fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a> 
-    <a href="tel:9606800462">9606800462</a> 
-    <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i> Helpline Number: 8123010365,</a>
+    <a style="color:#fff;" href="https://wa.me/9945454505" style="margin-right:-15px"><i class="fa-solid fa-brands fa-whatsapp"></i> Helpline Number: 8123010365, </a> 
+    <a style="color:#fff;" href="tel:9606800462">9606800462</a> 
+    <a style="color:#fff;" href="tel:8123010365" ><i class="fa-solid fa-phone"></i>Whatsapp Number: 9945454505</a>
   </marquee>
 </div>
 
@@ -255,7 +252,7 @@ i{
 
 <section
            class="d-flex justify-content-between p-3"
-           style="background-color:white"
+           style="background-color:white;"
            >
     <div class="me-5">
       <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
@@ -345,7 +342,7 @@ if ($countResult) {
                     $ro = mysqli_fetch_assoc($result);
                       
                         ?>
-              <!-- <a href="profile.php?g=<?php echo $ro['id'];?>"><i class='ii bx bxs-user-circle bx-md '></i></a> -->
+              <a href="profile.php?g=<?php echo $ro['id'];?>"><i class='ii bx bxs-user-circle bx-md '></i></a> 
  
 <?php } ?>
           </p></div>

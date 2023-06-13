@@ -50,15 +50,7 @@ include "connect.php";
     
     </style>
   
-<div class="strip">
-<a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
-  <a href="tel:9606800462">9606800462</a> 
-  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
-  <div class="container-fluid px-md-5">
-  <div id="typedtext" class="ml-5"  style="color: white;">
-</div>
-</div>
-</div>
+
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -155,6 +147,25 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
   
 </style>
+
+<div class="strip desktop-view">
+    <a style="color:#fff; margin-right"  href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <a style="color:#fff;" href="tel:9606800462">9606800462</a> 
+  <a style="color:#fff;" href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
+    
+   
+     </div>
+  
+
+<!-- ============================================mobile-view===============================================-->
+<div class="containerr strip mobile-view">
+  <marquee direction="left" height="5%" style="white-space: nowrap;">
+    <a style="color:#fff;" href="https://wa.me/9945454505"><i class="fa-solid fa-brands fa-whatsapp"></i> Helpline Number: 8123010365, </a> 
+    <a style="color:#fff;" href="tel:9606800462">9606800462</a> 
+    <a style="color:#fff;" href="tel:8123010365"><i class="fa-solid fa-phone"></i>Whatsapp Number: 9945454505</a>
+  </marquee>
+</div>
+
 <section class="ftco-section" style="padding-top: 5px;">
   
 <section
@@ -273,9 +284,8 @@ if ($countResult) {
 <br>
 <div class="container">
 
-<section class="home"> 
-    <div class="container" style="margin-top:40px;">
-    <div class="dropdown" style=" margin-left:40px;">
+<div class="container " style="margin-top:40px;">
+    <div class="dropdown desktop-view" style=" margin-left:40px;">
   <button style="padding:10px;" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Top Categories
   </button>
@@ -296,33 +306,89 @@ if ($countResult) {
         <div class="col-12 col-md-10 col-lg-8">  
                  
 
-            <div class="card card-sm" style="margin-right:-80px; margin-top:-70px; margin-left:30px">
-        <div class="card-body row no-gutters align-items-center" style="background-color: #eae9e9;">
-          <div class="col-auto">
-            <i class="fa fa-search" style="font-size: 30px; margin-right: 8px;"></i>
-          </div>
-          <!--end of col-->
-          <div class="col">
-            <input class="form-control form-control-lg form-control-borderless" type="search" id="meterial"
-              placeholder="Search for Tenders" style="padding:10px 0px 10px 6px; margin-right: 100px;">
-          </div>
-          <select name="sort" id="tender" style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;"
-            placeholder="Search ">
-            
-            <option value="tenders">Tenders</option>
-            
+            <div class="card card-sm desktop-view" style="margin-right:-80px; margin-top:-70px; margin-left:30px">
+              <div class="card-body row no-gutters align-items-center" style="background-color: #eae9e9;">
+                <div class="col-auto">
+                  <i class="fa fa-search" style="font-size: 30px; margin-right: 8px;"></i>
+                </div>
+                <!--end of col-->
+                <div class="col">
+                  <input class="form-control form-control-lg form-control-borderless" type="search" id="meterial"
+                    placeholder="Search for Tender, Auction & Deals" style="padding:10px 0px 10px 6px; margin-right: 100px;">
+                </div>
+                <select name="sort" id="tender" style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;"
+                  placeholder="Search ">
+                  
+                  <option value="tenders">Tenders</option>
+                  <option value="auction">Auctions</option>
+                  <option value="deals">Deals</option>
 
-          </select>
+                </select>
 
-          <div class="col-auto">
-            <button class="btn btn-primary" onclick="myFunction()" type="submit">Search</button>
-          </div>
+                <div class="col-auto">
+                  <button class="btn btn-primary" onclick="myFunction()" type="submit">Search</button>
+                </div>
+              </div>
+            
         </div>
-      
+      </div>
+    </div>
+    
+
+
+
+<!-- =========================================================mobile-view============================================================== -->
+
+
+   
+
+      <div class="row ">
+        
+        <div class="col-12 col-md-10 col-lg-8">  
+                 
+
+            <div class="card card-sm  mobile-view" style="margin-top:-40px;">
+              <div class="card-body row no-gutters align-items-center" style="background-color: #eae9e9;">
+                <div class="col-auto">
+                  <i class="fa fa-search" style="font-size: 30px; margin-right: 8px;"></i>
+                </div>
+                <!--end of col-->
+                <div class="col">
+                  <input class="form-control form-control-lg form-control-borderless" type="search" id="meterial"
+                    placeholder="Search for Tender, Auction & Deals" style="padding:10px 0px 10px 6px; margin-right: 100px;">
+                </div>
+                <select name="sort" id="tender" style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;"
+                  placeholder="Search ">
+                  
+                  <option value="tenders">Tenders</option>
+                  <option value="auction">Auctions</option>
+                  <option value="deals">Deals</option>
+
+                </select>
+
+                <div class="col-auto">
+                  <button class="btn btn-primary" onclick="myFunction()" type="submit">Search</button>
+                </div>
+              </div>
+            
+        </div><center>
+        <div class="dropdown mobile-view" >
+  <button style="padding:10px;" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Top Categories
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="category.php?type=Consultancy Tenders">Consultancy Tenders</a>
+    <a class="dropdown-item" href="category.php?type=Procurement Tenders">Procurement Tenders </a>
+    <a class="dropdown-item" href="category.php?type=Manufacturing Tenders">Manufacturing Tenders</a>
+    <a class="dropdown-item" href="category.php?type=Disposal Tenders">Disposal Tenders </a>
+    <a class="dropdown-item" href="category.php?type=Business Tenders">Business Tenders </a>  
+    <a class="dropdown-item" href="category.php?type=Public Tenders">Public Tenders </a>
+
+
   </div>
-</div>
-</div>
-</div>
+</div></center>
+      </div>
+    </div>
 <center>
  <h2 style="color: #7e828b;">TENDERS</h2> </center>
     <div class="container">
