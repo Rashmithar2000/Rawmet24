@@ -182,6 +182,7 @@ a:hover{
                   <li class="nav-item"> <a class="nav-link" href="pages/forms/editDeallist.php">Edit Deal</a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/forms/exclusivedeals.php">Add Exclusive Deal</a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/forms/editExcllist.php">Edit Exclusive Deal</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/forms/editBlocklist.php">Unblock Exclusive Deal</a></li>
                
                 </ul>
               </div>

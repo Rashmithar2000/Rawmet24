@@ -154,6 +154,7 @@ include "connect.php";
                   <li class="nav-item"> <a class="nav-link" href="editDeallist.php">Edit Deal</a></li>
                   <li class="nav-item"> <a class="nav-link" href="exclusivedeals.php">Add Exclusive Deal</a></li>
                   <li class="nav-item"> <a class="nav-link" href="editExcllist.php">Edit Exclusive Deal</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editBlocklist.php">Unblock Exclusive Deal</a></li>
                
                 </ul>
               </div>

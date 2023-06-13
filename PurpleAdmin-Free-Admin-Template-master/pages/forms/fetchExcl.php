@@ -152,6 +152,7 @@ include "connect.php";
                   <li class="nav-item"> <a class="nav-link" href="editDeallist.php">Edit Deal</a></li>
                   <li class="nav-item"> <a class="nav-link" href="exclusivedeals.php">Add Exclusive Deal</a></li>
                   <li class="nav-item"> <a class="nav-link" href="editExcllist.php">Edit Exclusive Deal</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="editBlocklist.php">Unblock Exclusive Deal</a></li>
                
                 </ul>
               </div>
@@ -520,7 +521,7 @@ include "connect.php";
                       </div>
                   
                       <div class="form-group">
-                      <label>Tender Image upload</label>
+                      <label>Deal Image upload</label>
                       <input type="file" name="img[]" class="file-upload-default" multiple>
                       <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info"  placeholder="Upload Image" value="" >
@@ -546,7 +547,7 @@ include "connect.php";
                     
 
                     <div class="form-group">
-                      <label>Tender File upload</label>
+                      <label>Deal File upload</label>
                       <input type="file" name="filename2[]" class="file-upload-default" multiple>
                       <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info"  placeholder="Upload File" value="">
