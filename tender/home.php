@@ -58,16 +58,10 @@ include "connect.php";
       scroll-snap-align: start !important;
     }
   </style>
-
   <div class="strip">
-  <a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
-  <a href="tel:9606800462">9606800462</a> 
-  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
-    <div class="container-fluid px-md-5">
-      <div id="typedtext" class="ml-5" style="color: white;">
-      </div>
-    </div>
-  </div>
+
+ 
+    
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -218,8 +212,44 @@ i{
   color:#fff;
 
 }
+@media (max-width: 480px) {
+.containerr {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+  }
+
+  .containerr a {
+    display: inline-block;
+    white-space: normal;
+    scroll-snap-align: start;
+  }
+}
 
   </style>
+
+  <div class="strip desktop-view">
+    <a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <a href="tel:9606800462">9606800462</a> 
+  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
+    <div class="container-fluid px-md-5">
+      <div id="typedtext" class="ml-5" style="color: white;">
+      </div>
+     </div>
+    </div>
+
+<!-- ============================================mobile-view===============================================-->
+<div class="containerr strip mobile-view">
+  <marquee direction="left" height="5%" style="white-space: nowrap;">
+    <a href="https://wa.me/9945454505"><i class="fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a> 
+    <a href="tel:9606800462">9606800462</a> 
+    <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i> Helpline Number: 8123010365,</a>
+  </marquee>
+</div>
+
 
 <section class="ftco-section" style="padding-top: 5px;">
 
@@ -453,23 +483,22 @@ if ($countResult) {
 </div></center>
       </div>
     </div>
-    <br>
+   
+    <div class="desktop-view">
 
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="https://sppp.assam.gov.in/img/enbanner4.e246bb3c.jpg" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="https://sppp.assam.gov.in/img/enbanner4.e246bb3c.jpg" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="https://sppp.assam.gov.in/img/enbanner4.e246bb3c.jpg" alt="Third slide">
-        </div>
-      </div>
-    </div>
-    <br>
+<img class="d-block w-100 " src="https://sppp.assam.gov.in/img/enbanner4.e246bb3c.jpg">
+
+</div>
+
+<!-- =========================================================mobile-view============================================================== -->
 <br>
+ <div class="mobile-view">
+
+<img class="d-block w-100 " src="image/banner.png">
+
+</div>
+<br>
+
     <center style="color: #3b8beb;">
       <div class="container">
         <div class="row">
@@ -781,97 +810,9 @@ if ($countResult) {
       </article>
     </div></div></div>
 
-<br>
+<br><br>
 
-
-
-
-        
-</div>
-</div>
-</div>
-</div><br><br><br> 
-
-
-
-
-<!-- ======================================= mobile-view=================================== -->
-
-
-
-
- <div class="container mobile-view" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
-  <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Deals</h2>
-    <div class="card-body">
-    <article class="scroller">
-  <?php
-  $sql = "select * from deals";
-  $result = mysqli_query($con, $sql);
-
-  if (mysqli_num_rows($result)  > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $endDatetime = new DateTime($row['dealDatetime']);
-        $currentDate = new DateTime();
-        $interval = $currentDate->diff($endDatetime);
-        $daysToGo = $interval->format('%a');
-
-        $status = ($currentDate > $endDatetime) ? " ago" : " to go";
-         $daysText = ($status >= " ago") ? "Days" : "Days";
-                                  if ($daysToGo == 0) {
-                                    $daysToGo ='Last Day';
-                                    $status='';
-                                    $daysText=''; // Replace 0 with 'Last Day'
-                                  } 
-                                  if ($status == " ago") {
-                                    continue; // Skip the iteration and move to the next item
-                                  }
-
-        if ($daysToGo == 0 || $status == " ago") {
-          continue; // Skip the iteration and move to the next item
-        }
-        ?>
-        <section>
-           <br>
-           <div class="row bor">
-              <div class="col-sm-12 col-md-3 ">
-                 <h6 style="margin-top:20px;">RLD: 181204</h6>
-                 <hr>
-                 <h5>Category: Ferrous </h5>
-                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                 <center>
-                    <a href="deal_page.php?g=<?php echo $row['id']; ?>">
-                       <button style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button>
-                    </a>
-                 </center>
-                 <hr>
-              </div>
-
-
-              <div class="col-sm-12 col-md-3">
-                 <hr>
-                 <div class="">
-                    <center>
-                       <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-                       <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; ">
-                          <h4>Bid Before: <?php echo $row['dealDatetime']; ?></h4>
-                          <h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3>
-                       </div>
-                 </div>
-           </section>
-        <?php
-      }
-    } else{
-      echo "No deals is found";
-    }
-  ?>
-</article>
-       
-</div>
-</div>
-</div>
-</div>
-
-<div class="container desktop-view" style="padding: 2%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
+<div class="container " style="padding: 2%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
   <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Auction</h2>
   <div class="card-body ">
   <article class="scroller">
@@ -1065,17 +1006,6 @@ if ($countResult) {
 </div></div></div>
 
 <br><br>
-
-
-
-
-
-
-
-
-
-   
-
 
 
 
