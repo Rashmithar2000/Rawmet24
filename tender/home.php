@@ -60,7 +60,9 @@ include "connect.php";
   </style>
 
   <div class="strip">
-    <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: 08042332722</a>
+  <a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <a href="tel:9606800462">9606800462</a> 
+  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
     <div class="container-fluid px-md-5">
       <div id="typedtext" class="ml-5" style="color: white;">
       </div>
@@ -87,7 +89,7 @@ include "connect.php";
     }
 
     .strip a:hover {
-      color: white;
+      color: #000000;
     }
 
 
@@ -287,8 +289,11 @@ if ($countResult) {
             while ($row = mysqli_fetch_assoc($notificationResult)) {
               
                 $id = $row['exclusiveDeal_id'];
+                $sql = "select * from exclusive_deals where id=$id";
+                $result = mysqli_query($con, $sql);
+                $r= mysqli_fetch_assoc($result);
                 ?>
-                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo "View Deal" ?></a>
+                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']; ?></a>
                 <?php
             }
         } else {
@@ -777,12 +782,96 @@ if ($countResult) {
     </div></div></div>
 
 <br>
+
+
+
+
         
-<br>
+</div>
+</div>
+</div>
+</div><br><br><br> 
 
 
 
-<div class="container " style="padding: 2%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
+
+<!-- ======================================= mobile-view=================================== -->
+
+
+
+
+ <div class="container mobile-view" style="padding: 3%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
+  <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Deals</h2>
+    <div class="card-body">
+    <article class="scroller">
+  <?php
+  $sql = "select * from deals";
+  $result = mysqli_query($con, $sql);
+
+  if (mysqli_num_rows($result)  > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $endDatetime = new DateTime($row['dealDatetime']);
+        $currentDate = new DateTime();
+        $interval = $currentDate->diff($endDatetime);
+        $daysToGo = $interval->format('%a');
+
+        $status = ($currentDate > $endDatetime) ? " ago" : " to go";
+         $daysText = ($status >= " ago") ? "Days" : "Days";
+                                  if ($daysToGo == 0) {
+                                    $daysToGo ='Last Day';
+                                    $status='';
+                                    $daysText=''; // Replace 0 with 'Last Day'
+                                  } 
+                                  if ($status == " ago") {
+                                    continue; // Skip the iteration and move to the next item
+                                  }
+
+        if ($daysToGo == 0 || $status == " ago") {
+          continue; // Skip the iteration and move to the next item
+        }
+        ?>
+        <section>
+           <br>
+           <div class="row bor">
+              <div class="col-sm-12 col-md-3 ">
+                 <h6 style="margin-top:20px;">RLD: 181204</h6>
+                 <hr>
+                 <h5>Category: Ferrous </h5>
+                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
+                 <center>
+                    <a href="deal_page.php?g=<?php echo $row['id']; ?>">
+                       <button style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button>
+                    </a>
+                 </center>
+                 <hr>
+              </div>
+
+
+              <div class="col-sm-12 col-md-3">
+                 <hr>
+                 <div class="">
+                    <center>
+                       <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
+                       <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; ">
+                          <h4>Bid Before: <?php echo $row['dealDatetime']; ?></h4>
+                          <h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3>
+                       </div>
+                 </div>
+           </section>
+        <?php
+      }
+    } else{
+      echo "No deals is found";
+    }
+  ?>
+</article>
+       
+</div>
+</div>
+</div>
+</div>
+
+<div class="container desktop-view" style="padding: 2%; border-color: #000000; border-radius: 20px; color: #333131; background-color: #ffffff;">
   <h2 class="GFG" style="color: #3b8beb; font-family: 'Montserrat', sans-serif;">Auction</h2>
   <div class="card-body ">
   <article class="scroller">
@@ -1062,7 +1151,8 @@ if ($countResult) {
           </p>
           <p><i class="fa fa-envelope" aria-hidden="true"></i>support@Rawmet24.com
           </p>
-          <p><i class="fa fa-phone" aria-hidden="true"></i> 08042332722</p>
+          <p><a href="tel:8123010365" style="color: #ffffff"><i class="fa-solid fa-phone"></i> Contact us- 8123010365</a></p>
+  <p><a href="https://wa.me/9945454505" style="color: #ffffff"><i class=" fa-solid fa-brands fa-whatsapp"></i>  9945454505</a></p>
         </div>
         <!-- Grid column -->
       </div>

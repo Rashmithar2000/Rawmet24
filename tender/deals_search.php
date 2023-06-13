@@ -50,7 +50,9 @@ include "connect.php";
     </style>
   
 <div class="strip">
-  <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: +91 9945454505</a> 
+<a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <a href="tel:9606800462">9606800462</a> 
+  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>y 
   <div class="container-fluid px-md-5">
   <div id="typedtext" class="ml-5"  style="color: white;">
 </div>
@@ -161,7 +163,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="me-5">
       <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
   
-    </div>&nbsp <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
+    </div>&nbsp   <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
     <?php 
        
        if(!isset($_SESSION['buyer_name'])){
@@ -180,9 +182,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
              <i class="fa-solid fa-user-plus"></i>SignUp
            </a>
          </form>
-       </div>
        
-       <?php }else{
+       
+         <?php }else{
 
 // Retrieve the buyer's name
 $name = $_SESSION['buyer_name'];
@@ -200,6 +202,7 @@ if ($countResult) {
 
 ?>
 
+          
 <div class="user" style="padding-top:25px;padding-right:30px">    
 <div class="dropdown">
     <button class="dropbtn">
@@ -219,9 +222,12 @@ if ($countResult) {
         if ($notificationResult && mysqli_num_rows($notificationResult) > 0) {
             while ($row = mysqli_fetch_assoc($notificationResult)) {
               
-                $id = $row['exclusiveDeal_id'];
-                ?>
-                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo "View Deal" ?></a>
+              $id = $row['exclusiveDeal_id'];
+              $sql = "select * from exclusive_deals where id=$id";
+              $result = mysqli_query($con, $sql);
+              $r= mysqli_fetch_assoc($result);
+              ?>
+              <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']; ?></a>
                 <?php
             }
         } else {
@@ -235,7 +241,9 @@ if ($countResult) {
  
 
           </div>
-            
+ 
+
+
 </div><?php
 } ?>
 </section>
@@ -384,8 +392,8 @@ if ($countResult) {
             </div>
 
 
-            <div class="col-md-9 mt-3">
-               
+            <div class="col-md-9 mt-3 desktop-view">
+                
                     <div class="card card-body row">
                         <?php
                         if (isset($_GET['locations'])) {
@@ -403,7 +411,7 @@ if ($countResult) {
                                         <div class="row bor">
     <div class="col-sm-12 col-md-3 vl2">
     
-                <h6 style="margin-top:20px;">RLD: 181204</h6>
+                <h6 style="margin-top:20px;">RTD: 3478568</h6>
                 <hr>
                 <h5>Category: Ferrous </h5> 
 
@@ -412,20 +420,21 @@ if ($countResult) {
 
                 
                </div>
-     <div class="col-sm-12 col-md-6">
+     <div class="col-sm-12 col-md-4">
                <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
                <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['specification']; ?></p>
         </div> 
 
-    <div class="col-sm-12 col-md-3">
-            <div class="vl">
-            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+    <div class="col-sm-12 col-md-3 vl">
+            <div >
+            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;">6 days to go</button>
+                  <div  style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
                
 
 
                   </div> </div> 
                   </div>
+
                                         <?php
                                     endforeach;
                                 } else{
@@ -447,10 +456,10 @@ if ($countResult) {
                               if (mysqli_num_rows($result) > 0) {
                                   foreach ($result as $row):
                                       ?>
-                                     <div class="row bor">
+                                    <div class="row bor">
     <div class="col-sm-12 col-md-3 vl2">
     
-                <h6 style="margin-top:20px;">RLD: 181204</h6>
+                <h6 style="margin-top:20px;">RTD: 3478568</h6>
                 <hr>
                 <h5>Category: Ferrous </h5> 
 
@@ -466,7 +475,7 @@ if ($countResult) {
 
     <div class="col-sm-12 col-md-3">
             <div class="vl">
-            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"></button>
+            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;">6 days to go</button>
                   <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
                          
           
@@ -477,8 +486,8 @@ if ($countResult) {
                                   endforeach;
                               }else {
                                 echo "<div class='abc'>";
-                                echo "No result is found";
-                                echo "</div>";
+                                  echo "No result is found";
+                                  echo "</div>";
                             }
 
                           }
@@ -494,10 +503,10 @@ if ($countResult) {
                                  while ($row = mysqli_fetch_assoc($result)) {
                                    //print_r($row);die;
                                    ?>
-                   <div class="row bor">
+                                   <div class="row bor">
     <div class="col-sm-12 col-md-3 vl2">
     
-                <h6 style="margin-top:20px;">RLD: 181204</h6>
+                <h6 style="margin-top:20px;">RTD: 3478568</h6>
                 <hr>
                 <h5>Category: Ferrous </h5> 
 
@@ -513,7 +522,7 @@ if ($countResult) {
 
     <div class="col-sm-12 col-md-3">
             <div class="vl">
-            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"></button>
+            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;">6 days to go</button>
                   <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
                          
           
@@ -530,12 +539,11 @@ if ($countResult) {
                      
                              }}
                         ?>
-                     <div></section> 
+               <div></section> 
         </div>
     </div></div></div></div>
     </div>
     <br><br>
-
     <center style="color: #3b8beb;"> 
 
 
@@ -544,159 +552,160 @@ if ($countResult) {
     <br><br>
 
 
-<!-- ======================================================mobile-view===================================================== -->
+<!-- ===============================================mobile-view================================================================ -->
 
 
-<div class="col-md-9 mt-3">
+<div class="col-md-9 mt-3 mobile-view">
+                
+                    <div class="card card-body row">
+                        <?php
+                        if (isset($_GET['locations'])) {
+                            $branchecked = [];
+                            $branchecked[0] = $_GET['locations'];
+                            //print_r($branchecked);die;
+                            //echo $branchecked; die;
+                            foreach ($branchecked as $rowbrand) {
+                                 $sql = "SELECT * FROM deals WHERE aucLocation='".$rowbrand."'";
+
+                                $result = mysqli_query($con, $sql);
+                                if (mysqli_num_rows($result) > 0) {
+                                    foreach ($result as $row):
+                                        ?>
+                                        <div class="row bor">
+    <div class="col-sm-12 col-md-3 ">
+    
+                <h6 style="margin-top:20px;">RTD: 3478568</h6>
+                <hr>
+                <h5>Category: Ferrous </h5> 
+
+                <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
+                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
+
+                <hr>
+               </div>
+     <div class="col-sm-12 col-md-4">
+               <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
+               <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['specification']; ?></p>
+        </div> 
+
+    <div class="col-sm-12 col-md-3 "><hr>
+            <div class="">
+            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;">6 days to go</button>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
                
-               <div class="card card-body row">
-                   <?php
-                   if (isset($_GET['locations'])) {
-                       $branchecked = [];
-                       $branchecked[0] = $_GET['locations'];
-                       //print_r($branchecked);die;
-                       //echo $branchecked; die;
-                       foreach ($branchecked as $rowbrand) {
-                            $sql = "SELECT * FROM deals WHERE aucLocation='".$rowbrand."'";
 
-                           $result = mysqli_query($con, $sql);
-                           if (mysqli_num_rows($result) > 0) {
-                               foreach ($result as $row):
+
+                  </div> </div> 
+                  </div>
+
+                                        <?php
+                                    endforeach;
+                                } else{
+                                  echo "<div class='abc'>";
+                                  echo "No result is found";
+                                  echo "</div>";
+                                }
+
+                            }
+                        }else if (isset($_GET['materials'])) {
+                          $branchecked = [];
+                          $branchecked[0] = $_GET['materials'];
+                          //print_r($branchecked);die;
+                          //echo $branchecked; die;
+                          foreach ($branchecked as $rowbrand) {
+                               $sql = "SELECT * FROM deals WHERE material='".$rowbrand."'";
+
+                              $result = mysqli_query($con, $sql);
+                              if (mysqli_num_rows($result) > 0) {
+                                  foreach ($result as $row):
+                                      ?>
+                                    <div class="row bor">
+    <div class="col-sm-12 col-md-3 ">
+    
+                <h6 style="margin-top:20px;">RTD: 3478568</h6>
+                <hr>
+                <h5>Category: Ferrous </h5> 
+
+                <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
+                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
+
+                <hr>
+               </div>
+     <div class="col-sm-12 col-md-6">
+               <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
+               <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['specification']; ?></p>
+        </div> 
+
+    <div class="col-sm-12 col-md-3 "><hr>
+            <div class="">
+            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;">6 days to go</button>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+                         
+          
+      </div>
+      </div></div>
+                                      <?php
+                                  endforeach;
+                              }else {
+                                echo "<div class='abc'>";
+                                  echo "No result is found";
+                                  echo "</div>";
+                            }
+
+                          }
+                      } 
+                        else {
+                          if(isset($_GET['search'])){
+                            $a = $_GET['search'];
+                           
+                            $sql = "select * from deals WHERE material LIKE '$a%' OR 	location LIKE '$a%' OR matDesc LIKE '$a%' ";
+                               $result = mysqli_query($con, $sql);
+                               //print_r($result);die;
+                               if (mysqli_num_rows($result) > 0) {
+                                 while ($row = mysqli_fetch_assoc($result)) {
+                                   //print_r($row);die;
                                    ?>
                                    <div class="row bor">
-<div class="col-sm-12 col-md-3 ">
+    <div class="col-sm-12 col-md-3 ">
+    
+                <h6 style="margin-top:20px;">RTD: 3478568</h6>
+                <hr>
+                <h5>Category: Ferrous </h5> 
 
-           <h6 style="margin-top:20px;">RLD: 181204</h6>
-           <hr>
-           <h5>Category: Ferrous </h5> 
+                <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
+                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
 
-           <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-           <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
+                <hr>
+               </div>
+     <div class="col-sm-12 col-md-6">
+               <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
+               <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['specification']; ?></p>
+        </div> 
 
-           <hr>
-          </div>
-<div class="col-sm-12 col-md-6">
-          <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
-          <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['specification']; ?></p>
-   </div> 
-
-<div class="col-sm-12 col-md-3"><hr>
-       <div class="">
-       <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-             <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+    <div class="col-sm-12 col-md-3 "><hr>
+            <div class="">
+            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;">6 days to go</button>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+                         
           
-
-
-             </div> </div> 
-             </div>
+      </div>
+      </div></div>
                                    <?php
-                               endforeach;
-                           } else{
-                             echo "<div class='abc'>";
-                             echo "No result is found";
-                             echo "</div>";
-                           }
-
-                       }
-                   }else if (isset($_GET['materials'])) {
-                     $branchecked = [];
-                     $branchecked[0] = $_GET['materials'];
-                     //print_r($branchecked);die;
-                     //echo $branchecked; die;
-                     foreach ($branchecked as $rowbrand) {
-                          $sql = "SELECT * FROM deals WHERE material='".$rowbrand."'";
-
-                         $result = mysqli_query($con, $sql);
-                         if (mysqli_num_rows($result) > 0) {
-                             foreach ($result as $row):
-                                 ?>
-                              <div class="row bor">
-<div class="col-sm-12 col-md-3 ">
-
-           <h6 style="margin-top:20px;">RLD: 181204</h6>
-           <hr>
-           <h5>Category: Ferrous </h5> 
-
-           <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-           <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
-
-           <hr>
-          </div>
-<div class="col-sm-12 col-md-6">
-          <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
-          <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['specification']; ?></p>
-   </div> 
-
-<div class="col-sm-12 col-md-3"><hr>
-       <div class="">
-       <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"></button>
-             <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
-                    
-     
- </div>
- </div></div>
-                                 <?php
-                             endforeach;
-                         }else {
-                           echo "<div class='abc'>";
-                           echo "No result is found";
-                           echo "</div>";
-                       }
-
-                     }
-                 } 
-                   else {
-                     if(isset($_GET['search'])){
-                       $a = $_GET['search'];
-                      
-                       $sql = "select * from deals WHERE material LIKE '$a%' OR 	location LIKE '$a%' OR matDesc LIKE '$a%' ";
-                          $result = mysqli_query($con, $sql);
-                          //print_r($result);die;
-                          if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                              //print_r($row);die;
-                              ?>
-              <div class="row bor">
-<div class="col-sm-12 col-md-3 ">
-
-           <h6 style="margin-top:20px;">RLD: 181204</h6>
-           <hr>
-           <h5>Category: Ferrous </h5> 
-
-           <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-           <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
-
-           <hr>
-          </div>
-<div class="col-sm-12 col-md-6">
-          <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
-          <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['specification']; ?></p>
-   </div> 
-
-<div class="col-sm-12 col-md-3"><hr>
-       <div class="">
-       <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"></button>
-             <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
-                    
-     
- </div>
- </div></div>
-                              <?php
-                            }
-                          }else{
-                           echo "<div class='abc'>";
-                             echo "No result is found";
-                             echo "</div>";
-                          }
-                
-                
-                        }}
-                   ?>
-                <div></section> 
-   </div>
-</div></div></div></div>
-</div>
-<br><br>
+                                 }
+                               }else{
+                                echo "<div class='abc'>";
+                                  echo "No result is found";
+                                  echo "</div>";
+                               }
+                     
+                     
+                             }}
+                        ?>
+               <div></section> 
+        </div>
+    </div></div></div></div>
+    </div>
+    <br><br>
 
 
 
@@ -776,9 +785,13 @@ if ($countResult) {
           <!-- Links -->
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Contact</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
-          <p><i class="fa fa-envelope" aria-hidden="true"></i> shopemet@gmail.com</p>
-          <p><i class="fa fa-phone" aria-hidden="true"></i> +91 8766443234</p>
-          <p><i class="fa fa-phone" aria-hidden="true"></i> +91 1234567819</p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i> info@Rawmet24.com
+          </p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i>support@Rawmet24.com
+          </p>
+         
+  <p><a href="tel:8123010365" style="color: #ffffff"><i class="fa-solid fa-phone"></i> Contact us- 8123010365</a></p>
+  <p><a href="https://wa.me/9945454505" style="color: #ffffff"><i class=" fa-solid fa-brands fa-whatsapp"></i>  9945454505</a></p>
         </div>
         <!-- Grid column -->
       </div>
@@ -820,7 +833,7 @@ return false;
 }
 </script>
 
-// <script src="js/toggle.js"></script>
+<script src="js/toggle.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>

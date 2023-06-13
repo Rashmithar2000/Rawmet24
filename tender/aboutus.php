@@ -22,6 +22,7 @@ include "connect.php";
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/_buttons.scss">
   <link rel="stylesheet" href="css/buttons.scss">
+  <link rel="stylesheet" href="dropdown.css">
   <!-- <link rel="stylesheet" href="css/buttons.scss"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -63,7 +64,9 @@ include "connect.php";
   </style>
 
   <div class="strip">
-    <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: 08042332722</a>
+  <a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <a href="tel:9606800462">9606800462</a> 
+  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
     <div class="container-fluid px-md-5">
       <div id="typedtext" class="ml-5">
       </div>
@@ -86,6 +89,12 @@ include "connect.php";
     text-decoration: none;
     font-size: 15px;
 }
+ 
+
+.strip a:hover {
+      color: #000000;
+    }
+
 
   </style>
     <section class="ftco-section" style="padding-top: 5px;">
@@ -155,9 +164,12 @@ if ($countResult) {
         if ($notificationResult && mysqli_num_rows($notificationResult) > 0) {
             while ($row = mysqli_fetch_assoc($notificationResult)) {
               
-                $id = $row['exclusiveDeal_id'];
-                ?>
-                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo "View Deal" ?></a>
+              $id = $row['exclusiveDeal_id'];
+              $sql = "select * from exclusive_deals where id=$id";
+              $result = mysqli_query($con, $sql);
+              $r= mysqli_fetch_assoc($result);
+              ?>
+              <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']; ?></a>
                 <?php
             }
         } else {
@@ -294,7 +306,10 @@ if ($countResult) {
           </p>
           <p><i class="fa fa-envelope" aria-hidden="true"></i>support@Rawmet24.com
           </p>
-          <p><i class="fa fa-phone" aria-hidden="true"></i>08042332722</p>
+         
+  <p><a href="tel:8123010365" style="color: #ffffff"><i class="fa-solid fa-phone"></i> Contact us- 8123010365</a></p>
+  <p><a href="https://wa.me/9945454505" style="color: #ffffff"><i class=" fa-solid fa-brands fa-whatsapp"></i>  9945454505</a></p>
+ 
         </div>
         <!-- Grid column -->
       </div>

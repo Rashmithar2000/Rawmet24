@@ -50,7 +50,9 @@ include "connect.php";
     </style>
   
 <div class="strip">
-  <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: +91 9945454505</a> 
+<a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <a href="tel:9606800462">9606800462</a> 
+  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
   <div class="container-fluid px-md-5">
   <div id="typedtext" class="ml-5"  style="color: white;">
 </div>
@@ -75,7 +77,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 .strip a:hover {
-  color: white;
+  color: #000000;
 }
 
 
@@ -219,9 +221,12 @@ if ($countResult) {
         if ($notificationResult && mysqli_num_rows($notificationResult) > 0) {
             while ($row = mysqli_fetch_assoc($notificationResult)) {
               
-                $id = $row['exclusiveDeal_id'];
-                ?>
-                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo "View Deal" ?></a>
+              $id = $row['exclusiveDeal_id'];
+              $sql = "select * from exclusive_deals where id=$id";
+              $result = mysqli_query($con, $sql);
+              $r= mysqli_fetch_assoc($result);
+              ?>
+              <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']; ?></a>
                 <?php
             }
         } else {
@@ -701,17 +706,6 @@ if ($countResult) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-between p-3" style="background-color:#3b8beb">
@@ -780,9 +774,13 @@ if ($countResult) {
           <!-- Links -->
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Contact</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
-          <p><i class="fa fa-envelope" aria-hidden="true"></i> shopemet@gmail.com</p>
-          <p><i class="fa fa-phone" aria-hidden="true"></i> +91 8766443234</p>
-          <p><i class="fa fa-phone" aria-hidden="true"></i> +91 1234567819</p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i> info@Rawmet24.com
+          </p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i>support@Rawmet24.com
+          </p>
+         
+  <p><a href="tel:8123010365" style="color: #ffffff"><i class="fa-solid fa-phone"></i> Contact us- 8123010365</a></p>
+  <p><a href="https://wa.me/9945454505" style="color: #ffffff"><i class=" fa-solid fa-brands fa-whatsapp"></i>  9945454505</a></p>
         </div>
         <!-- Grid column -->
       </div>
