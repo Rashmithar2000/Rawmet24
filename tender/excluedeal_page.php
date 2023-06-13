@@ -369,7 +369,7 @@ if ($countResult) {
 
 <li class="nav-item "><a href="deals.php" class="nav-link">Deals</a></li>
 <li class="nav-item active"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
-<li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
+<li class="nav-item"><a href="metalSearch.php" class="nav-link">Metal Prices</a></li>
 <li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
 <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
 
@@ -392,7 +392,8 @@ if ($countResult) {
  <div class="clearfix some-new-selector">
   <div class="pull-left">
   <div class="pull-right span9" style="color: #9e9797; padding:10px">
-    <h6>Home / Deal search / Deal Detail</h6>
+
+  <h6>Home /Exclusive Deal Search /Exclusive Deal Detail</h6>
     <br>
     <?php
     if(isset($_SESSION['sub'])){
@@ -530,7 +531,7 @@ if ($countResult) {
  <div class="card">
  <div class="card-body">
 
-    <h6>Home / Deal search / Deal Detail</h6>
+    <h6>Home /Exclusive Deal Search /Exclusive Deal Detail</h6>
     <br>
     <?php
                     $id = $_GET['g'];
@@ -708,7 +709,7 @@ if ($countResult) {
              </h5>
   
              <center> <a href="price.html"><button class="btn btn-light" style="color :#3b8beb;">Open Website</button></a> <br>
-    
+    <br>
              <form action="check.php?g=<?php echo $row['id'];?>" method="POST">
     <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
     <?php if($subscription){
