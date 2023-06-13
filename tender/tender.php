@@ -265,16 +265,16 @@ if ($countResult) {
 
 
 <section class="home">
-<br><br>
+<br>
 <div class="container">
 
 <section class="home"> 
     <div class="container" style="margin-top:40px;">
-    <div class="dropdown " style="margin-bottom:-60px; margin-left:40px;">
-  <button style="padding:10px;" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="dropdown" style=" margin-left:40px;">
+  <button style="padding:10px;" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Top Categories
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="category.php?type=Consultancy Tenders">Consultancy Tenders</a>
     <a class="dropdown-item" href="category.php?type=Procurement Tenders">Procurement Tenders </a>
     <a class="dropdown-item" href="category.php?type=Manufacturing Tenders">Manufacturing Tenders</a>
@@ -291,7 +291,7 @@ if ($countResult) {
         <div class="col-12 col-md-10 col-lg-8">  
                  
 
-            <div class="card card-sm" style="margin-right:-80px; margin-left:30px">
+            <div class="card card-sm" style="margin-right:-80px; margin-top:-70px; margin-left:30px">
         <div class="card-body row no-gutters align-items-center" style="background-color: #eae9e9;">
           <div class="col-auto">
             <i class="fa fa-search" style="font-size: 30px; margin-right: 8px;"></i>
