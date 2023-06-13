@@ -175,134 +175,7 @@ if ($countResult) {
       width: 100%;
     }
 
-    .table-title h3 {
-      color: #3b8beb;
-      font-size: 30px;
-      font-weight: 400;
-      font-style: normal;
-      font-family: "Roboto", helvetica, arial, sans-serif;
-      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-      text-transform: uppercase;
-    }
-
-    /*** Table Styles **/
-
-    .table-fill {
-      background: white;
-      border-radius: 3px;
-      border-collapse: collapse;
-      height: 120px;
-      margin: auto;
-      max-width: 600px;
-      padding: 5px;
-      width: 100%;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      animation: float 5s infinite;
-    }
-
-    th {
-      color: #ffffff;
-      ;
-      background: #3b8beb;
-      border-bottom: 4px solid #9ea7af;
-      border-right: 1px solid #343a45;
-      font-size: 18px;
-      font-weight: 500;
-      padding: 10px;
-      text-align: left;
-      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-      vertical-align: middle;
-    }
-
-    th:first-child {
-      border-top-left-radius: 3px;
-    }
-
-    th:last-child {
-      border-top-right-radius: 3px;
-      border-right: none;
-    }
-
-    tr {
-      border-top: 1px solid #C1C3D1;
-      border-bottom: 1px solid #C1C3D1;
-      color: #666B85;
-      font-size: 16px;
-      font-weight: normal;
-      text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
-    }
-
-    tr:hover td {
-      background: #828393;
-      color: #FFFFFF;
-
-    }
-
-    tr:first-child {
-      border-top: none;
-    }
-
-    tr:last-child {
-      border-bottom: none;
-    }
-
-    tr:nth-child(odd) td {
-      background: #EBEBEB;
-    }
-
-    tr:nth-child(odd):hover td {
-      background: #828393;
-    }
-
-    tr:last-child td:first-child {
-      border-bottom-left-radius: 3px;
-    }
-
-    tr:last-child td:last-child {
-      border-bottom-right-radius: 3px;
-    }
-
-    td {
-      background: #FFFFFF;
-      padding: 10px;
-      text-align: center;
-      vertical-align: middle;
-      font-weight: 300;
-      font-size: 18px;
-      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-      border-right: 1px solid #C1C3D1;
-    }
-
-
-
-    td:last-child {
-      border-right: 0px;
-    }
-
-    th.text-left {
-      text-align: left;
-    }
-
-    th.text-center {
-      text-align: center;
-    }
-
-    th.text-right {
-      text-align: right;
-    }
-
-    td.text-left {
-      text-align: left;
-    }
-
-    td.text-center {
-      text-align: center;
-    }
-
-    td.text-right {
-      text-align: right;
-    }
-
+ 
     h4,
     h5,
     h6 {
@@ -330,8 +203,58 @@ if ($countResult) {
   .mobile-view {
     display: none;
   }
+
 }
-  </style></style>
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  .abc{
+    text-align: center;
+  }
+  
+  .bor {
+    border: 1px solid #858282;
+    border-radius: 5px;
+    margin-bottom: 18px;
+    padding:7px;
+    overflow-y: hidden;
+    background-color:#fff;
+  }
+  h5{
+    font-size: 17px;
+    font-family: 'Montserrat', sans-serif;
+    color:#595a5e;
+    font-weight: bold;
+ 
+  }
+  h4{
+    font-size: 12px
+  }
+  h3{
+    font-size: 15px;
+    
+  }
+  .vl {
+  border-left: 1px solid rgb(184, 176, 176);
+  height: 230px;
+}
+
+.vl2 {
+  border-right: 1px solid rgb(185, 179, 179);
+  height: 230px;
+}
+  .tft {
+  color: white;
+  font-size: 20px;
+  text-shadow: -1px 1px 0 #004085,
+                1px 1px 0 #004085,
+               1px -1px 0 #004085,
+              -1px -1px 0 #004085;
+  }
+ 
+  </style>
   <section class="ftco-section" style="padding-top: 5px;">
 
  
@@ -413,8 +336,8 @@ if ($countResult) {
 
 
             <div class="col-md-9 mt-3">
-                <div class="card ">
-                    <div class="card-body row">
+                
+                    <div class=" card card-body row">
                         <?php
                         if (isset($_GET['locations'])) {
                             $branchecked = [];
@@ -427,19 +350,47 @@ if ($countResult) {
                                 $result = mysqli_query($con, $sql);
                                 if (mysqli_num_rows($result) > 0) {
                                     foreach ($result as $row):
+                                      $endDatetime = new DateTime($row['endDatetime']);
+                                    $currentDate = new DateTime();
+                                    $interval = $currentDate->diff($endDatetime);
+                                    $daysToGo = $interval->format('%a');
+                            
+                                    $status = ($currentDate > $endDatetime) ? " ago" : " to go";
+                                     $daysText = ($status >= " ago") ? "Days" : "Days";
+                                  if ($daysToGo == 0) {
+                                    $daysToGo ='Last Day';
+                                    $status='';
+                                    $daysText=''; // Replace 0 with 'Last Day'
+                                  } 
+                                  if ($status == " ago") {
+                                    continue; // Skip the iteration and move to the next item
+                                  }
                                         ?>
-                                       <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                    <div class="card-body">
-                    <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>
-                    | Approximate Value : <?php echo $row['tenderValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
-                    
-                        <p><?php echo $row['tenderDesc'];?></p>
+                                       <div class="row bor">
+    <div class="col-sm-12 col-md-3 vl2">
+    
+                <h6 style="margin-top:20px;">RTD: 182004</h6>
+                <hr>
+                <h5>Category: Ferrous </h5> 
 
-    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
-                      </div>
-                    </div>
+                <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
+                <center><a href="tend_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Tender</button></h6></a></center>
+
+                
+               </div>
+     <div class="col-sm-12 col-md-6">
+               <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
+               <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['tenderDesc']; ?></p>
+        </div> 
+
+    <div class="col-sm-12 col-md-3">
+            <div class="vl">
+            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['endDatetime']; ?> </h4><h3>Quantity: <?php echo $row['quantity']; ?><br>Approx. business: ₹<?php echo $row['tenderValue']; ?></h3></div></center>
+               
+
+
+                  </div> </div> 
                   </div>
                                         <?php
                                     endforeach;
@@ -457,20 +408,48 @@ if ($countResult) {
                                //print_r($result);die;
                                if (mysqli_num_rows($result) > 0) {
                                  while ($row = mysqli_fetch_assoc($result)) {
+                                  $endDatetime = new DateTime($row['endDatetime']);
+                                    $currentDate = new DateTime();
+                                    $interval = $currentDate->diff($endDatetime);
+                                    $daysToGo = $interval->format('%a');
+                            
+                                    $status = ($currentDate > $endDatetime) ? " ago" : " to go";
+                                     $daysText = ($status >= " ago") ? "Days" : "Days";
+                                  if ($daysToGo == 0) {
+                                    $daysToGo ='Last Day';
+                                    $status='';
+                                    $daysText=''; // Replace 0 with 'Last Day'
+                                  } 
+                                  if ($status == " ago") {
+                                    continue; // Skip the iteration and move to the next item
+                                  }
                                    //print_r($row);die;
                                    ?>
-                                    <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                    <div class="card-body">
-                    <h6 style="color:#3b8beb; "> <i class='bx bxs-map'></i><?php echo $row['tenderLocation'];?>
-                    | Approximate Value : <?php echo $row['tenderValue'];?> Bn | Bid Before : <?php echo $row['endDatetime'];?> <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; background-color: #ffffff; margin-left: 20px;">4 Days to go</button></h6>
-                        <h5 style="color:#8590aa; font-family: 'Montserrat', sans-serif;"> MATERIAL :&nbsp<?php echo $row['material'];?><br> <br> <p>QUANTITY:&nbsp<?php echo $row['quantity'];?></p></h5>
-                    
-                        <p><?php echo $row['tenderDesc'];?></p>
+                                    <div class="row bor">
+    <div class="col-sm-12 col-md-3 vl2">
+    
+                <h6 style="margin-top:20px;">RTD: 182004</h6>
+                <hr>
+                <h5>Category: Ferrous </h5> 
 
-    <a href="tend_page.php?g=<?php echo $row['id'];?>"><button class="btn btn-primary" type="submit">View tender</button></a></h6>
-                      </div>
-                    </div>
+                <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
+                <center><a href="tend_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Tender</button></h6></a></center>
+
+                
+               </div>
+     <div class="col-sm-12 col-md-6">
+               <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
+               <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['tenderDesc']; ?></p>
+        </div> 
+
+    <div class="col-sm-12 col-md-3">
+            <div class="vl">
+            <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['endDatetime']; ?> </h4><h3>Quantity: <?php echo $row['quantity']; ?><br>Approx. business: ₹<?php echo $row['tenderValue']; ?></h3></div></center>
+               
+
+
+                  </div> </div> 
                   </div>
                                    <?php
                                  }
@@ -567,8 +546,12 @@ if ($countResult) {
           <!-- Links -->
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Contact</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
-          <p><i class="fa fa-envelope" aria-hidden="true"></i> shopemet@gmail.com</p>
-          <p><a href="tel:8123010365" style="color: #ffffff"><i class="fa-solid fa-phone"></i> Contact us- 8123010365</a></p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i> info@Rawmet24.com
+          </p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i>support@Rawmet24.com
+          </p>
+         
+  <p><a href="tel:8123010365" style="color: #ffffff"><i class="fa-solid fa-phone"></i> Contact us- 8123010365</a></p>
   <p><a href="https://wa.me/9945454505" style="color: #ffffff"><i class=" fa-solid fa-brands fa-whatsapp"></i>  9945454505</a></p>
         </div>
         <!-- Grid column -->
@@ -587,7 +570,7 @@ if ($countResult) {
   <!-- Copyright -->
 </footer>
 
-// <script src="js/toggle.js"></script>
+<script src="js/toggle.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>

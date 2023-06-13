@@ -23,6 +23,7 @@ include "connect.php";
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/_buttons.scss">
   <link rel="stylesheet" href="css/buttons.scss">
+  <link rel="stylesheet" href="dropdown.css">
   <!-- <link rel="stylesheet" href="css/buttons.scss"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -372,8 +373,7 @@ if ($countResult) {
   <div class="container-fluid" style="background-color: #3b8beb; padding: 30px;"><br>
     <h2 style="color: #ffffff;">Upcoming Events Information</h2><br>
 
-    <a href="price.html"><button class="btn btn-primary" style="border-color: #fff;">View All
-        Information</button></a><br><br><br><br>
+   <br><br>
   </div>
 
 

@@ -25,6 +25,7 @@ include "connect.php";
   <link rel="stylesheet" href="css/_buttons.scss">
   <link rel="stylesheet" href="css/buttons.scss">
   <link rel="stylesheet" href="css/reboot.scss">
+  <link rel="stylesheet" href="dropdown.css">
   <!-- <link rel="stylesheet" href="css/buttons.scss"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -201,6 +202,7 @@ include "connect.php";
   background-color: red;
   color: white;
 }
+
   </style>
 
 <section class="ftco-section" style="padding-top: 5px;">
@@ -212,7 +214,7 @@ include "connect.php";
     <div class="me-5">
       <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
   
-    </div>&nbsp   <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
+    </div>&nbsp <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
     <?php 
        
        if(!isset($_SESSION['buyer_name'])){
@@ -251,20 +253,41 @@ if ($countResult) {
 
 ?>
 
-          
-          <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;"> 
-          <span style="position: relative;">
-    <i class="fa-solid fa-bell" style="color:black;"></i>
-    <?php if ($notificationCount > 0) { ?>
-        <sup style="top: -10px; background-color: red; color: white; border-radius: 30%; padding: 2px 4px;"><?php echo $notificationCount; ?></sup>
-    <?php } ?>
-</span>
-          
+<div class="user" style="padding-top:25px;padding-right:30px">    
+<div class="dropdown">
+    <button class="dropbtn">
+        <span style="position: relative;">
+        <i class="fa-solid fa-bell"></i>
+            <?php if ($notificationCount > 0) { ?>
+                <sup style="top: -10px; right:12px; background-color: red; color: white; border-radius: 30%; padding: 2px 4px;"><?php echo $notificationCount; ?></sup>
+            <?php } ?>
+        </span>
+    </button>
+    <div class="dropdown-content">
+        <?php
+        // Query to get the notifications for the particular buyer
+        $notificationSql = "SELECT * FROM notification WHERE name = '$name'";
+        $notificationResult = mysqli_query($con, $notificationSql);
+
+        if ($notificationResult && mysqli_num_rows($notificationResult) > 0) {
+            while ($row = mysqli_fetch_assoc($notificationResult)) {
+              
+                $id = $row['exclusiveDeal_id'];
+                ?>
+                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo "View Deal" ?></a>
+                <?php
+            }
+        } else {
+            echo "<p>No blocked deals.</p>";
+        }
+        ?>
+    </div>
+</div> 
          &nbsp&nbsp Hi! <?php echo $_SESSION['buyer_name'];?>&nbsp&nbsp
               <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
  
 
-          </p></div>
+          </div>
             
 </div><?php
 } ?>
@@ -746,7 +769,7 @@ if ($countResult) {
     <div class="col-sm-12 col-md-3 vl">
             
             <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 34kgs<br>Deal Value: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity:  <?php echo $row['quantity']; ?> <br>Deal Value: ₹<?php echo $row['dealValue']; ?></h3></div></center>
                          
           
       </div>
@@ -838,7 +861,7 @@ if ($countResult) {
                        <button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
                        <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; ">
                           <h4>Bid Before: <?php echo $row['dealDatetime']; ?></h4>
-                          <h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3>
+                          <h3>Quantity: <?php echo $row['quantity']; ?><br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3>  <center>
                        </div>
                  </div>
            </section>
@@ -853,19 +876,11 @@ if ($countResult) {
 
 <br>
 
-
-
-
-        
+ 
 </div>
 </div>
 </div>
 </div>
-
-
-
-
-
 
 <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
   <!-- Section: Social media -->

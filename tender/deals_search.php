@@ -51,7 +51,7 @@ include "connect.php";
 <div class="strip">
 <a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
   <a href="tel:9606800462">9606800462</a> 
-  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
+  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>y 
   <div class="container-fluid px-md-5">
   <div id="typedtext" class="ml-5"  style="color: white;">
 </div>
@@ -76,7 +76,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 .strip a:hover {
-  color: #000000;
+  color: white;
 }
 
 
@@ -229,8 +229,8 @@ if ($countResult) {
 <li class="nav-item "><a href="tender.php" class="nav-link">Tenders</a></li>
 
 <li class="nav-item  "><a href="auction.php" class="nav-link">Auctions</a></li>
-<li class="nav-item  "><a href="deals.php" class="nav-link">Deals</a></li>
-<li class="nav-item active"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
+<li class="nav-item active "><a href="deals.php" class="nav-link">Deals</a></li>
+<li class="nav-item"><a href="exclusivedeals.php" class="nav-link">Exclusive Deals</a></li>
 <li class="nav-item"><a href="metalsearch.php" class="nav-link">Metal Prices</a></li>
 <li class="nav-item"><a href="info_page.php" class="nav-link">Information Document</a></li>
 <li class="nav-item"><a href="price.html" class="nav-link">Premium</a></li>
@@ -256,12 +256,12 @@ if ($countResult) {
           <!--end of col-->
           <div class="col">
             <input class="form-control form-control-lg form-control-borderless" type="search" id="meterial"
-              placeholder="Search for Exclusive Deals" style="padding:10px 0px 10px 6px; margin-right: 100px;">
+              placeholder="Search for Deals" style="padding:10px 0px 10px 6px; margin-right: 100px;">
           </div>
           <select name="sort" id="tender" style="padding:13px; margin-left: 15px; margin-right: 8px; border-radius:3px;"
             placeholder="Search ">
             
-            <option value="deals">Exclusive Deals</option>
+            <option value="deals">Deals</option>
 
           </select>
 
@@ -274,11 +274,11 @@ if ($countResult) {
 </div>
 </div></div>
  <center>
- <h2 style="color: #7e828b;">Exclusive DEALS</h2> </center>
+ <h2 style="color: #7e828b;">DEALS</h2> </center>
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <form action="exclusive_search.php?l=" method="GET">
+                <form action="deals_search.php?l=" method="GET">
                     <div class="card shadow mt-3">
                         <div class="card-header">
                             <h5>Filter&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -325,7 +325,7 @@ if ($countResult) {
                             <?php
                 
 
-                            $brand_query = "SELECT DISTINCT material FROM exclusive_deals";
+                            $brand_query = "SELECT DISTINCT material FROM deals";
                             $brand_query_run = mysqli_query($con, $brand_query);
 
                             if (mysqli_num_rows($brand_query_run) > 0) {
@@ -372,7 +372,7 @@ if ($countResult) {
                             //print_r($branchecked);die;
                             //echo $branchecked; die;
                             foreach ($branchecked as $rowbrand) {
-                                 $sql = "SELECT * FROM exclusive_deals WHERE aucLocation='".$rowbrand."'";
+                                 $sql = "SELECT * FROM deals WHERE aucLocation='".$rowbrand."'";
 
                                 $result = mysqli_query($con, $sql);
                                 if (mysqli_num_rows($result) > 0) {
@@ -386,7 +386,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
 
                 
                </div>
@@ -420,7 +420,7 @@ if ($countResult) {
                           //print_r($branchecked);die;
                           //echo $branchecked; die;
                           foreach ($branchecked as $rowbrand) {
-                               $sql = "SELECT * FROM exclusive_deals WHERE material='".$rowbrand."'";
+                               $sql = "SELECT * FROM deals WHERE material='".$rowbrand."'";
 
                               $result = mysqli_query($con, $sql);
                               if (mysqli_num_rows($result) > 0) {
@@ -434,7 +434,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
 
                 
                </div>
@@ -466,7 +466,7 @@ if ($countResult) {
                           if(isset($_GET['search'])){
                             $a = $_GET['search'];
                            
-                            $sql = "select * from exclusive_deals WHERE material LIKE '$a%' OR 	location LIKE '$a%' OR matDesc LIKE '$a%' ";
+                            $sql = "select * from deals WHERE material LIKE '$a%' OR 	location LIKE '$a%' OR matDesc LIKE '$a%' ";
                                $result = mysqli_query($con, $sql);
                                //print_r($result);die;
                                if (mysqli_num_rows($result) > 0) {
@@ -481,7 +481,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
 
                 
                </div>
@@ -535,7 +535,7 @@ if ($countResult) {
                             //print_r($branchecked);die;
                             //echo $branchecked; die;
                             foreach ($branchecked as $rowbrand) {
-                                 $sql = "SELECT * FROM exclusive_deals WHERE aucLocation='".$rowbrand."'";
+                                 $sql = "SELECT * FROM deals WHERE aucLocation='".$rowbrand."'";
 
                                 $result = mysqli_query($con, $sql);
                                 if (mysqli_num_rows($result) > 0) {
@@ -549,7 +549,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
 
                 <hr>
                </div>
@@ -583,7 +583,7 @@ if ($countResult) {
                           //print_r($branchecked);die;
                           //echo $branchecked; die;
                           foreach ($branchecked as $rowbrand) {
-                               $sql = "SELECT * FROM exclusive_deals WHERE material='".$rowbrand."'";
+                               $sql = "SELECT * FROM deals WHERE material='".$rowbrand."'";
 
                               $result = mysqli_query($con, $sql);
                               if (mysqli_num_rows($result) > 0) {
@@ -597,7 +597,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
 
                 <hr>
                </div>
@@ -628,7 +628,7 @@ if ($countResult) {
                           if(isset($_GET['search'])){
                             $a = $_GET['search'];
                            
-                            $sql = "select * from exclusive_deals WHERE material LIKE '$a%' OR 	location LIKE '$a%' OR matDesc LIKE '$a%' ";
+                            $sql = "select * from deals WHERE material LIKE '$a%' OR 	location LIKE '$a%' OR matDesc LIKE '$a%' ";
                                $result = mysqli_query($con, $sql);
                                //print_r($result);die;
                                if (mysqli_num_rows($result) > 0) {
@@ -643,7 +643,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Deal</button></h6></a></center>
 
                 <hr>
                </div>
@@ -676,9 +676,6 @@ if ($countResult) {
     </div></div></div></div>
     </div>
     <br><br>
-
-
-
 
 
 
@@ -758,8 +755,12 @@ if ($countResult) {
           <!-- Links -->
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Contact</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
-          <p><i class="fa fa-envelope" aria-hidden="true"></i> shopemet@gmail.com</p>
-          <p><a href="tel:8123010365" style="color: #ffffff"><i class="fa-solid fa-phone"></i> Contact us- 8123010365</a></p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i> info@Rawmet24.com
+          </p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i>support@Rawmet24.com
+          </p>
+         
+  <p><a href="tel:8123010365" style="color: #ffffff"><i class="fa-solid fa-phone"></i> Contact us- 8123010365</a></p>
   <p><a href="https://wa.me/9945454505" style="color: #ffffff"><i class=" fa-solid fa-brands fa-whatsapp"></i>  9945454505</a></p>
         </div>
         <!-- Grid column -->
@@ -796,13 +797,13 @@ return false;
     return false;
   }else if (val=="deals") {
     //alert("tenders");
-    window.location.replace('exclusive_search.php?search='+idval);
+    window.location.replace('deals_search.php?search='+idval);
     return false;
   }
 }
 </script>
 
-// <script src="js/toggle.js"></script>
+<script src="js/toggle.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>

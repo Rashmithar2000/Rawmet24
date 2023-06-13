@@ -22,6 +22,7 @@ include "connect.php";
 <link rel="stylesheet" href="css/buttons.scss">
 <link rel="stylesheet" href="css/auction.css">
 <link rel="stylesheet" href="css/reboot.scss">
+<link rel="stylesheet" href="dropdown.css">
 <!-- <link rel="stylesheet" href="css/buttons.scss"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -154,7 +155,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="me-5">
       <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
   
-    </div>&nbsp   <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
+    </div>&nbsp <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
     <?php 
        
        if(!isset($_SESSION['buyer_name'])){
@@ -173,8 +174,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
              <i class="fa-solid fa-user-plus"></i>SignUp
            </a>
          </form>
-    
-         <?php }else{
+       </div>
+       
+       <?php }else{
 
 // Retrieve the buyer's name
 $name = $_SESSION['buyer_name'];
@@ -192,24 +194,45 @@ if ($countResult) {
 
 ?>
 
-          
-          <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;"> 
-          <span style="position: relative;">
-    <i class="fa-solid fa-bell" style="color:black;"></i>
-    <?php if ($notificationCount > 0) { ?>
-        <sup style="top: -10px; background-color: red; color: white; border-radius: 30%; padding: 2px 4px;"><?php echo $notificationCount; ?></sup>
-    <?php } ?>
-</span>
-          
+<div class="user" style="padding-top:25px;padding-right:30px">    
+<div class="dropdown">
+    <button class="dropbtn">
+        <span style="position: relative;">
+        <i class="fa-solid fa-bell"></i>
+            <?php if ($notificationCount > 0) { ?>
+                <sup style="top: -10px; right:12px; background-color: red; color: white; border-radius: 30%; padding: 2px 4px;"><?php echo $notificationCount; ?></sup>
+            <?php } ?>
+        </span>
+    </button>
+    <div class="dropdown-content">
+        <?php
+        // Query to get the notifications for the particular buyer
+        $notificationSql = "SELECT * FROM notification WHERE name = '$name'";
+        $notificationResult = mysqli_query($con, $notificationSql);
+
+        if ($notificationResult && mysqli_num_rows($notificationResult) > 0) {
+            while ($row = mysqli_fetch_assoc($notificationResult)) {
+              
+                $id = $row['exclusiveDeal_id'];
+                ?>
+                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo "View Deal" ?></a>
+                <?php
+            }
+        } else {
+            echo "<p>No blocked deals.</p>";
+        }
+        ?>
+    </div>
+</div> 
          &nbsp&nbsp Hi! <?php echo $_SESSION['buyer_name'];?>&nbsp&nbsp
               <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
+ 
 
-          </p></div>
-
+          </div>
+            
 </div><?php
 } ?>
 </section>
-
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 <div class="container-fluid">
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -405,7 +428,7 @@ if ($countResult) {
     <div class="col-sm-12 col-md-3 vl">
             
             <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: <?php echo $row['quantity']; ?><br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
                
 
 
@@ -470,7 +493,7 @@ if ($countResult) {
     <div class="col-sm-12 col-md-3 vl">
             
             <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: <?php echo $row['quantity']; ?><br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
                          
           
       </div>
@@ -528,7 +551,7 @@ if ($countResult) {
     <div class="col-sm-12 col-md-3 vl">
             
             <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+                  <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: <?php echo $row['quantity']; ?><br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
                          
           
       </div>
@@ -608,7 +631,7 @@ if ($countResult) {
 <div class="col-sm-12 col-md-3"><hr>
         <div class="">
         <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-              <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+              <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: <?php echo $row['quantity']; ?><br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
            
 
 
@@ -673,7 +696,7 @@ if ($countResult) {
 <div class="col-sm-12 col-md-3"><hr>
         <div class="">
         <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-              <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+              <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: <?php echo $row['quantity']; ?><br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
                      
       
   </div>
@@ -730,7 +753,7 @@ if ($countResult) {
 <div class="col-sm-12 col-md-3"><hr>
         <div class="">
         <center><button style="padding:5px ;border-color: #0c0c0c; border-radius: 20px; color: #333131; margin-top:20px;"><?php echo $daysToGo . ' ' . $daysText . $status;?></button>
-              <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: 45 kg<br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
+              <div class="" style="padding:12px ;border-color: #0c0c0c;  color: #333131;margin-top:20px; "><h4>Bid Before: <?php echo $row['dealDatetime']; ?> </h4><h3>Quantity: <?php echo $row['quantity']; ?><br>Approx. business: ₹<?php echo $row['dealValue']; ?></h3></div></center>
                      
       
   </div>

@@ -22,6 +22,7 @@ include "connect.php";
 <link rel="stylesheet" href="css/buttons.scss">
 <link rel="stylesheet" href="css/auction.css">
 <link rel="stylesheet" href="css/reboot.scss">
+<link rel="stylesheet" href="dropdown.css">
 <!-- <link rel="stylesheet" href="css/buttons.scss"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -162,7 +163,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="me-5">
       <img src="image/rawmetlogo.jpeg" width="80px" height="auto" style="border-radius: 5px; margin-left: 40px;">
   
-    </div>&nbsp   <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
+    </div>&nbsp <p style=" position:absolute; margin-left:130px; margin-top: 25px;" class="tft desktop-view">RAWMET24</p>
     <?php 
        
        if(!isset($_SESSION['buyer_name'])){
@@ -181,9 +182,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
              <i class="fa-solid fa-user-plus"></i>SignUp
            </a>
          </form>
+       </div>
        
-       
-         <?php }else{
+       <?php }else{
 
 // Retrieve the buyer's name
 $name = $_SESSION['buyer_name'];
@@ -201,19 +202,42 @@ if ($countResult) {
 
 ?>
 
-          
-          <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;"> 
-          <span style="position: relative;">
-    <i class="fa-solid fa-bell" style="color:black;"></i>
-    <?php if ($notificationCount > 0) { ?>
-        <sup style="top: -10px; background-color: red; color: white; border-radius: 30%; padding: 2px 4px;"><?php echo $notificationCount; ?></sup>
-    <?php } ?>
-</span>
-          
+<div class="user" style="padding-top:25px;padding-right:30px">    
+<div class="dropdown">
+    <button class="dropbtn">
+        <span style="position: relative;">
+        <i class="fa-solid fa-bell"></i>
+            <?php if ($notificationCount > 0) { ?>
+                <sup style="top: -10px; right:12px; background-color: red; color: white; border-radius: 30%; padding: 2px 4px;"><?php echo $notificationCount; ?></sup>
+            <?php } ?>
+        </span>
+    </button>
+    <div class="dropdown-content">
+        <?php
+        // Query to get the notifications for the particular buyer
+        $notificationSql = "SELECT * FROM notification WHERE name = '$name'";
+        $notificationResult = mysqli_query($con, $notificationSql);
+
+        if ($notificationResult && mysqli_num_rows($notificationResult) > 0) {
+            while ($row = mysqli_fetch_assoc($notificationResult)) {
+              
+                $id = $row['exclusiveDeal_id'];
+                ?>
+                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo "View Deal" ?></a>
+                <?php
+            }
+        } else {
+            echo "<p>No blocked deals.</p>";
+        }
+        ?>
+    </div>
+</div> 
          &nbsp&nbsp Hi! <?php echo $_SESSION['buyer_name'];?>&nbsp&nbsp
               <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
+ 
 
-
+          </div>
+            
 </div><?php
 } ?>
 </section>
@@ -386,7 +410,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="excluedeal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
 
                 
                </div>
@@ -434,7 +458,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="excluedeal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
 
                 
                </div>
@@ -481,7 +505,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="excluedeal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
 
                 
                </div>
@@ -549,7 +573,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="excluedeal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
 
                 <hr>
                </div>
@@ -597,7 +621,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="excluedeal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
 
                 <hr>
                </div>
@@ -643,7 +667,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="excluedeal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
 
                 <hr>
                </div>
@@ -747,8 +771,12 @@ if ($countResult) {
           <!-- Links -->
           <h6 class="text-uppercase fw-bold" style="color: #fff;">Contact</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #3b8beb; height: 2px" />
-          <p><i class="fa fa-envelope" aria-hidden="true"></i> shopemet@gmail.com</p>
-          <p><a href="tel:8123010365" style="color: #ffffff"><i class="fa-solid fa-phone"></i> Contact us- 8123010365</a></p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i> info@Rawmet24.com
+          </p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i>support@Rawmet24.com
+          </p>
+         
+  <p><a href="tel:8123010365" style="color: #ffffff"><i class="fa-solid fa-phone"></i> Contact us- 8123010365</a></p>
   <p><a href="https://wa.me/9945454505" style="color: #ffffff"><i class=" fa-solid fa-brands fa-whatsapp"></i>  9945454505</a></p>
         </div>
         <!-- Grid column -->
