@@ -22,6 +22,7 @@ include "connect.php";
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/_buttons.scss">
   <link rel="stylesheet" href="css/buttons.scss">
+  <link rel="stylesheet" href="dropdown.css">
   <!-- <link rel="stylesheet" href="css/buttons.scss"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -163,9 +164,12 @@ if ($countResult) {
         if ($notificationResult && mysqli_num_rows($notificationResult) > 0) {
             while ($row = mysqli_fetch_assoc($notificationResult)) {
               
-                $id = $row['exclusiveDeal_id'];
-                ?>
-                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo "View Deal" ?></a>
+              $id = $row['exclusiveDeal_id'];
+              $sql = "select * from exclusive_deals where id=$id";
+              $result = mysqli_query($con, $sql);
+              $r= mysqli_fetch_assoc($result);
+              ?>
+              <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']; ?></a>
                 <?php
             }
         } else {

@@ -327,16 +327,45 @@ if ($countResult) {
 ?>
 
           
-          <div class="user" style="padding-top:25px;padding-right:30px"> <p style="color:#3b8beb;"> 
-          <span style="position: relative;">
-    <i class="fa-solid fa-bell" style="color:black;"></i>
-    <?php if ($notificationCount > 0) { ?>
-        <sup style="top: -10px; background-color: red; color: white; border-radius: 30%; padding: 2px 4px;"><?php echo $notificationCount; ?></sup>
-    <?php } ?>
-</span>
-          
+<div class="user" style="padding-top:25px;padding-right:30px">    
+<div class="dropdown">
+    <button class="dropbtn">
+        <span style="position: relative;">
+        <i class="fa-solid fa-bell"></i>
+            <?php if ($notificationCount > 0) { ?>
+                <sup style="top: -10px; right:12px; background-color: red; color: white; border-radius: 30%; padding: 2px 4px;"><?php echo $notificationCount; ?></sup>
+            <?php } ?>
+        </span>
+    </button>
+    <div class="dropdown-content">
+        <?php
+        // Query to get the notifications for the particular buyer
+        $notificationSql = "SELECT * FROM notification WHERE name = '$name'";
+        $notificationResult = mysqli_query($con, $notificationSql);
+
+        if ($notificationResult && mysqli_num_rows($notificationResult) > 0) {
+            while ($row = mysqli_fetch_assoc($notificationResult)) {
+              
+              $id = $row['exclusiveDeal_id'];
+              $sql = "select * from exclusive_deals where id=$id";
+              $result = mysqli_query($con, $sql);
+              $r= mysqli_fetch_assoc($result);
+              ?>
+              <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']; ?></a>
+                <?php
+            }
+        } else {
+            echo "<p>No blocked deals.</p>";
+        }
+        ?>
+    </div>
+</div> 
          &nbsp&nbsp Hi! <?php echo $_SESSION['buyer_name'];?>&nbsp&nbsp
               <button class="btn btn-primary" ><a href="signout.php" style="color:white;"> Signout </a></button>
+ 
+
+          </div>
+ 
 
 
 </div><?php

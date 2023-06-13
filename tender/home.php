@@ -289,8 +289,11 @@ if ($countResult) {
             while ($row = mysqli_fetch_assoc($notificationResult)) {
               
                 $id = $row['exclusiveDeal_id'];
+                $sql = "select * from exclusive_deals where id=$id";
+                $result = mysqli_query($con, $sql);
+                $r= mysqli_fetch_assoc($result);
                 ?>
-                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo "View Deal" ?></a>
+                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']; ?></a>
                 <?php
             }
         } else {
