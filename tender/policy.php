@@ -52,7 +52,9 @@ include "connect.php";
   </style>
 
   <div class="strip">
-    <a href="#"><i class="fa-solid fa-phone"></i>&nbsp Helpline No: 08042332722</a>
+  <a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <a href="tel:9606800462">9606800462</a> 
+  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
     <div class="container-fluid px-md-5">
       <div id="typedtext" class="ml-5">
       </div>
@@ -74,6 +76,10 @@ include "connect.php";
     color: white;
     text-decoration: none;
     font-size: 15px;
+}
+
+.strip a:hover{
+  color: #000000;
 }
 
     h4,
@@ -310,7 +316,8 @@ policy to support@Rawmet24.com</p>
           </p>
           <p><i class="fa fa-envelope" aria-hidden="true"></i>support@Rawmet24.com
           </p>
-          <p><i class="fa fa-phone" aria-hidden="true"></i>08042332722</p>
+          <p><a href="tel:8123010365" style="color: #ffffff"><i class="fa-solid fa-phone"></i> Contact us- 8123010365</a></p>
+  <p><a href="https://wa.me/9945454505" style="color: #ffffff"><i class=" fa-solid fa-brands fa-whatsapp"></i>  9945454505</a></p>
         </div>
         <!-- Grid column -->
       </div>
