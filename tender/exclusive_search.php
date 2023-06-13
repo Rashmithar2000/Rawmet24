@@ -408,7 +408,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="excluedeal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
 
                 
                </div>
@@ -456,7 +456,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="excluedeal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
 
                 
                </div>
@@ -503,7 +503,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="excluedeal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
 
                 
                </div>
@@ -571,7 +571,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="excluedeal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
 
                 <hr>
                </div>
@@ -619,7 +619,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="excluedeal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
 
                 <hr>
                </div>
@@ -665,7 +665,7 @@ if ($countResult) {
                 <h5>Category: Ferrous </h5> 
 
                 <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
-                <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
+                <center><a href="excluedeal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
 
                 <hr>
                </div>
