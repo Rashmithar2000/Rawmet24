@@ -23,6 +23,8 @@ include "connect.php";
 <link rel="stylesheet" href="css/auction.css">
 <link rel="stylesheet" href="css/reboot.scss">
 <link rel="stylesheet" href="dropdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 <!-- <link rel="stylesheet" href="css/buttons.scss"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -281,7 +283,11 @@ if ($countResult) {
                1px -1px 0 #004085,
               -1px -1px 0 #004085;
   }
- 
+  .dropdown-item:hover{
+  background-color:#3b8beb;
+  color:#fff;
+
+}
   </style>
   <section class="ftco-section" style="padding-top: 5px;">
 
@@ -310,8 +316,8 @@ if ($countResult) {
 </section>
 
 
-<section class="home"> <br>
-<div class="container " style="margin-top:40px;">
+<section class="home"> 
+    <div class="container" style="margin-top:40px;">
     <div class="dropdown desktop-view" style=" margin-left:40px;">
   <button style="padding:10px;" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Top Categories
@@ -359,7 +365,7 @@ if ($countResult) {
             
         </div>
       </div>
-    </div>
+    </div></div></div>
     
 
 
@@ -701,7 +707,10 @@ if ($countResult) {
   </div>
   <!-- Copyright -->
 </footer>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
 <script src="js/toggle.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
