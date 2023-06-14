@@ -246,7 +246,7 @@ if ($countResult) {
               $result = mysqli_query($con, $sql);
               $r= mysqli_fetch_assoc($result);
               ?>
-              <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']; ?></a>
+                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']."-".$r['infoId']; ?></a>
                 <?php
             }
         } else {
