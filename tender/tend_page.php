@@ -387,7 +387,7 @@ if ($countResult) {
               $result = mysqli_query($con, $sql);
               $r= mysqli_fetch_assoc($result);
               ?>
-              <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']; ?></a>
+                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']."-".$r['infoId']; ?></a>
                 <?php
             }
         } else {
@@ -831,7 +831,7 @@ if ($countResult) {
 
 
   <div class="container desktop-view">
-    <div class="card" style="margin-top:-160px;" >
+    <div class="card" style="margin-top:-220px;" >
       <div class="card-body">
         <h3>Images</h3><hr>
         <div class="row"style="margin-left:-550px;">    
@@ -912,7 +912,7 @@ if ($countResult) {
           </div>
 <br><br>
           <?php  $ctshalom++; } }?>
-
+          
         </div>
         <a href="price.html"> <h4>Access all Images ></h4></a>
       </div>
@@ -1005,7 +1005,7 @@ if ($countResult) {
                 src="https://www.pcworld.com/wp-content/uploads/2022/08/pdf-icon.jpg?quality=50&strip=all" alt="Card image" style="width:100px">
             <p><?php echo $sindu?></p>
             </div>
-           
+           <br>
   
             <?php  $ctsindu++; } } ?>
           </div>

@@ -332,7 +332,7 @@ if ($countResult) {
                 $result = mysqli_query($con, $sql);
                 $r= mysqli_fetch_assoc($result);
                 ?>
-                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']; ?></a>
+                <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']."-".$r['infoId']; ?></a>
                 <?php
             }
         } else {
@@ -863,7 +863,7 @@ if ($countResult) {
         <tbody>
           <tr>
             <th scope="row"><?php echo $radNumber++; ?></th>
-            <td><?php echo $row['location']; ?></td>
+            <td><?php echo $row['aucLocation']; ?></td>
             <td><?php echo $row['material']; ?></td>
             <td><?php echo $row['quantity']; ?></td>
             <td><?php echo date('Y-m-d', strtotime($row['endDatetime'])); ?></td>
@@ -994,7 +994,7 @@ if ($countResult) {
 <tbody>
 <tr >
 <th scope="row"><?php echo $radNumber++; ?></th>
-<td><?php echo $row['location']; ?></td>
+<td><?php echo $row['tenderLocation']; ?></td>
 <td><?php echo $row['material']; ?></td>
 <td><?php echo $row['quantity']; ?></td>
 <td><?php echo date('Y-m-d', strtotime($row['endDatetime'])); ?></td>

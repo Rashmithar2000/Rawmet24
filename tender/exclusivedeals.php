@@ -248,7 +248,7 @@ if ($countResult) {
               $result = mysqli_query($con, $sql);
               $r= mysqli_fetch_assoc($result);
               ?>
-              <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']; ?></a>
+              <a href="excluedeal_page.php?g=<?php echo $id; ?>"><?php echo $r['material']."-".$r['infoId']; ?></a>
                 <?php
             }
         } else {
@@ -456,7 +456,7 @@ if ($countResult) {
                 <center><a href="deal_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Exclusive Deal</button></h6></a></center>
 
                 
-               </div>
+               </div> 
      <div class="col-sm-12 col-md-4">
                <h5 style="margin-top:20px;">Material : <?php echo $row['material']; ?> </h5> 
                <p style="color:#444f68;"><h6>Description:</h6> <?php echo $row['specification']; ?></p>
