@@ -77,7 +77,7 @@ include "connect.php";
       float: right;
       margin-right: 15px;
       padding-left: 10px;
-     
+      color: #fff;
       text-decoration: none;
       font-size: 15px;
     }
@@ -224,6 +224,7 @@ include "connect.php";
     display: inline-block;
     white-space: normal;
     scroll-snap-align: start;
+    
   }
 }
 .user{
@@ -234,24 +235,28 @@ th{
   font-size:17px;
 }
   </style>
-  <div class="strip">
   <div class="strip desktop-view">
-    <a style="color:#fff; margin-right"  href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
-  <a style="color:#fff;" href="tel:9606800462" style="margin-right:5px">9606800462</a> 
-  <a style="color:#fff;" href="tel:8123010365" ><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
-    
-   
+<a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <a href="tel:9606800462">9606800462</a> 
+  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
+  <div class="container-fluid px-md-5">
+  <div id="typedtext" class="ml-5"  style="color: white;">
+</div>
+</div>
      </div>
   
 
 <!-- ============================================mobile-view===============================================-->
 <div class="containerr strip mobile-view">
   <marquee direction="left" height="5%" style="white-space: nowrap;">
-    <a style="color:#fff;" href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i> Helpline Number: 8123010365, </a> 
-    <a style="color:#fff;" href="tel:9606800462">9606800462</a> 
-    <a style="color:#fff;" href="https://wa.me/9945454505" ><i class="fa-solid fa-brands fa-whatsapp"></i>Whatsapp Number: 9945454505</a>
-  </marquee>
-</div></div></div>
+  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
+  <a href="tel:9606800462">9606800462</a> 
+  <a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <div class="container-fluid px-md-5">
+  <div id="typedtext" class="ml-5"  style="color: white;">
+</div>
+</div></marquee>
+</div>
 
 
 

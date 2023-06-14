@@ -56,19 +56,9 @@ include "connect.php";
     display: none;
   }
 } 
+
     
-    </style>
-  
-<div class="strip">
-<a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
-  <a href="tel:9606800462">9606800462</a> 
-  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
-  <div class="container-fluid px-md-5">
-  <div id="typedtext" class="ml-5"  style="color: white;">
-</div>
-</div>
-</div>
-<style>
+   
 body {font-family: Arial, Helvetica, sans-serif;}
 
 .strip {
@@ -144,8 +134,46 @@ body {font-family: Arial, Helvetica, sans-serif;}
                1px -1px 0 #004085,
               -1px -1px 0 #004085;
   }
- 
+  @media (max-width: 480px) {
+.containerr {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+  }
+
+  .containerr a {
+    display: inline-block;
+    white-space: normal;
+    scroll-snap-align: start;
+  }
+}
 </style>
+<div class="strip desktop-view">
+<a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <a href="tel:9606800462">9606800462</a> 
+  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
+  <div class="container-fluid px-md-5">
+  <div id="typedtext" class="ml-5"  style="color: white;">
+</div>
+</div>
+     </div>
+  
+
+<!-- ============================================mobile-view===============================================-->
+<div class="containerr strip mobile-view">
+  <marquee direction="left" height="5%" style="white-space: nowrap;">
+  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
+  <a href="tel:9606800462">9606800462</a> 
+  <a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <div class="container-fluid px-md-5">
+  <div id="typedtext" class="ml-5"  style="color: white;">
+</div>
+</div></marquee>
+</div>
+
 <section class="ftco-section" style="padding-top: 5px;">
   
 <section
@@ -260,6 +288,7 @@ if ($countResult) {
 
 
 <section class="home">
+
 <br><br>
 <div class="container">
 

@@ -12,7 +12,7 @@ include "connect.php";
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <title>Home Page</title>
+  <title>Metal Pricing</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -56,18 +56,7 @@ include "connect.php";
     .scroller section {
       scroll-snap-align: start !important;
     }
-  </style>
-
-  <div class="strip">
-  <a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
-  <a href="tel:9606800462">9606800462</a> 
-  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
-    <div class="container-fluid px-md-5">
-      <div id="typedtext" class="ml-5" style="color: white;">
-      </div>
-    </div>
-  </div>
-  <style>
+ 
     body {
       font-family: Arial, Helvetica, sans-serif;
     }
@@ -109,7 +98,45 @@ include "connect.php";
     display: none;
   }
 }
-  </style>
+@media (max-width: 480px) {
+.containerr {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+  }
+
+  .containerr a {
+    display: inline-block;
+    white-space: normal;
+    scroll-snap-align: start;
+  }
+}
+</style>
+<div class="strip desktop-view">
+<a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <a href="tel:9606800462">9606800462</a> 
+  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
+  <div class="container-fluid px-md-5">
+  <div id="typedtext" class="ml-5"  style="color: white;">
+</div>
+</div>
+     </div>
+  
+
+<!-- ============================================mobile-view===============================================-->
+<div class="containerr strip mobile-view">
+  <marquee direction="left" height="5%" style="white-space: nowrap;">
+  <a href="tel:8123010365" style="margin-right:-5px"><i class="fa-solid fa-phone"></i>&nbsp Helpline Number: 8123010365,</a>
+  <a href="tel:9606800462">9606800462</a> 
+  <a href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
+  <div class="container-fluid px-md-5">
+  <div id="typedtext" class="ml-5"  style="color: white;">
+</div>
+</div></marquee>
+</div>
   <section class="ftco-section" style="padding-top: 5px;">
 
   <section
