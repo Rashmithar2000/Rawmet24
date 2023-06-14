@@ -863,7 +863,7 @@ if ($countResult) {
         <tbody>
           <tr>
             <th scope="row"><?php echo $radNumber++; ?></th>
-            <td><?php echo $row['location']; ?></td>
+            <td><?php echo $row['aucLocation']; ?></td>
             <td><?php echo $row['material']; ?></td>
             <td><?php echo $row['quantity']; ?></td>
             <td><?php echo date('Y-m-d', strtotime($row['endDatetime'])); ?></td>
@@ -994,7 +994,7 @@ if ($countResult) {
 <tbody>
 <tr >
 <th scope="row"><?php echo $radNumber++; ?></th>
-<td><?php echo $row['location']; ?></td>
+<td><?php echo $row['tenderLocation']; ?></td>
 <td><?php echo $row['material']; ?></td>
 <td><?php echo $row['quantity']; ?></td>
 <td><?php echo date('Y-m-d', strtotime($row['endDatetime'])); ?></td>
