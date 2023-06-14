@@ -576,7 +576,7 @@ if ($countResult) {
   
               <h6 style="margin-top:20px;">RTD: 182004</h6>
               <hr>
-              <h5>Category: Ferrous </h5> 
+              <h5>Category: <?php echo $row['category']; ?></h5> 
 
               <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
               <center><a href="tend_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Tender</button></h6></a></center>
@@ -635,7 +635,7 @@ if ($countResult) {
   
               <h6 style="margin-top:20px;">RTD: 182004</h6>
               <hr>
-              <h5>Category: Ferrous </h5> 
+              <h5>Category: <?php echo $row['category']; ?></h5> 
 
               <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
               <center><a href="tend_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Tender</button></h6></a></center>
@@ -715,7 +715,8 @@ if ($countResult) {
 
             <h6 style="margin-top:20px;">RTD: 182004</h6>
             <hr>
-            <h5>Category: Ferrous </h5> 
+            <h5>Category: <?php echo $row['category']; ?></h5> 
+
 
             <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
             <center><a href="tend_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Tender</button></h6></a></center>
@@ -778,7 +779,8 @@ if ($countResult) {
 
           <h6 style="margin-top:20px;">RTD: 182004</h6>
           <hr>
-          <h5>Category: Ferrous </h5> 
+          <h5>Category: <?php echo $row['category']; ?></h5> 
+
 
           <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
           <center><a href="tend_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Tender</button></h6></a></center>
@@ -838,7 +840,7 @@ if ($countResult) {
 
           <h6 style="margin-top:20px;">RTD: 182004</h6>
           <hr>
-          <h5>Category: Ferrous </h5> 
+          <h5>Category: <?php echo $row['category']; ?></h5> 
 
           <h5 style="color:#3b8beb; "><i class='bx bxs-map'></i><?php echo $row['location']; ?></h5>
           <center><a href="tend_page.php?g=<?php echo $row['id']; ?>"><button  style="padding:5px; border-radius: 6px;font-size: 100%; margin-top:20px;" class="btn btn-primary" type="submit">View Tender</button></h6></a></center>
