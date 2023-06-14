@@ -58,7 +58,7 @@ include "connect.php";
       scroll-snap-align: start !important;
     }
   </style>
-  <div class="strip">
+  
 
  
     
@@ -226,9 +226,15 @@ include "connect.php";
     scroll-snap-align: start;
   }
 }
-
+.user{
+  margin-top: 25px;
+  margin-right: 30px;
+}
+th{
+  font-size:17px;
+}
   </style>
-
+  <div class="strip">
   <div class="strip desktop-view">
     <a style="color:#fff; margin-right"  href="https://wa.me/9945454505"><i class=" fa-solid fa-brands fa-whatsapp"></i> Whatsapp Number: 9945454505</a>  
   <a style="color:#fff;" href="tel:9606800462" style="margin-right:5px">9606800462</a> 
@@ -245,7 +251,8 @@ include "connect.php";
     <a style="color:#fff;" href="tel:9606800462">9606800462</a> 
     <a style="color:#fff;" href="https://wa.me/9945454505" ><i class="fa-solid fa-brands fa-whatsapp"></i>Whatsapp Number: 9945454505</a>
   </marquee>
-</div>
+</div></div></div>
+
 
 
 <section class="ftco-section" style="padding-top: 5px;">
@@ -296,7 +303,7 @@ if ($countResult) {
 
 ?>
 
-<div class="user" style="padding-top:25px;padding-right:30px">    
+<div class="user" >    
 <div class="dropdown">
     <button class="dropbtn">
         <span style="position: relative;">
@@ -500,7 +507,7 @@ if ($countResult) {
       <div class="container">
         <div class="row">
         <div class="col-md-4">
-          <div class="card">
+          <div class="card"><a href="tender.php">
           <div class="card-body">
           
             <h1><span class="counter">
@@ -511,14 +518,14 @@ if ($countResult) {
                 //echo "+";
                 //die;
             ?>
-            
-            
             </span></h1>
             <h5>Tenders</h5>
             <i class="fa fa-users "></i>
-          </div></div></div>
+          </div></div></a></div>
+
+
           <div class="col-md-4">
-          <div class="card">
+          <div class="card"><a href="auction.php">
           <div class="card-body">
           
             <h1><span class="counter"><?php 
@@ -530,9 +537,11 @@ if ($countResult) {
             ?></span></h1>
             <h5>Auctions</h5>
             <i class="fa fa-desktop"></i>
-          </div></div></div>
+          </div></div></a></div>
+
+
           <div class="col-md-4">
-          <div class="card">
+          <div class="card"><a href="deals.php">
           <div class="card-body">
             <h1><span class="counter"><?php 
                 $sql = "select * from deals";
@@ -541,12 +550,11 @@ if ($countResult) {
                 //echo "+";
                 //die;
             ?></span></h1>
-            
             <h5>Deals</h5>
             <i class="fa fa-user"></i>
           </div>
         </div>
-      </div></div></div>
+      </div></div></a></div>
     </center>
 
 
@@ -755,8 +763,8 @@ if ($countResult) {
       <th scope="col">Location</th>
       <th scope="col">Material</th>
       <th scope="col">Quantity</th>
-      <th scope="col">Bid Before</th>
-      <th scope="col">Deal Value</th>
+      <th class="w-25">Bid Before</th>
+      <th class="w-25"> Value</th>
       <th scope="col">Action</th>
       
 
@@ -767,7 +775,7 @@ if ($countResult) {
       $sql = "SELECT * FROM deals";
                             $result = mysqli_query($con, $sql);
                             if (mysqli_num_rows($result) > 0) {
-                              $radNumber = 181204; 
+                              $radNumber = 1812041; 
                                 foreach ($result as $row):
                                   $endDatetime = new DateTime($row['dealDatetime']);
                                   $currentDate = new DateTime();
@@ -821,8 +829,8 @@ if ($countResult) {
             <th scope="col">Location</th>
             <th scope="col">Material</th>
             <th scope="col">Quantity</th>
-            <th class="w-25">Bid Before</th>
-            <th class="w-25">Auction Value</th>
+            <th scope="col">Bid Before</th>
+            <th scope="col">Value</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -830,7 +838,7 @@ if ($countResult) {
           $sql = "SELECT * FROM auction";
           $result = mysqli_query($con, $sql);
           if ($result) {
-            $radNumber = 180104; // Starting RAD number
+            $radNumber = 1801041; // Starting RAD number
             while ($row = mysqli_fetch_assoc($result)) {
               $endDatetime = new DateTime($row['endDatetime']);
               $currentDate = new DateTime();
@@ -948,7 +956,7 @@ if ($countResult) {
             <th scope="col">Material</th>
             <th scope="col">Quantity</th>
             <th class="w-25">Bid Before</th>
-            <th class="w-25">Tender Value</th>
+            <th scope="col">Value</th>
             <th scope="col">Action</th>
 
 
@@ -959,7 +967,7 @@ if ($countResult) {
       $result = mysqli_query($con, $sql);
 
       if ($result) {
-        $radNumber = 182004;
+        $radNumber = 1820041;
         while ($row = mysqli_fetch_assoc($result)) {
             $endDatetime = new DateTime($row['endDatetime']);
             $currentDate = new DateTime();
