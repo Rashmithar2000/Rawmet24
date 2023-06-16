@@ -61,7 +61,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
        // Allow only certain file formats
        if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif") {
-           echo "Error: Only JPG, JPEG, PNG, and GIF files are allowed.";
+           ?>
+           <script>
+               alert("Image Upload Error: Only JPG, JPEG, PNG, and GIF files are supported.");
+               window.location.replace("./fetchTend.php?id=<?php echo $id; ?>");
+           </script>
+           <?php
+           
+           
            $uploadOk = 0;
        }
        if ($uploadOk == 1) {
@@ -91,7 +98,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       
 
        if ($imageFileType != "pdf" ) {
-           echo "Error: Only pdf files are allowed.";
+           ?>
+           <script>
+               alert("File Upload Error: Only pdf files are supported.");
+               window.location.replace("./fetchTend.php?id=<?php echo $id; ?>");
+           </script>
+           <?php
            $uploadOk = 0;
        }
        if ($uploadOk == 1) {
@@ -106,14 +118,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
    $value = $quantity . ' ' . $unit;
    if (!empty($fname2) || !empty($image)) {
-    $newfname2 = array_merge((array)$fname2, (array)$image);
-}
-if (!empty($dname2) || !empty($existingfile)) {
-    $newdname2 = array_merge((array)$dname2, (array)$existingfile);
-}
-   $fname2= serialize($newfname2);
-   $dname2= serialize($newdname2);
+    $newfname2 = (array)$fname2; // Convert $fname2 to an array
 
+    if (!empty($image)) {
+        $newfname2 = array_merge($newfname2, (array)$image); // Merge $image with $newfname2
+    }
+} else {
+    $newfname2 = [];
+}
+
+if (!empty($dname2) || !empty($existingfile)) {
+    $newdname2 = (array)$dname2; // Convert $dname2 to an array
+
+    if (!empty($existingfile)) {
+        $newdname2 = array_merge($newdname2, (array)$existingfile); // Merge $existingfile with $newdname2
+    }
+} else {
+    $newdname2 = [];
+}
+
+$fname2 = serialize($newfname2);
+$dname2 = serialize($newdname2);
 
     $sql = "UPDATE tenders SET 
         category = '$category',

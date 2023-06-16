@@ -1,41 +1,41 @@
 <?php
-
 session_start();
 include "connect.php";
+
 $email = isset($_POST['email']) ? $_POST['email'] : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
-
-
 
 if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
 
-$epassword=base64_encode($password);
+$epassword = base64_encode($password);
 
-$sql = "SELECT * FROM buyer_dashboard WHERE email = '$email' and password='$epassword'";
+$sql = "SELECT * FROM buyer_dashboard WHERE email = '$email' AND password = '$epassword'";
 $result = $con->query($sql);
-$row = $result->fetch_assoc();
-$subscription=$row['subscription'];
-$name=$row['name'];
-// print_r($row);
-// die;
 
 if ($result->num_rows == 1) {
-
     $row = $result->fetch_assoc();
-    //$storedHashedPassword = $row['password'];
-    // $decode=base64_decode($storedHashedPassword);
+    $subscription = $row['subscription'];
+    $name = $row['name'];
+
     $_SESSION['sub'] = $subscription;   
     $_SESSION['buyer_name'] = $name;
-    header("Location: home.php"); //Redirect user to home page
-    // header("Location: ".$_SERVER['PHP_SELF']);  
-    }else {
+    ?>
+    <script>
+    alert("Login Successfull!");
+    window.location.replace("home.php");
+    </script>
+    <?php
+ 
+} else {
+    ?>
+    <script>
+    alert("E-mail and Password do not match!");
+    window.location.replace("./signin.html");
+    </script>
+    <?php
+}
 
-        //    alert("Invalid Password");
-        header("Location:signin.html");
-        
-        }
-    session_close();
 $con->close();
 ?>

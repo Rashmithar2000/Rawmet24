@@ -9,7 +9,14 @@ $password = isset($_POST['password']) ? $_POST['password'] : '';
 $conPassword = isset($_POST['conPassword']) ? $_POST['conPassword'] : '';
 
 if ($password !== $conPassword) {
-    echo "Password and Confirm Password do not match";
+    ?>
+    <script>
+    alert("Password and Confirm Password do not match!");
+    window.location.replace("./signup.html");
+</script>
+   
+     <?php
+   
     exit;
 }
 
