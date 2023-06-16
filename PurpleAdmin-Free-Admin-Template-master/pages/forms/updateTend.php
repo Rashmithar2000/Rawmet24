@@ -105,12 +105,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
    $value = $quantity . ' ' . $unit;
-   if(!empty($fname2) || !empty($image)){
-    $newfname2 = array_merge($fname2, $image);
-   }
-   if(!empty($dname2) || !empty($existingfile)){
-    $newdname2 = array_merge($dname2, $existingfile);
-   }
+   if (!empty($fname2) || !empty($image)) {
+    $newfname2 = array_merge((array)$fname2, (array)$image);
+}
+if (!empty($dname2) || !empty($existingfile)) {
+    $newdname2 = array_merge((array)$dname2, (array)$existingfile);
+}
    $fname2= serialize($newfname2);
    $dname2= serialize($newdname2);
 
