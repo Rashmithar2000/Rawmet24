@@ -369,6 +369,7 @@ include "connect.php";
                         <input type="number" id="quantity" name="quantity" required value="<?php echo  $quantity; ?>">&nbsp&nbsp&nbsp
                         <label for="unit">Unit:</label>
                         <select id="unit" name="unit" >
+                        <option value="<?php echo  $unit; ?>"><?php echo  $unit; ?></option>
                         <option value="">-- Select Unit --</option>
                           <option value="BAG">BAG-BAGS</option>
                           <option value="BKL">BKL-BUCKLES</option>

@@ -258,7 +258,7 @@ include "connect.php";
                         <label for="unit">Unit:</label>
                         <select id="unit" name="unit" >
                         <option value="<?php echo  $unit; ?>"><?php echo  $unit; ?></option>
-                        <option value="nos">BAG</option>
+                        
                         <option value="">-- Select Unit --</option>
                           <option value="BAG">BAG-BAGS</option>
                           <option value="BKL">BKL-BUCKLES</option>
